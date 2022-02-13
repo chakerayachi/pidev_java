@@ -9,95 +9,74 @@ import java.util.Date;
 
 /**
  *
- * @author chaker
+ * @author Firas CHKOUNDALI
  */
 public class Commentaire {
-    
-     private int id ;
-    private String contenu ;
-    private Date date ;
-    private  int etat ;
-    private int id_suijet;
+    private int idcom;
+    private String contenu;
+    private String date;
+    private int idsujet;
+    private int iduser;
 
-    // constructeur par default
-    public Commentaire (){}
+    public Commentaire() {
+    }
 
-    // constructeur parametere avec le champs id
-
-
-    public Commentaire(int id, String contenu, Date date, int etat, int id_suijet) {
-        this.id = id;
+    public Commentaire(String contenu, String date, int idsujet, int iduser) {
         this.contenu = contenu;
         this.date = date;
-        this.etat = etat;
-        this.id_suijet = id_suijet;
+        this.idsujet = idsujet;
+        this.iduser = iduser;
     }
 
-    // constructeur parametere sans le champs id
-
-
-    public Commentaire( String contenu, Date date, int etat, int id_suijet) {
-
+    public Commentaire(int idcom, String contenu, String date, int idsujet, int iduser) {
+        this.idcom = idcom;
         this.contenu = contenu;
         this.date = date;
-        this.etat = etat;
-        this.id_suijet = id_suijet;
+        this.idsujet = idsujet;
+        this.iduser = iduser;
     }
 
-    // getters and setters
-
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public int getIdcom() {
+        return idcom;
     }
 
     public String getContenu() {
         return contenu;
     }
 
+    public String getDate() {
+        return date;
+    }
+
+    public int getIdsujet() {
+        return idsujet;
+    }
+
+    public int getIduser() {
+        return iduser;
+    }
+
     public void setContenu(String contenu) {
         this.contenu = contenu;
     }
 
-    public Date getDate() {
-        return date;
-    }
-
-    public void setDate(Date date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
-    public int getEtat() {
-        return etat;
+    public void setIdsujet(int idsujet) {
+        this.idsujet = idsujet;
     }
 
-    public void setEtat(int etat) {
-        this.etat = etat;
+    public void setIduser(int iduser) {
+        this.iduser = iduser;
     }
-
-    public int getId_suijet() {
-        return id_suijet;
-    }
-
-    public void setId_suijet(int id_suijet) {
-        this.id_suijet = id_suijet;
-    }
-
-    // to String methode
 
     @Override
     public String toString() {
-        return "Commentaire{" +
-                "id=" + id +
-                ", contenu='" + contenu + '\'' +
-                ", date=" + date +
-                ", etat=" + etat +
-                ", id_suijet=" + id_suijet +
-                '}';
+        return "Commentaire{" + "idcom=" + idcom + ", contenu=" + contenu + ", date=" + date + ", idsujet=" + idsujet + ", iduser=" + iduser + '}';
     }
+    
+    
     
 }
