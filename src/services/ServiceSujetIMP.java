@@ -20,10 +20,10 @@ import java.util.logging.Logger;
  *
  * @author Firas CHKOUNDALI
  */
-public class ServiceSujet implements IService<Sujet>{
+public class ServiceSujetIMP implements IForum<Sujet>{
     Connection cnx;
 
-    public ServiceSujet() {
+    public ServiceSujetIMP() {
         cnx= MyDB.getInstance().getConnection();
     }
 
@@ -35,10 +35,10 @@ public class ServiceSujet implements IService<Sujet>{
             try {
                 st.executeUpdate(req);
             } catch (SQLException ex) {
-                Logger.getLogger(ServiceSujet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ServiceSujet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -53,7 +53,7 @@ public class ServiceSujet implements IService<Sujet>{
             ps.setInt(4, t.getIdsujet());
             ps.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ServiceSujet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -65,7 +65,7 @@ public class ServiceSujet implements IService<Sujet>{
             ps.setInt(1, id);
             ps.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ServiceSujet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -84,7 +84,7 @@ public class ServiceSujet implements IService<Sujet>{
                 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ServiceSujet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }

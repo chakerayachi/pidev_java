@@ -21,10 +21,10 @@ import java.util.logging.Logger;
  *
  * @author Firas CHKOUNDALI
  */
-public class ServiceCommentaire implements IService<Commentaire>{
+public class ServiceCommentaireIMP implements IForum<Commentaire>{
     Connection cnx;
 
-    public ServiceCommentaire() {
+    public ServiceCommentaireIMP() {
         cnx= MyDB.getInstance().getConnection();
 
     }
@@ -37,10 +37,10 @@ public class ServiceCommentaire implements IService<Commentaire>{
             try {
                 st.executeUpdate(req);
             } catch (SQLException ex) {
-                Logger.getLogger(ServiceSujet.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ServiceSujet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -54,7 +54,7 @@ public class ServiceCommentaire implements IService<Commentaire>{
             ps.setInt(3, t.getIdcom());
             ps.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ServiceSujet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -66,7 +66,7 @@ public class ServiceCommentaire implements IService<Commentaire>{
             ps.setInt(1, id);
             ps.executeUpdate();
         } catch (SQLException ex) {
-            Logger.getLogger(ServiceSujet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -84,7 +84,7 @@ public class ServiceCommentaire implements IService<Commentaire>{
                 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ServiceSujet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }
@@ -101,7 +101,7 @@ public class ServiceCommentaire implements IService<Commentaire>{
                 
             }
         } catch (SQLException ex) {
-            Logger.getLogger(ServiceSujet.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
     }

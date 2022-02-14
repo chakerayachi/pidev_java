@@ -13,9 +13,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import services.ServiceCommentaire;
+import services.ServiceCommentaireIMP;
 
-import services.ServiceSujet;
+import services.ServiceSujetIMP;
 import utils.MyDB;
 
 /**
@@ -31,7 +31,7 @@ public class Main {
         System.out.println("Today's date is: "+dateFormat.format(date));
         //DateTimeFormatter datePattern = DateTimeFormatter.ofPattern("yyyy/mm/dd");
         //System.out.println(dateTime.format(datePattern));
-//        ServiceSujet sp = new ServiceSujet();
+//        ServiceSujetIMP sp = new ServiceSujetIMP();
      Sujet sujet= new Sujet(4,"test","ce-ci est un udpate",dateFormat.format(date),0,0,1);
         //sp.ajout(new Sujet("test","ce-ci est un test",dateFormat.format(date),0,0,1));
         //sp.supprimer(1);
@@ -39,7 +39,7 @@ public class Main {
 //        sp.afficher().forEach(System.out::println);
 
 
-    ServiceCommentaire sc= new ServiceCommentaire();
+    ServiceCommentaireIMP sc= new ServiceCommentaireIMP();
   //  sc.ajout(new Commentaire("ceci est un commentaire de test",dateFormat.format(date),2,1));
 //    sc.supprimer(4);
 //    

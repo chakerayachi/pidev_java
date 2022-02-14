@@ -11,7 +11,7 @@ import java.util.List;
  *
  * @author Firas CHKOUNDALI
  */
-public interface IService <T>{
+public interface IForum <T>{
     public void ajout(T t);
     public void modifier(T t);
     public void supprimer(int id);
