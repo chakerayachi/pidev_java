@@ -52,7 +52,10 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur>{
                 ps.setString(11, t.getDescription());
                 ps.setString(12, t.getEtat());
                 
-                ps.executeUpdate();
+               int value = ps.executeUpdate();
+                if (value > 0) {
+                    System.out.println(" l insertion de l utilisateur :"+t.getNom()+" "+t.getPrenom()+" a ete effectuer avec sucess");
+                }
                 
                 
                 
@@ -83,12 +86,15 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur>{
                 ps.setString(10, t.getImage());
                 ps.setString(11, t.getDescription());
                 ps.setString(12, t.getEtat());
-               // ps.setInt(13, t.getId());
+                // ps.setInt(13, t.getId());
                 // pour la test on lui ajout manuellement
                  ps.setInt(13,5);
                 
                 
-                ps.executeUpdate();
+             int value_update =  ps.executeUpdate();
+                 if (value_update > 0) {
+                    System.out.println(" la modification de l utilisateur :"+t.getNom()+" "+t.getPrenom()+" a ete effectuer avec sucess");
+                }
                 
                 
                 
@@ -106,7 +112,11 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur>{
             String req = "delete from utilisateur where id = ?";
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setInt(1, id);
-            ps.executeUpdate();
+            int value_supp = ps.executeUpdate();
+             if (value_supp> 0) {
+                    System.out.println(" Suppression a ete effectuer avec sucess");
+                }
+            
             
         } catch (SQLException ex) {
             
@@ -138,6 +148,7 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur>{
                 user.setAdresse(rs.getString("adresse"));
                 user.setImage(rs.getString("image"));
                 user.setDescription(rs.getString("description"));
+                user.setRole(rs.getString("role"));
                 user.setEtat(rs.getString("etat"));
                 
                 list_Utilisateur.add(user);
@@ -152,15 +163,77 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur>{
 
     @Override
     public List<Utilisateur> afficherClientList() {
-            return null;
+         List<Utilisateur> list_Clients = new ArrayList<>();
+         try {
+            
+            String req ="select * from utilisateur where role = 'client'";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            
+            while(rs.next()){
+                
+                Utilisateur user = new Utilisateur();
+                user.setId(rs.getInt(1));
+                user.setNom(rs.getString("nom"));
+                user.setPrenom(rs.getString("prenom"));
+                user.setEmail(rs.getString("email"));
+                user.setNum_tel(rs.getInt("num_tel"));
+                user.setCin(rs.getInt("cin"));
+                user.setAdresse(rs.getString("adresse"));
+                user.setImage(rs.getString("image"));
+                user.setDescription(rs.getString("description"));
+                 user.setRole(rs.getString("role"));
+                user.setEtat(rs.getString("etat"));
+                
+                list_Clients.add(user);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
 
-
+            return list_Clients;
 
     }
 
     @Override
     public List<Utilisateur> afficherAgencierList() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+List<Utilisateur> list_agenciers = new ArrayList<>();
+         try {
+            
+            String req ="select * from utilisateur where role = 'agencier'";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            
+            while(rs.next()){
+                
+                Utilisateur user = new Utilisateur();
+                user.setId(rs.getInt(1));
+                user.setNom(rs.getString("nom"));
+                user.setPrenom(rs.getString("prenom"));
+                user.setEmail(rs.getString("email"));
+                user.setNum_tel(rs.getInt("num_tel"));
+                user.setCin(rs.getInt("cin"));
+                user.setAdresse(rs.getString("adresse"));
+                user.setImage(rs.getString("image"));
+                user.setDescription(rs.getString("description"));
+                user.setRole(rs.getString("role"));
+                user.setEtat(rs.getString("etat"));
+                
+                list_agenciers.add(user);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+
+            return list_agenciers;
+
     }
+    
+    
     
 }

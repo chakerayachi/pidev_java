@@ -47,9 +47,23 @@ public class Main {
         su.afficherUtilisateur().forEach(System.out::println);
         */
         
+        
+        
+        
+        
+                                            /*********************************************************************************/
+
+        // test d affichage pour les client 
+        //su.afficherClientList().forEach(System.out::println);
+        
+        
+                                            /*********************************************************************************/
 
         
-        
+
+         // test d affichage de tous les agencier
+         //su.afficherAgencierList().forEach(System.out::println);
+                                    
         
         
        
