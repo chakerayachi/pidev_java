@@ -23,6 +23,7 @@ public class Utilisateur {
     private String role ;
     private String image ;
     private String description ;
+    private String etat ;
 
     // constructeur par default
 
@@ -33,7 +34,7 @@ public class Utilisateur {
 
     // constructeur avec le champs id
 
-    public Utilisateur(int id, String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description) {
+    public Utilisateur(int id, String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description , String etat) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -46,13 +47,14 @@ public class Utilisateur {
         this.role = role;
         this.image = image;
         this.description = description;
+        this.etat= etat;
     }
 
 
 
     // constructeur sans le champs id
 
-    public Utilisateur( String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description) {
+    public Utilisateur( String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description , String etat) {
 
         this.login = login;
         this.password = password;
@@ -65,6 +67,7 @@ public class Utilisateur {
         this.role = role;
         this.image = image;
         this.description = description;
+        this.etat = etat;
     }
 
 
@@ -168,6 +171,16 @@ public class Utilisateur {
         this.description = description;
     }
 
+    public String getEtat() {
+        return etat;
+    }
+
+    public void setEtat(String etat) {
+        this.etat = etat;
+    }
+    
+    
+
 
     // methode to string
 
@@ -187,6 +200,7 @@ public class Utilisateur {
                 ", role='" + role + '\'' +
                 ", image='" + image + '\'' +
                 ", description='" + description + '\'' +
+                 ", etat='" + etat + '\'' +
                 '}';
     }
     

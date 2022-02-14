@@ -16,13 +16,13 @@ public class Agencier extends Utilisateur {
         this.id = id;
     }
 
-    public Agencier(int id, String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description, int id1) {
-        super(id, login, password, nom, prenom, email, num_tel, cin, adresse, role, image, description);
+    public Agencier(int id, String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description,String etat, int id1) {
+        super(id, login, password, nom, prenom, email, num_tel, cin, adresse, role, image, description,etat);
         this.id = id1;
     }
 
-    public Agencier(String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description, int id) {
-        super(login, password, nom, prenom, email, num_tel, cin, adresse, role, image, description);
+    public Agencier(String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description,String etat, int id) {
+        super(login, password, nom, prenom, email, num_tel, cin, adresse, role, image, description,etat);
         this.id = id;
     }
 

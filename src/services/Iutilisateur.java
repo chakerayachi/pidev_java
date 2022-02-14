@@ -17,6 +17,8 @@ public interface Iutilisateur<T> {
     public void modifierUtilisateur(T t);
     public void supprimerUtilisateur(int id);
     public List<T> afficherUtilisateur();
+    public List<T> afficherClientList();
+    public List<T> afficherAgencierList();
     
     
     

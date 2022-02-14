@@ -15,12 +15,12 @@ public class Admin extends Utilisateur{
     public Admin() {
     }
 
-    public Admin(int id, String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description) {
-        super(id, login, password, nom, prenom, email, num_tel, cin, adresse, role, image, description);
+    public Admin(int id, String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description, String etat) {
+        super(id, login, password, nom, prenom, email, num_tel, cin, adresse, role, image, description,etat);
     }
 
-    public Admin(String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description) {
-        super(login, password, nom, prenom, email, num_tel, cin, adresse, role, image, description);
+    public Admin(String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description,String etat) {
+        super(login, password, nom, prenom, email, num_tel, cin, adresse, role, image, description,etat);
     }
     
     @Override
