@@ -33,7 +33,7 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur>{
 
 
     @Override
-    public void ajout(Utilisateur t) {
+    public void ajoutUtilisateur(Utilisateur t) {
             try {
                 
                 
@@ -65,7 +65,7 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur>{
     }
 
     @Override
-    public void modifier(Utilisateur t) {
+    public void modifierUtilisateur(Utilisateur t) {
         try {
             
                 String req = "UPDATE utilisateur set login = ? , password = ? , nom = ? ,prenom = ?, email = ?, num_tel= ?, cin = ? , adresse = ? , role = ? , image = ? , description= ? WHERE id = ?";
@@ -83,7 +83,7 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur>{
                 ps.setString(11, t.getDescription());
                // ps.setInt(12, t.getId());
                 // pour la test on lui ajout manuellement
-                 ps.setInt(12,1);
+                 ps.setInt(12,2);
                 
                 
                 ps.executeUpdate();
@@ -98,7 +98,7 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur>{
     }
 
     @Override
-    public void supprimer(int id) {
+    public void supprimerUtilisateur(int id) {
           try {
               
             String req = "delete from utilisateur where id = ?";
@@ -115,7 +115,7 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur>{
     }
 
     @Override
-    public List<Utilisateur> afficher() {
+    public List<Utilisateur> afficherUtilisateur() {
 
          List<Utilisateur> list_Utilisateur = new ArrayList<>();
         try {

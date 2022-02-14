@@ -19,23 +19,24 @@ public class Main {
                 ServiceUtilisateurIMP su = new ServiceUtilisateurIMP();
 
         // test ajout utilisateur
-        /*
+       /*
         Utilisateur user = new Utilisateur("chaker", "chaker123", "chaker", "ayachi", "chaker.ayachi@esprit.tn", 58607447, 10017460, "tunis ", "admin", null, "ee");
-        su.ajout(user);
+        su.ajoutUtilisateur(user);
         */
+        
                                     /*********************************************************************************/
                              
                              
         // test de modification d un utilisateur 
         // voir ServiceUtilisateurIMP pour mettre l id 
-       // su.modifier(new Utilisateur("updated ", "updated", "updated", "updated", "updated", 0, 0, "updated", "updated", "updated", "updated"));
+       // su.modifierUtilisateur(new Utilisateur("updated ", "updated", "updated", "updated", "updated", 0, 0, "updated", "updated", "updated", "updated"));
        
        
        
                                     /*********************************************************************************/
 
         // test de suppression d un utilisateur
-        //su.supprimer(a remplacer avec un id );
+        //su.supprimerUtilisateur(a remplacer avec un id );
         
         
                                     /*********************************************************************************/
@@ -43,8 +44,12 @@ public class Main {
      
         // test d affichage de tous les utilisateurs 
         /*
-        su.afficher().forEach(System.out::println);
+        su.afficherUtilisateur().forEach(System.out::println);
         */
+
+        
+        
+        
         
        
         

@@ -13,10 +13,11 @@ import java.util.List;
  */
 public interface Iutilisateur<T> {
     
-    public void ajout(T t);
-    public void modifier(T t);
-    public void supprimer(int id);
-    public List<T> afficher();
+    public void ajoutUtilisateur(T t);
+    public void modifierUtilisateur(T t);
+    public void supprimerUtilisateur(int id);
+    public List<T> afficherUtilisateur();
+    
     
     
 }
