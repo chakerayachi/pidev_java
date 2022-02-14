@@ -29,7 +29,7 @@ public class Main {
                              
         // test de modification d un utilisateur 
         // voir ServiceUtilisateurIMP pour mettre l id 
-       // su.modifierUtilisateur(new Utilisateur("updated ", "updated", "updated", "updated", "updated", 0, 0, "updated", "updated", "updated", "updated","updated"));
+        su.modifierUtilisateur(new Utilisateur("updated ", "updated", "updated", "updated", "updated", 0, 0, "updated", "updated", "updated", "updated","updated"),6);
        
        
        
