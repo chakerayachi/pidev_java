@@ -48,6 +48,10 @@ public class Commentaire {
         return date;
     }
 
+    public void setIdcom(int idcom) {
+        this.idcom = idcom;
+    }
+
     public int getIdsujet() {
         return idsujet;
     }

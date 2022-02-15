@@ -28,7 +28,7 @@ public class ServiceSujetIMP implements IForum<Sujet>{
     }
 
     @Override
-    public void ajout(Sujet t) {
+    public boolean ajout(Sujet t) {
         try {
             String req="insert into sujet (titresujet,contenu,date,accepter,nbcom,iduser) values "+"('"+t.getTitresujet()+"','"+t.getContenu()+"','"+t.getDate()+"','"+t.isAccepter()+"','"+t.getNbcom()+"','"+t.getIduser()+"')";
             Statement st= cnx.createStatement();
@@ -40,10 +40,11 @@ public class ServiceSujetIMP implements IForum<Sujet>{
         } catch (SQLException ex) {
             Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return true;
     }
 
     @Override
-    public void modifier(Sujet t) {
+    public boolean modifier(Sujet t) {
         try {
             String req= "update sujet set titresujet = ? , contenu = ? , date = ?  where idsujet= ?";
             PreparedStatement ps=cnx.prepareStatement(req);
@@ -55,10 +56,11 @@ public class ServiceSujetIMP implements IForum<Sujet>{
         } catch (SQLException ex) {
             Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
+        return true;
     }
 
     @Override
-    public void supprimer(int id) {
+    public boolean supprimer(int id) {
         try {
             String req="delete from sujet where idsujet=?";
             PreparedStatement ps=cnx.prepareStatement(req);
@@ -67,7 +69,7 @@ public class ServiceSujetIMP implements IForum<Sujet>{
         } catch (SQLException ex) {
             Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
-
+        return true;
     }
 
     @Override
@@ -89,5 +91,60 @@ public class ServiceSujetIMP implements IForum<Sujet>{
         return list;
     }
     
-    
+    public boolean validersujet(int id_sujet) {
+        try {
+            String req= "update sujet set accepter=1  where idsujet= ?";
+            PreparedStatement ps=cnx.prepareStatement(req);
+            ps.setInt(1,id_sujet);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return true;
+    }
+    public List<Sujet> affichersujetvalide() {
+        List<Sujet> list = new ArrayList<Sujet>();   
+        try {
+            String req="select * from sujet where accepter=1";
+            Statement st=cnx.createStatement();
+            ResultSet rs= st.executeQuery(req);
+            while(rs.next())
+            {
+                Sujet s = new Sujet(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7));
+                list.add(s);
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
+    }
+    public int getnbcom(int id) {
+        int s=0;
+        try {  
+            
+            String req="select * from sujet where idsujet="+id;
+            Statement st=cnx.createStatement();
+            ResultSet rs= st.executeQuery(req);
+           while(rs.next())
+            {s = rs.getInt(6);}
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return s;
+    }
+    public void setnbcom(int id_sujet,int nb) {
+        try {
+            String req= "update sujet set nbcom=?  where idsujet= ?";
+            PreparedStatement ps=cnx.prepareStatement(req);
+            ps.setInt(1,nb);
+            ps.setInt(2,id_sujet);
+
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

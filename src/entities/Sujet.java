@@ -70,6 +70,10 @@ public class Sujet {
         return iduser;
     }
 
+    public void setIdsujet(int idsujet) {
+        this.idsujet = idsujet;
+    }
+
     public void setTitresujet(String titresujet) {
         this.titresujet = titresujet;
     }

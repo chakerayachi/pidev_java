@@ -30,7 +30,7 @@ public class ServiceCommentaireIMP implements IForum<Commentaire>{
     }
 
     @Override
-    public void ajout(Commentaire t) {
+    public boolean ajout(Commentaire t) {
         try {
             String req="insert into commentaire (contenu,date,idsujet,iduser) values "+"('"+t.getContenu()+"','"+t.getDate()+"','"+t.getIdsujet()+"','"+t.getIduser()+"')";
             Statement st= cnx.createStatement();
@@ -42,10 +42,12 @@ public class ServiceCommentaireIMP implements IForum<Commentaire>{
         } catch (SQLException ex) {
             Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
+                return true;
+
     }
 
     @Override
-    public void modifier(Commentaire t) {
+    public boolean modifier(Commentaire t) {
         try {
             String req= "update commentaire set contenu = ? , date = ?   where idcom= ?";
             PreparedStatement ps=cnx.prepareStatement(req);
@@ -56,10 +58,12 @@ public class ServiceCommentaireIMP implements IForum<Commentaire>{
         } catch (SQLException ex) {
             Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
+                return true;
+
     }
 
     @Override
-    public void supprimer(int id) {
+    public boolean supprimer(int id) {
          try {
             String req="delete from commentaire where idcom=?";
             PreparedStatement ps=cnx.prepareStatement(req);
@@ -68,6 +72,8 @@ public class ServiceCommentaireIMP implements IForum<Commentaire>{
         } catch (SQLException ex) {
             Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
+                 return true;
+
     }
 
     @Override
@@ -79,7 +85,7 @@ public class ServiceCommentaireIMP implements IForum<Commentaire>{
             ResultSet rs= st.executeQuery(req);
             while(rs.next())
             {
-                Commentaire c = new Commentaire(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getInt(5));
+                Commentaire c = new Commentaire(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(5),rs.getInt(4));
                 list.add(c);
                 
             }
@@ -88,15 +94,15 @@ public class ServiceCommentaireIMP implements IForum<Commentaire>{
         }
         return list;
     }
-    public List<Commentaire> affichercommentairebysujet(Sujet s) {
+    public List<Commentaire> affichercommentairebysujet(int id_sujet) {
         List<Commentaire> list = new ArrayList<Commentaire>();   
         try {
-            String req="select * from commentaire inner join sujet on commentaire.idsujet="+s.getIdsujet()+" and sujet.idsujet="+s.getIdsujet();
+            String req="select * from commentaire inner join sujet on commentaire.idsujet="+id_sujet+" and sujet.idsujet="+id_sujet;
             Statement st=cnx.createStatement();
             ResultSet rs= st.executeQuery(req);
             while(rs.next())
             {
-                Commentaire c = new Commentaire(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(4),rs.getInt(5));
+                Commentaire c = new Commentaire(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getInt(5),rs.getInt(4));
                 list.add(c);
                 
             }
