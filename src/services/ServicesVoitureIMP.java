@@ -27,12 +27,12 @@ public class ServicesVoitureIMP implements IService<Voiture> {
     public ServicesVoitureIMP() {
         cnx = MyDB.getInstance().getConnection();
     }
-
+// requete pour ajouter une voiture 
     @Override
     public void ajout(Voiture t) {
         try {
-            String req = "insert into voiture (libelle,marque,couleur,capacite,description) values"
-                    + " ( '" + t.getLibelle() + "', '" + t.getMarque() + "', '" + t.getCouleur() + "', '" + t.getCapacite() +"', '"+t.getDescription() + "')";
+            String req = "insert into voiture (libelle,marque,couleur,capacite,description,id_user,id_categorie) values"
+                    + " ( '" + t.getLibelle() + "', '" + t.getMarque() + "', '" + t.getCouleur() + "', '" + t.getCapacite() +"', '"+t.getDescription() +"', '"+t.getId_user()+"','"+ t.getId_categorie() + "')";
             Statement st = cnx.createStatement();
             st.executeUpdate(req);
         } catch (SQLException ex) {
@@ -40,18 +40,19 @@ public class ServicesVoitureIMP implements IService<Voiture> {
         }
         
     }
-
+// requete pour modifier une voiture 
     @Override
     public void modifier(Voiture t) {
         try {
-            String req = "update voiture set libelle = ? , marque = ? , couleur = ? ,capacite = ? , discription = ? where id = ?";
+            String req = "update voiture set libelle = ? , marque = ? , couleur = ? ,capacite = ? , description = ? where id = ?";
             PreparedStatement ps = cnx.prepareStatement(req);
-            ps.setString(2, t.getLibelle());
-            ps.setString(1, t.getMarque());
+            ps.setString(1, t.getLibelle());
+            ps.setString(2, t.getMarque());
             
             ps.setString(3, t.getCouleur());
             ps.setInt(4, t.getCapacite());
-            ps.setString(4, t.getDescription());
+            ps.setString(5, t.getDescription());
+            ps.setInt(6, t.getId());
             
             ps.executeUpdate();
             
@@ -60,7 +61,7 @@ public class ServicesVoitureIMP implements IService<Voiture> {
         }
         
     }
-
+// requete pour supprimer une voiture 
     @Override
     public void supprimer(int id) {
         try {

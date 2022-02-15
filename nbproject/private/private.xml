@@ -3,7 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/chaker/NetBeansProjects/pidev_java/src/entities/Chambre.java</file>
+            <file>file:/C:/Users/Hani/pidev_java/src/services/ServiceCategorieIMP.java</file>
+            <file>file:/C:/Users/Hani/pidev_java/src/entities/Categorie.java</file>
+            <file>file:/C:/Users/Hani/pidev_java/src/utils/MyDB.java</file>
+            <file>file:/C:/Users/Hani/pidev_java/src/test/Main.java</file>
+            <file>file:/C:/Users/Hani/pidev_java/src/services/IService.java</file>
+            <file>file:/C:/Users/Hani/pidev_java/src/services/ServicesVoitureIMP.java</file>
+            <file>file:/C:/Users/Hani/pidev_java/src/entities/Voiture.java</file>
+            <file>file:/C:/Users/Hani/pidev_java/src/entities/Utilisateur.java</file>
+            <file>file:/C:/Users/Hani/pidev_java/src/services/Iservicecat.java</file>
         </group>
     </open-files>
 </project-private>

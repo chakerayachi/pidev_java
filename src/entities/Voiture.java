@@ -18,12 +18,13 @@ public class Voiture {
     private int capacite ;
     private String description ;
     private int id_user ;
+    private int id_categorie;
 
     //constructeur par default
     public Voiture(){}
 
     // constructeur parametere avec le champs id
-    public Voiture(int id, String libelle, String marque, String couleur, int capacite, String description, int id_user) {
+    public Voiture(int id, String libelle, String marque, String couleur, int capacite, String description, int id_user,int id_categorie) {
         this.id = id;
         this.libelle = libelle;
         this.marque = marque;
@@ -31,16 +32,18 @@ public class Voiture {
         this.capacite = capacite;
         this.description = description;
         this.id_user = id_user;
+        this.id_categorie = id_categorie;
     }
 
     // constructeur parametere sans le champs id
-    public Voiture( String libelle, String marque, String couleur, int capacite, String description, int id_user) {
+    public Voiture( String libelle, String marque, String couleur, int capacite, String description, int id_user , int id_categorie) {
         this.libelle = libelle;
         this.marque = marque;
         this.couleur = couleur;
         this.capacite = capacite;
         this.description = description;
         this.id_user = id_user;
+        this.id_categorie = id_categorie ;
     }
 
     //getters ans setters
@@ -100,6 +103,16 @@ public class Voiture {
     public void setId_user(int id_user) {
         this.id_user = id_user;
     }
+
+    public int getId_categorie() {
+        return id_categorie;
+    }
+
+    public void setId_categorie(int id_categorie) {
+        this.id_categorie = id_categorie;
+    }
+    
+    
 
     //toString methode
 

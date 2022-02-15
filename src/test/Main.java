@@ -3,9 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package module_hani;
+package test;
 
+import entities.Categorie;
 import entities.Voiture;
+import java.util.List;
+import services.ServiceCategorieIMP;
 import services.ServicesVoitureIMP;
 
 /**
@@ -19,9 +22,23 @@ public class Main {
      */
     public static void main(String[] args) {
         ServicesVoitureIMP sv = new ServicesVoitureIMP();
-        Voiture v1 = new Voiture(1,"touristique","clio","noir",4,"jolie",0) ;
-        System.out.println (sv.afficher());
-        sv.ajout(v1);
+        ServiceCategorieIMP sc = new ServiceCategorieIMP() ;
+        Categorie c = new Categorie ("familiale","dfhdfh");
+        Categorie c2 = new Categorie (1,"normale","dfhdfh");
+        Voiture v1 = new Voiture("touristique","clio","noir",4,"jolie",1,1) ;
+        Voiture v2 = new Voiture(3,"touristique","clio","vert",4,"jolie",1,1) ;
+        
+       // System.out.println (sv.afficher());
+         //System.out.println (sc.afficher());
+        
+        //sv.ajout(v1);
+        // sv.afficher();
+        //sv.supprimer(2);
+        //sc.ajout(c);
+        //sc.modifier(c2);
+        //sv.modifier(v2);
+        sc.afficher();
+        //sc.supprimer(0);
         
     }
     
