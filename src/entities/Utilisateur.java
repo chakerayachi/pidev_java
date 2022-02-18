@@ -24,6 +24,7 @@ public class Utilisateur {
     private String image ;
     private String description ;
     private String etat ;
+    private String account_date;
 
     // constructeur par default
 
@@ -34,7 +35,7 @@ public class Utilisateur {
 
     // constructeur avec le champs id
 
-    public Utilisateur(int id, String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description , String etat) {
+    public Utilisateur(int id, String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description , String etat,String accounte_date) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -48,13 +49,14 @@ public class Utilisateur {
         this.image = image;
         this.description = description;
         this.etat= etat;
+        this.account_date = accounte_date;
     }
 
 
 
     // constructeur sans le champs id
 
-    public Utilisateur( String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description , String etat) {
+    public Utilisateur( String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description , String etat ,String accounte_date) {
 
         this.login = login;
         this.password = password;
@@ -68,6 +70,7 @@ public class Utilisateur {
         this.image = image;
         this.description = description;
         this.etat = etat;
+        this.account_date = accounte_date;
     }
 
 
@@ -178,6 +181,14 @@ public class Utilisateur {
     public void setEtat(String etat) {
         this.etat = etat;
     }
+
+    public String getAccount_date() {
+        return account_date;
+    }
+
+    public void setAccount_date(String accounte_date) {
+        this.account_date = accounte_date;
+    }
     
     
 
@@ -201,6 +212,7 @@ public class Utilisateur {
                 ", image='" + image + '\'' +
                 ", description='" + description + '\'' +
                  ", etat='" + etat + '\'' +
+                 ", etat='" + account_date + '\'' +
                 '}';
     }
     

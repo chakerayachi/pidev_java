@@ -10,36 +10,27 @@ package entities;
  * @author chaker
  */
 public class Agencier extends Utilisateur {
-     private int id ;
 
-    public Agencier(int id) {
-        this.id = id;
+
+    public Agencier() {
+     super();
     }
 
-    public Agencier(int id, String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description,String etat, int id1) {
-        super(id, login, password, nom, prenom, email, num_tel, cin, adresse, role, image, description,etat);
-        this.id = id1;
+    public Agencier(int id, String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description,String etat, String account_date) {
+        super(id, login, password, nom, prenom, email, num_tel, cin, adresse, role, image, description,etat, account_date);
+      
     }
 
-    public Agencier(String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description,String etat, int id) {
-        super(login, password, nom, prenom, email, num_tel, cin, adresse, role, image, description,etat);
-        this.id = id;
+    public Agencier(String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description,String etat, String account_date) {
+        super(login, password, nom, prenom, email, num_tel, cin, adresse, role, image, description,etat , account_date);
+       
     }
 
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
-
+  
     @Override
     public String toString() {
         return "Agencier{" +
-                "id=" + id +
+               super.toString() +
                 '}';
     }
     

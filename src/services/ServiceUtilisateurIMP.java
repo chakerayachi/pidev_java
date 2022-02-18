@@ -11,7 +11,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -33,9 +35,13 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
 
     @Override
     public void ajoutUtilisateur(Utilisateur t) {
+         Date date1 = new Date();
+         String account_date = new SimpleDateFormat("yyyy-MM-dd").format(date1);
+        
+
         try {
 
-            String req = "INSERT INTO utilisateur (login , password , nom ,prenom , email , num_tel , cin , adresse , role , image , description , etat) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+            String req = "INSERT INTO utilisateur (login , password , nom ,prenom , email , num_tel , cin , adresse , role , image , description , etat , account_date) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1, t.getLogin());
             ps.setString(2, t.getPassword());
@@ -49,10 +55,11 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
             ps.setString(10, t.getImage());
             ps.setString(11, t.getDescription());
             ps.setString(12, t.getEtat());
+            ps.setString(13, t.getAccount_date());
 
             int value = ps.executeUpdate();
             if (value > 0) {
-                System.out.println(" l insertion de l utilisateur :" + t.getNom() + " " + t.getPrenom() + " a ete effectuer avec sucess");
+                System.out.println(" l insertion de l utilisateur :" + t.getNom() + " " + t.getPrenom() + " a ete effectuer avec sucess , date de l ajout est : "+t.getAccount_date());
             }
 
         } catch (SQLException ex) {
@@ -66,7 +73,7 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
     public void modifierUtilisateur(Utilisateur t , int id ) {
         try {
 
-            String req = "UPDATE utilisateur set login = ? , password = ? , nom = ? ,prenom = ?, email = ?, num_tel= ?, cin = ? , adresse = ? , role = ? , image = ? , description= ?, etat = ? WHERE id ="+id;
+            String req = "UPDATE utilisateur set login = ? , password = ? , nom = ? ,prenom = ?, email = ?, num_tel= ?, cin = ? , adresse = ? , role = ? , image = ? , description= ?, etat = ? , account_date = ?  WHERE id ="+id;
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1, t.getLogin());
             ps.setString(2, t.getPassword());
@@ -80,8 +87,8 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
             ps.setString(10, t.getImage());
             ps.setString(11, t.getDescription());
             ps.setString(12, t.getEtat());
-            // ps.setInt(13, t.getId());
-            // pour le test on lui ajout manuellement
+            ps.setString(13, t.getAccount_date());
+        
            
 
             int value_update = ps.executeUpdate();
@@ -139,6 +146,7 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
                 user.setDescription(rs.getString("description"));
                 user.setRole(rs.getString("role"));
                 user.setEtat(rs.getString("etat"));
+                user.setAccount_date(rs.getString("account_date"));
 
                 list_Utilisateur.add(user);
             }
@@ -173,6 +181,8 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
                 user.setDescription(rs.getString("description"));
                 user.setRole(rs.getString("role"));
                 user.setEtat(rs.getString("etat"));
+                user.setAccount_date(rs.getString("account_date"));
+
 
                 list_Clients.add(user);
             }
@@ -209,6 +219,8 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
                 user.setDescription(rs.getString("description"));
                 user.setRole(rs.getString("role"));
                 user.setEtat(rs.getString("etat"));
+                user.setAccount_date(rs.getString("account_date"));
+
 
                 list_agenciers.add(user);
             }
@@ -220,5 +232,9 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
         return list_agenciers;
 
     }
+    
+    
+        
+    
 
 }

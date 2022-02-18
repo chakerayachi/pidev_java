@@ -10,34 +10,27 @@ package entities;
  * @author chaker
  */
 public class Admin extends Utilisateur{
-    private int id ;
+   
 
     public Admin() {
+        super();
     }
 
-    public Admin(int id, String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description, String etat) {
-        super(id, login, password, nom, prenom, email, num_tel, cin, adresse, role, image, description,etat);
+    public Admin(int id, String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description, String etat , String account_date) {
+        super(id, login, password, nom, prenom, email, num_tel, cin, adresse, role, image, description,etat ,account_date);
     }
 
-    public Admin(String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description,String etat) {
-        super(login, password, nom, prenom, email, num_tel, cin, adresse, role, image, description,etat);
+    public Admin(String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description,String etat , String account_date) {
+        super(login, password, nom, prenom, email, num_tel, cin, adresse, role, image, description,etat, account_date);
     }
     
-    @Override
-    public int getId() {
-        return id;
-    }
-
-    @Override
-    public void setId(int id) {
-        this.id = id;
-    }
+  
 
 
     @Override
     public String toString() {
         return "Admin{" +
-                "id=" + id +
+               super.toString() +
                 '}';
     }
     
