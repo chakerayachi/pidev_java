@@ -94,7 +94,7 @@ public class Main {
                                  
                           // test get userbyid       
                           
-                      // su.getUserById(16);
+                       su.getUserById(16);
                     
                        
                       

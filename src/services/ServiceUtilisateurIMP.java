@@ -299,7 +299,7 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
         Agencier agencier = new Agencier();
 
         // cas admin
-        if (getUtilisateurRole(id) == "admin") {
+        if ("admin".equals(getUtilisateurRole(id))) {
             try {
                 String req = "SELECT * FROM utilisateur WHERE id=" + id;
                 Statement st = cnx.createStatement();
@@ -331,7 +331,7 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
         }
 
         // cas client
-        if (getUtilisateurRole(id) == "client") {
+        if ("client".equals(getUtilisateurRole(id))) {
             try {
                 String req = "SELECT * FROM utilisateur WHERE id=" + id;
                 Statement st = cnx.createStatement();
@@ -362,7 +362,7 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
         }
 
         // cas agencier
-        if (getUtilisateurRole(id) == "agencier") {
+        if ("agencier".equals(getUtilisateurRole(id))) {
             try {
                 String req = "SELECT * FROM utilisateur WHERE id=" + id;
                 Statement st = cnx.createStatement();
