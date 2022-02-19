@@ -85,10 +85,23 @@ public class Main {
 
                           // test du get le role d un utilisateur
                           
-         su.getUtilisateurRole(16);
+      // su.getUtilisateurRole(16);
         
-
        
+       
+                                 /*********************************************************************************/
+
+                                 
+                          // test get userbyid       
+                          
+                      // su.getUserById(16);
+                    
+                       
+                      
+                                                       /*********************************************************************************/
+
+   
+      
         
     }
     

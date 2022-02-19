@@ -5,6 +5,9 @@
  */
 package services;
 
+import entities.Admin;
+import entities.Agencier;
+import entities.Client;
 import entities.Utilisateur;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -273,7 +276,7 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
     public String getUtilisateurRole(int id) {
         String role = null;
         try {
-            String req = "SELECT role FROM utilisateur WHERE id="+ id;
+            String req = "SELECT role FROM utilisateur WHERE id=" + id;
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
@@ -288,11 +291,109 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
         return role;
 
     }
-    
-    
-    
-    
-    
-    
 
+    public Utilisateur getUserById(int id) {
+        Utilisateur user = new Utilisateur();
+        Admin admin = new Admin();
+        Client client = new Client();
+        Agencier agencier = new Agencier();
+
+        // cas admin
+        if (getUtilisateurRole(id) == "admin") {
+            try {
+                String req = "SELECT * FROM utilisateur WHERE id=" + id;
+                Statement st = cnx.createStatement();
+                ResultSet rs = st.executeQuery(req);
+
+                while (rs.next()) {
+                    admin.setId(rs.getInt("id"));
+                    admin.setLogin(rs.getString("login"));
+                    admin.setPassword(rs.getString("password"));
+                    admin.setNom(rs.getString("nom"));
+                    admin.setPrenom(rs.getString("prenom"));
+                    admin.setEmail(rs.getString("email"));
+                    admin.setNum_tel(rs.getInt("num_tel"));
+                    admin.setCin(rs.getInt("cin"));
+                    admin.setAdresse(rs.getString("adresse"));
+                    admin.setRole(rs.getString("role"));
+                    admin.setImage(rs.getString("image"));
+                    admin.setDescription(rs.getString("description"));
+                    admin.setEtat(rs.getString("etat"));
+                    admin.setAccount_date(rs.getString("account_date"));
+
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            user = admin;
+
+        }
+
+        // cas client
+        if (getUtilisateurRole(id) == "client") {
+            try {
+                String req = "SELECT * FROM utilisateur WHERE id=" + id;
+                Statement st = cnx.createStatement();
+                ResultSet rs = st.executeQuery(req);
+                while (rs.next()) {
+                    admin.setId(rs.getInt("id"));
+                    admin.setLogin(rs.getString("login"));
+                    admin.setPassword(rs.getString("password"));
+                    admin.setNom(rs.getString("nom"));
+                    admin.setPrenom(rs.getString("prenom"));
+                    admin.setEmail(rs.getString("email"));
+                    admin.setNum_tel(rs.getInt("num_tel"));
+                    admin.setCin(rs.getInt("cin"));
+                    admin.setAdresse(rs.getString("adresse"));
+                    admin.setRole(rs.getString("role"));
+                    admin.setImage(rs.getString("image"));
+                    admin.setDescription(rs.getString("description"));
+                    admin.setEtat(rs.getString("etat"));
+                    admin.setAccount_date(rs.getString("account_date"));
+
+                }
+                user = client;
+
+            } catch (SQLException ex) {
+                Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+
+        // cas agencier
+        if (getUtilisateurRole(id) == "agencier") {
+            try {
+                String req = "SELECT * FROM utilisateur WHERE id=" + id;
+                Statement st = cnx.createStatement();
+                ResultSet rs = st.executeQuery(req);
+                while (rs.next()) {
+                    admin.setId(rs.getInt("id"));
+                    admin.setLogin(rs.getString("login"));
+                    admin.setPassword(rs.getString("password"));
+                    admin.setNom(rs.getString("nom"));
+                    admin.setPrenom(rs.getString("prenom"));
+                    admin.setEmail(rs.getString("email"));
+                    admin.setNum_tel(rs.getInt("num_tel"));
+                    admin.setCin(rs.getInt("cin"));
+                    admin.setAdresse(rs.getString("adresse"));
+                    admin.setRole(rs.getString("role"));
+                    admin.setImage(rs.getString("image"));
+                    admin.setDescription(rs.getString("description"));
+                    admin.setEtat(rs.getString("etat"));
+                    admin.setAccount_date(rs.getString("account_date"));
+
+                }
+                user = agencier;
+
+            } catch (SQLException ex) {
+                Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+        System.out.println(user);
+        return user;
+    }
+
+   
 }
