@@ -35,9 +35,8 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
 
     @Override
     public void ajoutUtilisateur(Utilisateur t) {
-         Date date1 = new Date();
-         String account_date = new SimpleDateFormat("yyyy-MM-dd").format(date1);
-        
+        Date date1 = new Date();
+        String account_date = new SimpleDateFormat("yyyy-MM-dd").format(date1);
 
         try {
 
@@ -59,7 +58,7 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
 
             int value = ps.executeUpdate();
             if (value > 0) {
-                System.out.println(" l insertion de l utilisateur :" + t.getNom() + " " + t.getPrenom() + " a ete effectuer avec sucess , date de l ajout est : "+t.getAccount_date());
+                System.out.println(" l insertion de l utilisateur :" + t.getNom() + " " + t.getPrenom() + " a ete effectuer avec sucess , date de l ajout est : " + t.getAccount_date());
             }
 
         } catch (SQLException ex) {
@@ -70,10 +69,10 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
     }
 
     @Override
-    public void modifierUtilisateur(Utilisateur t , int id ) {
+    public void modifierUtilisateur(Utilisateur t, int id) {
         try {
 
-            String req = "UPDATE utilisateur set login = ? , password = ? , nom = ? ,prenom = ?, email = ?, num_tel= ?, cin = ? , adresse = ? , role = ? , image = ? , description= ?, etat = ? , account_date = ?  WHERE id ="+id;
+            String req = "UPDATE utilisateur set login = ? , password = ? , nom = ? ,prenom = ?, email = ?, num_tel= ?, cin = ? , adresse = ? , role = ? , image = ? , description= ?, etat = ? , account_date = ?  WHERE id =" + id;
             PreparedStatement ps = cnx.prepareStatement(req);
             ps.setString(1, t.getLogin());
             ps.setString(2, t.getPassword());
@@ -88,8 +87,6 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
             ps.setString(11, t.getDescription());
             ps.setString(12, t.getEtat());
             ps.setString(13, t.getAccount_date());
-        
-           
 
             int value_update = ps.executeUpdate();
             if (value_update > 0) {
@@ -183,7 +180,6 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
                 user.setEtat(rs.getString("etat"));
                 user.setAccount_date(rs.getString("account_date"));
 
-
                 list_Clients.add(user);
             }
 
@@ -221,7 +217,6 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
                 user.setEtat(rs.getString("etat"));
                 user.setAccount_date(rs.getString("account_date"));
 
-
                 list_agenciers.add(user);
             }
 
@@ -232,9 +227,72 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
         return list_agenciers;
 
     }
+
+    public String FindNomUserById(int id) {
+        String nom = null;
+        try {
+            String req = "select * from utilisateur where id =" + id;
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+                nom = rs.getString(4);
+                System.out.println(nom);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return nom;
+
+    }
+
+    public List<Utilisateur> TrieParDateCreation() {
+
+        List<Utilisateur> list_utilisateur = new ArrayList<>();
+
+        try {
+            String req = "SELECT * FROM utilisateur ORDER BY account_date ASC";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            Utilisateur user = null;
+            while (rs.next()) {
+                user = new Utilisateur(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14));
+                list_utilisateur.add(user);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(list_utilisateur);
+
+        return list_utilisateur;
+
+    }
+
+    public String getUtilisateurRole(int id) {
+        String role = null;
+        try {
+            String req = "SELECT role FROM utilisateur WHERE id="+ id;
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+                role = rs.getString("role");
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(role);
+        return role;
+
+    }
     
     
-        
+    
+    
+    
     
 
 }

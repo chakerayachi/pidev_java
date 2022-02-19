@@ -19,9 +19,9 @@ import services.ServiceUtilisateurIMP;
 public class Main {
     public static void main(String[] args) {
         System.out.println("hello nexus");
-                ServiceUtilisateurIMP su = new ServiceUtilisateurIMP();
-                 Date date1 = new Date();
-         String account_date = new SimpleDateFormat("yyyy-MM-dd").format(date1);
+        ServiceUtilisateurIMP su = new ServiceUtilisateurIMP();
+        Date date1 = new Date();
+        String account_date = new SimpleDateFormat("yyyy-MM-dd").format(date1);
 
         // test ajout utilisateur
       /*
@@ -55,22 +55,37 @@ public class Main {
         
         
         
-        
-        
-                                            /*********************************************************************************/
+                                     /*********************************************************************************/
 
         // test d affichage pour les client 
-        su.afficherClientList().forEach(System.out::println);
+        //su.afficherClientList().forEach(System.out::println);
         
         
-                                            /*********************************************************************************/
+                                     /*********************************************************************************/
 
         
 
          // test d affichage de tous les agencier
          //su.afficherAgencierList().forEach(System.out::println);
-                                    
+         
+         /*********************************************************************************/
+         
+         
+         //find user by id
+        // su.FindNomUserById(16);
         
+        
+                 /*********************************************************************************/
+
+                                    
+        // trier par date creation
+        //su.TrieParDateCreation();
+        
+                          /*********************************************************************************/
+
+                          // test du get le role d un utilisateur
+                          
+         su.getUtilisateurRole(16);
         
 
        
