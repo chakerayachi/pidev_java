@@ -19,21 +19,23 @@ public class Sujet {
     private int accepter;
     private int nbcom;
     private int iduser;
-    
+    private int idtopic;
     
     public Sujet() {
     }
 
-    public Sujet(String titresujet, String contenu, String date, int accepter, int nbcom, int iduser) {
+    public Sujet(String titresujet, String contenu, String date, int accepter, int nbcom, int iduser,int idtopic) {
         this.titresujet = titresujet;
         this.contenu = contenu;
         this.date = date;
         this.accepter = accepter;
         this.nbcom = nbcom;
         this.iduser = iduser;
+        this.idtopic = idtopic;
+
     }
 
-    public Sujet(int idsujet, String titresujet, String contenu, String date, int accepter, int nbcom, int iduser) {
+    public Sujet(int idsujet, String titresujet, String contenu, String date, int accepter, int nbcom, int iduser,int idtopic) {
         this.idsujet = idsujet;
         this.titresujet = titresujet;
         this.contenu = contenu;
@@ -41,9 +43,14 @@ public class Sujet {
         this.accepter = accepter;
         this.nbcom = nbcom;
         this.iduser = iduser;
+        this.idtopic = idtopic;
     }
     public int getIdsujet() {
         return idsujet;
+    }
+
+    public int getIdtopic() {
+        return idtopic;
     }
 
     public String getTitresujet() {
@@ -98,15 +105,15 @@ public class Sujet {
         this.iduser = iduser;
     }
 
-    @Override
-    public String toString() {
-//        String Saccepter;
-//        if(accepter==0)
-//            Saccepter="Non";
-//        else 
-//            Saccepter="Oui";
-        return "Sujet{" + "idsujet=" + idsujet + ", titresujet=" + titresujet + ", contenu=" + contenu + ", date=" + date + ", accepter=" + accepter + ", nbcom=" + nbcom + ", iduser=" + iduser + '}';
+    public void setIdtopic(int idtopic) {
+        this.idtopic = idtopic;
     }
 
+    @Override
+    public String toString() {
+        return "Sujet{" + "idsujet=" + idsujet + ", titresujet=" + titresujet + ", contenu=" + contenu + ", date=" + date + ", accepter=" + accepter + ", nbcom=" + nbcom + ", iduser=" + iduser + ", idtopic=" + idtopic + '}';
+    }
+
+    
     
 }

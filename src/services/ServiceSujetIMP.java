@@ -30,7 +30,7 @@ public class ServiceSujetIMP implements IForum<Sujet>{
     @Override
     public boolean ajout(Sujet t) {
         try {
-            String req="insert into sujet (titresujet,contenu,date,accepter,nbcom,iduser) values "+"('"+t.getTitresujet()+"','"+t.getContenu()+"','"+t.getDate()+"','"+t.isAccepter()+"','"+t.getNbcom()+"','"+t.getIduser()+"')";
+            String req="insert into sujet (titresujet,contenu,date,accepter,nbcom,iduser,idtopic) values "+"('"+t.getTitresujet()+"','"+t.getContenu()+"','"+t.getDate()+"','"+t.isAccepter()+"','"+t.getNbcom()+"','"+t.getIduser()+"','"+t.getIdtopic()+"')";
             Statement st= cnx.createStatement();
             try {
                 st.executeUpdate(req);
@@ -81,7 +81,7 @@ public class ServiceSujetIMP implements IForum<Sujet>{
             ResultSet rs= st.executeQuery(req);
             while(rs.next())
             {
-                Sujet s = new Sujet(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7));
+                Sujet s = new Sujet(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getInt(8));
                 list.add(s);
                 
             }
@@ -110,7 +110,7 @@ public class ServiceSujetIMP implements IForum<Sujet>{
             ResultSet rs= st.executeQuery(req);
             while(rs.next())
             {
-                Sujet s = new Sujet(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7));
+                Sujet s = new Sujet(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getInt(8));
                 list.add(s);
                 
             }
@@ -146,5 +146,22 @@ public class ServiceSujetIMP implements IForum<Sujet>{
         } catch (SQLException ex) {
             Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    public List<Sujet> affichersujetbytopic(int id_topic) {
+        List<Sujet> list = new ArrayList<Sujet>();   
+        try {
+            String req="select * from sujet inner join topic on sujet.idtopic="+id_topic+" and topic.idtopic="+id_topic;
+            Statement st=cnx.createStatement();
+            ResultSet rs= st.executeQuery(req);
+            while(rs.next())
+            {
+                Sujet s = new Sujet(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getInt(8));
+                list.add(s);
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list;
     }
 }

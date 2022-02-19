@@ -7,17 +7,14 @@ package test;
 
 import entities.Commentaire;
 import entities.Sujet;
-import java.text.ParseException;
+import entities.Topic;
 import java.text.SimpleDateFormat;
-import java.time.format.DateTimeFormatter;
 import java.util.Date;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import services.ServiceCommentaireIMP;
-
 import services.ServiceSujetIMP;
 import utils.MyDB;
 import java.util.Scanner;
+import services.ServiceTopicIMP;
 /**
  *
  * @author Firas CHKOUNDALI
@@ -41,6 +38,8 @@ public class Main {
 //
 //
     ServiceCommentaireIMP sc= new ServiceCommentaireIMP();
+    
+    ServiceTopicIMP st= new ServiceTopicIMP();
 //  //  sc.ajout(new Commentaire("ceci est un commentaire de test",dateFormat.format(date),2,1));
 ////    sc.supprimer(4);
 ////    
@@ -50,11 +49,8 @@ public class Main {
 //        System.out.println("les commentaires :");
 //    sc.affichercommentairebysujet(sujet).forEach(System.out::println);
 
-
-
-
-   
-        
-
+ 
     }
+
+}
 
