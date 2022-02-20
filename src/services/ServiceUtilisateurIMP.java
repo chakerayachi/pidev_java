@@ -395,5 +395,64 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
         return user;
     }
 
-   
+    public Boolean FindByNom(String nom) {
+
+        try {
+            String req = "SELECT * FROM utilisateur WHERE nom ='" + nom + "'";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            String user_nom = null;
+
+            while (rs.next()) {
+                user_nom = rs.getString(4);
+                if (nom.equals(user_nom)) {
+                    return true;
+
+                }
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return false;
+
+    }
+
+    public Utilisateur FindByLoginAndPassword(String login, String password) {
+        Utilisateur user = new Utilisateur();
+
+        try {
+            String req = "SELECT * from utilisateur where login='" + login + "'AND password='" + password + "'";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+
+                user.setId(rs.getInt("id"));
+                user.setLogin(rs.getString("login"));
+                user.setPassword(rs.getString("password"));
+                user.setNom(rs.getString("nom"));
+                user.setPrenom(rs.getString("prenom"));
+                user.setEmail(rs.getString("email"));
+                user.setNum_tel(rs.getInt("num_tel"));
+                user.setCin(rs.getInt("cin"));
+                user.setAdresse(rs.getString("adresse"));
+                user.setRole(rs.getString("role"));
+                user.setImage(rs.getString("image"));
+                user.setDescription(rs.getString("description"));
+                user.setEtat(rs.getString("etat"));
+                user.setAccount_date(rs.getString("account_date"));
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return user;
+
+    }
+    
+
+
 }

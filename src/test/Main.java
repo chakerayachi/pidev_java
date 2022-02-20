@@ -30,7 +30,7 @@ public class Main {
         */
     
         
-                                    /*********************************************************************************/
+        /*********************************************************************************/
                              
                              
         // test de modification d un utilisateur 
@@ -45,64 +45,75 @@ public class Main {
         //su.supprimerUtilisateur( a remplacer par un id  );
         
         
-                                    /*********************************************************************************/
+        /*********************************************************************************/
 
      
         // test d affichage de tous les utilisateurs 
         /*
         su.afficherUtilisateur().forEach(System.out::println);
-        */
+         */
         
         
         
-                                     /*********************************************************************************/
+        /*********************************************************************************/
 
         // test d affichage pour les client 
         //su.afficherClientList().forEach(System.out::println);
         
         
-                                     /*********************************************************************************/
+        /*********************************************************************************/
 
         
 
-         // test d affichage de tous les agencier
-         //su.afficherAgencierList().forEach(System.out::println);
+        // test d affichage de tous les agencier
+        //su.afficherAgencierList().forEach(System.out::println);
          
-         /*********************************************************************************/
+        /*********************************************************************************/
          
          
-         //find user by id
+        //find user by id
         // su.FindNomUserById(16);
         
         
-                 /*********************************************************************************/
+        /*********************************************************************************/
 
                                     
         // trier par date creation
         //su.TrieParDateCreation();
         
-                          /*********************************************************************************/
+        /*********************************************************************************/
 
-                          // test du get le role d un utilisateur
+        // test du get le role d un utilisateur
                           
-      // su.getUtilisateurRole(16);
+        // su.getUtilisateurRole(16);
         
        
        
-                                 /*********************************************************************************/
+        /*********************************************************************************/
 
                                  
-                          // test get userbyid       
-                          
-                       su.getUserById(16);
-                    
-                       
-                      
-                                                       /*********************************************************************************/
+        // test get userbyid
+        // su.getUserById(16);
+        /*********************************************************************************/
+        
+                   
+        
+        // test find by nom
+       // Boolean FindByNom = su.FindByNom("chaker");
+        // System.out.println(FindByNom);
+        
+        
+                /*********************************************************************************/
 
-   
+                // test fing by login and password 
+                
+            // Utilisateur result = su.FindByLoginAndPassword("chaker", "chaker123");
+            // System.out.println(result);
       
         
     }
+    
+    
+    
     
 }
