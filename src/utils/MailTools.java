@@ -30,9 +30,9 @@ public class MailTools {
         properties.put("mail.smtp.port", "587");
 
         //Your gmail address
-        String userName = "chaker.ayachi@esprit.tn";
+        String userName = "xxxx.xxxx@esprit.tn";
         //Your gmail password
-        String password = "17091998danzer";
+        String password = "";
 
         //Create a session with account credentials
         Session session = Session.getInstance(properties, new Authenticator() {
