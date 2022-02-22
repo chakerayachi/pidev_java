@@ -13,11 +13,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginFXMLController">
+<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane prefHeight="640.0" prefWidth="427.0" style="-fx-background-color: #6a0080;">
          <children>
-            <Label fx:id="LabelHelloFriend" layoutX="50.0" layoutY="114.0" prefHeight="73.0" prefWidth="313.0" text="Hello, Friend !  " textFill="WHITE">
+            <Label layoutX="50.0" layoutY="114.0" prefHeight="73.0" prefWidth="313.0" text="Hello, Friend !  " textFill="WHITE">
                <font>
                   <Font name="Apple Symbols" size="55.0" />
                </font>
@@ -27,12 +27,12 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="94.0" layoutY="267.0" text="and start a new journey with us " textFill="WHITE">
+            <Label layoutX="94.0" layoutY="267.0" text="and start a nwe journy with us " textFill="WHITE">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <JFXButton buttonType="RAISED" layoutX="110.0" layoutY="384.0" onAction="#GoToSignUp" ripplerFill="#d30d98" text="Sign UP" textFill="WHITE">
+            <JFXButton buttonType="RAISED" layoutX="110.0" layoutY="384.0" ripplerFill="#d30d98" text="Sign UP" textFill="WHITE">
                <font>
                   <Font name="Apple Symbols" size="48.0" />
                </font></JFXButton>

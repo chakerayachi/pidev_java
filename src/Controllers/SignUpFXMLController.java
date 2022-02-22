@@ -5,9 +5,17 @@
  */
 package Controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.control.Label;
 
 /**
  * FXML Controller class
@@ -16,6 +24,9 @@ import javafx.fxml.Initializable;
  */
 public class SignUpFXMLController implements Initializable {
 
+    @FXML
+    private Label LAbelCreateAccount;
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +34,20 @@ public class SignUpFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
+    @FXML
+    private void GoToLogin(ActionEvent event) {
+        
+       
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/LoginFXML.fxml"));
+            Parent root = loader.load();
+            LAbelCreateAccount.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(SignUpFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        
+    }
     
 }

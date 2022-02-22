@@ -217,6 +217,9 @@ public class Utilisateur {
     }
     
     
+        public static Utilisateur user;
+
+    
     
     
     

@@ -90,16 +90,12 @@ public class Main {
         // test fing by login and password 
         // Utilisateur result = su.FindByLoginAndPassword("chaker", "chaker123");
         // System.out.println(result);
-              
-            /**
+        /**
          * ******************************************************************************
          */
-            
-            
-            //test sending mail
+        //test sending mail
+        //MailTools.sendMail("usermail");
 
-                MailTools.sendMail("massarra.benjebiri@ensi-uma.tn");
-            
     }
 
 }
