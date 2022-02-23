@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -18,15 +19,7 @@
                   <Font name="Apple Symbols" size="62.0" />
                </font>
             </Label>
-            <Label layoutX="42.0" layoutY="163.0" prefHeight="66.0" prefWidth="398.0" text="Your Advanture is waiting ">
-               <textFill>
-                  <LinearGradient endX="1.0" endY="1.0" startY="1.0">
-                     <stops>
-                        <Stop color="#bc2525" />
-                        <Stop color="WHITE" offset="1.0" />
-                     </stops>
-                  </LinearGradient>
-               </textFill>
+            <Label layoutX="42.0" layoutY="163.0" prefHeight="66.0" prefWidth="398.0" text="Your Advanture is waiting " textFill="WHITE">
                <font>
                   <Font name="Apple Symbols" size="42.0" />
                </font>
@@ -39,7 +32,7 @@
                   <LinearGradient endX="1.0" endY="0.3557692307692307" startX="1.0">
                      <stops>
                         <Stop color="#bc2525" />
-                        <Stop color="#ab7878" offset="1.0" />
+                        <Stop color="WHITE" offset="1.0" />
                      </stops>
                   </LinearGradient>
                </textFill>
@@ -64,50 +57,55 @@
             <Font size="48.0" />
          </font>
       </Label>
-      <JFXTextField focusColor="#54095e" labelFloat="true" layoutX="87.0" layoutY="98.0" prefHeight="34.0" prefWidth="324.0" promptText="Login" unFocusColor="#7d2f80">
+      <JFXTextField fx:id="LoginTexte" focusColor="#54095e" labelFloat="true" layoutX="87.0" layoutY="98.0" prefHeight="34.0" prefWidth="324.0" promptText="Login" unFocusColor="#7d2f80">
          <font>
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField labelFloat="true" layoutX="87.0" layoutY="159.0" prefHeight="27.0" prefWidth="324.0" promptText="Password">
+      <JFXTextField fx:id="NomTexte" focusColor="#54095e" labelFloat="true" layoutX="87.0" layoutY="217.0" prefHeight="27.0" prefWidth="324.0" promptText="nom" unFocusColor="#7d2f80">
          <font>
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField labelFloat="true" layoutX="87.0" layoutY="217.0" prefHeight="27.0" prefWidth="324.0" promptText="nom">
+      <JFXTextField fx:id="PrenomTexte" focusColor="#54095e" labelFloat="true" layoutX="87.0" layoutY="276.0" prefHeight="27.0" prefWidth="324.0" promptText="Prenom" unFocusColor="#7d2f80">
          <font>
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField labelFloat="true" layoutX="87.0" layoutY="276.0" prefHeight="27.0" prefWidth="324.0" promptText="Prenom">
+      <JFXTextField fx:id="EmailTexte" focusColor="#54095e" labelFloat="true" layoutX="87.0" layoutY="337.0" prefHeight="27.0" prefWidth="324.0" promptText="Email" unFocusColor="#7d2f80">
          <font>
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField labelFloat="true" layoutX="87.0" layoutY="337.0" prefHeight="27.0" prefWidth="324.0" promptText="Email">
+      <JFXTextField fx:id="PhoneNumberTexte" focusColor="#54095e" labelFloat="true" layoutX="87.0" layoutY="398.0" prefHeight="27.0" prefWidth="324.0" promptText="Phone Number" unFocusColor="#7d2f80">
          <font>
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField labelFloat="true" layoutX="87.0" layoutY="398.0" prefHeight="27.0" prefWidth="324.0" promptText="Phone Number">
+      <JFXTextField focusColor="#54095e" labelFloat="true" layoutX="87.0" layoutY="518.0" prefHeight="27.0" prefWidth="324.0" promptText="image" unFocusColor="#7d2f80">
          <font>
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField labelFloat="true" layoutX="87.0" layoutY="518.0" prefHeight="27.0" prefWidth="324.0" promptText="image">
+      <JFXTextField fx:id="AdresseTexte" focusColor="#54095e" labelFloat="true" layoutX="87.0" layoutY="579.0" prefHeight="27.0" prefWidth="324.0" promptText="Adresse" unFocusColor="#7d2f80">
          <font>
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField labelFloat="true" layoutX="87.0" layoutY="579.0" prefHeight="27.0" prefWidth="324.0" promptText="Adresse">
+      <JFXTextField fx:id="CinTexte" focusColor="#54095e" labelFloat="true" layoutX="87.0" layoutY="458.0" prefHeight="27.0" prefWidth="324.0" promptText="Numero carte d indentiter" unFocusColor="#7d2f80">
          <font>
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField labelFloat="true" layoutX="87.0" layoutY="458.0" prefHeight="27.0" prefWidth="324.0" promptText="Numero carte d indentiter">
+      <JFXPasswordField fx:id="PasswordTexte" focusColor="#54095e" labelFloat="true" layoutX="87.0" layoutY="158.0" prefHeight="27.0" prefWidth="324.0" promptText="Enter Password" unFocusColor="#7d2f80">
          <font>
             <Font size="18.0" />
          </font>
-      </JFXTextField>
+      </JFXPasswordField>
+      <JFXButton buttonType="RAISED" defaultButton="true" layoutX="560.0" layoutY="583.0" onAction="#SignUp" prefHeight="45.0" prefWidth="96.0" ripplerFill="#a82424" text="Submit" textAlignment="CENTER" textFill="#2c2727" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

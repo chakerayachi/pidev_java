@@ -70,6 +70,74 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
         }
 
     }
+    
+    public void ajoutClient(Utilisateur t) {
+        Date date1 = new Date();
+        String account_date = new SimpleDateFormat("yyyy-MM-dd").format(date1);
+
+        try {
+
+            String req = "INSERT INTO utilisateur (login , password , nom ,prenom , email , num_tel , cin , adresse , role , image , description , etat , account_date) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement ps = cnx.prepareStatement(req);
+            ps.setString(1, t.getLogin());
+            ps.setString(2, t.getPassword());
+            ps.setString(3, t.getNom());
+            ps.setString(4, t.getPrenom());
+            ps.setString(5, t.getEmail());
+            ps.setInt(6, t.getNum_tel());
+            ps.setInt(7, t.getCin());
+            ps.setString(8, t.getAdresse());
+            ps.setString(9, "client");
+            ps.setString(10, t.getImage());
+            ps.setString(11, t.getDescription());
+            ps.setString(12, t.getEtat());
+            ps.setString(13, t.getAccount_date());
+
+            int value = ps.executeUpdate();
+            if (value > 0) {
+                System.out.println(" l insertion du client  :" + t.getNom() + " " + t.getPrenom() + " a ete effectuer avec sucess , date de l ajout est : " + t.getAccount_date());
+            }
+
+        } catch (SQLException ex) {
+
+            Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+    
+    public void ajoutAgencier(Utilisateur t) {
+        Date date1 = new Date();
+        String account_date = new SimpleDateFormat("yyyy-MM-dd").format(date1);
+
+        try {
+
+            String req = "INSERT INTO utilisateur (login , password , nom ,prenom , email , num_tel , cin , adresse , role , image , description , etat , account_date) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement ps = cnx.prepareStatement(req);
+            ps.setString(1, t.getLogin());
+            ps.setString(2, t.getPassword());
+            ps.setString(3, t.getNom());
+            ps.setString(4, t.getPrenom());
+            ps.setString(5, t.getEmail());
+            ps.setInt(6, t.getNum_tel());
+            ps.setInt(7, t.getCin());
+            ps.setString(8, t.getAdresse());
+            ps.setString(9, "agencier");
+            ps.setString(10, t.getImage());
+            ps.setString(11, t.getDescription());
+            ps.setString(12, t.getEtat());
+            ps.setString(13, t.getAccount_date());
+
+            int value = ps.executeUpdate();
+            if (value > 0) {
+                System.out.println(" l insertion de l agencier :" + t.getNom() + " " + t.getPrenom() + " a ete effectuer avec sucess , date de l ajout est : " + t.getAccount_date());
+            }
+
+        } catch (SQLException ex) {
+
+            Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
 
     @Override
     public void modifierUtilisateur(Utilisateur t, int id) {

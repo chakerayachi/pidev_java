@@ -27,8 +27,8 @@ public class Main {
 
         // test ajout utilisateur
         /*
-        Utilisateur user = new Utilisateur("chaker", "chaker123", "chaker", "ayachi", "chaker.ayachi@esprit.tn", 58607447, 10017460, "tunis ", "admin", null, "ee","active",account_date);
-        su.ajoutUtilisateur(user);
+        Utilisateur user = new Utilisateur("chdddaker", "chakdder123", "chaker", "ayassschi", "chasssker.ayachi@esprit.tn", 586307447, 1001337460, "tunis ", null, "ee","active",account_date);
+        su.ajoutClient(user);
          */
         /**
          * ******************************************************************************
