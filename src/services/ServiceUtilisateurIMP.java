@@ -189,6 +189,43 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
         }
 
     }
+    
+    public void DescativerUser(int id){
+        try {
+            String req = "Update utilisateur set etat = 'desactive' where id ="+id;
+            PreparedStatement ps = cnx.prepareStatement(req);
+            int value_update = ps.executeUpdate();
+            if (value_update > 0) {
+                System.out.println(" la desactivation de l utilisateur   a ete effectuer avec sucess");
+            }
+            
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+    
+    
+      
+    public void ActiverUser(int id){
+        try {
+            String req = "Update utilisateur set etat = 'active' where id ="+id;
+            PreparedStatement ps = cnx.prepareStatement(req);
+            int value_update = ps.executeUpdate();
+            if (value_update > 0) {
+                System.out.println(" la desactivation de l utilisateur   a ete effectuer avec sucess");
+            }
+            
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+    }
+    
 
     @Override
     public List<Utilisateur> afficherUtilisateur() {
