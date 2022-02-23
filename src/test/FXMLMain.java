@@ -23,7 +23,7 @@ public class FXMLMain extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            Parent root = FXMLLoader.load(getClass().getResource("../GUI/SignUpFXML.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/LoadingFXML.fxml"));
             Scene scene = new Scene(root);
             primaryStage.setScene(scene);
             primaryStage.show();
