@@ -14,6 +14,7 @@ import services.ServicesVoitureIMP;
 /**
  *
  * @author Hani
+ * 
  */
 public class Main {
 
@@ -28,17 +29,18 @@ public class Main {
         Voiture v1 = new Voiture("touristique","clio","noir",4,"jolie",1,1) ;
         Voiture v2 = new Voiture(3,"touristique","clio","vert",4,"jolie",1,1) ;
         
-       // System.out.println (sv.afficher());
-         //System.out.println (sc.afficher());
+        System.out.println (sv.chercherVoiture("vert"));
+        // System.out.println (sc.afficher());
         
         //sv.ajout(v1);
-        // sv.afficher();
+        //sv.afficher();
         //sv.supprimer(2);
         //sc.ajout(c);
         //sc.modifier(c2);
         //sv.modifier(v2);
-        sc.afficher();
+       //sc.afficher();
         //sc.supprimer(0);
+        
         
     }
     

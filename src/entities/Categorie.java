@@ -52,6 +52,11 @@ public class Categorie {
     public void setDescription(String description) {
         this.description = description;
     }
+
+    @Override
+    public String toString() {
+        return "Categorie{" + "id=" + id + ", libelle=" + libelle + ", description=" + description + '}';
+    }
     
     
     

@@ -98,6 +98,42 @@ public class ServicesVoitureIMP implements IService<Voiture> {
         }
         return list;
     }
+        @Override
+    public List<Voiture> chercherVoiture( String nom) {
+         List<Voiture> list=new ArrayList<>();
+      String req="SELECT * FROM voiture where  libelle='"+nom+"' or   marque='"+nom+"' or couleur='"+nom+"' or capacite='"+nom+"'";
+      try {
+             //exec
+             Statement st=cnx.createStatement();
+             ResultSet rs= st.executeQuery(req);
+             while(rs.next())
+             {
+                 //String nom, String prenom, String sexe, String date,String email, String login, String mdp, String role
+                 list.add(new Voiture (rs.getInt("id"),rs.getString("libelle"), rs.getString("marque"), rs.getString("couleur"), rs.getInt("capacite"),rs.getString("description")));
+             }
+         } catch (SQLException ex) {
+           Logger.getLogger(ServicesVoitureIMP.class.getName()).log(Level.SEVERE, null, ex);
+         }
+return list;
+    }
+    @Override
+    public List<Voiture> triVoiture() {
+         List<Voiture> list=new ArrayList<>();
+      String req="SELECT * FROM voiture ORDER BY libelle";
+      try {
+             //exec
+             Statement st=cnx.createStatement();
+             ResultSet rs= st.executeQuery(req);
+             while(rs.next())
+             {
+                 //String nom, String prenom, String sexe, String date,String email, String login, String mdp, String role
+                 list.add(new Voiture (rs.getInt("id"),rs.getString("libelle"), rs.getString("marque"), rs.getString("couleur"), rs.getInt("capacite"),rs.getString("description")));
+             }
+         } catch (SQLException ex) {
+           Logger.getLogger(ServicesVoitureIMP.class.getName()).log(Level.SEVERE, null, ex);
+         }
+return list;
+    }  
 
 }
 

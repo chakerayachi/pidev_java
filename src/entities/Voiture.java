@@ -46,6 +46,16 @@ public class Voiture {
         this.id_categorie = id_categorie ;
     }
 
+    public Voiture(int id, String libelle, String marque, String couleur, int capacite, String description) {
+        this.id = id;
+        this.libelle = libelle;
+        this.marque = marque;
+        this.couleur = couleur;
+        this.capacite = capacite;
+        this.description = description;
+    }
+    
+
     //getters ans setters
 
     public int getId() {

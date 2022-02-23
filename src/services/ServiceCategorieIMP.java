@@ -54,7 +54,7 @@ public class ServiceCategorieIMP implements IService<Categorie> {
             ps.executeUpdate();
             
         } catch (SQLException ex) {
-            Logger.getLogger(ServicesVoitureIMP.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(ServiceCategorieIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
         
     }
@@ -91,6 +91,42 @@ public class ServiceCategorieIMP implements IService<Categorie> {
             Logger.getLogger(ServiceCategorieIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
         return list;
+    }
+         @Override
+    public List<Categorie> chercherVoiture( String nom) {
+         List<Categorie> list=new ArrayList<>();
+      String req="SELECT * FROM voiture where  libelle='"+nom+"'  or capacite='"+nom+"'";
+      try {
+             //exec
+             Statement st=cnx.createStatement();
+             ResultSet rs= st.executeQuery(req);
+             while(rs.next())
+             {
+                 //String nom, String prenom, String sexe, String date,String email, String login, String mdp, String role
+                 list.add(new Categorie (rs.getInt("id"),rs.getString("libelle"),rs.getString("description")));
+             }
+         } catch (SQLException ex) {
+           Logger.getLogger(ServicesVoitureIMP.class.getName()).log(Level.SEVERE, null, ex);
+         }
+return list;
+    }
+    @Override
+    public List<Categorie> triVoiture() {
+         List<Categorie> list=new ArrayList<>();
+      String req="SELECT * FROM voiture ORDER BY libelle";
+      try {
+             //exec
+             Statement st=cnx.createStatement();
+             ResultSet rs= st.executeQuery(req);
+             while(rs.next())
+             {
+                 
+                 list.add(new Categorie (rs.getInt("id"),rs.getString("libelle"),rs.getString("description")));
+             }
+         } catch (SQLException ex) {
+           Logger.getLogger(ServicesVoitureIMP.class.getName()).log(Level.SEVERE, null, ex);
+         }
+return list;
     }
 
 }
