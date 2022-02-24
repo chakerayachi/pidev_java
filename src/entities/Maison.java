@@ -15,7 +15,6 @@ public class Maison {
     private  String adresse ;
     private  String region ;
     private int num_tel ;
-    private String image ;
     private String description ;
     private int capacite ;
     private int nb_chambres ;
@@ -26,12 +25,11 @@ public class Maison {
     public Maison(){}
 
     // constructeur paramtrer avec le champs id
-    public Maison(int id, String adresse, String region, int num_tel, String image, String description, int capacite, int nb_chambres, float prix, int id_user) {
+    public Maison(int id, String adresse, String region, int num_tel,  String description, int capacite, int nb_chambres, float prix, int id_user) {
         this.id = id;
         this.adresse = adresse;
         this.region = region;
         this.num_tel = num_tel;
-        this.image = image;
         this.description = description;
         this.capacite = capacite;
         this.nb_chambres = nb_chambres;
@@ -40,11 +38,10 @@ public class Maison {
     }
 
     // constructeur paramtrer sans le champs id
-    public Maison(String adresse, String region, int num_tel, String image, String description, int capacite, int nb_chambres, float prix, int id_user) {
+    public Maison(String adresse, String region, int num_tel,  String description, int capacite, int nb_chambres, float prix, int id_user) {
         this.adresse = adresse;
         this.region = region;
         this.num_tel = num_tel;
-        this.image = image;
         this.description = description;
         this.capacite = capacite;
         this.nb_chambres = nb_chambres;
@@ -86,13 +83,7 @@ public class Maison {
         this.num_tel = num_tel;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
+  
 
     public String getDescription() {
         return description;
@@ -143,7 +134,6 @@ public class Maison {
                 ", adresse='" + adresse + '\'' +
                 ", region='" + region + '\'' +
                 ", num_tel=" + num_tel +
-                ", image='" + image + '\'' +
                 ", description='" + description + '\'' +
                 ", capacite=" + capacite +
                 ", nb_chambres=" + nb_chambres +
