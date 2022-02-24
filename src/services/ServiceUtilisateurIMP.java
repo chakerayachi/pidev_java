@@ -226,6 +226,8 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
     
     }
     
+    
+    
 
     @Override
     public List<Utilisateur> afficherUtilisateur() {
@@ -241,6 +243,8 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
 
                 Utilisateur user = new Utilisateur();
                 user.setId(rs.getInt(1));
+                user.setLogin(rs.getString("login"));
+                user.setPassword(rs.getString("password"));
                 user.setNom(rs.getString("nom"));
                 user.setPrenom(rs.getString("prenom"));
                 user.setEmail(rs.getString("email"));
