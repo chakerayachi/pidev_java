@@ -17,6 +17,8 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -86,46 +88,43 @@ public class SignUpFXMLController implements Initializable {
         int verif = 0;
 
         String style = " -fx-border-color: red;";
-
-        String styledefault = "-fx-border-color: green;";
-
         // i will make it better 
-        if (LoginTexte.getText().equals("")) {
+        if (LoginTexte.getText().trim().equals("")) {
             LoginTexte.setStyle(style);
             verif = 1;
 
         }
-        if (PasswordTexte.getText().equals("")) {
+        if (PasswordTexte.getText().trim().equals("")) {
             PasswordTexte.setStyle(style);
             verif = 1;
 
         }
-        if (NomTexte.getText().equals("")) {
+        if (NomTexte.getText().trim().equals("")) {
             NomTexte.setStyle(style);
             verif = 1;
 
         }
-        if (PrenomTexte.getText().equals("")) {
+        if (PrenomTexte.getText().trim().equals("")) {
             PrenomTexte.setStyle(style);
             verif = 1;
 
         }
-        if (EmailTexte.getText().equals("")) {
+        if (EmailTexte.getText().trim().equals("")) {
             EmailTexte.setStyle(style);
             verif = 1;
 
         }
-        if (PhoneNumberTexte.getText().equals("")) {
+        if (PhoneNumberTexte.getText().trim().equals("")) {
             PhoneNumberTexte.setStyle(style);
             verif = 1;
 
         }
-        if (AdresseTexte.getText().equals("")) {
+        if (AdresseTexte.getText().trim().equals("")) {
             AdresseTexte.setStyle(style);
             verif = 1;
 
         }
-        if (CinTexte.getText().equals("")) {
+        if (CinTexte.getText().trim().equals("")) {
             CinTexte.setStyle(style);
             verif = 1;
 
@@ -175,13 +174,67 @@ public class SignUpFXMLController implements Initializable {
         return new String(Base64.getMimeDecoder().decode(password));
     }
 
+    public boolean validateNumberCin() {
+
+        Pattern p = Pattern.compile("[0-9]+\\.[0-9]+|[0-9]+");
+        Matcher m = p.matcher(CinTexte.getText());
+        if (m.find() && m.group().equals(CinTexte.getText()) && CinTexte.getText().length() == 8) {
+            return true;
+        } else {
+            Alert al = new Alert(Alert.AlertType.ERROR);
+            al.setTitle("Alert");
+            al.setContentText("cin only can containes 8 didgets");
+            al.setHeaderText(null);
+            al.show();
+
+        }
+        return false;
+    }
+
+    public boolean validateNumberphone() {
+
+        Pattern p = Pattern.compile("[0-9]+\\.[0-9]+|[0-9]+");
+        Matcher m = p.matcher(PhoneNumberTexte.getText());
+        if (m.find() && m.group().equals(PhoneNumberTexte.getText()) && PhoneNumberTexte.getText().length() == 8) {
+            return true;
+        } else {
+            Alert al = new Alert(Alert.AlertType.ERROR);
+            al.setTitle("Alert");
+            al.setContentText("Phone number only can containes 8 didgets");
+            al.setHeaderText(null);
+            al.show();
+
+        }
+        return false;
+    }
+
+    public boolean ValidateEmail() {
+
+        Pattern p = Pattern.compile("^[a-zA-Z0-9_+&*-]+(?:\\."
+                + "[a-zA-Z0-9_+&*-]+)*@"
+                + "(?:[a-zA-Z0-9-]+\\.)+[a-z"
+                + "A-Z]{2,7}$");
+        Matcher m = p.matcher(EmailTexte.getText());
+        if (m.find() && m.group().equals(EmailTexte.getText())) {
+            return true;
+        } else {
+            Alert al = new Alert(Alert.AlertType.ERROR);
+            al.setTitle("Alert");
+            al.setContentText("Email is wrong");
+            al.setHeaderText(null);
+            al.show();
+
+        }
+        return false;
+    }
+
     // sign up avec cryptage de mot de passe
     @FXML
     private void SignUp(ActionEvent event) {
 
         Utilisateur user = new Utilisateur();
 
-        if (CheckLogin() && VerifUserChamps()) {
+        if (CheckLogin() && VerifUserChamps() && validateNumberCin() && validateNumberphone() && ValidateEmail()) {
 
             user.setLogin(LoginTexte.getText());
             user.setPassword(encrypt(PasswordTexte.getText()));
