@@ -32,7 +32,8 @@ public class ServiceTransactionIMP {
         String columnNames[] = new String[] { "id" };
         PreparedStatement  pst; 
         int transaction_generated_id=0;
-        try {
+        try { 
+                
                 pst = cnxx.prepareStatement(Request,columnNames); 
                 pst.setInt(1, tr.getTaux_avance());
                 pst.setInt(2, tr.getTaux_commission());
@@ -85,13 +86,13 @@ public class ServiceTransactionIMP {
                 Transaction transaction=new Transaction(rs.getInt(0),rs.getTimestamp(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getFloat(6),rs.getFloat(7),rs.getFloat(8));
                 transaction_list.add(transaction);
             }
-        } catch (SQLException e) {
+            } catch (SQLException e) {
             System.err.println(e.getMessage());
             //   return null;
         }
         return transaction_list;
-    }
-    
+    } 
+        
     
     
 }
