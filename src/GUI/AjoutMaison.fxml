@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="515.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MaisonController">
+   <children>
+      <Text layoutX="248.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajout maison" />
+      <Label layoutX="71.0" layoutY="78.0" text="Adresse" />
+      <Label layoutX="71.0" layoutY="115.0" text="Region" />
+      <Label layoutX="61.0" layoutY="435.0" text="Prix" />
+      <Label layoutX="50.0" layoutY="222.0" text="Description" />
+      <Label layoutX="71.0" layoutY="154.0" text="Telephone" />
+      <Label layoutX="16.0" layoutY="323.0" text="Nombre de chambre" />
+      <Label layoutX="57.0" layoutY="374.0" text="Capacité" />
+      <TextArea fx:id="adresse" layoutX="126.0" layoutY="45.0" prefHeight="65.0" prefWidth="155.0" />
+      <TextField fx:id="region" layoutX="131.0" layoutY="119.0" prefHeight="26.0" prefWidth="155.0" />
+      <TextField fx:id="tel" layoutX="135.0" layoutY="158.0" />
+      <TextArea fx:id="description" layoutX="135.0" layoutY="199.0" prefHeight="81.0" prefWidth="147.0" />
+      <TextField fx:id="nbChambre" layoutX="135.0" layoutY="319.0" />
+      <TextField fx:id="capacite" layoutX="135.0" layoutY="361.0" />
+      <TextField fx:id="prix" layoutX="126.0" layoutY="431.0" />
+      <Button fx:id="ajouterBtn" layoutX="261.0" layoutY="476.0" mnemonicParsing="false" onAction="#Insert" text="Ajouter" />
+   </children>
+</AnchorPane>

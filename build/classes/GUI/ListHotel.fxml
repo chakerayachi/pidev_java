@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="1005.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ListHotelController">
+   <children>
+      <TableView fx:id="tableView" layoutX="5.0" layoutY="66.0" prefHeight="211.0" prefWidth="995.0">
+        <columns>
+          <TableColumn fx:id="id" maxWidth="100.0" prefWidth="100.0" text="ID" />
+          <TableColumn fx:id="libelle" maxWidth="100.0" prefWidth="100.0" text="Libelle" />
+            <TableColumn fx:id="adresse" maxWidth="100.0" prefWidth="100.0" text="Adresse" />
+            <TableColumn fx:id="ville" maxWidth="100.0" prefWidth="100.0" text="Ville" />
+            <TableColumn fx:id="region" maxWidth="100.0" prefWidth="100.0" text="Region" />
+            <TableColumn fx:id="tel" maxWidth="100.0" prefWidth="100.0" text="Telephone" />
+            <TableColumn fx:id="description" maxWidth="100.0" prefWidth="100.0" text="Description" />
+            <TableColumn fx:id="nbEtoile" maxWidth="100.0" prefWidth="100.0" text="Nombre d'etoile" />
+            <TableColumn maxWidth="100.0" prefWidth="100.0" text="Action" />
+        </columns>
+      </TableView>
+      <TextField fx:id="txtHotelSearch" layoutX="429.0" layoutY="20.0" />
+   </children>
+</AnchorPane>

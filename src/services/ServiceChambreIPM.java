@@ -34,13 +34,14 @@ public class ServiceChambreIPM implements Ihebergement<Chambre>{
     
     public void create(Chambre c) {
         try {
-            String req = "INSERT INTO Chambre (type,id_hotel,prix) VALUES (?,?,?)";
+            String req = "INSERT INTO chambre (type,id_hotel,prix) VALUES (?,?,?)";
                         System.out.println(c);
           PreparedStatement ps = cnxx.prepareStatement(req);
           System.out.println(req);
-            ps.setFloat(1,c.getPrix());
-            ps.setString(2,c.getType());
-            ps.setInt(3,c.getId_hotel());
+            ps.setString(1,c.getType());
+            ps.setInt(2,c.getId_hotel());
+            ps.setFloat(3,c.getPrix());
+            
 
             ps.executeUpdate();
         } catch (SQLException ex) {

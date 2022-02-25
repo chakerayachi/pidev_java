@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="627.0" prefWidth="841.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HotelController">
+   <children>
+      <Text layoutX="351.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un hotel" />
+      <Label layoutX="219.0" layoutY="107.0" prefHeight="46.0" prefWidth="75.0" text="Adresse" AnchorPane.bottomAnchor="502.0" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="547.0" AnchorPane.topAnchor="107.0" />
+      <Label layoutX="219.0" layoutY="174.0" text="ville" AnchorPane.bottomAnchor="464.1592926376717" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="593.9646027163412" AnchorPane.topAnchor="174.0" />
+      <Label layoutX="219.0" layoutY="227.0" prefHeight="18.0" prefWidth="48.0" text="region" AnchorPane.bottomAnchor="410.0" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="574.0" AnchorPane.topAnchor="227.0" />
+      <Label layoutX="219.0" layoutY="269.0" text="Tel" AnchorPane.bottomAnchor="368.31858527534337" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="593.9646027163412" AnchorPane.topAnchor="269.0" />
+      <Label layoutX="215.0" layoutY="318.0" prefHeight="18.0" prefWidth="64.0" text="Description" AnchorPane.bottomAnchor="319.0" AnchorPane.leftAnchor="215.0" AnchorPane.rightAnchor="562.0" AnchorPane.topAnchor="318.0" />
+      <Label layoutX="219.0" layoutY="400.0" prefHeight="18.0" prefWidth="54.0" text="Libelle" AnchorPane.bottomAnchor="237.0" AnchorPane.leftAnchor="219.0" AnchorPane.rightAnchor="568.0" AnchorPane.topAnchor="400.0" />
+      <Label layoutX="193.0" layoutY="445.0" text="Nomre d'etoile" AnchorPane.leftAnchor="193.0" />
+      <TextField fx:id="ville" layoutX="294.0" layoutY="169.0" prefHeight="26.0" prefWidth="147.0" />
+      <TextField fx:id="region" layoutX="294.0" layoutY="223.0" />
+      <TextField fx:id="tel" layoutX="294.0" layoutY="265.0" />
+      <TextField fx:id="libelle" layoutX="294.0" layoutY="396.0" />
+      <TextField fx:id="etoile" layoutX="294.0" layoutY="441.0" />
+      <TextArea fx:id="adresse" layoutX="293.0" layoutY="100.0" prefHeight="59.0" prefWidth="149.0" />
+      <TextArea fx:id="description" layoutX="297.0" layoutY="313.0" prefHeight="59.0" prefWidth="147.0" />
+      <Button fx:id="ajouterBtn" layoutX="368.0" layoutY="526.0" mnemonicParsing="false" onAction="#Insert" prefHeight="26.0" prefWidth="85.0" text="Ajouter" />
+   </children>
+</AnchorPane>
