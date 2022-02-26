@@ -82,7 +82,7 @@
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <JFXTextField focusColor="#54095e" labelFloat="true" layoutX="87.0" layoutY="518.0" prefHeight="27.0" prefWidth="324.0" promptText="image" unFocusColor="#7d2f80">
+      <JFXTextField fx:id="ImageUser" focusColor="#54095e" labelFloat="true" layoutX="87.0" layoutY="518.0" prefHeight="27.0" prefWidth="324.0" promptText="image" unFocusColor="#7d2f80">
          <font>
             <Font size="18.0" />
          </font>
@@ -102,10 +102,11 @@
             <Font size="18.0" />
          </font>
       </JFXPasswordField>
-      <JFXButton buttonType="RAISED" defaultButton="true" layoutX="560.0" layoutY="583.0" onAction="#SignUp" prefHeight="45.0" prefWidth="96.0" ripplerFill="#a82424" text="Submit" textAlignment="CENTER" textFill="#2c2727" wrapText="true">
+      <JFXButton buttonType="RAISED" defaultButton="true" layoutX="586.0" layoutY="292.0" onAction="#SignUp" prefHeight="45.0" prefWidth="96.0" ripplerFill="#a82424" text="Submit" textAlignment="CENTER" textFill="#2c2727" wrapText="true">
          <font>
             <Font size="18.0" />
          </font>
       </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="438.0" layoutY="536.0" onAction="#FileChooser" text="Choose image" />
    </children>
 </AnchorPane>

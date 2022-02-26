@@ -97,6 +97,7 @@ public class Main {
          */
         //test sending mail
         //MailTools.sendMail("usermail");
+        su.Authentification("chaker", "chaker123");
 
     }
 

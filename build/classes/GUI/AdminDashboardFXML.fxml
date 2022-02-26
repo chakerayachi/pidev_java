@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="1310.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AdminDashboardFXMLController">
+   <left>
+      <VBox prefHeight="200.0" prefWidth="320.0" styleClass="white-background" stylesheets="@admindashboardfxml.css" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="318.0" prefWidth="290.0" styleClass="profile-layout" stylesheets="@admindashboardfxml.css">
+               <children>
+                  <ImageView fx:id="image" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                  <JFXButton fx:id="btn_image" onAction="#FileChooser" text="Changer Image" />
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" right="20.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="449.0" prefWidth="300.0" spacing="30.0">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="140.0" />
+               </VBox.margin>
+               <children>
+                  <JFXButton buttonType="RAISED" prefHeight="70.0" prefWidth="280.0" style="-fx-background-color: #4107f4;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="Consulter Statistiques" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton prefHeight="70.0" prefWidth="280.0" style="-fx-background-color: #07f442;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="Ajouter Agencier" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton buttonType="RAISED" onAction="#changerEtat" prefHeight="70.0" prefWidth="280.0" style="-fx-background-color: #f40744;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="bloquer/debloquer" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </VBox>
+            <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="white-background" stylesheets="@admindashboardfxml.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="white-background" stylesheets="@admindashboardfxml.css">
+               <children>
+                  <Label text="Mes inforamations">
+                     <font>
+                        <Font name="Arial Bold" size="28.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <JFXButton prefHeight="40.0" prefWidth="170.0" stylesheets="@admindashboardfxml.css" text="Create-contact" textFill="WHITE">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton prefHeight="27.0" prefWidth="33.0" styleClass="transparent" stylesheets="@admindashboardfxml.css" text=".">
+                     <graphic>
+                        <ImageView fitHeight="34.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../../../Documents/tools/pidev-main/src/images/11276170_0.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0" />
+                  <HBox prefHeight="151.0" prefWidth="955.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="34.0" prefWidth="337.0" text="                   Nom                 :">
+                           <font>
+                              <Font name="Apple Braille Outline 6 Dot" size="22.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="nomTexte">
+                           <font>
+                              <Font size="16.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="151.0" prefWidth="956.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="28.0" prefWidth="333.0" text="                   Prenom             :">
+                           <font>
+                              <Font name="Apple Braille Outline 6 Dot" size="22.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="prenomTexte" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="151.0" prefWidth="955.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="28.0" prefWidth="332.0" text="                                Email                            :">
+                           <font>
+                              <Font name="System Bold" size="22.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="emailTexte" />
+                        <JFXButton onAction="#updateUser" prefHeight="40.0" prefWidth="140.0" text="Edit" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="151.0" prefWidth="955.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="28.0" prefWidth="331.0" text="                  N° du Télephone  :">
+                           <font>
+                              <Font name="Apple Braille Outline 6 Dot" size="22.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="numTexte" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="151.0" prefWidth="955.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="28.0" prefWidth="328.0" text="                   Carte d'identité    :">
+                           <font>
+                              <Font name="Apple Braille Outline 6 Dot" size="22.0" />
+                           </font>
+                        </Label>
+                        <JFXTextField fx:id="cinTexte" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <Label prefHeight="100.0" text="Liste utilisateurs">
+               <font>
+                  <Font name="Arial Bold" size="28.0" />
+               </font>
+               <VBox.margin>
+                  <Insets left="20.0" />
+               </VBox.margin>
+            </Label>
+            <TableView fx:id="tableView_user" prefHeight="446.0" prefWidth="985.0">
+              <columns>
+                <TableColumn fx:id="nom" prefWidth="75.0" text="nom" />
+                  <TableColumn fx:id="prenom" prefWidth="90.0" text="prenom" />
+                  <TableColumn fx:id="email" prefWidth="207.0" text="email" />
+                  <TableColumn fx:id="phone" prefWidth="187.0" text="phone" />
+                  <TableColumn fx:id="cin" prefWidth="146.0" text="cin" />
+                  <TableColumn fx:id="adresse" prefWidth="185.0" text="adresse" />
+                  <TableColumn fx:id="etatTexte" prefWidth="75.0" text="etat" />
+              </columns>
+            </TableView>
+         </children>
+         <BorderPane.margin>
+            <Insets left="5.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>

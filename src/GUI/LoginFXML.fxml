@@ -55,17 +55,17 @@
             <Font name="Al Bayan Bold" size="34.0" />
          </font>
       </Label>
-      <JFXTextField focusColor="#6a0080" labelFloat="true" layoutX="493.0" layoutY="169.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="550.0" promptText="Enter Login">
+      <JFXTextField fx:id="LoginTexte" focusColor="#6a0080" labelFloat="true" layoutX="493.0" layoutY="169.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="550.0" promptText="Enter Login">
          <font>
             <Font name="Apple Symbols" size="24.0" />
          </font>
       </JFXTextField>
-      <JFXPasswordField focusColor="#6a0080" labelFloat="true" layoutX="493.0" layoutY="269.0" prefHeight="41.0" prefWidth="550.0" promptText="Enter Password">
+      <JFXPasswordField fx:id="PasswordTexte" focusColor="#6a0080" labelFloat="true" layoutX="493.0" layoutY="269.0" prefHeight="41.0" prefWidth="550.0" promptText="Enter Password">
          <font>
             <Font name="Apple Symbols" size="24.0" />
          </font>
       </JFXPasswordField>
-      <JFXButton buttonType="RAISED" layoutX="681.0" layoutY="450.0" ripplerFill="#66027c" text="SIGN IN" textFill="#8210a1" textOverrun="CENTER_WORD_ELLIPSIS" underline="true">
+      <JFXButton buttonType="RAISED" layoutX="681.0" layoutY="450.0" onAction="#Login" ripplerFill="#66027c" text="SIGN IN" textFill="#8210a1" textOverrun="CENTER_WORD_ELLIPSIS" underline="true">
          <font>
             <Font name="Apple Symbols" size="36.0" />
          </font>

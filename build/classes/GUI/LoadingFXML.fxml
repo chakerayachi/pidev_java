@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXSpinner?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Circle?>
@@ -9,7 +8,6 @@
 
 <HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1100.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoadingFXMLController">
    <children>
-      <JFXSpinner prefHeight="648.0" prefWidth="78.0" />
       <StackPane prefHeight="648.0" prefWidth="695.0">
          <children>
             <Circle fx:id="c1" fill="#4399e500" radius="223.0" stroke="#1891db" strokeType="INSIDE" strokeWidth="20.0" style="-fx-stroke-dash-array: 75;" />
@@ -23,6 +21,5 @@
             </JFXButton>
          </children>
       </StackPane>
-      <JFXSpinner prefHeight="648.0" prefWidth="89.0" />
    </children>
 </HBox>

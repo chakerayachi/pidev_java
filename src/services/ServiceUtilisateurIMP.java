@@ -16,6 +16,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -70,7 +71,7 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
         }
 
     }
-    
+
     public void ajoutClient(Utilisateur t) {
         Date date1 = new Date();
         String account_date = new SimpleDateFormat("yyyy-MM-dd").format(date1);
@@ -104,7 +105,7 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
         }
 
     }
-    
+
     public void ajoutAgencier(Utilisateur t) {
         Date date1 = new Date();
         String account_date = new SimpleDateFormat("yyyy-MM-dd").format(date1);
@@ -189,45 +190,36 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
         }
 
     }
-    
-    public void DescativerUser(int id){
+
+    public void DescativerUser(int id) {
         try {
-            String req = "Update utilisateur set etat = 'desactive' where id ="+id;
+            String req = "Update utilisateur set etat = 'desactive' where id =" + id;
             PreparedStatement ps = cnx.prepareStatement(req);
             int value_update = ps.executeUpdate();
             if (value_update > 0) {
                 System.out.println(" la desactivation de l utilisateur   a ete effectuer avec sucess");
             }
-            
-            
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
+
     }
-    
-    
-      
-    public void ActiverUser(int id){
+
+    public void ActiverUser(int id) {
         try {
-            String req = "Update utilisateur set etat = 'active' where id ="+id;
+            String req = "Update utilisateur set etat = 'active' where id =" + id;
             PreparedStatement ps = cnx.prepareStatement(req);
             int value_update = ps.executeUpdate();
             if (value_update > 0) {
-                System.out.println(" la desactivation de l utilisateur   a ete effectuer avec sucess");
+                System.out.println(" la activation de l utilisateur   a ete effectuer avec sucess");
             }
-            
-            
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
-    
+
     }
-    
-    
-    
 
     @Override
     public List<Utilisateur> afficherUtilisateur() {
@@ -561,8 +553,38 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
         return user;
 
     }
-    
- 
 
+    public Utilisateur Authentification(String login, String password) {
+        Utilisateur user = null;
+// 
+
+        try {
+            String req = "select * from Utilisateur where login = ? and password = ?";
+            PreparedStatement ps = cnx.prepareStatement(req);
+            ps.setString(1, login);
+            ps.setString(2, password);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                user = new Utilisateur(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6), rs.getInt(7), rs.getInt(8), rs.getString(9), rs.getString(10), rs.getString(11), rs.getString(12), rs.getString(13), rs.getString(14));
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(user);
+        return user;
+
+    }
+
+    public String encrypt(String password) {
+
+        return Base64.getEncoder().encodeToString(password.getBytes());
+    }
+
+    public String decrypt(String password) {
+
+        return new String(Base64.getMimeDecoder().decode(password));
+    }
 
 }
