@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
  */
 public class AgencierFXMLController implements Initializable {
 
+
     /**
      * Initializes the controller class.
      */
@@ -23,5 +24,6 @@ public class AgencierFXMLController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
+
     
 }

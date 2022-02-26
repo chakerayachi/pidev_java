@@ -82,7 +82,7 @@ public class LoginFXMLController implements Initializable {
     private void GoToAgencier(ActionEvent event) {
 
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/AgenicerFXML.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/AgencierFXML.fxml"));
             Parent root = loader.load();
             LabelHelloFriend.getScene().setRoot(root);
         } catch (IOException ex) {

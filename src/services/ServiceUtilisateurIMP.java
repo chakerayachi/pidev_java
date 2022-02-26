@@ -125,7 +125,7 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
             ps.setString(9, "agencier");
             ps.setString(10, t.getImage());
             ps.setString(11, t.getDescription());
-            ps.setString(12, t.getEtat());
+            ps.setString(12, "active");
             ps.setString(13, t.getAccount_date());
 
             int value = ps.executeUpdate();

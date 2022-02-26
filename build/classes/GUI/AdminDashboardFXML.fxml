@@ -37,7 +37,7 @@
                         <Font size="25.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton prefHeight="70.0" prefWidth="280.0" style="-fx-background-color: #07f442;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="Ajouter Agencier" textFill="WHITE">
+                  <JFXButton onAction="#AjouterAgencier" prefHeight="70.0" prefWidth="280.0" style="-fx-background-color: #07f442;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="Ajouter Agencier" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>
@@ -67,23 +67,11 @@
                      </HBox.margin>
                   </Label>
                   <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                  <JFXButton prefHeight="40.0" prefWidth="170.0" stylesheets="@admindashboardfxml.css" text="Create-contact" textFill="WHITE">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton prefHeight="27.0" prefWidth="33.0" styleClass="transparent" stylesheets="@admindashboardfxml.css" text=".">
-                     <graphic>
-                        <ImageView fitHeight="34.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@../../../../../Documents/tools/pidev-main/src/images/11276170_0.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                     <HBox.margin>
-                        <Insets left="20.0" />
-                     </HBox.margin>
-                  </JFXButton>
+                  <ImageView fitHeight="100.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Ressources/Image/logo.png" />
+                     </image>
+                  </ImageView>
                </children>
                <VBox.margin>
                   <Insets />
