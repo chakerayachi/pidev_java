@@ -1,14 +1,137 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.net.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import com.jfoenix.controls.JFXTextArea?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AgencierFXMLController">
-    <stylesheets>
-        <URL value="@ajouteragencierfxml.css"/>
-    </stylesheets>
-</AnchorPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="1310.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AgencierFXMLController">
+   <left>
+      <VBox prefHeight="200.0" prefWidth="320.0" styleClass="white-background" stylesheets="@admindashboardfxml.css" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="449.0" prefWidth="300.0" spacing="30.0">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="140.0" />
+               </VBox.margin>
+               <children>
+                  <JFXButton buttonType="RAISED" onAction="#changerPassInterface" prefHeight="70.0" prefWidth="280.0" style="-fx-background-color: #f40744;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="changer mot de passe" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </VBox>
+            <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="white-background" stylesheets="@admindashboardfxml.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="white-background" stylesheets="@admindashboardfxml.css">
+               <children>
+                  <Label text="Mon Profile">
+                     <font>
+                        <Font name="American Typewriter Bold" size="43.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                     <textFill>
+                        <LinearGradient endX="0.7067307692307692" endY="0.8653846153846154" startX="0.7115384615384616">
+                           <stops>
+                              <Stop color="#7300ff" />
+                              <Stop color="#1d00ff" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </textFill>
+                  </Label>
+                  <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <ImageView fitHeight="100.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Ressources/Image/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <AnchorPane prefHeight="744.0" prefWidth="985.0">
+               <children>
+                  <VBox alignment="CENTER" layoutX="773.0" layoutY="14.0" prefHeight="108.0" prefWidth="198.0" styleClass="profile-layout" stylesheets="@admindashboardfxml.css">
+                     <children>
+                        <ImageView fx:id="imageAgencier" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                        <JFXButton fx:id="btn_image" onAction="#fileChooser" text="Changer Image" />
+                     </children>
+                  </VBox>
+                  <JFXListView layoutX="5.0" layoutY="205.0" prefHeight="537.0" prefWidth="968.0" />
+                  <JFXListView layoutX="9.0" layoutY="209.0" prefHeight="521.0" prefWidth="960.0" />
+                  <Label layoutX="48.0" layoutY="228.0" prefHeight="36.0" prefWidth="320.0" text="Nom :" textFill="#2200dd">
+                     <font>
+                        <Font name="American Typewriter" size="29.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="48.0" layoutY="280.0" prefHeight="36.0" prefWidth="318.0" text="Prenom :" textFill="#2200ff">
+                     <font>
+                        <Font name="American Typewriter" size="29.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="48.0" layoutY="341.0" prefHeight="36.0" prefWidth="99.0" text="Email :" textFill="#2200ff">
+                     <font>
+                        <Font name="American Typewriter" size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="45.0" layoutY="395.0" prefHeight="31.0" prefWidth="342.0" text="Numero du telephone :" textFill="#2200dd">
+                     <font>
+                        <Font name="American Typewriter" size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="41.0" layoutY="458.0" prefHeight="32.0" prefWidth="240.0" text="Carte d indentite :" textFill="#2200dd">
+                     <font>
+                        <Font name="American Typewriter" size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="45.0" layoutY="517.0" prefHeight="32.0" prefWidth="136.0" text="Adresse :" textFill="#2200dd">
+                     <font>
+                        <Font name="American Typewriter" size="26.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="45.0" layoutY="580.0" prefHeight="32.0" prefWidth="264.0" text="Description agence :" textFill="#2200dd">
+                     <font>
+                        <Font name="American Typewriter" size="26.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="nomTexte" layoutX="189.0" layoutY="233.0" prefHeight="27.0" prefWidth="450.0" />
+                  <JFXTextField fx:id="PrenomTexte" layoutX="180.0" layoutY="285.0" prefHeight="27.0" prefWidth="460.0" />
+                  <JFXTextField fx:id="emailTexte" layoutX="178.0" layoutY="346.0" prefHeight="27.0" prefWidth="463.0" />
+                  <JFXTextField fx:id="numTexte" layoutX="381.0" layoutY="397.0" prefHeight="27.0" prefWidth="262.0" />
+                  <JFXTextField fx:id="cinTexte" layoutX="275.0" layoutY="460.0" prefHeight="27.0" prefWidth="372.0" />
+                  <JFXTextField fx:id="adresseTexte" layoutX="177.0" layoutY="520.0" prefHeight="27.0" prefWidth="468.0" />
+                  <JFXTextArea fx:id="descriptionTexte" layoutX="298.0" layoutY="556.0" prefHeight="112.0" prefWidth="397.0" />
+                  <JFXButton buttonType="RAISED" layoutX="808.0" layoutY="435.0" onAction="#updaterAgencier" prefHeight="70.0" prefWidth="129.0" style="-fx-background-color: #2f3459;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="edite" textFill="WHITE">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </AnchorPane>
+         </children>
+         <BorderPane.margin>
+            <Insets left="5.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>

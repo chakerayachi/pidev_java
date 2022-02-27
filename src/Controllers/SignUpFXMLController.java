@@ -88,7 +88,6 @@ public class SignUpFXMLController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/LoginFXML.fxml"));
             Parent root = loader.load();
             LAbelCreateAccount.getScene().setRoot(root);
-
         } catch (IOException ex) {
             Logger.getLogger(SignUpFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }

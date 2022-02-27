@@ -3,11 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/chaker/NetBeansProjects/pidev_java_chaker/pidev_java/src/Controllers/LoginFXMLController.java</file>
             <file>file:/Users/chaker/NetBeansProjects/pidev_java_chaker/pidev_java/src/test/FXMLMain.java</file>
-            <file>file:/Users/chaker/NetBeansProjects/pidev_java_chaker/pidev_java/src/Controllers/SignUpFXMLController.java</file>
-            <file>file:/Users/chaker/NetBeansProjects/pidev_java_chaker/pidev_java/src/Controllers/AdminDashboardFXMLController.java</file>
-            <file>file:/Users/chaker/NetBeansProjects/pidev_java_chaker/pidev_java/src/Controllers/AjouterAgencierFxmlController.java</file>
+            <file>file:/Users/chaker/NetBeansProjects/pidev_java_chaker/pidev_java/src/Controllers/StatistiqueAdminFXMLController.java</file>
         </group>
     </open-files>
 </project-private>

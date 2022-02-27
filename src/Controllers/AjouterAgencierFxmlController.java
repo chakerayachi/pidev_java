@@ -10,7 +10,10 @@ import com.jfoenix.controls.JFXTextField;
 import entities.Utilisateur;
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -22,6 +25,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import services.ServiceUtilisateurIMP;
@@ -54,25 +58,24 @@ public class AjouterAgencierFxmlController implements Initializable {
     @FXML
     private JFXTextField afresseTexte;
 
- 
-
     /**
      * Initializes the controller class.
      */
     ServiceUtilisateurIMP su = new ServiceUtilisateurIMP();
     Utilisateur userConn = Utilisateur.user_connecter;
-    String mewImagePath = userConn.getImage();    
+    String mewImagePath = userConn.getImage();
     @FXML
     private JFXButton btn_image;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
+
         String path = "Users/chaker/NetBeansProjects/pidev_java_chaker/pidev_java/src/Ressources/Image/" + mewImagePath;
         image.setImage(new Image("file:/" + path, 193, 200, false, false));
-        
-    }    
-    
+
+    }
+
     public Boolean CheckLogin() {
         Boolean verif = true;
         List<Utilisateur> list_user = su.afficherUtilisateur();
@@ -147,7 +150,8 @@ public class AjouterAgencierFxmlController implements Initializable {
         }
         return false;
     }
-     public Boolean VerifUserChamps() {
+
+    public Boolean VerifUserChamps() {
 
         int verif = 0;
 
@@ -207,28 +211,56 @@ public class AjouterAgencierFxmlController implements Initializable {
 
     }
 
-
+    public void goToDahsboard() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/AdminDashboardFXML.fxml"));
+            Parent root = loader.load();
+            btn_image.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(AjouterAgencierFxmlController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     @FXML
     private void ajouterAgencier(ActionEvent event) {
         Utilisateur agencierUtilisateur = new Utilisateur();
-        
+
         if (CheckLogin() && VerifUserChamps() && validateNumberCin() && validateNumberphone() && ValidateEmail()) {
-        agencierUtilisateur.setLogin(loginTexte.getText());
-        agencierUtilisateur.setPassword(su.encrypt(passwordTexte.getText()));
-        agencierUtilisateur.setNom(nomTexte.getText());
-        agencierUtilisateur.setPrenom(prenomTexte.getText());
-        agencierUtilisateur.setEmail(emailtexte.getText());
-        agencierUtilisateur.setNum_tel(Integer.parseInt(num_telTexte.getText()));
-        agencierUtilisateur.setCin(Integer.parseInt(cinTexte.getText()));
-        su.ajoutAgencier(agencierUtilisateur);
-        sucess();
+
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Demande de confirmation");
+            alert.setHeaderText(null);
+            alert.setContentText("Est-ce que sur d ajouter un nouveau agencier ");
+            Optional<ButtonType> btn = alert.showAndWait();
+            if (btn.get() == ButtonType.OK) {
+                agencierUtilisateur.setLogin(loginTexte.getText());
+                agencierUtilisateur.setPassword(su.encrypt(passwordTexte.getText()));
+                agencierUtilisateur.setNom(nomTexte.getText());
+                agencierUtilisateur.setPrenom(prenomTexte.getText());
+                agencierUtilisateur.setEmail(emailtexte.getText());
+                agencierUtilisateur.setNum_tel(Integer.parseInt(num_telTexte.getText()));
+                agencierUtilisateur.setCin(Integer.parseInt(cinTexte.getText()));
+                Date date1 = new Date();
+                String account_date = new SimpleDateFormat("yyyy-MM-dd").format(date1);
+                agencierUtilisateur.setAccount_date(account_date);
+                su.ajoutAgencier(agencierUtilisateur);
+
+                Alert resAlert = new Alert(Alert.AlertType.INFORMATION);
+                resAlert.setHeaderText(null);
+                resAlert.setContentText("L ajout a été avec sucess");
+                resAlert.showAndWait();
+                goToDahsboard();
+            } else {
+
+                alert.close();
+            }
+
         }
     }
 
     @FXML
     private void goToDashboard(ActionEvent event) {
-        
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/AdminDashboardFXML.fxml"));
             Parent root = loader.load();
@@ -241,14 +273,21 @@ public class AjouterAgencierFxmlController implements Initializable {
     @FXML
     private void AjouterAgencier(ActionEvent event) {
     }
-    
-    public void sucess (){
-          Alert al = new Alert(Alert.AlertType.INFORMATION);
+
+    public void sucess() {
+        Alert al = new Alert(Alert.AlertType.INFORMATION);
         al.setTitle("confirmation");
         al.setContentText("Agenicer a ete ajouter avec sucees");
         al.setHeaderText(null);
         al.show();
     }
 
-    
+    public void confirmation() {
+        Alert al = new Alert(Alert.AlertType.CONFIRMATION);
+        al.setTitle("confirmation");
+        al.setContentText("Agenicer a ete ajouter avec sucees");
+        al.setHeaderText(null);
+        al.show();
+    }
+
 }

@@ -35,7 +35,7 @@ public class Main {
         /**
          * ******************************************************************************
          */
-        // test de modification d un utilisateur 
+        // test de modification d un utilisateur
         // voir ServiceUtilisateurIMP pour mettre l id 
         //su.modifierUtilisateur(new Utilisateur("updated ", "updated", "updated", "updated", "updated", 0, 0, "updated", "updated", "updated", "updated","updated","2022-11-11"),15);
         /**
@@ -97,7 +97,8 @@ public class Main {
          */
         //test sending mail
         //MailTools.sendMail("usermail");
-        su.Authentification("chaker", "chaker123");
+        // su.Authentification("chaker", "chaker123");
+        //su.ChangerPassword(147,"jk");
 
     }
 

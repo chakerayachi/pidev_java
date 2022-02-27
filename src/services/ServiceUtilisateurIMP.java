@@ -18,7 +18,9 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import utils.MyDB;
@@ -374,6 +376,47 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
 
     }
 
+    public Map<String, Integer> countUsersByRole() {
+     Map <String, Integer>list= new HashMap<>();
+        try {
+            String req = "select COUNT(*) as count, role from utilisateur GROUP BY role";
+            Statement st = cnx.prepareStatement(req);
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+         list.put(rs.getString("role"),rs.getInt("count"));
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list  ; 
+ 
+
+    }
+    
+     public Map<String, Integer> countUsersByDate() {
+     Map <String, Integer>list= new HashMap<>();
+        try {
+            String req = "select COUNT(*) as count, account_date from utilisateur GROUP BY account_date";
+            Statement st = cnx.prepareStatement(req);
+            ResultSet rs = st.executeQuery(req);
+            while (rs.next()) {
+         list.put(rs.getString("account_date"),rs.getInt("count"));
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return list  ; 
+ 
+
+    }
+    
+    
+    
+
     public String getUtilisateurRole(int id) {
         String role = null;
         try {
@@ -585,6 +628,19 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
     public String decrypt(String password) {
 
         return new String(Base64.getMimeDecoder().decode(password));
+    }
+
+    public void ChangerPassword(int id, String nouveauPass) {
+        String passCrypter = encrypt(nouveauPass);
+
+        try {
+            String req = "update utilisateur set password='" + passCrypter + "'where id='" + id + "'";
+            PreparedStatement ps = cnx.prepareStatement(req);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
     }
 
 }
