@@ -33,7 +33,7 @@
                   <Insets left="10.0" right="10.0" top="140.0" />
                </VBox.margin>
                <children>
-                  <JFXButton buttonType="RAISED" prefHeight="70.0" prefWidth="280.0" style="-fx-background-color: #4107f4;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="Consulter Statistiques" textFill="WHITE">
+                  <JFXButton buttonType="RAISED" onAction="#goToStatistique" prefHeight="70.0" prefWidth="280.0" style="-fx-background-color: #4107f4;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="Consulter Statistiques" textFill="WHITE">
                      <font>
                         <Font size="25.0" />
                      </font>

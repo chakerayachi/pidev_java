@@ -5,10 +5,13 @@
  */
 package Controllers;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.animation.Animation;
 import javafx.animation.FadeTransition;
 import javafx.animation.KeyFrame;
@@ -18,8 +21,10 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Point3D;
+import javafx.scene.Parent;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
@@ -73,5 +78,20 @@ public class StatistiqueAdminFXMLController implements Initializable {
         barchart.getData().addAll(barSeries);
 
     }
+
+    @FXML
+    private void goToAdminDashboard(ActionEvent event) {
+        
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/AdminDashboardFXML.fxml"));
+            Parent root = loader.load();
+            pieChart.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(StatistiqueAdminFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    
+    
 
 }

@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import java.net.URL?>
 <?import javafx.scene.chart.BarChart?>
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="845.0" prefWidth="1310.0" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Controllers.StatistiqueAdminFXMLController">
+<AnchorPane id="AnchorPane" prefHeight="845.0" prefWidth="1310.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.StatistiqueAdminFXMLController">
     <stylesheets>
         <URL value="@statistiqueadminfxml.css" />
     </stylesheets>
    <children>
-      <PieChart fx:id="pieChart" layoutX="35.0" layoutY="41.0" prefHeight="668.0" prefWidth="580.0" />
+      <PieChart fx:id="pieChart" layoutX="35.0" layoutY="58.0" prefHeight="651.0" prefWidth="580.0" />
       <BarChart fx:id="barchart" layoutX="655.0" layoutY="41.0" prefHeight="668.0" prefWidth="642.0">
         <xAxis>
           <CategoryAxis side="BOTTOM" />
@@ -21,5 +23,10 @@
           <NumberAxis side="LEFT" />
         </yAxis>
       </BarChart>
+      <JFXButton buttonType="RAISED" layoutX="29.0" layoutY="8.0" onAction="#goToAdminDashboard" style="-fx-background-color: #f4b707;" text="Retoure" textFill="#2f3459">
+         <font>
+            <Font name="American Typewriter Bold" size="17.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>

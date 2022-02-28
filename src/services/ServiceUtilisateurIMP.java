@@ -377,45 +377,40 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
     }
 
     public Map<String, Integer> countUsersByRole() {
-     Map <String, Integer>list= new HashMap<>();
+        Map<String, Integer> list = new HashMap<>();
         try {
             String req = "select COUNT(*) as count, role from utilisateur GROUP BY role";
             Statement st = cnx.prepareStatement(req);
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
-         list.put(rs.getString("role"),rs.getInt("count"));
+                list.put(rs.getString("role"), rs.getInt("count"));
 
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return list  ; 
- 
+        return list;
 
     }
-    
-     public Map<String, Integer> countUsersByDate() {
-     Map <String, Integer>list= new HashMap<>();
+
+    public Map<String, Integer> countUsersByDate() {
+        Map<String, Integer> list = new HashMap<>();
         try {
             String req = "select COUNT(*) as count, account_date from utilisateur GROUP BY account_date";
             Statement st = cnx.prepareStatement(req);
             ResultSet rs = st.executeQuery(req);
             while (rs.next()) {
-         list.put(rs.getString("account_date"),rs.getInt("count"));
+                list.put(rs.getString("account_date"), rs.getInt("count"));
 
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return list  ; 
- 
+        return list;
 
     }
-    
-    
-    
 
     public String getUtilisateurRole(int id) {
         String role = null;
@@ -539,20 +534,29 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
         return user;
     }
 
-    public Boolean FindByNom(String nom) {
+    public Utilisateur FindByLogin(String login) {
+        Utilisateur user = new Utilisateur();
 
         try {
-            String req = "SELECT * FROM utilisateur WHERE nom ='" + nom + "'";
+            String req = "SELECT * FROM utilisateur WHERE login ='" + login + "'";
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(req);
-            String user_nom = null;
 
             while (rs.next()) {
-                user_nom = rs.getString(4);
-                if (nom.equals(user_nom)) {
-                    return true;
-
-                }
+                user.setId(rs.getInt("id"));
+                user.setLogin(rs.getString("login"));
+                user.setPassword(rs.getString("password"));
+                user.setNom(rs.getString("nom"));
+                user.setPrenom(rs.getString("prenom"));
+                user.setEmail(rs.getString("email"));
+                user.setNum_tel(rs.getInt("num_tel"));
+                user.setCin(rs.getInt("cin"));
+                user.setAdresse(rs.getString("adresse"));
+                user.setRole(rs.getString("role"));
+                user.setImage(rs.getString("image"));
+                user.setDescription(rs.getString("description"));
+                user.setEtat(rs.getString("etat"));
+                user.setAccount_date(rs.getString("account_date"));
 
             }
 
@@ -560,7 +564,7 @@ public class ServiceUtilisateurIMP implements Iutilisateur<Utilisateur> {
             Logger.getLogger(ServiceUtilisateurIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return false;
+        return user;
 
     }
 

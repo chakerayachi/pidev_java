@@ -27,6 +27,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import javafx.stage.FileChooser.ExtensionFilter;
 import services.ServiceUtilisateurIMP;
@@ -57,7 +59,7 @@ public class SignUpFXMLController implements Initializable {
     private JFXTextField CinTexte;
     @FXML
     private JFXPasswordField PasswordTexte;
-     @FXML
+    @FXML
     private JFXTextField ImageUser;
 
     /**
@@ -68,19 +70,22 @@ public class SignUpFXMLController implements Initializable {
 
     Date date1 = new Date();
     String account_date = new SimpleDateFormat("yyyy-MM-dd").format(date1);
-   
+
     private List<String> listfiles;
+    @FXML
+    private ImageView imageQR;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
+
         listfiles = new ArrayList<>();
         listfiles.add("*.png");
         listfiles.add("*.jpg");
+        imageQR.setImage(new Image("file:/Users/chaker/NetBeansProjects/pidev_java_chaker/pidev_java/src/Ressources/Image/wlecomeQR.png", 193, 200, false, false));
+
     }
 
-    @FXML
     private void GoToLogin(ActionEvent event) {
 
         try {
@@ -251,6 +256,11 @@ public class SignUpFXMLController implements Initializable {
             System.out.println(ImageUser.getText());
             System.out.println(user.getImage());
             service_user.ajoutClient(user);
+            Alert resAlert = new Alert(Alert.AlertType.INFORMATION);
+            resAlert.setHeaderText(null);
+            resAlert.setContentText("Account a ete cree avec sucess");
+            resAlert.showAndWait();
+            GoToLogin(event);
 
         }
 
@@ -258,13 +268,24 @@ public class SignUpFXMLController implements Initializable {
 
     @FXML
     private void FileChooser(ActionEvent event) {
-         FileChooser fc = new FileChooser();
+        FileChooser fc = new FileChooser();
         fc.getExtensionFilters().add(new ExtensionFilter("Image Files", listfiles));
         File f = fc.showOpenDialog(null);
-        if(f != null) {
+        if (f != null) {
             ImageUser.setText(f.getName());
         }
-        
+
+    }
+
+    @FXML
+    private void GoT(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/LoginFXML.fxml"));
+            Parent root = loader.load();
+            ImageUser.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(SignUpFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }

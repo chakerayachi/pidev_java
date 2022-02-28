@@ -5,19 +5,21 @@
  */
 package test;
 
-import entities.Client;
-import entities.Hotel;
 import entities.Utilisateur;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import services.ServiceUtilisateurIMP;
 import utils.MailTools;
+import static utils.MailTools.makeFile;
+import utils.SmsTools;
 
 /**
  *
  * @author chaker
  */
 public class Main {
+    
+    
 
     public static void main(String[] args) throws Exception {
         System.out.println("hello nexus");
@@ -95,11 +97,24 @@ public class Main {
         /**
          * ******************************************************************************
          */
+
+        // test pdf
+        
+//        Utilisateur user = new  Utilisateur();
+//        user.setNom("chaker");
+//        user.setNum_tel(23232323);
+//        user.setPrenom("ayachi");
+//        user.setEmail("mohamedbader.moussa@esprit.tn");
+//        
+//        makeFile(account_date, user);
+        
         //test sending mail
-        //MailTools.sendMail("usermail");
+       // MailTools.sendMail(user,"dss","sd");
         // su.Authentification("chaker", "chaker123");
         //su.ChangerPassword(147,"jk");
-
+       // System.out.println( su.FindByLogin("chakddder"));
+        
+        
     }
 
 }

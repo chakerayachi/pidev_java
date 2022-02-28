@@ -38,6 +38,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import services.ServiceUtilisateurIMP;
+import utils.MailTools;
 
 /**
  * FXML Controller class
@@ -107,7 +108,7 @@ public class AdminDashboardFXMLController implements Initializable {
         emailTexte.setText(userConn.getEmail());
         numTexte.setText(String.valueOf(userConn.getNum_tel()));
         cinTexte.setText("" + userConn.getCin());
-        
+
         afficheTableView();
         filteredSearch();
         ChoiceBox.getItems().addAll("Nom", "Email", "Role", "Prenom");
@@ -306,12 +307,51 @@ public class AdminDashboardFXMLController implements Initializable {
             al.setHeaderText(null);
             al.show();
         } else if (user.getEtat().equals("active")) {
-            su.DescativerUser(user.getId());
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Demande de confirmation");
+            alert.setHeaderText(null);
+            alert.setContentText("Est-ce que vous etes sure de votre supspension ");
+            Optional<ButtonType> btn = alert.showAndWait();
+            if (btn.get() == ButtonType.OK) {
+                su.DescativerUser(user.getId());
+                try {
+                    MailTools.sendMail(user,"Desactivation de compte","Votre compte a ete desactivee.\n contacter l administrateur pour plus d information");
+                } catch (Exception ex) {
+                    Logger.getLogger(AdminDashboardFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Alert resAlert = new Alert(Alert.AlertType.INFORMATION);
+                resAlert.setHeaderText(null);
+                resAlert.setContentText("La suspension a été effecuter avec sucess. Un mail a ete envoye a "+user.getNom());
+                resAlert.showAndWait();
+            } else {
+
+                alert.close();
+            }
 
         } else if (user.getEtat().equals("desactive")) {
-            su.ActiverUser(user.getId());
+            Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+            alert.setTitle("Demande de confirmation");
+            alert.setHeaderText(null);
+            alert.setContentText("Est-ce que vous etes sure de votre activation ");
+            Optional<ButtonType> btn = alert.showAndWait();
+            if (btn.get() == ButtonType.OK) {
+                su.ActiverUser(user.getId());
+                 try {
+                    MailTools.sendMail(user,"Activation de compte","Votre compte a ete reactivee.\n Vous pouvez vous connecter");
+                } catch (Exception ex) {
+                    Logger.getLogger(AdminDashboardFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                Alert resAlert = new Alert(Alert.AlertType.INFORMATION);
+                resAlert.setHeaderText(null);
+                resAlert.setContentText("L activation a été effecuter avec sucess. Un mail a ete envoye a "+user.getNom());
+                resAlert.showAndWait();
+            } else {
+
+                alert.close();
+            }
 
         }
+
         afficheTableView();
 
     }
@@ -347,16 +387,28 @@ public class AdminDashboardFXMLController implements Initializable {
                     flProduit.setPredicate(p -> p.getPrenom().toString().toLowerCase().contains(newValue.toLowerCase().trim()));
                     break;
             }
-            
+
         });
-          tableView_user.setItems(flProduit);
-        ChoiceBox.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> 
-        {
-            if(newVal!= null){
+        tableView_user.setItems(flProduit);
+        ChoiceBox.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal)
+                -> {
+            if (newVal != null) {
                 setPromptText.setText("");
             }
         });
 
+    }
+
+    @FXML
+    private void goToStatistique(ActionEvent event) {
+
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/StatistiqueAdminFXML.fxml"));
+            Parent root = loader.load();
+            tableView_user.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(AdminDashboardFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
 }
