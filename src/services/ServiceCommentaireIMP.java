@@ -32,7 +32,7 @@ public class ServiceCommentaireIMP implements IForum<Commentaire>{
     @Override
     public boolean ajout(Commentaire t) {
         try {
-            String req="insert into commentaire (contenu,date,idsujet,iduser,idtopic) values "+"('"+t.getContenu()+"','"+t.getDate()+"','"+t.getIdsujet()+"','"+t.getIduser()+"','"+t.getIdtopic()+"')";
+            String req="insert into commentaire (contenu,date,idsujet,iduser) values "+"('"+t.getContenu()+"','"+t.getDate()+"','"+t.getIdsujet()+"','"+t.getIduser()+"')";
             Statement st= cnx.createStatement();
             try {
                 st.executeUpdate(req);
