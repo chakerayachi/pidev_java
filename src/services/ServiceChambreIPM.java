@@ -39,7 +39,7 @@ public class ServiceChambreIPM implements Ihebergement<Chambre>{
           PreparedStatement ps = cnxx.prepareStatement(req);
           System.out.println(req);
             ps.setString(1,c.getType());
-            ps.setInt(2,c.getId_hotel());
+            ps.setInt(2,7);
             ps.setFloat(3,c.getPrix());
             
 
@@ -52,10 +52,12 @@ public class ServiceChambreIPM implements Ihebergement<Chambre>{
     
     public void modify(Chambre c) {
         try {
-            String req= "update chamber set prix = ? , type = ? where id= ?";
+            String req= "update chambre set prix = ? , type = ? where id= ?";
             PreparedStatement ps=cnxx.prepareStatement(req);
-             ps.setFloat(1,c.getPrix());
+            ps.setFloat(1,c.getPrix());
             ps.setString(2,c.getType());
+            ps.setInt(3,c.getId());
+            
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ServiceHotelIPM.class.getName()).log(Level.SEVERE, null, ex);

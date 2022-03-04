@@ -57,13 +57,14 @@ public class ServiceHotelIPM implements Ihebergement<Hotel>{
         try {
             String req= "update hotel set adresse = ? , ville = ? , region = ? , num_tel = ? , description = ? , libelle = ? , nb_etoiles = ?  where id= ?";
             PreparedStatement ps=cnxx.prepareStatement(req);
-             ps.setString(1,h.getAdresse());
+            ps.setString(1,h.getAdresse());
             ps.setString(2,h.getVille());
             ps.setString(3,h.getRegion());
             ps.setInt(4,h.getNum_tel());
             ps.setString(5,h.getDescription());
             ps.setString(6,h.getLibelle());
             ps.setInt(7,h.getNb_etoile());
+            ps.setInt(8,h.getId());
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ServiceHotelIPM.class.getName()).log(Level.SEVERE, null, ex);
@@ -149,7 +150,7 @@ public class ServiceHotelIPM implements Ihebergement<Hotel>{
     public List<Hotel> afficherHotelsParNbRegion(String reg) {
      ArrayList<Hotel>  list = new ArrayList();
        try {
-                  String req ="Select * FROM hotel where region="+reg;
+                  String req ="Select * FROM hotel where region='"+reg+"'";
              Statement st = cnxx.createStatement();
              ResultSet rs = st.executeQuery(req);
              while (rs.next()){
@@ -204,5 +205,7 @@ public class ServiceHotelIPM implements Ihebergement<Hotel>{
         }   
      return list;    
     }
+    
+    
     
 }

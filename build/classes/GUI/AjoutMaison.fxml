@@ -4,26 +4,65 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="515.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MaisonController">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterMaisonController">
    <children>
-      <Text layoutX="248.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajout maison" />
-      <Label layoutX="71.0" layoutY="78.0" text="Adresse" />
-      <Label layoutX="71.0" layoutY="115.0" text="Region" />
-      <Label layoutX="61.0" layoutY="435.0" text="Prix" />
-      <Label layoutX="50.0" layoutY="222.0" text="Description" />
-      <Label layoutX="71.0" layoutY="154.0" text="Telephone" />
-      <Label layoutX="16.0" layoutY="323.0" text="Nombre de chambre" />
-      <Label layoutX="57.0" layoutY="374.0" text="Capacité" />
-      <TextArea fx:id="adresse" layoutX="126.0" layoutY="45.0" prefHeight="65.0" prefWidth="155.0" />
-      <TextField fx:id="region" layoutX="131.0" layoutY="119.0" prefHeight="26.0" prefWidth="155.0" />
-      <TextField fx:id="tel" layoutX="135.0" layoutY="158.0" />
-      <TextArea fx:id="description" layoutX="135.0" layoutY="199.0" prefHeight="81.0" prefWidth="147.0" />
-      <TextField fx:id="nbChambre" layoutX="135.0" layoutY="319.0" />
-      <TextField fx:id="capacite" layoutX="135.0" layoutY="361.0" />
-      <TextField fx:id="prix" layoutX="126.0" layoutY="431.0" />
-      <Button fx:id="ajouterBtn" layoutX="261.0" layoutY="476.0" mnemonicParsing="false" onAction="#Insert" text="Ajouter" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="700.0" layoutX="-1.0" stroke="#2f3459" strokeType="INSIDE" width="907.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="52.0" layoutX="-1.0" layoutY="32.0" stroke="#f4b707" strokeType="INSIDE" width="907.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="107.0" layoutX="767.0" layoutY="14.0" stroke="#f4b707" strokeType="INSIDE" width="107.0" />
+      <Text fill="#2f3459" layoutX="32.0" layoutY="68.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter maison">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font></Text>
+      <Label layoutX="194.0" layoutY="123.0" text="Adresse" textFill="#f4b707">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Label layoutX="194.0" layoutY="185.0" text="Région" textFill="#f4b707">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Label layoutX="196.0" layoutY="550.0" text="Prix" textFill="#f4b707">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Label layoutX="195.0" layoutY="299.0" text="Description" textFill="#f4b707">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Label layoutX="196.0" layoutY="238.0" text="Num. Téléphone" textFill="#f4b707">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Label layoutX="194.0" layoutY="422.0" text="Nombre de chambres" textFill="#f4b707">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <Label layoutX="196.0" layoutY="485.0" text="Capacité" textFill="#f4b707">
+         <font>
+            <Font size="23.0" />
+         </font></Label>
+      <TextArea fx:id="adresse" layoutX="451.0" layoutY="121.0" prefHeight="18.0" prefWidth="155.0" />
+      <TextField fx:id="region" layoutX="451.0" layoutY="189.0" prefHeight="26.0" prefWidth="155.0" />
+      <TextField fx:id="tel" layoutX="451.0" layoutY="242.0" prefHeight="26.0" prefWidth="155.0" />
+      <TextArea fx:id="description" layoutX="454.0" layoutY="299.0" prefHeight="93.0" prefWidth="263.0" />
+      <TextField fx:id="nbChambre" layoutX="455.0" layoutY="426.0" />
+      <TextField fx:id="capacite" layoutX="455.0" layoutY="489.0" />
+      <TextField fx:id="prix" layoutX="455.0" layoutY="554.0" />
+      <Button id="button" fx:id="ajouterBtn" layoutX="412.0" layoutY="631.0" mnemonicParsing="false" onAction="#Insert" prefHeight="26.0" prefWidth="81.0" text="Ajouter" textFill="#2f3459">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <ImageView fx:id="logo" fitHeight="150.0" fitWidth="150.0" layoutX="746.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

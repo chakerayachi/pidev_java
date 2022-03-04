@@ -7,16 +7,23 @@ package GUI;
 
 import entities.Chambre;
 import entities.Hotel;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
+import javafx.stage.Stage;
 import services.ServiceChambreIPM;
 
 /**
@@ -35,6 +42,9 @@ public class AjoutChambreController implements Initializable {
     private TextField prix;
     @FXML
     private Button ajouterBtn;
+    @FXML
+    private ImageView logo;
+    
 
     /**
      * Initializes the controller class.
@@ -46,7 +56,7 @@ public class AjoutChambreController implements Initializable {
     }    
     
     @FXML
-    private void Insert(ActionEvent event) {
+    private void Insert(ActionEvent event) throws IOException {
         Chambre c = new Chambre();
        
         c.setType((String) type.getSelectionModel().getSelectedItem());
@@ -56,6 +66,12 @@ public class AjoutChambreController implements Initializable {
      
         
         s.create(c);
+        
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListChambre.fxml"));
+		Scene scene = new Scene(root);
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
     }
     
 }

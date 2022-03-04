@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="box" prefHeight="398.0" prefWidth="299.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MaisonCardController">
+   <children>
+      <ImageView fx:id="image" fitHeight="110.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@maison.jpg" />
+         </image>
+         <VBox.margin>
+            <Insets left="40.0" top="40.0" />
+         </VBox.margin>
+      </ImageView>
+      <Label fx:id="nbChambre" prefHeight="46.0" prefWidth="182.0" text="nbchambre  : ">
+         <VBox.margin>
+            <Insets left="50.0" top="30.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="prix" prefHeight="46.0" prefWidth="182.0" text="Prix : ">
+         <VBox.margin>
+            <Insets left="50.0" top="30.0" />
+         </VBox.margin>
+      </Label>
+   </children>
+</VBox>

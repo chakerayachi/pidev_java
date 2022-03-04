@@ -4,16 +4,36 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjoutChambreController">
    <children>
-      <Text layoutX="278.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajout Chambre" />
-      <Label layoutX="111.0" layoutY="127.0" text="Type" />
-      <Label layoutX="111.0" layoutY="183.0" text="Prix" />
-      <ChoiceBox fx:id="type" layoutX="185.0" layoutY="123.0" prefWidth="150.0" />
-      <TextField fx:id="prix" layoutX="187.0" layoutY="179.0" />
-      <Button fx:id="ajouterBtn" layoutX="274.0" layoutY="267.0" mnemonicParsing="false" onAction="#Insert" text="Ajouter" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="400.0" stroke="#2f3459" strokeType="INSIDE" width="601.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="400.0" stroke="BLACK" strokeType="INSIDE" width="124.0" />
+      <Text fill="#f4b707" layoutX="277.0" layoutY="101.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter Chambre">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Text>
+      <Label layoutX="249.0" layoutY="173.0" text="Type" textFill="#f4b707">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <Label layoutX="249.0" layoutY="220.0" text="Prix" textFill="#f4b707">
+         <font>
+            <Font size="24.0" />
+         </font></Label>
+      <ChoiceBox fx:id="type" layoutX="326.0" layoutY="178.0" prefWidth="150.0" />
+      <TextField fx:id="prix" layoutX="325.0" layoutY="225.0" prefHeight="26.0" prefWidth="150.0" />
+      <Button id="button" fx:id="ajouterBtn" layoutX="335.0" layoutY="308.0" mnemonicParsing="false" onAction="#Insert" text="Ajouter" textFill="#2f3459" />
+      <ImageView fx:id="logo" fitHeight="150.0" fitWidth="200.0" layoutX="-13.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>

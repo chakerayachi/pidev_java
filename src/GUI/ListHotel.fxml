@@ -1,25 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="1005.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ListHotelController">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="1005.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ListHotelController">
    <children>
-      <TableView fx:id="tableView" layoutX="5.0" layoutY="66.0" prefHeight="211.0" prefWidth="995.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="700.0" stroke="#2f3459" strokeType="INSIDE" width="1005.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="45.0" layoutY="55.0" stroke="#f4b707" strokeType="INSIDE" width="1005.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="82.0" layoutX="901.0" layoutY="42.0" stroke="#f4b707" strokeType="INSIDE" width="90.0" />
+      <TableView fx:id="tableView" layoutX="69.0" layoutY="236.0" prefHeight="297.0" prefWidth="867.0">
         <columns>
-          <TableColumn fx:id="id" maxWidth="100.0" prefWidth="100.0" text="ID" />
-          <TableColumn fx:id="libelle" maxWidth="100.0" prefWidth="100.0" text="Libelle" />
+          <TableColumn fx:id="libelle" maxWidth="100.0" prefWidth="100.0" text="Libellé" />
             <TableColumn fx:id="adresse" maxWidth="100.0" prefWidth="100.0" text="Adresse" />
-            <TableColumn fx:id="ville" maxWidth="100.0" prefWidth="100.0" text="Ville" />
-            <TableColumn fx:id="region" maxWidth="100.0" prefWidth="100.0" text="Region" />
-            <TableColumn fx:id="tel" maxWidth="100.0" prefWidth="100.0" text="Telephone" />
-            <TableColumn fx:id="description" maxWidth="100.0" prefWidth="100.0" text="Description" />
-            <TableColumn fx:id="nbEtoile" maxWidth="100.0" prefWidth="100.0" text="Nombre d'etoile" />
-            <TableColumn maxWidth="100.0" prefWidth="100.0" text="Action" />
+            <TableColumn fx:id="ville" maxWidth="100.0" prefWidth="72.21240234375" text="Ville" />
+            <TableColumn fx:id="region" maxWidth="132.53094482421875" prefWidth="97.6990966796875" text="Région" />
+            <TableColumn fx:id="tel" maxWidth="131.68145751953125" prefWidth="96.84954833984375" text="Num Téléphone" />
+            <TableColumn fx:id="description" maxWidth="217.4866943359375" prefWidth="197.09735107421875" text="Description" />
+            <TableColumn fx:id="nbEtoile" maxWidth="169.06195068359375" prefWidth="108.74346923828125" text="Nombre d'étoiles" />
+            <TableColumn fx:id="editcol" maxWidth="164.814216431535" prefWidth="96.849609375" text="Action" />
         </columns>
       </TableView>
-      <TextField fx:id="txtHotelSearch" layoutX="429.0" layoutY="20.0" />
+      <TextField fx:id="txtHotelSearch" layoutX="69.0" layoutY="200.0" />
+      <Text fill="#2f3459" layoutX="30.0" layoutY="88.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des hôtels">
+         <font>
+            <Font name="System Bold" size="28.0" />
+         </font>
+      </Text>
+      <Button id="button" fx:id="refresh" layoutX="873.0" layoutY="187.0" mnemonicParsing="false" onAction="#refresh" text="Refresh" textFill="#2f3459" />
+      <ImageView fx:id="logo" fitHeight="131.0" fitWidth="115.0" layoutX="889.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Button id="button" fx:id="ajouterBtn" layoutX="794.0" layoutY="187.0" mnemonicParsing="false" onAction="#ajouter" text="Ajouter" />
    </children>
 </AnchorPane>

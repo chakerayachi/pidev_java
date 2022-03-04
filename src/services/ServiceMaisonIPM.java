@@ -55,7 +55,7 @@ Connection cnxx ;
     @Override
     public void modify(Maison m) {
         try {
-            String req= "update maison set adresse = ? , ville = ? , region = ? , num_tel = ? , description = ? , capacite = ? , nb_chambres = ? , prix = ?  where id= ?";
+            String req= "update maison set adresse = ? , region = ? , num_tel = ? , description = ? , capacite = ? , nb_chambres = ? , prix = ?  where id= ?";
             PreparedStatement ps=cnxx.prepareStatement(req);
             ps.setString(1,m.getAdresse());
             ps.setString(2,m.getRegion());
@@ -64,6 +64,7 @@ Connection cnxx ;
             ps.setInt(5,m.getCapacite());
             ps.setInt(6,m.getNb_chambres());
             ps.setFloat(7,m.getPrix());
+            ps.setInt(8,m.getId());
             ps.executeUpdate();
         } catch (SQLException ex) {
             Logger.getLogger(ServiceHotelIPM.class.getName()).log(Level.SEVERE, null, ex);
@@ -74,7 +75,7 @@ Connection cnxx ;
     @Override
     public void delete(int id) {
        try {
-            String req = "DELETE FROM hotel WHERE id = ?" ;
+            String req = "DELETE FROM maison WHERE id = ?" ;
           PreparedStatement ps = cnxx.prepareStatement(req);
           System.out.println(req);
             ps.setInt(1,id);
@@ -152,7 +153,7 @@ Connection cnxx ;
     public List<Maison> afficherParRegion(String region) {
         ArrayList<Maison>  list = new ArrayList();
         try {
-                  String req ="Select * FROM maison where region ="+region;
+                  String req ="Select * FROM maison where region ='"+region+"'";
              Statement st = cnxx.createStatement();
              ResultSet rs = st.executeQuery(req);
              while (rs.next()){
