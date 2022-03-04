@@ -271,4 +271,15 @@ public class AgencierFXMLController implements Initializable {
         }
     }
 
+    @FXML
+    private void logout(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/LoadingFXML.fxml"));
+            Parent root = loader.load();
+            nomTexte.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(AgencierFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
 }

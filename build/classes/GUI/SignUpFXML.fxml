@@ -67,7 +67,7 @@
             <Font name="American Typewriter" size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="ImageUser" focusColor="#f4b707" labelFloat="true" layoutX="87.0" layoutY="518.0" prefHeight="27.0" prefWidth="324.0" promptText="image" unFocusColor="#2f3459">
+      <JFXTextField fx:id="ImageUser" editable="false" focusColor="#f4b707" labelFloat="true" layoutX="87.0" layoutY="518.0" prefHeight="27.0" prefWidth="324.0" promptText="image" unFocusColor="#2f3459">
          <font>
             <Font name="American Typewriter" size="20.0" />
          </font>

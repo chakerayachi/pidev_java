@@ -92,6 +92,8 @@ public class AdminDashboardFXMLController implements Initializable {
     private VBox choiceBox;
     @FXML
     private JFXTextField setPromptText;
+    @FXML
+    private JFXButton logoutButton;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -409,6 +411,21 @@ public class AdminDashboardFXMLController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(AdminDashboardFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    @FXML
+    private void LogOut(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/LoadingFXML.fxml"));
+            Parent root = loader.load();
+            cinTexte.getScene().setRoot(root);
+            userConn=null;
+            System.out.println(userConn);
+           
+        } catch (IOException ex) {
+            Logger.getLogger(AdminDashboardFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
 }

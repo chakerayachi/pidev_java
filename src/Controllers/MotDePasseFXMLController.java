@@ -6,7 +6,6 @@
 package Controllers;
 
 import com.jfoenix.controls.JFXButton;
-import com.twilio.twiml.voice.Sms;
 import entities.Utilisateur;
 import java.io.IOException;
 import java.net.URL;
@@ -44,6 +43,8 @@ public class MotDePasseFXMLController implements Initializable {
      */
     ServiceUtilisateurIMP su = new ServiceUtilisateurIMP();
     private int randomnumber = (int) (Math.random() * 9999);
+    @FXML
+    private JFXButton dd;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

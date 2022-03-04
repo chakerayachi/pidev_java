@@ -56,7 +56,7 @@
             <Font name="American Typewriter Semibold" size="24.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="1022.0" layoutY="14.0" onAction="#goToLogin" prefHeight="44.0" prefWidth="114.0" style="-fx-background-color: #f4b707;" text="retour" textFill="#2f3459">
+      <JFXButton fx:id="dd" layoutX="1022.0" layoutY="14.0" onAction="#goToLogin" prefHeight="44.0" prefWidth="114.0" style="-fx-background-color: #f4b707;" text="retour" textFill="#2f3459">
          <font>
             <Font name="American Typewriter Semibold" size="24.0" />
          </font>

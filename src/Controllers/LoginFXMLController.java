@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import entities.Utilisateur;
@@ -54,6 +55,7 @@ public class LoginFXMLController implements Initializable {
             + "\n Nexus Contact : ww.facebook.com/";
     @FXML
     private ImageView qrimage;
+   
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -69,14 +71,13 @@ public class LoginFXMLController implements Initializable {
             ImageIO.write(bImage2, "png", new File("/Users/chaker/NetBeansProjects/pidev_java_chaker/pidev_java/src/Ressources/Image/wlecomeQR.png"));
             System.out.println("image created");
             qrimage.setImage(new Image("file:/Users/chaker/NetBeansProjects/pidev_java_chaker/pidev_java/src/Ressources/Image/wlecomeQR.png", 193, 200, false, false));
-            
+
         } catch (Exception ex) {
             Logger.getLogger(LoginFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
 
-  
     private void GoToAdminDashboard(ActionEvent event) {
 
         try {
@@ -183,7 +184,7 @@ public class LoginFXMLController implements Initializable {
 
     @FXML
     private void SignUpPage(ActionEvent event) {
-         
+
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/SignUpFXML.fxml"));
             Parent root = loader.load();
@@ -191,51 +192,32 @@ public class LoginFXMLController implements Initializable {
         } catch (IOException ex) {
             Logger.getLogger(LoginFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
-        
+
     }
 
     @FXML
-    private void goToPasswordReset(ActionEvent event) {
-        
+    private void goToPasswordResete(ActionEvent event) {
         if (null != su.FindByLogin(LoginTexte.getText())) {
-            
-                Utilisateur.user_connecter= su.FindByLogin(LoginTexte.getText());
 
-              try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/MotDePasseFXML.fxml"));
-            Parent root = loader.load();
-            LabelHelloFriend.getScene().setRoot(root);
-        } catch (IOException ex) {
-            Logger.getLogger(LoginFXMLController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-            
-            
-            
-            
-        }else{
-              Alert al = new Alert(Alert.AlertType.ERROR);
+            Utilisateur.user_connecter = su.FindByLogin(LoginTexte.getText());
+
+            try {
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/MotDePasseFXML.fxml"));
+                Parent root = loader.load();
+                LabelHelloFriend.getScene().setRoot(root);
+            } catch (IOException ex) {
+                Logger.getLogger(LoginFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } else {
+            Alert al = new Alert(Alert.AlertType.ERROR);
             al.setTitle("Alert");
             al.setContentText("invalid login");
             al.setHeaderText(null);
             al.show();
-            
-            
-            
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-      
-        
     }
 
-}
+   
+
+    }

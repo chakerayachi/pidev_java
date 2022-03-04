@@ -71,7 +71,7 @@
             <Font name="Apple Symbols" size="36.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="715.0" layoutY="450.0" onAction="#goToPasswordReset" prefHeight="29.0" prefWidth="217.0" ripplerFill="#2f3459" style="-fx-background-color: #f4b707;" text="Forget Your Password" textFill="#2f3459" textOverrun="CENTER_WORD_ELLIPSIS">
+      <JFXButton layoutX="715.0" layoutY="450.0" onAction="#goToPasswordResete" prefHeight="29.0" prefWidth="217.0" ripplerFill="#2f3459" style="-fx-background-color: #f4b707;" text="Forget Your Password" textFill="#2f3459" textOverrun="CENTER_WORD_ELLIPSIS">
          <font>
             <Font name="Apple Symbols" size="24.0" />
          </font>
