@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="395.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.AjoutertopicController">
+   <children>
+      <VBox alignment="TOP_CENTER" layoutX="12.0" layoutY="7.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="380.0" prefWidth="371.0" styleClass="btn" stylesheets="@../../../../Downloads/operations-of-table-master/operations-of-table-master/src/tableView/tableview.css">
+         <children>
+            <Text fill="#2f3459" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter Topic " wrappingWidth="369.35546875">
+               <font>
+                  <Font name="Comic Sans MS Bold Italic" size="40.0" />
+               </font>
+            </Text>
+            <HBox alignment="CENTER">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Titre" wrappingWidth="102.13671875">
+                     <font>
+                        <Font name="Comic Sans MS Bold Italic" size="22.0" />
+                     </font>
+                  </Text>
+                  <JFXTextField fx:id="inputtitre" prefHeight="25.0" prefWidth="358.0">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="18.0" />
+                     </font>
+                  </JFXTextField>
+               </children>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="114.0">
+               <VBox.margin>
+                  <Insets top="17.0" />
+               </VBox.margin>
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="135.13671875">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="22.0" />
+                     </font>
+                  </Text>
+                  <TextArea fx:id="inputdesc" prefHeight="138.0" prefWidth="290.0">
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="18.0" />
+                     </font></TextArea>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="62.0" prefWidth="384.0">
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+               <children>
+                  <JFXButton fx:id="addbtn" onMouseClicked="#save" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #2f3459;" styleClass="btn" text="Ajouter" textFill="WHITE">
+                     <HBox.margin>
+                        <Insets right="8.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="24.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton layoutX="132.0" layoutY="19.0" onMouseClicked="#clean" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #f4b707;" styleClass="btn" text="Clean">
+                     <HBox.margin>
+                        <Insets left="8.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font name="Comic Sans MS Bold" size="25.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

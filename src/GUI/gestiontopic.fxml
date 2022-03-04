@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="688.0" prefWidth="1196.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GestiontopicController">
+   <children>
+      <TableView fx:id="tvtopics" layoutY="129.0" prefHeight="559.0" prefWidth="1214.0" stylesheets="@gestiontopic.css">
+        <columns>
+          <TableColumn fx:id="coltitre" prefWidth="286.9999694824219" style="-fx-alignment: center;" text="titre" />
+            <TableColumn fx:id="coldescription" minWidth="1.0" prefWidth="306.0" style="-fx-alignment: center;" text="description" />
+            <TableColumn fx:id="coldate" minWidth="0.0" prefWidth="205.0" style="-fx-alignment: center;" text="date" />
+            <TableColumn fx:id="colnbsujet" prefWidth="218.0" style="-fx-alignment: center;" text="nbsujet" />
+            <TableColumn fx:id="editcol" prefWidth="194.0" style="-fx-alignment: center;" text="action" />
+        </columns>
+      </TableView>
+      <Label alignment="CENTER" layoutX="400.0" layoutY="17.0" prefHeight="75.0" prefWidth="401.0" style="-fx-background-color: #2f3459;" text="Topics" textFill="#f4b707">
+         <font>
+            <Font name="Comic Sans MS Bold" size="50.0" />
+         </font>
+      </Label>
+      <FontAwesomeIconView fill="#2f3459" glyphName="PLUS_SQUARE" layoutX="53.0" layoutY="93.0" onMouseClicked="#ajoutertopic" size="45" styleClass="btn" />
+      <ImageView fitHeight="134.0" fitWidth="157.0" layoutX="1079.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@lo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

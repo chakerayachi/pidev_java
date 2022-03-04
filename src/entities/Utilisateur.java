@@ -23,6 +23,8 @@ public class Utilisateur {
     private String role ;
     private String image ;
     private String description ;
+    private String etat ;
+    private String account_date;
 
     // constructeur par default
 
@@ -33,7 +35,7 @@ public class Utilisateur {
 
     // constructeur avec le champs id
 
-    public Utilisateur(int id, String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description) {
+    public Utilisateur(int id, String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description , String etat,String accounte_date) {
         this.id = id;
         this.login = login;
         this.password = password;
@@ -46,13 +48,15 @@ public class Utilisateur {
         this.role = role;
         this.image = image;
         this.description = description;
+        this.etat= etat;
+        this.account_date = accounte_date;
     }
 
 
 
     // constructeur sans le champs id
 
-    public Utilisateur( String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description) {
+    public Utilisateur( String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse, String role, String image, String description , String etat ,String accounte_date) {
 
         this.login = login;
         this.password = password;
@@ -65,10 +69,26 @@ public class Utilisateur {
         this.role = role;
         this.image = image;
         this.description = description;
+        this.etat = etat;
+        this.account_date = accounte_date;
     }
 
 
+ public Utilisateur( String login, String password, String nom, String prenom, String email, int num_tel, int cin, String adresse,  String image, String description , String etat ,String accounte_date) {
 
+        this.login = login;
+        this.password = password;
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.num_tel = num_tel;
+        this.cin = cin;
+        this.adresse = adresse;
+        this.image = image;
+        this.description = description;
+        this.etat = etat;
+        this.account_date = accounte_date;
+    }
     // getters ans setters
 
 
@@ -168,6 +188,24 @@ public class Utilisateur {
         this.description = description;
     }
 
+    public String getEtat() {
+        return etat;
+    }
+
+    public void setEtat(String etat) {
+        this.etat = etat;
+    }
+
+    public String getAccount_date() {
+        return account_date;
+    }
+
+    public void setAccount_date(String accounte_date) {
+        this.account_date = accounte_date;
+    }
+    
+    
+
 
     // methode to string
 
@@ -187,9 +225,14 @@ public class Utilisateur {
                 ", role='" + role + '\'' +
                 ", image='" + image + '\'' +
                 ", description='" + description + '\'' +
+                 ", etat='" + etat + '\'' +
+                 ", etat='" + account_date + '\'' +
                 '}';
     }
     
+    
+        public static Utilisateur user_connecter;
+
     
     
     

@@ -6,6 +6,7 @@
 package services;
 import utils.MyDB;
 import entities.Sujet;
+import entities.Topic;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -15,6 +16,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  *
@@ -150,7 +153,7 @@ public class ServiceSujetIMP implements IForum<Sujet>{
     public List<Sujet> affichersujetbytopic(int id_topic) {
         List<Sujet> list = new ArrayList<Sujet>();   
         try {
-            String req="select * from sujet inner join topic on sujet.idtopic="+id_topic+" and topic.idtopic="+id_topic;
+            String req="select * from sujet inner join topic on sujet.idtopic="+id_topic+" and topic.idtopic="+id_topic+" order by nbcom desc";
             Statement st=cnx.createStatement();
             ResultSet rs= st.executeQuery(req);
             while(rs.next())
@@ -164,4 +167,65 @@ public class ServiceSujetIMP implements IForum<Sujet>{
         }
         return list;
     }
+     public ObservableList<Sujet> getsujetbytopic(int id_topic) {
+        //List<Sujet> list = new ArrayList<Sujet>();   
+         ObservableList<Sujet> topicliste = FXCollections.observableArrayList();
+        try {
+            String req="select * from sujet inner join topic on sujet.idtopic="+id_topic+" and topic.idtopic="+id_topic+" order by nbcom desc";
+            Statement st=cnx.createStatement();
+            ResultSet rs= st.executeQuery(req);
+            while(rs.next())
+            {
+                Sujet s = new Sujet(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getInt(8));
+                topicliste.add(s);
+                
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return topicliste;
+    }
+     public Sujet getsujetbyid(int id)
+    {Sujet t = null;
+      
+        try {
+            String req="select * from sujet where idsujet="+id;
+            Statement st=cnx.createStatement();
+            ResultSet rs= st.executeQuery(req);
+            while(rs.next())
+            {
+             t = new Sujet(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getInt(8));
+            }
+            
+                  
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+         return t;
+    
+    }
+     public int verfisujetexiste(String  titre,String description)
+ {
+     System.out.println(titre);
+      int s=0;
+        try {  
+            
+            String req="SELECT * FROM sujet where titresujet='"+titre+"' and contenu='"+description+"'";
+            Statement st=cnx.createStatement();
+            ResultSet rs= st.executeQuery(req);
+//            return rs.getFetchSize();
+           while(rs.next())
+            {
+                s = rs.getInt(1);
+            }
+//            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceTopicIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return s;
+ }
+     
+     
 }
