@@ -17,8 +17,36 @@ public class Commentaire {
     private String date;
     private int idsujet;
     private int iduser;
-
+    private int nblike;
+    private int nbdislike;
     public Commentaire() {
+    }
+
+    public Commentaire(int idcom, String contenu, String date, int idsujet, int iduser, int nblike, int nbdislike) {
+        this.idcom = idcom;
+        this.contenu = contenu;
+        this.date = date;
+        this.idsujet = idsujet;
+        this.iduser = iduser;
+        this.nblike = nblike;
+        this.nbdislike = nbdislike;
+    }
+
+    public Commentaire(int idcom, String contenu, String date, int idsujet, int iduser, int nblike) {
+        this.idcom = idcom;
+        this.contenu = contenu;
+        this.date = date;
+        this.idsujet = idsujet;
+        this.iduser = iduser;
+        this.nblike = nblike;
+    }
+
+    public Commentaire( String contenu, String date, int idsujet, int iduser, int nblike) {
+        this.contenu = contenu;
+        this.date = date;
+        this.idsujet = idsujet;
+        this.iduser = iduser;
+        this.nblike = nblike;
     }
 
     public Commentaire(String contenu, String date, int idsujet, int iduser) {
@@ -60,6 +88,14 @@ public class Commentaire {
         return iduser;
     }
 
+    public int getNblike() {
+        return nblike;
+    }
+
+    public int getNbdislike() {
+        return nbdislike;
+    }
+
     public void setContenu(String contenu) {
         this.contenu = contenu;
     }
@@ -76,10 +112,22 @@ public class Commentaire {
         this.iduser = iduser;
     }
 
+    public void setNblike(int nblike) {
+        this.nblike = nblike;
+    }
+
+    public void setNbdislike(int nbdislike) {
+        this.nbdislike = nbdislike;
+    }
+
     @Override
     public String toString() {
-        return "Commentaire{" + "idcom=" + idcom + ", contenu=" + contenu + ", date=" + date + ", idsujet=" + idsujet + ", iduser=" + iduser + '}';
+        return "Commentaire{" + "idcom=" + idcom + ", contenu=" + contenu + ", date=" + date + ", idsujet=" + idsujet + ", iduser=" + iduser + ", nblike=" + nblike + ", nbdislike=" + nbdislike + '}';
     }
+
+    
+
+    
     
     
     
