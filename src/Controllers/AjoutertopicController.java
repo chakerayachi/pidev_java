@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package Controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
@@ -12,16 +12,21 @@ import entities.Utilisateur;
 import java.io.IOException;
 import java.net.URL;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import org.controlsfx.control.Notifications;
 import services.ServiceCommentaireIMP;
 import services.ServiceTopicIMP;
 import static utils.BadWords.chackwords;
@@ -32,16 +37,19 @@ import utils.Mail;
  *
  * @author Firas CHKOUNDALI
  */
-public class UpdatetopicController implements Initializable {
-                 ServiceTopicIMP st = new ServiceTopicIMP();
-int attention=0;
-    private int idtopic;
+public class AjoutertopicController  implements Initializable {
+        ServiceCommentaireIMP scom=new ServiceCommentaireIMP();
+                ServiceTopicIMP st = new ServiceTopicIMP();
+
     @FXML
     private JFXTextField inputtitre;
     @FXML
     private TextArea inputdesc;
     @FXML
     private JFXButton addbtn;
+    
+    int attention=0;
+    //private GestiontopicController gestiontopic;
     /**
      * Initializes the controller class.
      */
@@ -49,47 +57,45 @@ int attention=0;
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-     void setTextField(Topic t) {
-
-        idtopic=t.getIdtopic();
-        inputtitre.setText(t.getTitretopic());
-        inputdesc.setText(t.getDescription());
-        
-
-    }
 
     @FXML
     private void save(MouseEvent event) {
-          ServiceCommentaireIMP scom=new ServiceCommentaireIMP();
+        
+          
+        Utilisateur user=scom.getuserbyid(GestiontopicController.iduser);
+        System.out.println(user.getId());
 
-         Utilisateur user=scom.getuserbyid(GestiontopicController.iduser);
-         String titre = inputtitre.getText();
-        String description = inputdesc.getText();
-
-        if (titre.isEmpty() || description.isEmpty() ) {
-            Alert alert = new Alert(Alert.AlertType.ERROR);
-            alert.setHeaderText(null);
-            alert.setContentText("Please Fill All DATA");
-            alert.showAndWait();
-
-        } else { try {
-            if(chackwords(titre).equals("false")&&chackwords(description).equals("false"))
-            {if(st.verifexisttopic(titre,description)==0)
-            {
+        try {
+            String titre = inputtitre.getText();
+            String description = inputdesc.getText();
+            
+            if (titre.isEmpty() || description.isEmpty() ) {
+                
+                
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setHeaderText(null);
+                alert.setContentText("Please Fill All DATA");
+                alert.showAndWait();
+                
+            } 
+            
+            else {
+                if(chackwords(titre).equals("false")&&chackwords(description).equals("false"))
+                {System.out.println(titre);
+                    if(st.verifexisttopic(titre,description)==0){
                 Date date = new Date();
                 SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
                 Topic t=new Topic();
                 t.setTitretopic(titre);
                 t.setDescription(description);
                 t.setDate(dateFormat.format(date));
-                t.setIdtopic(idtopic);
-                t.setIduser(1);
-                if(st.modifier(t))
-                {Stage stage = (Stage) addbtn.getScene().getWindow();
+                t.setIduser(user.getId());
+                if(st.ajout(t))
+                {  Stage stage = (Stage) addbtn.getScene().getWindow();
                 stage.close();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Done");
-                alert.setContentText("topic modifie avec succes!");
+                alert.setContentText("topic ajouté on attend l'acceptation d'admin!");
                 alert.show();
                 clean();
                /* Notifications notificationbuilder;
@@ -104,22 +110,22 @@ int attention=0;
                             });
                 notificationbuilder.darkStyle();
                 notificationbuilder.showInformation();*/
+                //gestiontopic.refreshTable(event);
                 }else
                 {
                     System.err.println("System tray not supported!");
                 }
-            }
-            else
-            {
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    }else
+                {
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Done");
                 alert.setContentText("topic existe deja!");
                 alert.show();
-            }}
-            else
-            {
-                attention++;
-                clean();
+                }
+                }else
+                {
+                    attention++;
+                 clean();
                 Alert alert = new Alert(Alert.AlertType.WARNING);
                 alert.setTitle("Worning !! ");
                 alert.setContentText("vous ne pouvez pas ajouter ce topic avec ces mots ! ");
@@ -128,16 +134,22 @@ int attention=0;
                 if(attention>2)
                 {
                     System.out.println(attention);
-                    Mail.envoyer(user);
+                 Mail.envoyer(user);
                 }
-            }    } catch (IOException ex) {
-                 Logger.getLogger(UpdatetopicController.class.getName()).log(Level.SEVERE, null, ex);
-             }
-    }}
+               
+                }
+                
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(AjoutertopicController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }
 
     @FXML
     private void clean() {
         inputtitre.setText(null);
         inputdesc.setText(null);
     }
+    
 }

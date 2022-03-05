@@ -3,11 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package Controllers;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
-import static controller.AjoutersujetController.idtopic;
+import static Controllers.AjoutersujetController.idtopic;
 import entities.Commentaire;
 import entities.Sujet;
 import entities.Utilisateur;

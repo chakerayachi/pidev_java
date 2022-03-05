@@ -12,7 +12,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="849.0" prefWidth="1129.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GestioncommentairebackController">
+<AnchorPane id="AnchorPane" prefHeight="849.0" prefWidth="1129.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GestioncommentairebackController">
    <children>
       <AnchorPane id="AnchorPane" layoutX="-71.0" layoutY="-20.0" prefHeight="862.0" prefWidth="1148.0" style="-fx-background-color: #2f3459;" styleClass="mainFxmlClass">
          <stylesheets>

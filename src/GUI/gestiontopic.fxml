@@ -11,7 +11,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="1262.0" style="-fx-background-color: #2f3459;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GestiontopicController">
+<AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="1262.0" style="-fx-background-color: #2f3459;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GestiontopicController">
    <children>
       <TableView fx:id="tvtopics" layoutX="24.0" layoutY="194.0" prefHeight="559.0" prefWidth="1214.0" stylesheets="@gestiontopic.css">
         <columns>
@@ -42,5 +42,6 @@
             <Font name="Comic Sans MS Bold" size="40.0" />
          </font>
       </Label>
+      <FontAwesomeIconView fx:id="cloud" fill="#f4b707" glyphName="CLOUD" layoutX="1137.0" layoutY="168.0" onMouseClicked="#weather" size="45" />
    </children>
 </AnchorPane>

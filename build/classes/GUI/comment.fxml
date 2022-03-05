@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" fx:id="AP" prefHeight="118.0" prefWidth="851.0" style="-fx-background-color: #2f3459;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.CommentController">
+<AnchorPane id="AnchorPane" fx:id="AP" prefHeight="118.0" prefWidth="851.0" style="-fx-background-color: #2f3459;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.CommentController">
    <children>
       <Label fx:id="id" layoutX="10.0" layoutY="10.0" textFill="TRANSPARENT" />
       <JFXButton layoutX="814.0" layoutY="5.0" onAction="#delete" prefHeight="21.0" prefWidth="18.0" text="X" textFill="WHITE">

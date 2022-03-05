@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package Controllers;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -72,6 +72,8 @@ public class GestiontopicController implements Initializable {
     private Button translate;
     @FXML
     private Label labeltrans;
+    @FXML
+    private FontAwesomeIconView cloud;
     public int getIdtopic() {
         return idtopic;
     }
@@ -371,6 +373,30 @@ Topic topic = tvtopics.getSelectionModel().getSelectedItem();
                 
 
          
+        
+    }
+
+    @FXML
+    private void weather(MouseEvent event) {
+        
+         try {
+            Parent parent = FXMLLoader.load(getClass().getResource("/GUI/Primary.fxml"));
+            Scene scene = new Scene(parent);
+            Stage stage = new Stage();
+            stage.setScene(scene);
+            stage.initStyle(StageStyle.UTILITY);
+            stage.show();
+            new animatefx.animation.ZoomIn(parent).play();
+            stage.setOnHiding( event2 -> { try {
+                
+                tvtopics.setItems(st.gettopiclisteafficher());
+                } catch (SQLException ex) {
+                    Logger.getLogger(GestiontopicController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+} );
+        } catch (IOException ex) {
+            Logger.getLogger(GestiontopicController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
     

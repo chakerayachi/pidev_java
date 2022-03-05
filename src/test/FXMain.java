@@ -24,7 +24,7 @@ public class FXMain extends Application {
     @Override
     public void start(Stage primaryStage) throws IOException {
     
-        Parent root = FXMLLoader.load(getClass().getResource("/GUI/gestiontopic.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/GUI/gestiontopicback.fxml"));
         Scene scene = new Scene(root);
         primaryStage.setTitle("gestion forum");
         primaryStage.setScene(scene);

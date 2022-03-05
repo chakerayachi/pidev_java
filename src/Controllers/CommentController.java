@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package Controllers;
 
 import com.jfoenix.controls.JFXTextArea;
 
-import static controller.CommentsController.idsujet;
-import static controller.GestioncommentaireController.idsujet;
+import static Controllers.CommentsController.idsujet;
+import static Controllers.GestioncommentaireController.idsujet;
 import entities.Commentaire;
 import entities.Sujet;
 import entities.Utilisateur;

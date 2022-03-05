@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package controller;
+package Controllers;
 
-import static controller.GestiontopicController.iduser;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import entities.Topic;
@@ -37,7 +36,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import org.controlsfx.control.Notifications;
 import services.ServiceCommentaireIMP;
@@ -149,6 +147,9 @@ public class GestiontopicbackController implements Initializable {
                                             + "-glyph-size:28px;"
                                             + "-fx-fill:#00E676;"
                             );
+//                             onIcon.setVisible(false);
+//                             HideIcon.setVisible(false);
+//                             acceptIcon.setVisible(false);
                              //Topic topic = tvtopics.getSelectionModel().getSelectedItem();
                             deleteIcon.setOnMouseClicked((MouseEvent event) -> {
                                 
@@ -156,7 +157,7 @@ public class GestiontopicbackController implements Initializable {
 Topic topic = tvtopics.getSelectionModel().getSelectedItem();
 //                                st.supprimer(topic.getIdtopic());
 //                                tvtopics.refresh();
-                                    
+                         
                   
         Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION);
         alert2.setTitle("Confirmation");
@@ -203,7 +204,6 @@ Topic topic = tvtopics.getSelectionModel().getSelectedItem();
                                 if(st.gethide(topic.getIdtopic())==0)
                                 { System.out.println(topic.getIdtopic());
                               
-                               
                                  Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION);
         alert2.setTitle("Confirmation");
         alert2.setHeaderText("voulez vous hider ce topic  ?");
@@ -219,6 +219,13 @@ Topic topic = tvtopics.getSelectionModel().getSelectedItem();
                 alert.show();
                 tvtopics.setItems(st.gettopicliste());
                  tvtopics.refresh();
+//                HideIcon.setVisible(false);
+//                                 //onIcon.setVisible(true);
+//                               
+//                                 if(st.getaccept(topic.getIdtopic())==0)
+//                      acceptIcon.setVisible(true);
+//                  else 
+//                      acceptIcon.setVisible(false);
             } catch (SQLException e) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Echec");
@@ -232,6 +239,17 @@ Topic topic = tvtopics.getSelectionModel().getSelectedItem();
                          
                                 }
                                else{
+//                                if(st.gethide(topic.getIdtopic())==0)
+//                                 { HideIcon.setVisible(true);
+//                                 onIcon.setVisible(false);
+//                                 }else 
+//                                 {onIcon.setVisible(true);
+//                                 HideIcon.setVisible(false);
+//                                 }
+//                                 if(st.getaccept(topic.getIdtopic())==0)
+//                      acceptIcon.setVisible(true);
+//                  else 
+//                      acceptIcon.setVisible(false);
                                    Notifications notificationbuilder;
                     notificationbuilder = Notifications.create()
                            .title("Alert").text("ce topic est deja en hide!").graphic(null).hideAfter(javafx.util.Duration.seconds(5)).position(Pos.TOP_CENTER)
@@ -253,7 +271,8 @@ Topic topic = tvtopics.getSelectionModel().getSelectedItem();
                                  onIcon.setOnMouseClicked((MouseEvent event) -> {
                                Topic topic = tvtopics.getSelectionModel().getSelectedItem();
                                 if(st.gethide(topic.getIdtopic())==1)
-                                {
+                                {                              // onIcon.setVisible(false);
+
                                                       Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION);
         alert2.setTitle("Confirmation");
         alert2.setHeaderText("voulez vous afficher ce topic  ?");
@@ -267,7 +286,19 @@ Topic topic = tvtopics.getSelectionModel().getSelectedItem();
                 alert.setHeaderText(null);
                 alert.setContentText(" Done!");
                 alert.show();
+                 
                 tvtopics.setItems(st.gettopicliste());
+//              if(st.gethide(topic.getIdtopic())==0)
+//                                 { HideIcon.setVisible(true);
+//                                 onIcon.setVisible(false);
+//                                 }else 
+//                                 {onIcon.setVisible(true);
+//                                 HideIcon.setVisible(false);
+//                                 }
+//                                 if(st.getaccept(topic.getIdtopic())==0)
+//                      acceptIcon.setVisible(true);
+//                  else 
+//                      acceptIcon.setVisible(false);
             } catch (SQLException e) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Echec");
@@ -280,6 +311,17 @@ Topic topic = tvtopics.getSelectionModel().getSelectedItem();
         }
                                 
                                 } else{
+//                                     if(st.gethide(topic.getIdtopic())==0)
+//                                 { HideIcon.setVisible(true);
+//                                 onIcon.setVisible(false);
+//                                 }else 
+//                                 {onIcon.setVisible(true);
+//                                 HideIcon.setVisible(false);
+//                                 }
+//                                 if(st.getaccept(topic.getIdtopic())==0)
+//                      acceptIcon.setVisible(true);
+//                  else 
+//                      acceptIcon.setVisible(false);
                                    Notifications notificationbuilder;
                     notificationbuilder = Notifications.create()
                            .title("Alert").text("ce topic est deja afficher!").graphic(null).hideAfter(javafx.util.Duration.seconds(5)).position(Pos.TOP_CENTER)
@@ -313,7 +355,18 @@ Topic topic = tvtopics.getSelectionModel().getSelectedItem();
                 alert.setHeaderText(null);
                 alert.setContentText(" Done!");
                 alert.show();
-                tvtopics.setItems(st.gettopicliste());
+                tvtopics.setItems(st.gettopicliste()); 
+//              if(st.gethide(topic.getIdtopic())==0)
+//                                 { HideIcon.setVisible(true);
+//                                 onIcon.setVisible(false);
+//                                 }else 
+//                                 {onIcon.setVisible(true);
+//                                 HideIcon.setVisible(false);
+//                                 }
+//                                 if(st.getaccept(topic.getIdtopic())==0)
+//                      acceptIcon.setVisible(true);
+//                  else 
+//                      acceptIcon.setVisible(false);
             } catch (SQLException e) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Echec");
@@ -326,6 +379,17 @@ Topic topic = tvtopics.getSelectionModel().getSelectedItem();
         }
                                 
                                 } else{
+//                                 if(st.gethide(topic.getIdtopic())==0)
+//                                 { HideIcon.setVisible(true);
+//                                 onIcon.setVisible(false);
+//                                 }else 
+//                                 {onIcon.setVisible(true);
+//                                 HideIcon.setVisible(false);
+//                                 }
+//                                 if(st.getaccept(topic.getIdtopic())==0)
+//                      acceptIcon.setVisible(true);
+//                  else 
+//                      acceptIcon.setVisible(false);
                                    Notifications notificationbuilder;
                     notificationbuilder = Notifications.create()
                            .title("Alert").text("ce topic est deja accepter!").graphic(null).hideAfter(javafx.util.Duration.seconds(5)).position(Pos.TOP_CENTER)
@@ -364,7 +428,7 @@ Topic topic = tvtopics.getSelectionModel().getSelectedItem();
             
 
              //editcol.setCellFactory(cellFoctory);
-
+             
              tvtopics.setItems(topiclist);
              
              
