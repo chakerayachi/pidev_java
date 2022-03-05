@@ -2,12 +2,12 @@
     -fx-cursor:hand ;
 }
 .table-view {
-    -fx-background-color:#2f3459;
+    -fx-background-color:#f4b707;
     -fx-background-radius:14 14 0 0;
     
     }
 .table-view .column-header-background{
-        -fx-background-color: #2f3459;
+        -fx-background-color: #f4b707;
         -fx-background-radius:14;
         -fx-background-insets: 0 0 10 0;
        
@@ -22,5 +22,5 @@
     }
     
 .table-view .column-header .label {
-        -fx-text-fill: white ;
+        -fx-text-fill:  #2f3459 ;
     }

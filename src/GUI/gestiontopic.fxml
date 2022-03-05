@@ -8,11 +8,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="743.0" prefWidth="1214.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GestiontopicController">
+<AnchorPane id="AnchorPane" prefHeight="767.0" prefWidth="1262.0" style="-fx-background-color: #2f3459;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.GestiontopicController">
    <children>
-      <TableView fx:id="tvtopics" layoutY="184.0" prefHeight="559.0" prefWidth="1214.0" stylesheets="@gestiontopic.css">
+      <TableView fx:id="tvtopics" layoutX="24.0" layoutY="194.0" prefHeight="559.0" prefWidth="1214.0" stylesheets="@gestiontopic.css">
         <columns>
           <TableColumn fx:id="coltitre" prefWidth="286.9999694824219" style="-fx-alignment: center;" text="titre" />
             <TableColumn fx:id="coldescription" minWidth="1.0" prefWidth="306.0" style="-fx-alignment: center;" text="description" />
@@ -21,24 +22,25 @@
             <TableColumn fx:id="editcol" prefWidth="194.0" style="-fx-alignment: center;" text="action" />
         </columns>
       </TableView>
-      <Label alignment="CENTER" layoutX="413.0" layoutY="17.0" prefHeight="75.0" prefWidth="401.0" style="-fx-background-color: #2f3459;" text="Topics" textFill="#f4b707">
+      <FontAwesomeIconView fill="#f4b707" glyphName="PLUS_SQUARE" layoutX="37.0" layoutY="156.0" onMouseClicked="#ajoutertopic" size="45" styleClass="btn" text="" />
+      <Button fx:id="translate" layoutX="154.0" layoutY="117.0" mnemonicParsing="false" onAction="#translation" prefHeight="45.0" prefWidth="123.0" style="-fx-background-color: #f4b707;" text="Traduction :" textFill="WHITE">
          <font>
-            <Font name="Comic Sans MS Bold" size="50.0" />
-         </font>
-      </Label>
-      <FontAwesomeIconView fill="#2f3459" glyphName="PLUS_SQUARE" layoutX="55.0" layoutY="85.0" onMouseClicked="#ajoutertopic" size="45" styleClass="btn" text="" />
-      <ImageView fitHeight="134.0" fitWidth="157.0" layoutX="1079.0" pickOnBounds="true" preserveRatio="true">
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font></Button>
+      <Label fx:id="labeltrans" layoutX="310.0" layoutY="118.0" prefHeight="45.0" prefWidth="278.0" textFill="#f4b707">
+         <font>
+            <Font name="Comic Sans MS Bold" size="15.0" />
+         </font></Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="58.0" layoutY="40.0" stroke="BLACK" strokeType="INSIDE" width="1262.0" />
+      <ImageView fitHeight="151.0" fitWidth="148.0" layoutX="1074.0" layoutY="16.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@lo.png" />
          </image>
       </ImageView>
-      <Button fx:id="translate" layoutX="45.0" layoutY="118.0" mnemonicParsing="false" onAction="#translation" prefHeight="45.0" prefWidth="123.0" style="-fx-background-color: #2f3459;" text="Traduction :" textFill="#f4b707">
+      <Label alignment="CENTER" layoutX="45.0" layoutY="40.0" prefHeight="58.0" prefWidth="354.0" text="Liste des Topics" textFill="#2f3459">
          <font>
-            <Font name="Comic Sans MS Bold" size="15.0" />
-         </font></Button>
-      <Label fx:id="labeltrans" layoutX="191.0" layoutY="118.0" prefHeight="45.0" prefWidth="278.0" style="-fx-background-color: #2f3459;" textFill="#f4b707">
-         <font>
-            <Font name="Comic Sans MS Bold" size="15.0" />
-         </font></Label>
+            <Font name="Comic Sans MS Bold" size="40.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
