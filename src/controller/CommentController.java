@@ -197,6 +197,21 @@ public static boolean refresh=false;
                             stage.setScene(new Scene(parent));
                             stage.initStyle(StageStyle.UTILITY);
                             stage.show();    
+                             stage.setOnHiding(event2 -> {
+                try {
+                    Parent parent2 = FXMLLoader.load(getClass().getResource("/GUI/comments.fxml"));
+                    Stage stage3 = (Stage) labeldate.getScene().getWindow();
+                    stage3.close();
+                    Scene scene = new Scene(parent2);
+                    Stage stage2 = new Stage();
+                    stage2.setScene(scene);
+                    stage2.initStyle(StageStyle.UTILITY);
+                    stage2.show();
+
+                } catch (IOException ex) {
+                    Logger.getLogger(CommentController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            });
                                    new animatefx.animation.ZoomIn(parent).play();
 
                            

@@ -83,14 +83,12 @@ public static int idtopic;
                 s.setIdtopic(idtopic);
                 s.setIduser(user.getId());
                 if(sp.ajout(s))
-                {  int nbsujet=st.getnbsujet(idtopic);
-                nbsujet++;
-                st.setnbsujet(idtopic, nbsujet);
+                { 
                 Stage stage = (Stage) addbtn.getScene().getWindow();
                 stage.close();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Done");
-                alert.setContentText("sujet ajouté avec succes!");
+                alert.setContentText("sujet ajouté on attend l'acceptation d'admin!");
                 alert.show();
                 clean();
                 /*Notifications notificationbuilder;

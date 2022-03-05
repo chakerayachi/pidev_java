@@ -78,6 +78,19 @@ public class ServiceCommentaireIMP implements IForum<Commentaire>{
 
     }
 
+    
+              public boolean supprimercommentaires(int id) {
+         try {
+            String req="delete from commentaire where idsujet=?";
+            PreparedStatement ps=cnx.prepareStatement(req);
+            ps.setInt(1, id);
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+                 return true;
+
+    }
     @Override
     public List<Commentaire> afficher() {
         List<Commentaire> list = new ArrayList<Commentaire>();   

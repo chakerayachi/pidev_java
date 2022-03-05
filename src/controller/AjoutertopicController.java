@@ -95,7 +95,7 @@ public class AjoutertopicController  implements Initializable {
                 stage.close();
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Done");
-                alert.setContentText("topic ajouté avec succes!");
+                alert.setContentText("topic ajouté on attend l'acceptation d'admin!");
                 alert.show();
                 clean();
                /* Notifications notificationbuilder;

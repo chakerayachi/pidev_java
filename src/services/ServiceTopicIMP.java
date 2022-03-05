@@ -85,7 +85,7 @@ public class ServiceTopicIMP implements IForum<Topic>{
             ResultSet rs= st.executeQuery(req);
             while(rs.next())
             {
-                Topic t = new Topic(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7));
+                Topic t = new Topic(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getInt(8));
                 list.add(t);
                 
             }
@@ -130,7 +130,7 @@ public class ServiceTopicIMP implements IForum<Topic>{
         
          List <Topic> id = new ArrayList<>(); 
         Statement stm = cnx.createStatement();
-        String req = "select * from topic order by nbsujet desc";
+        String req = "select * from topic order by accepter ";
 
         //ResultSet rs;
         ResultSet rs= stm.executeQuery(req);
@@ -138,7 +138,7 @@ public class ServiceTopicIMP implements IForum<Topic>{
        
         while (rs.next()) {
             
-                Topic t = new Topic(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7));
+                Topic t = new Topic(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getInt(8));
             //System.out.println(events);
             
             topicliste.add(t);
@@ -158,7 +158,7 @@ public class ServiceTopicIMP implements IForum<Topic>{
             ResultSet rs= st.executeQuery(req);
             while(rs.next())
             {
-             t = new Topic(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7));
+             t = new Topic(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getInt(8));
             }
             
                   
@@ -191,4 +191,98 @@ public class ServiceTopicIMP implements IForum<Topic>{
         }
         return s;
  }
+    public void hidetopic(int id_topic) {
+        try {
+            String req= "update topic set hide=?  where idtopic= ?";
+            PreparedStatement ps=cnx.prepareStatement(req);
+            int i=1;
+            ps.setInt(1,i);
+            ps.setInt(2,id_topic);
+
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     public void hideofftopic(int id_topic) {
+        try {
+            String req= "update topic set hide=?  where idtopic= ?";
+            PreparedStatement ps=cnx.prepareStatement(req);
+            int i=0;
+            ps.setInt(1,i);
+            ps.setInt(2,id_topic);
+
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+       public int gethide(int id) {
+        int s=0;
+        try {  
+            
+            String req="select * from topic where idtopic="+id;
+            Statement st=cnx.createStatement();
+            ResultSet rs= st.executeQuery(req);
+           while(rs.next())
+            {s = rs.getInt(8);}
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return s;
+    }
+     public ObservableList<Topic> gettopiclisteafficher() throws SQLException {
+           
+        ObservableList<Topic> topicliste = FXCollections.observableArrayList();
+        
+         List <Topic> id = new ArrayList<>(); 
+        Statement stm = cnx.createStatement();
+        String req = "select * from topic where ( hide="+0+" and accepter="+1+") order by nbsujet desc";
+
+        //ResultSet rs;
+        ResultSet rs= stm.executeQuery(req);
+        rs = stm.executeQuery(req);
+       
+        while (rs.next()) {
+            
+                Topic t = new Topic(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5),rs.getInt(6),rs.getInt(7),rs.getInt(8));
+            //System.out.println(events);
+            
+            topicliste.add(t);
+
+        }
+        return topicliste;
+
+    }
+     public int getaccept(int id) {
+        int s=0;
+        try {  
+            
+            String req="select * from topic where idtopic="+id;
+            Statement st=cnx.createStatement();
+            ResultSet rs= st.executeQuery(req);
+           while(rs.next())
+            {s = rs.getInt(5);}
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return s;
+    }
+     public void accepttopic(int id_topic) {
+        try {
+            String req= "update topic set accepter=?  where idtopic= ?";
+            PreparedStatement ps=cnx.prepareStatement(req);
+            int i=1;
+            ps.setInt(1,i);
+            ps.setInt(2,id_topic);
+
+            ps.executeUpdate();
+        } catch (SQLException ex) {
+            Logger.getLogger(ServiceSujetIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }

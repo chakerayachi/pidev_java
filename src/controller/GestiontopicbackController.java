@@ -5,8 +5,7 @@
  */
 package controller;
 
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import static controller.GestiontopicController.iduser;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import entities.Topic;
@@ -19,17 +18,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableCell;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TablePosition;
@@ -40,8 +39,7 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.util.Callback;
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
+import org.controlsfx.control.Notifications;
 import services.ServiceCommentaireIMP;
 import services.ServiceTopicIMP;
 
@@ -50,12 +48,11 @@ import services.ServiceTopicIMP;
  *
  * @author Firas CHKOUNDALI
  */
-public class GestiontopicController implements Initializable {
-   ServiceTopicIMP st = new ServiceTopicIMP();
-   public  static int iduser=1;
+public class GestiontopicbackController implements Initializable {
+ ServiceTopicIMP st = new ServiceTopicIMP();
     @FXML
-    public TableView<Topic> tvtopics;
-    
+    private TableView<Topic> tvtopics;
+   
     @FXML
     private TableColumn<Topic, String> coltitre;
     @FXML
@@ -69,16 +66,14 @@ public class GestiontopicController implements Initializable {
     private TableColumn<Topic, String> editcol;
     private int idtopic;
     @FXML
-    private Button translate;
-    @FXML
-    private Label labeltrans;
-    public int getIdtopic() {
-        return idtopic;
-    }
+    private TableColumn<Topic, Integer> colhide;
     
+
+    /**
+     * Initializes the controller class.
+     */
     
-  //  public TableView<Topic> tvtopic;
-   public boolean clickkk(MouseEvent event){
+      public boolean clickkk(MouseEvent event){
 
              TablePosition tableposition = tvtopics.getSelectionModel().getSelectedCells().get(0);
              int row = tableposition.getRow();
@@ -92,19 +87,15 @@ public class GestiontopicController implements Initializable {
              }else return false ; 
 
         }
-    /**
-     * Initializes the controller class.
-     */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        //ServiceTopicIMP st = new ServiceTopicIMP();
-      
-        ObservableList<Topic> topiclist;      
+        
+         ObservableList<Topic> topiclist;      
             try {
                 
                 
-            topiclist = st.gettopiclisteafficher();
+            topiclist = st.gettopicliste();
             ServiceCommentaireIMP scom=new ServiceCommentaireIMP();
 
 //            //colid.setCellValueFactory(new PropertyValueFactory<Topic, Integer>("idtopic"));
@@ -113,6 +104,7 @@ public class GestiontopicController implements Initializable {
             coldate.setCellValueFactory(new PropertyValueFactory<Topic, String>("date"));
 //            colaccepter.setCellValueFactory(new PropertyValueFactory<Topic, Integer>("accepter"));
             colnbsujet.setCellValueFactory(new PropertyValueFactory<Topic, Integer>("nbsujet"));
+            //colhide.setCellValueFactory(new PropertyValueFactory<Topic, Integer>("hide"));
             //coliduser.setText(user.getLogin());
 //            coliduser.setCellValueFactory(new PropertyValueFactory<Topic, Integer>("iduser"));
             
@@ -133,14 +125,26 @@ public class GestiontopicController implements Initializable {
                         } else {
                             
                             FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
-                            FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
-                            
+                            FontAwesomeIconView HideIcon = new FontAwesomeIconView(FontAwesomeIcon.TOGGLE_OFF);
+                            FontAwesomeIconView onIcon = new FontAwesomeIconView(FontAwesomeIcon.TOGGLE_ON);
+                            FontAwesomeIconView acceptIcon = new FontAwesomeIconView(FontAwesomeIcon.CHECK);
+
                             deleteIcon.setStyle(
                                     " -fx-cursor: hand ;"
                                             + "-glyph-size:28px;"
                                             + "-fx-fill:#ff1744;"
                             );
-                            editIcon.setStyle(
+                            HideIcon.setStyle(
+                                    " -fx-cursor: hand ;"
+                                            + "-glyph-size:28px;"
+                                            + "-fx-fill:#00E676;"
+                            );
+                              onIcon.setStyle(
+                                    " -fx-cursor: hand ;"
+                                            + "-glyph-size:28px;"
+                                            + "-fx-fill:#00E676;"
+                            );
+                              acceptIcon.setStyle(
                                     " -fx-cursor: hand ;"
                                             + "-glyph-size:28px;"
                                             + "-fx-fill:#00E676;"
@@ -152,7 +156,6 @@ public class GestiontopicController implements Initializable {
 Topic topic = tvtopics.getSelectionModel().getSelectedItem();
 //                                st.supprimer(topic.getIdtopic());
 //                                tvtopics.refresh();
- if(iduser==topic.getIduser()){
                                     
                   
         Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION);
@@ -168,7 +171,8 @@ Topic topic = tvtopics.getSelectionModel().getSelectedItem();
                 alert.setHeaderText(null);
                 alert.setContentText(" Done!");
                 alert.show();
-                tvtopics.setItems(st.gettopiclisteafficher());
+                tvtopics.setItems(st.gettopicliste());
+              //  tvtopics.refresh();
             } catch (SQLException e) {
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                 alert.setTitle("Echec");
@@ -184,70 +188,166 @@ Topic topic = tvtopics.getSelectionModel().getSelectedItem();
                                 
                                 
                                 
- }else
- { 
-            ServiceTopicIMP st = new ServiceTopicIMP();
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Delete");
-                alert.setHeaderText("vous pouver supprimer seulement tes topics");
-                alert.setContentText(" Done!");
-                alert.show();
-    try {
-        tvtopics.setItems(st.gettopiclisteafficher());
-    } catch (SQLException ex) {
-        Logger.getLogger(GestiontopicController.class.getName()).log(Level.SEVERE, null, ex);
-    }
- }
-                            });
-                            
-                            editIcon.setOnMouseClicked((MouseEvent event) -> {
-                               Topic topic = tvtopics.getSelectionModel().getSelectedItem();
-                               
-                                if(iduser==topic.getIduser()){
-                            FXMLLoader loader = new FXMLLoader ();
-                            loader.setLocation(getClass().getResource("/GUI/updatetopic.fxml"));
-                            try {
-                                loader.load();
-                            } catch (IOException ex) {
-                                Logger.getLogger(GestiontopicController.class.getName()).log(Level.SEVERE, null, ex);
-                            }
-                            
-                            UpdatetopicController updatetopicController = loader.getController();
-                            updatetopicController.setTextField(topic);
-                            Parent parent = loader.getRoot();
-                            Stage stage = new Stage();
-                            stage.setScene(new Scene(parent));
-                            stage.initStyle(StageStyle.UTILITY);
-                            stage.show();    
-                           new animatefx.animation.ZoomIn(parent).play();
-
-                          stage.setOnHiding( event2 -> { try {
-                              tvtopics.setItems(st.gettopicliste());
-                             } catch (SQLException ex) {
-                                 Logger.getLogger(GestiontopicController.class.getName()).log(Level.SEVERE, null, ex);
-                              }
-                              } );
-                                }
-                                else{
-                                     ServiceTopicIMP st = new ServiceTopicIMP();
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Modifier");
-                alert.setHeaderText("vous pouver modifier seulement tes topics");
-                alert.setContentText(" Done!");
-                alert.show();
+ 
     try {
         tvtopics.setItems(st.gettopicliste());
     } catch (SQLException ex) {
         Logger.getLogger(GestiontopicController.class.getName()).log(Level.SEVERE, null, ex);
     }
+ 
+                            });
+                            
+                            HideIcon.setOnMouseClicked((MouseEvent event) -> {
+                               Topic topic = tvtopics.getSelectionModel().getSelectedItem();
+                               
+                                if(st.gethide(topic.getIdtopic())==0)
+                                { System.out.println(topic.getIdtopic());
+                              
+                               
+                                 Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION);
+        alert2.setTitle("Confirmation");
+        alert2.setHeaderText("voulez vous hider ce topic  ?");
+        Optional<ButtonType> result = alert2.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            ServiceTopicIMP st = new ServiceTopicIMP();
+            try {
+                 st.hidetopic(topic.getIdtopic());
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("hide");
+                alert.setHeaderText(null);
+                alert.setContentText(" Done!");
+                alert.show();
+                tvtopics.setItems(st.gettopicliste());
+                 tvtopics.refresh();
+            } catch (SQLException e) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Echec");
+                alert.setHeaderText(null);
+                alert.setContentText("Delete Failed !");
+            }
+
+        } else {
+            alert2.close();
+        }
+                         
                                 }
+                               else{
+                                   Notifications notificationbuilder;
+                    notificationbuilder = Notifications.create()
+                           .title("Alert").text("ce topic est deja en hide!").graphic(null).hideAfter(javafx.util.Duration.seconds(5)).position(Pos.TOP_CENTER)
+                            .onAction(new EventHandler<ActionEvent>(){
+                                @Override
+                                public void handle(ActionEvent event)
+                                {
+                                    System.out.println("clicked on");
+                                }
+                            });
+                notificationbuilder.darkStyle();
+                notificationbuilder.showInformation();}
+                 tvtopics.setItems(topiclist);
+
+                            
                             
                             });
                             
-                            HBox managebtn = new HBox(editIcon, deleteIcon);
+                                 onIcon.setOnMouseClicked((MouseEvent event) -> {
+                               Topic topic = tvtopics.getSelectionModel().getSelectedItem();
+                                if(st.gethide(topic.getIdtopic())==1)
+                                {
+                                                      Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION);
+        alert2.setTitle("Confirmation");
+        alert2.setHeaderText("voulez vous afficher ce topic  ?");
+        Optional<ButtonType> result = alert2.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            ServiceTopicIMP st = new ServiceTopicIMP();
+            try {
+                 st.hideofftopic(topic.getIdtopic());
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("hideoff");
+                alert.setHeaderText(null);
+                alert.setContentText(" Done!");
+                alert.show();
+                tvtopics.setItems(st.gettopicliste());
+            } catch (SQLException e) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Echec");
+                alert.setHeaderText(null);
+                alert.setContentText("Delete Failed !");
+            }
+
+        } else {
+            alert2.close();
+        }
+                                
+                                } else{
+                                   Notifications notificationbuilder;
+                    notificationbuilder = Notifications.create()
+                           .title("Alert").text("ce topic est deja afficher!").graphic(null).hideAfter(javafx.util.Duration.seconds(5)).position(Pos.TOP_CENTER)
+                            .onAction(new EventHandler<ActionEvent>(){
+                                @Override
+                                public void handle(ActionEvent event)
+                                {
+                                    System.out.println("clicked on");
+                                }
+                            });
+                notificationbuilder.darkStyle();
+                notificationbuilder.showInformation();}
+                               
+               tvtopics.setItems(topiclist);
+
+                            });
+          acceptIcon.setOnMouseClicked((MouseEvent event) -> {
+                               Topic topic = tvtopics.getSelectionModel().getSelectedItem();
+                                if(st.getaccept(topic.getIdtopic())==0)
+                                {
+              Alert alert2 = new Alert(Alert.AlertType.CONFIRMATION);
+        alert2.setTitle("Confirmation");
+        alert2.setHeaderText("voulez vous accepter ce topic  ?");
+        Optional<ButtonType> result = alert2.showAndWait();
+        if (result.get() == ButtonType.OK) {
+            ServiceTopicIMP st = new ServiceTopicIMP();
+            try {
+                 st.accepttopic(topic.getIdtopic());
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Accepter");
+                alert.setHeaderText(null);
+                alert.setContentText(" Done!");
+                alert.show();
+                tvtopics.setItems(st.gettopicliste());
+            } catch (SQLException e) {
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Echec");
+                alert.setHeaderText(null);
+                alert.setContentText("Delete Failed !");
+            }
+
+        } else {
+            alert2.close();
+        }
+                                
+                                } else{
+                                   Notifications notificationbuilder;
+                    notificationbuilder = Notifications.create()
+                           .title("Alert").text("ce topic est deja accepter!").graphic(null).hideAfter(javafx.util.Duration.seconds(5)).position(Pos.TOP_CENTER)
+                            .onAction(new EventHandler<ActionEvent>(){
+                                @Override
+                                public void handle(ActionEvent event)
+                                {
+                                    System.out.println("clicked on");
+                                }
+                            });
+                notificationbuilder.darkStyle();
+                notificationbuilder.showInformation();}
+                               
+               tvtopics.setItems(topiclist);
+
+                            });                        
+                            HBox managebtn = new HBox(acceptIcon,HideIcon, deleteIcon,onIcon);
                             managebtn.setStyle("-fx-alignment:center");
                             HBox.setMargin(deleteIcon, new Insets(0, 0, 0, 0));
-                            HBox.setMargin(editIcon, new Insets(2, 3, 0, 2));
+                            HBox.setMargin(HideIcon, new Insets(2, 3, 0, 2));
+                            HBox.setMargin(onIcon, new Insets(2, 3, 0, 2));
+                            HBox.setMargin(acceptIcon, new Insets(2, 3, 0, 2));
                             setGraphic(managebtn);
                             setText(null);
                             
@@ -276,12 +376,12 @@ Topic topic = tvtopics.getSelectionModel().getSelectedItem();
                         try {
                             Topic topic = tvtopics.getSelectionModel().getSelectedItem();
                             System.out.println(topic.getIdtopic());
-                            GestionsujetController.idtopic=topic.getIdtopic();
+                            GestionsujetbackController.idtopic=topic.getIdtopic();
 //                           
                         Node node = (Node) event.getSource();
                         Stage stage = (Stage) node.getScene().getWindow();
                         stage.close();
-                         Parent root = FXMLLoader.load(getClass().getResource("/GUI/gestionsujet.fxml"));
+                         Parent root = FXMLLoader.load(getClass().getResource("/GUI/gestionsujetback.fxml"));
                          Scene scene = new Scene(root);
                          stage.setScene(scene);
                          stage.show();
@@ -301,80 +401,6 @@ Topic topic = tvtopics.getSelectionModel().getSelectedItem();
         } catch (SQLException ex) {
             Logger.getLogger(GestiontopicController.class.getName()).log(Level.SEVERE, null, ex);
         }
-
     }    
-
-    @FXML
-    private void ajoutertopic(MouseEvent event)  {
-        try {
-            Parent parent = FXMLLoader.load(getClass().getResource("/GUI/ajoutertopic.fxml"));
-            Scene scene = new Scene(parent);
-            Stage stage = new Stage();
-            stage.setScene(scene);
-            stage.initStyle(StageStyle.UTILITY);
-            stage.show();
-            new animatefx.animation.ZoomIn(parent).play();
-            stage.setOnHiding( event2 -> { try {
-                
-                tvtopics.setItems(st.gettopiclisteafficher());
-                } catch (SQLException ex) {
-                    Logger.getLogger(GestiontopicController.class.getName()).log(Level.SEVERE, null, ex);
-                }
-} );
-        } catch (IOException ex) {
-            Logger.getLogger(GestiontopicController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-         
-        
-    }
     
-    public void refreshTable(MouseEvent event) {
-       try {
-           tvtopics.setItems(st.gettopiclisteafficher());
-       } catch (SQLException ex) {
-           Logger.getLogger(GestiontopicController.class.getName()).log(Level.SEVERE, null, ex);
-       }
-    }
-
-    @FXML
-    private void translation(ActionEvent event) {
-             
-       try {
-            ObservableList<Topic> topiclist;      
-           try {
-               topiclist = st.gettopiclisteafficher();
-           
-           Topic topic=new Topic();
-           topic = tvtopics.getSelectionModel().getSelectedItem();
-           Document d = (Document) Jsoup.connect("https://api.nlpcloud.io/v1/opus-mt-en-fr/translation")
-                   .header("Authorization", "Token 4352881aedef35e459f323edac54e9d865119731")
-                   .ignoreContentType(true)
-                   .userAgent("Mozilla")
-                   //.data("'text'","'John Doe has been working for Microsoft in Seattle since 1999.'")
-                   .ignoreHttpErrors(true)
-                   .requestBody("{\"text\":\"" + topic.getDescription().replaceAll("\n", "")
-                           .replaceAll("\r", "") + "\"}"
-                   )
-                   .post();
-           
-           ObjectMapper obj = new ObjectMapper();
-           JsonNode jn = obj.readTree(d.body().text());
-           labeltrans.setText(jn.get("translation_text").asText());
-           tvtopics.setItems(topiclist);
-          } catch (SQLException ex) {
-               Logger.getLogger(GestiontopicController.class.getName()).log(Level.SEVERE, null, ex);
-           } 
-           //topic.setTopic_description(jn.get("translation_text").asText());
-       } catch (IOException ex) {
-           Logger.getLogger(GestiontopicController.class.getName()).log(Level.SEVERE, null, ex);
-       }
-                
-
-         
-        
-    }
-    
-        
-        
-     
 }
