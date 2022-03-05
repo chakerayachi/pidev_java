@@ -16,5 +16,6 @@ public interface Iservicecat <T> {
     public void modifier(T t);
     public void supprimer(int id);
     public List<T> afficher();
+   
     
 }

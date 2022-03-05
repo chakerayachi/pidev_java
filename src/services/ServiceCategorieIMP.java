@@ -95,7 +95,7 @@ public class ServiceCategorieIMP implements IService<Categorie> {
          @Override
     public List<Categorie> chercherVoiture( String nom) {
          List<Categorie> list=new ArrayList<>();
-      String req="SELECT * FROM voiture where  libelle='"+nom+"'  or capacite='"+nom+"'";
+      String req="SELECT * FROM categorie where  libelle='"+nom+"'  or capacite='"+nom+"'";
       try {
              //exec
              Statement st=cnx.createStatement();
@@ -113,7 +113,7 @@ return list;
     @Override
     public List<Categorie> triVoiture() {
          List<Categorie> list=new ArrayList<>();
-      String req="SELECT * FROM voiture ORDER BY libelle";
+      String req="SELECT * FROM categorie ORDER BY libelle";
       try {
              //exec
              Statement st=cnx.createStatement();
@@ -127,6 +127,30 @@ return list;
            Logger.getLogger(ServicesVoitureIMP.class.getName()).log(Level.SEVERE, null, ex);
          }
 return list;
+    }
+
+    
+    public int getIdCategorie(String libelle){
+        int id_cat =0 ;
+        try {
+            String req ="select id from categorie where libelle = '"+libelle+"'";
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+               while(rs.next()){
+                   
+                   id_cat= rs.getInt(1);
+                   
+               }
+             
+                    } catch (SQLException ex) {
+            Logger.getLogger(ServiceCategorieIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return id_cat;
+    }
+    @Override
+    public List<List> afficherr() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

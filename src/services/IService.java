@@ -17,6 +17,7 @@ public interface IService<T> {
     public List<T> chercherVoiture(String nom);
     public List<T> triVoiture();
     public List<T> afficher();
+     public List<List> afficherr();
     
 }
     

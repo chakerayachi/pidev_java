@@ -23,6 +23,11 @@ public class Categorie {
         this.description = description;
     }
 
+    public Categorie(String libelle) {
+        this.libelle = libelle;
+    }
+    
+
     public Categorie(String libelle, String description) {
         this.libelle = libelle;
         this.description = description;

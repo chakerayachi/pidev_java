@@ -5,9 +5,11 @@
  */
 package test;
 
+import entities.Avis;
 import entities.Categorie;
 import entities.Voiture;
 import java.util.List;
+import services.ServiceAvisIMP;
 import services.ServiceCategorieIMP;
 import services.ServicesVoitureIMP;
 
@@ -24,14 +26,16 @@ public class Main {
     public static void main(String[] args) {
         ServicesVoitureIMP sv = new ServicesVoitureIMP();
         ServiceCategorieIMP sc = new ServiceCategorieIMP() ;
+        ServiceAvisIMP sa = new ServiceAvisIMP();
         Categorie c = new Categorie ("familiale","dfhdfh");
         Categorie c2 = new Categorie (1,"normale","dfhdfh");
-        Voiture v1 = new Voiture("touristique","clio","noir",4,"jolie",1,1) ;
-        Voiture v2 = new Voiture(3,"touristique","clio","vert",4,"jolie",1,1) ;
-        
-        System.out.println (sv.chercherVoiture("vert"));
-        // System.out.println (sc.afficher());
-        
+        Voiture v1 = new Voiture("123tn100","touristique","clio","noir",4,"jolie") ;
+        Voiture v2 = new Voiture(21,"456tn123","touristique","clio","vert",4,"jolie",1,"1") ;
+        Avis t = new Avis(4,35); 
+        //System.out.println (sv.chercherVoiture("vert"));
+         //System.out.println (sc.getIdCategorie("normale"));
+        // System.out.println (sv.afficherr());
+        sa.ajout(t);
         //sv.ajout(v1);
         //sv.afficher();
         //sv.supprimer(2);

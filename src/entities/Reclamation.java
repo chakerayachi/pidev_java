@@ -5,22 +5,34 @@
  */
 package entities;
 
+import java.util.Date;
+
 /**
  *
  * @author Hani
  */
 public class Reclamation {
-    int id ;
-    int user_id ;
-    String discreption ;
+   private int id ;
+   private int user_id ;
+   private String type;
+   private String discreption ;
+   private String date;
 
     public Reclamation() {
     }
 
-    public Reclamation(int id, int user_id, String discreption) {
+    public Reclamation(int id, int user_id,String type, String discreption) {
         this.id = id;
         this.user_id = user_id;
         this.discreption = discreption;
+    }
+
+    public Reclamation(int id, int user_id, String type, String discreption, String date) {
+        this.id = id;
+        this.user_id = user_id;
+        this.type = type;
+        this.discreption = discreption;
+        this.date = date;
     }
 
     public int getId() {
@@ -45,6 +57,22 @@ public class Reclamation {
 
     public void setDiscreption(String discreption) {
         this.discreption = discreption;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public String getDate() {
+        return date;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setDate(String date) {
+        this.date = date;
     }
 
     @Override
