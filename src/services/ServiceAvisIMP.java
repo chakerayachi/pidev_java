@@ -61,4 +61,22 @@ public class ServiceAvisIMP {
         }
         return a;
     }
+       public double get_moy_avis(int id_img) {
+                 Avis a = new Avis();
+double x =0.0;
+         try {
+            String req ="SELECT AVG(valeur) FROM avis where id_voiture="+id_img;
+            Statement st = cnx.createStatement();
+            ResultSet rs = st.executeQuery(req);
+            
+            while(rs.next()){
+                x = rs.getDouble("AVG(valeur)");    
+              
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(ServicesVoitureIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return x;
+    }
 }

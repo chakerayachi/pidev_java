@@ -146,26 +146,26 @@ return list;
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-      public Images afficherimagebyid_voiture(int id_img) {
-                 Images m = new Images();
-
+      public List <Images> afficherimagebyid_voiture(int id_img) {
+                 
+                  List<Images> list = new ArrayList<>();
          try {
             String req ="SELECT * FROM images where id_voiture="+id_img;
             Statement st = cnx.createStatement();
             ResultSet rs = st.executeQuery(req);
             
             while(rs.next()){
-               
+               Images m = new Images();
                 m.setImg_id(rs.getInt(1));
                 m.setImg_blob(rs.getString("img_blob"));
                 m.setId_voiture(rs.getInt("id_voiture"));    
-              
+              list.add(m);
             }
             
         } catch (SQLException ex) {
             Logger.getLogger(ServicesVoitureIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return m;
+        return list;
     }
    
 }

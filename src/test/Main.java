@@ -35,7 +35,7 @@ public class Main {
         //System.out.println (sv.chercherVoiture("vert"));
          //System.out.println (sc.getIdCategorie("normale"));
         // System.out.println (sv.afficherr());
-        sa.ajout(t);
+       System.out.println( sa.get_moy_avis(35));
         //sv.ajout(v1);
         //sv.afficher();
         //sv.supprimer(2);

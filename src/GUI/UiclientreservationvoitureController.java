@@ -20,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.image.Image;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
@@ -37,6 +38,11 @@ public class UiclientreservationvoitureController implements Initializable {
     @FXML
     private FlowPane FP;
 //public static Voiture v;
+    @FXML
+    private ChoiceBox<String> choicategorie;
+    private String[] reccategorie ={"familial","luxe","sport","4x4"};
+    @FXML
+    private ChoiceBox<String> choicapacite;
 
     /**
      * Initializes the controller class.
@@ -66,7 +72,7 @@ public class UiclientreservationvoitureController implements Initializable {
                 ReservationvoitureController.marque.setText(v.getMarque());
                 ReservationvoitureController.model.setText(v.getmodel());
                 ReservationvoitureController.couleur.setText(v.getCouleur());
-                ReservationvoitureController.review.setRating(sa.get_avis_byid_voiture(id).getValeur());
+                ReservationvoitureController.review.setRating(sa.get_moy_avis(id));
                 ReservationvoitureController.review.setUpdateOnHover(false);
                 ReservationvoitureController.capacite.setText(String.valueOf(v.getCapacite()));
                 ReservationvoitureController.deta.setOnAction(new EventHandler<ActionEvent>() {
@@ -95,11 +101,11 @@ public class UiclientreservationvoitureController implements Initializable {
                         try {
                             DetailsVoitureController dk = new DetailsVoitureController();
                             dk.voiture = v;
-int id_voiture = voiture.getId();
-                           FXMLLoader loader = new FXMLLoader(getClass().getResource("avis.fxml"));
-            Parent root = loader.load();
-            AvisController controller = loader.getController();
-            controller.setid_voiture(id_voiture);
+                            int id_voiture = voiture.getId();
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("avis.fxml"));
+                            Parent root = loader.load();
+                            AvisController controller = loader.getController();
+                            controller.setid_voiture(id_voiture);
 
                             Scene scene = new Scene(root);
                             Stage stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
@@ -122,10 +128,9 @@ int id_voiture = voiture.getId();
 
         }
     }
-    
-    
-    public void setData(){
+
+   /* public void setData() {
         int id = voiture.getId();
-    }
+    }*/
 
 }

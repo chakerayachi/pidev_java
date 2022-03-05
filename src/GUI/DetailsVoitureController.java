@@ -25,6 +25,7 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import services.ServiceImageIMP;
 import services.ServicesVoitureIMP;
@@ -46,6 +47,8 @@ public class DetailsVoitureController implements Initializable {
     
     @FXML
     private AnchorPane df;
+    @FXML
+    private FlowPane fp;
     
 
     /**
@@ -54,22 +57,27 @@ public class DetailsVoitureController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        
-        int count = sm.afficher().size();
-        System.out.println(count);
+        int id_voiture = voiture.getId();
+        List<Images> images = new ArrayList<>();
+        images=sm.afficherimagebyid_voiture(id_voiture);
+       
        // System.out.println(idsujet);
-        for (int i = 0; i < count; i++) {
+        for (Images i:images) {
             
             try {
-                Parent voitureFXML = FXMLLoader.load(getClass().getResource("/GUI/cardview.fxml"));
-                
-                
-                int id= voiture.getId();
-                System.out.println("yoooo"+id);
-                String path=sm.afficherimagebyid_voiture(id).getImg_blob();
-                CardviewController.imgvoiture.setImage(new Image  ("file:"+path));
-             System.out.println("");
-           df.getChildren().add(voitureFXML);     
+                Parent imageFXML = FXMLLoader.load(getClass().getResource("/GUI/cardview.fxml"));
+                //int id= voiture.getId();
+                //int id_img = sm.afficherimagebyid_voiture(id).getImg_id();
+                //int id= voiture.getId();
+                //System.out.println("yoooo"+id);
+                String path= i.getImg_blob();
+                Image img = new Image("file:"+path);
+                ImageView imgV = new ImageView();
+                imgV.setImage(img);
+             CardviewController.imgvoiture.setImage(img);
+             System.out.println(path);
+             
+           fp.getChildren().add(imageFXML);     
             }
             // TODO
             

@@ -48,7 +48,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Text>
-      <Rating fx:id="rate" layoutX="92.0" layoutY="259.0" rating="1.0" />
+      <Rating fx:id="rate" disable="true" layoutX="92.0" layoutY="259.0" rating="1.0" />
       <Text layoutX="13.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rview:">
          <font>
             <Font name="Arial Black" size="13.0" />

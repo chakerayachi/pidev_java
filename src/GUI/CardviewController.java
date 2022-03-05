@@ -32,6 +32,7 @@ public class CardviewController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         imgvoiture = imgview;
+       
     }    
     
 }

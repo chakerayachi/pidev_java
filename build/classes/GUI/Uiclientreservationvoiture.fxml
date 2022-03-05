@@ -1,12 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane id="AnchorPane" prefHeight="539.0" prefWidth="786.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UiclientreservationvoitureController">
    <children>
       <FlowPane fx:id="FP" layoutY="85.0" prefHeight="454.0" prefWidth="798.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="83.0" layoutX="-14.0" stroke="BLACK" strokeType="INSIDE" width="812.0" />
+      <ChoiceBox fx:id="choicategorie" layoutX="177.0" layoutY="52.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="choicapacite" layoutX="543.0" layoutY="48.0" prefWidth="150.0" />
+      <Text layoutX="49.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choisir une categorie:" wrappingWidth="118.13675689697266" />
+      <Text layoutX="425.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choisir une capaciter:" />
    </children>
 </AnchorPane>

@@ -3,13 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Hani/pidev_java/src/GUI/Admin_reclamationController.java</file>
-            <file>file:/C:/Users/Hani/pidev_java/src/test/VoitureFXMain.java</file>
-            <file>file:/C:/Users/Hani/pidev_java/src/GUI/ReservationvoitureController.java</file>
-            <file>file:/C:/Users/Hani/pidev_java/src/entities/Voiture.java</file>
+            <file>file:/C:/Users/Hani/pidev_java/src/test/Main.java</file>
+            <file>file:/C:/Users/Hani/pidev_java/src/GUI/DetailsVoitureController.java</file>
             <file>file:/C:/Users/Hani/pidev_java/src/services/ServicesVoitureIMP.java</file>
-            <file>file:/C:/Users/Hani/pidev_java/src/GUI/AjoutvoitureController.java</file>
-            <file>file:/C:/Users/Hani/pidev_java/src/GUI/ReclamationController.java</file>
             <file>file:/C:/Users/Hani/pidev_java/src/GUI/UiclientreservationvoitureController.java</file>
         </group>
     </open-files>
