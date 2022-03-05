@@ -17,8 +17,31 @@ public class Topic {
     private int accepter;
     private int nbsujet;
     private int iduser;
+    private int hide;
 
+    
     public Topic() {
+    }
+
+    public Topic(int idtopic, String titretopic, String description, String date, int accepter, int nbsujet, int iduser, int hide) {
+        this.idtopic = idtopic;
+        this.titretopic = titretopic;
+        this.description = description;
+        this.date = date;
+        this.accepter = accepter;
+        this.nbsujet = nbsujet;
+        this.iduser = iduser;
+        this.hide = hide;
+    }
+
+    public Topic(String titretopic, String description, String date, int accepter, int nbsujet, int iduser, int hide) {
+        this.titretopic = titretopic;
+        this.description = description;
+        this.date = date;
+        this.accepter = accepter;
+        this.nbsujet = nbsujet;
+        this.iduser = iduser;
+        this.hide = hide;
     }
 
     public Topic(String titretopic, String description, String date, int iduser) {
@@ -74,7 +97,17 @@ public class Topic {
     public int getIduser() {
         return iduser;
     }
+public void setHide(int hide) {
+        this.hide = hide;
+    }
 
+    public int getAccepter() {
+        return accepter;
+    }
+
+    public int getHide() {
+        return hide;
+    }
     public void setIdtopic(int idtopic) {
         this.idtopic = idtopic;
     }
