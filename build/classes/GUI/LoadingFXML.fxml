@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<HBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1100.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoadingFXMLController">
+   <children>
+      <StackPane prefHeight="648.0" prefWidth="695.0">
+         <children>
+            <Circle fx:id="c1" fill="#4399e500" radius="223.0" stroke="#1891db" strokeType="INSIDE" strokeWidth="20.0" style="-fx-stroke-dash-array: 75;" />
+            <Circle fx:id="c2" fill="TRANSPARENT" radius="184.0" stroke="#2a17dd" strokeType="INSIDE" strokeWidth="20.0" style="-fx-stroke-dash-array: 80;" />
+            <Circle fx:id="c3" fill="#1f93ff00" radius="140.0" stroke="#1891db" strokeType="INSIDE" strokeWidth="20.0" style="-fx-stroke-dash-array: 60;" />
+            <Circle fx:id="c4" fill="#1f93ff00" radius="100.0" stroke="#1408ff" strokeType="INSIDE" strokeWidth="10.0" style="-fx-stroke-dash-array: 35;" />
+            <ImageView fitHeight="205.0" fitWidth="184.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Ressources/Image/logo.png" />
+               </image>
+               <StackPane.margin>
+                  <Insets top="20.0" />
+               </StackPane.margin>
+            </ImageView>
+            <JFXButton onAction="#ChangerScene" opacity="0.0" prefHeight="104.0" prefWidth="189.0" ripplerFill="TRANSPARENT" text="START" textFill="#ffffff00">
+               <font>
+                  <Font name="Al Nile" size="40.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </StackPane>
+   </children>
+</HBox>

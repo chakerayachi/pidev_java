@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="1310.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.ClientFXMLController">
+    <left>
+        <VBox prefHeight="200.0" prefWidth="320.0" styleClass="white-background" stylesheets="@admindashboardfxml.css" BorderPane.alignment="CENTER">
+            <children>
+                <VBox alignment="CENTER" prefHeight="318.0" prefWidth="290.0" styleClass="profile-layout" stylesheets="@admindashboardfxml.css">
+                    <children>
+                        <ImageView fx:id="image" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                        <JFXButton fx:id="btn_image" onAction="#FileChooser" text="Changer Image">
+                            <font>
+                                <Font name="American Typewriter" size="13.0" />
+                            </font>
+                        </JFXButton>
+                    </children>
+                    <VBox.margin>
+                        <Insets left="10.0" right="20.0" />
+                    </VBox.margin>
+                </VBox>
+                <VBox alignment="CENTER" prefHeight="449.0" prefWidth="300.0" spacing="30.0">
+                    <VBox.margin>
+                        <Insets left="10.0" right="10.0" top="140.0" />
+                    </VBox.margin>
+                    <children>
+                        <JFXButton buttonType="RAISED" prefHeight="70.0" prefWidth="280.0" style="-fx-background-color: #2f3459;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="Page d acceuil" textFill="WHITE">
+                            <font>
+                                <Font name="American Typewriter" size="22.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton prefHeight="70.0" prefWidth="280.0" style="-fx-background-color: #f4b707;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="voir reservation" textFill="WHITE">
+                            <font>
+                                <Font name="American Typewriter" size="24.0" />
+                            </font>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" onAction="#goToForgetPass" prefHeight="70.0" prefWidth="280.0" style="-fx-background-color: #f40744;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="Modifier mot de passe" textFill="WHITE">
+                            <font>
+                                <Font name="American Typewriter" size="22.0" />
+                            </font>
+                        </JFXButton>
+                    </children>
+                </VBox>
+                <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+            </children>
+        </VBox>
+    </left>
+    <center>
+        <VBox prefHeight="200.0" prefWidth="100.0" styleClass="white-background" stylesheets="@admindashboardfxml.css" BorderPane.alignment="CENTER">
+            <children>
+                <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="white-background" stylesheets="@admindashboardfxml.css">
+                    <children>
+                        <Label prefHeight="59.0" prefWidth="514.0" text="Mes inforamations" textFill="#2f3459">
+                            <font>
+                                <Font name="American Typewriter Semibold" size="52.0" />
+                            </font>
+                            <HBox.margin>
+                                <Insets left="20.0" />
+                            </HBox.margin>
+                        </Label>
+                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <JFXButton buttonType="RAISED" layoutX="188.0" layoutY="13.0" onAction="#logout" prefHeight="60.0" prefWidth="158.0" style="-fx-background-color: #f40744;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="deconnection" textFill="WHITE">
+                           <font>
+                              <Font name="American Typewriter" size="20.0" />
+                           </font>
+                        </JFXButton>
+                     </children></Pane>
+                        <ImageView fitHeight="100.0" fitWidth="175.0" pickOnBounds="true" preserveRatio="true">
+                            <image>
+                                <Image url="@../Ressources/Image/logo.png" />
+                            </image>
+                        </ImageView>
+                    </children>
+                    <VBox.margin>
+                        <Insets />
+                    </VBox.margin>
+                </HBox>
+                <VBox prefHeight="200.0" prefWidth="100.0">
+                    <children>
+                        <HBox prefHeight="100.0" prefWidth="200.0" />
+                        <HBox prefHeight="151.0" prefWidth="955.0" spacing="30.0">
+                            <children>
+                                <Label prefHeight="68.0" prefWidth="395.0" text="                   Nom                         :" textFill="#f4b707">
+                                    <font>
+                                        <Font name="American Typewriter Semibold" size="28.0" />
+                                    </font>
+                           <padding>
+                              <Insets bottom="17.0" right="12.0" top="12.0" />
+                           </padding>
+                                </Label>
+                                <JFXTextField fx:id="nomTexte" focusColor="#2f3459" prefHeight="36.0" prefWidth="244.0" unFocusColor="#f4b707">
+                                    <font>
+                                        <Font name="American Typewriter" size="20.0" />
+                                    </font>
+                           <padding>
+                              <Insets bottom="17.0" right="12.0" top="12.0" />
+                           </padding>
+                                </JFXTextField>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="151.0" prefWidth="956.0" spacing="30.0">
+                            <children>
+                                <Label prefHeight="35.0" prefWidth="396.0" text="                   Prenom                     :" textFill="#f4b707">
+                                    <font>
+                                        <Font name="American Typewriter Semibold" size="27.0" />
+                                    </font>
+                           <padding>
+                              <Insets bottom="17.0" right="12.0" top="12.0" />
+                           </padding>
+                                </Label>
+                                <JFXTextField fx:id="prenomTexte" focusColor="#2f3459" prefHeight="34.0" prefWidth="243.0" unFocusColor="#f4b707">
+                                    <font>
+                                        <Font name="American Typewriter" size="20.0" />
+                                    </font>
+                           <padding>
+                              <Insets bottom="17.0" right="12.0" top="12.0" />
+                           </padding>
+                                </JFXTextField>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="151.0" prefWidth="955.0" spacing="30.0">
+                            <children>
+                                <Label prefHeight="35.0" prefWidth="395.0" text="                   Email                       :" textFill="#f4b707">
+                                    <font>
+                                        <Font name="American Typewriter Semibold" size="28.0" />
+                                    </font>
+                           <padding>
+                              <Insets bottom="17.0" right="12.0" top="12.0" />
+                           </padding>
+                                </Label>
+                                <JFXTextField fx:id="emailTexte" focusColor="#2f3459" prefHeight="34.0" prefWidth="248.0" unFocusColor="#f4b707">
+                                    <font>
+                                        <Font name="American Typewriter" size="20.0" />
+                                    </font>
+                           <padding>
+                              <Insets bottom="17.0" right="12.0" top="12.0" />
+                           </padding>
+                                </JFXTextField>
+                                <JFXButton buttonType="RAISED" onAction="#updateClient" prefHeight="40.0" prefWidth="140.0" style="-fx-background-color: #f4b707;" text="Edit" textFill="#2f3459">
+                                    <font>
+                                        <Font name="American Typewriter Bold" size="25.0" />
+                                    </font>
+                                </JFXButton>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="151.0" prefWidth="955.0" spacing="30.0">
+                            <children>
+                                <Label prefHeight="68.0" prefWidth="405.0" text="                  N° du Télephone    :" textFill="#f4b707">
+                                    <font>
+                                        <Font name="American Typewriter Semibold" size="28.0" />
+                                    </font>
+                           <padding>
+                              <Insets bottom="17.0" right="12.0" top="12.0" />
+                           </padding>
+                                </Label>
+                                <JFXTextField fx:id="numTexte" focusColor="#2f3459" prefHeight="35.0" prefWidth="251.0" unFocusColor="#f4b707">
+                                    <font>
+                                        <Font name="American Typewriter" size="20.0" />
+                                    </font>
+                           <padding>
+                              <Insets bottom="17.0" right="12.0" top="12.0" />
+                           </padding>
+                                </JFXTextField>
+                            </children>
+                        </HBox>
+                        <HBox prefHeight="151.0" prefWidth="955.0" spacing="30.0">
+                            <children>
+                                <Label prefHeight="35.0" prefWidth="400.0" text="                   Carte d'identité       :" textFill="#f4b707">
+                                    <font>
+                                        <Font name="American Typewriter Semibold" size="27.0" />
+                                    </font>
+                           <padding>
+                              <Insets bottom="17.0" right="12.0" top="12.0" />
+                           </padding>
+                                </Label>
+                                <JFXTextField fx:id="cinTexte" focusColor="#2f3459" prefHeight="34.0" prefWidth="248.0" unFocusColor="#f4b707">
+                                    <font>
+                                        <Font name="American Typewriter" size="20.0" />
+                                    </font>
+                           <padding>
+                              <Insets bottom="17.0" right="12.0" top="12.0" />
+                           </padding>
+                                </JFXTextField>
+                            </children>
+                        </HBox>
+                  <HBox prefHeight="151.0" prefWidth="955.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="68.0" prefWidth="403.0" text="                   Adresse                    :" textFill="#f4b707">
+                           <font>
+                              <Font name="American Typewriter Semibold" size="27.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="17.0" right="12.0" top="12.0" />
+                           </padding>
+                        </Label>
+                        <JFXTextField fx:id="adresseTexte" focusColor="#2f3459" prefHeight="34.0" prefWidth="248.0" unFocusColor="#f4b707">
+                           <font>
+                              <Font name="American Typewriter" size="20.0" />
+                           </font>
+                           <padding>
+                              <Insets bottom="17.0" right="12.0" top="12.0" />
+                           </padding>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                    </children>
+                </VBox>
+                <HBox prefHeight="56.0" prefWidth="343.0">
+                    <children>
+                        <VBox fx:id="choiceBox" prefHeight="42.0" prefWidth="815.0" />
+                    </children>
+                </HBox>
+            </children>
+            <BorderPane.margin>
+                <Insets left="5.0" />
+            </BorderPane.margin>
+        </VBox>
+    </center>
+</BorderPane>

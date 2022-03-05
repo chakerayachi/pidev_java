@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXProgressBar?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="1100.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Pane prefHeight="640.0" prefWidth="427.0" style="-fx-background-color: #6a0080;">
+         <children>
+            <Label layoutX="50.0" layoutY="114.0" prefHeight="73.0" prefWidth="313.0" text="Hello, Friend !  " textFill="WHITE">
+               <font>
+                  <Font name="Apple Symbols" size="55.0" />
+               </font>
+            </Label>
+            <Label layoutX="95.0" layoutY="225.0" prefHeight="29.0" prefWidth="232.0" text="Enter  your personnal details  " textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="94.0" layoutY="267.0" text="and start a nwe journy with us " textFill="WHITE">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <JFXButton buttonType="RAISED" layoutX="110.0" layoutY="384.0" ripplerFill="#d30d98" text="Sign UP" textFill="WHITE">
+               <font>
+                  <Font name="Apple Symbols" size="48.0" />
+               </font></JFXButton>
+            <JFXProgressBar layoutX="57.0" layoutY="178.0" prefHeight="6.0" prefWidth="254.0">
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant color="#c613a5" />
+                     </light>
+                  </Lighting>
+               </effect>
+            </JFXProgressBar>
+         </children>
+      </Pane>
+      <Label layoutX="576.0" layoutY="14.0" prefHeight="74.0" prefWidth="335.0" text="Sign In For Tfarhida " textFill="#6a0080">
+         <font>
+            <Font name="Al Bayan Bold" size="34.0" />
+         </font>
+      </Label>
+      <JFXTextField focusColor="#6a0080" labelFloat="true" layoutX="493.0" layoutY="169.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="550.0" promptText="Enter Login">
+         <font>
+            <Font name="Apple Symbols" size="24.0" />
+         </font>
+      </JFXTextField>
+      <JFXPasswordField focusColor="#6a0080" labelFloat="true" layoutX="493.0" layoutY="269.0" prefHeight="41.0" prefWidth="550.0" promptText="Enter Password">
+         <font>
+            <Font name="Apple Symbols" size="24.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXButton buttonType="RAISED" layoutX="681.0" layoutY="450.0" ripplerFill="#66027c" text="SIGN IN" textFill="#8210a1" textOverrun="CENTER_WORD_ELLIPSIS" underline="true">
+         <font>
+            <Font name="Apple Symbols" size="36.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="651.0" layoutY="363.0" prefHeight="29.0" prefWidth="217.0" ripplerFill="#66027c" text="Forget Your Password" textFill="#8210a1" textOverrun="CENTER_WORD_ELLIPSIS">
+         <font>
+            <Font name="Apple Symbols" size="24.0" />
+         </font>
+      </JFXButton>
+   </children>
+   <cursor>
+      <Cursor fx:constant="MOVE" />
+   </cursor>
+</AnchorPane>

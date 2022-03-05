@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="1310.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AjouterAgencierFxmlController">
+   <left>
+      <VBox prefHeight="200.0" prefWidth="320.0" styleClass="white-background" stylesheets="@admindashboardfxml.css" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="318.0" prefWidth="290.0" styleClass="profile-layout" stylesheets="@admindashboardfxml.css">
+               <children>
+                  <ImageView fx:id="image" fitHeight="150.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+                  <JFXButton fx:id="btn_image" text="Changer Image" visible="false" />
+               </children>
+               <VBox.margin>
+                  <Insets left="10.0" right="20.0" />
+               </VBox.margin>
+            </VBox>
+            <VBox alignment="CENTER" prefHeight="447.0" prefWidth="300.0" spacing="30.0">
+               <VBox.margin>
+                  <Insets left="10.0" right="10.0" top="140.0" />
+               </VBox.margin>
+               <children>
+                  <JFXButton onAction="#AjouterAgencier" prefHeight="70.0" prefWidth="280.0" style="-fx-background-color: #07f442;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="Ajouter Agencier" textFill="WHITE" visible="false">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton onAction="#AjouterAgencier" prefHeight="70.0" prefWidth="280.0" ripplerFill="TRANSPARENT" style="-fx-background-color: ffffff;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="Ajouter Agencier" textFill="#ffffff00" visible="false">
+                     <font>
+                        <Font size="25.0" />
+                     </font>
+                  </JFXButton>
+                  <JFXButton onAction="#goToDashboard" prefHeight="70.0" prefWidth="280.0" ripplerFill="#2f345900" style="-fx-background-color: #2f3459;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="Retour" textFill="#f4b707">
+                     <font>
+                        <Font name="American Typewriter" size="31.0" />
+                     </font>
+                  </JFXButton>
+               </children>
+            </VBox>
+            <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+   </left>
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" styleClass="white-background" stylesheets="@admindashboardfxml.css" BorderPane.alignment="CENTER">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" styleClass="white-background" stylesheets="@admindashboardfxml.css">
+               <children>
+                  <Label text="Ajouter Agencier" textAlignment="CENTER" textFill="#2f3459" wrapText="true">
+                     <font>
+                        <Font name="American Typewriter Bold" size="49.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </Label>
+                  <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <ImageView fitHeight="101.0" fitWidth="154.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../Ressources/Image/logo.png" />
+                     </image>
+                  </ImageView>
+               </children>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <VBox prefHeight="200.0" prefWidth="100.0">
+               <children>
+                  <HBox prefHeight="100.0" prefWidth="200.0" />
+                  <HBox prefHeight="151.0" prefWidth="0.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="34.0" prefWidth="337.0" text="  login                                  :" textFill="#f4b707">
+                           <font>
+                              <Font name="American Typewriter" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="40.0" left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="loginTexte" focusColor="#2f3459" labelFloat="true" prefHeight="0.0" prefWidth="300.0" promptText="Enter login" unFocusColor="#f4b707">
+                           <font>
+                              <Font name="American Typewriter" size="21.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="151.0" prefWidth="0.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="28.0" prefWidth="333.0" text="  password                         :" textFill="#f4b707">
+                           <font>
+                              <Font name="American Typewriter" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="40.0" left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="passwordTexte" focusColor="#2f3459" labelFloat="true" prefWidth="300.0" promptText="enter password" unFocusColor="#f4b707">
+                           <font>
+                              <Font name="American Typewriter" size="21.0" />
+                           </font></JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="151.0" prefWidth="0.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="28.0" prefWidth="335.0" text="    nom                                  :" textFill="#f4b707">
+                           <font>
+                              <Font name="American Typewriter" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="40.0" left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="nomTexte" focusColor="#2f3459" labelFloat="true" prefHeight="0.0" prefWidth="300.0" promptText="enter nom" unFocusColor="#f4b707">
+                           <font>
+                              <Font name="American Typewriter" size="21.0" />
+                           </font></JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="151.0" prefWidth="0.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="28.0" prefWidth="331.0" text="   prenom                             :" textFill="#f4b707">
+                           <font>
+                              <Font name="American Typewriter" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="40.0" left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="prenomTexte" focusColor="#2f3459" labelFloat="true" prefHeight="0.0" prefWidth="300.0" promptText="enter prenom" unFocusColor="#f4b707">
+                           <font>
+                              <Font name="American Typewriter" size="21.0" />
+                           </font></JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="151.0" prefWidth="0.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="28.0" prefWidth="328.0" text="   email                                  :" textFill="#f4b707">
+                           <font>
+                              <Font name="American Typewriter" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="40.0" left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="emailtexte" focusColor="#2f3459" labelFloat="true" prefHeight="0.0" prefWidth="300.0" promptText="enter email" unFocusColor="#f4b707">
+                           <font>
+                              <Font name="American Typewriter" size="21.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="151.0" prefWidth="0.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="28.0" prefWidth="328.0" text="   numer telephone            :" textFill="#f4b707">
+                           <font>
+                              <Font name="American Typewriter" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="40.0" left="20.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="num_telTexte" focusColor="#2f3459" labelFloat="true" prefHeight="0.0" prefWidth="300.0" promptText="enter numer de telephone" unFocusColor="#f4b707">
+                           <font>
+                              <Font name="American Typewriter" size="21.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="151.0" prefWidth="0.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="28.0" prefWidth="305.0" text="carte d identite               :" textFill="#f4b707">
+                           <font>
+                              <Font name="American Typewriter" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="40.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="cinTexte" focusColor="#2f3459" labelFloat="true" prefHeight="0.0" prefWidth="300.0" promptText="enter cin" unFocusColor="#f4b707">
+                           <HBox.margin>
+                              <Insets bottom="34.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="American Typewriter" size="21.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="151.0" prefWidth="0.0" spacing="30.0">
+                     <children>
+                        <Label prefHeight="28.0" prefWidth="302.0" text="adresse                             :" textFill="#f4b707">
+                           <font>
+                              <Font name="American Typewriter" size="24.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets bottom="20.0" left="40.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="afresseTexte" focusColor="#2f3459" labelFloat="true" prefHeight="0.0" prefWidth="300.0" promptText="enter adresse" unFocusColor="#f4b707">
+                           <HBox.margin>
+                              <Insets bottom="34.0" />
+                           </HBox.margin>
+                           <font>
+                              <Font name="American Typewriter" size="21.0" />
+                           </font>
+                        </JFXTextField>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="151.0" prefWidth="955.0" spacing="30.0">
+                     <children>
+                        <JFXTextField fx:id="cinTexte4" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="151.0" prefWidth="955.0" spacing="30.0" />
+                  <HBox prefHeight="151.0" prefWidth="955.0" spacing="30.0" />
+                  <HBox prefHeight="151.0" prefWidth="955.0" spacing="30.0" />
+                  <HBox prefHeight="151.0" prefWidth="955.0" spacing="30.0" />
+                  <HBox prefHeight="151.0" prefWidth="955.0" spacing="30.0" />
+               </children>
+            </VBox>
+            <JFXButton onAction="#ajouterAgencier" prefHeight="40.0" prefWidth="188.0" style="-fx-background-color: #2f3459;" stylesheets="@admindashboardfxml.css" text="valider" textFill="#f4b707">
+               <font>
+                  <Font name="American Typewriter" size="21.0" />
+               </font>
+            </JFXButton>
+         </children>
+         <BorderPane.margin>
+            <Insets left="5.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>

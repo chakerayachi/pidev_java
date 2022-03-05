@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.paint.RadialGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="845.0" prefWidth="1310.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.SignUpFXMLController">
+   <children>
+      <Pane layoutX="857.0" layoutY="-1.0" prefHeight="845.0" prefWidth="453.0" style="-fx-background-color: #f4b707;">
+         <children>
+            <JFXButton buttonType="RAISED" layoutX="368.0" layoutY="14.0" onAction="#GoT" prefHeight="35.0" prefWidth="85.0" style="-fx-background-color: #2f3459;" text="Retour" textFill="#f4b707">
+               <font>
+                  <Font name="American Typewriter" size="15.0" />
+               </font>
+            </JFXButton>
+            <ImageView fitHeight="463.0" fitWidth="538.0" layoutX="-24.0" layoutY="96.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../Ressources/Image/logo.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
+      <Label fx:id="LAbelCreateAccount" layoutX="196.0" layoutY="14.0" text="Create Account" underline="true">
+         <font>
+            <Font name="American Typewriter" size="59.0" />
+         </font>
+         <textFill>
+            <RadialGradient centerX="0.3258426966292135" centerY="0.5624999999999999" focusDistance="0.38095238095238093" radius="0.6309523809523809">
+               <stops>
+                  <Stop color="#f4b707" />
+                  <Stop color="#f4b707" offset="0.007518796992481203" />
+                  <Stop color="#2f3459" offset="1.0" />
+               </stops>
+            </RadialGradient>
+         </textFill>
+      </Label>
+      <JFXTextField fx:id="LoginTexte" focusColor="#f4b707" labelFloat="true" layoutX="87.0" layoutY="98.0" prefHeight="34.0" prefWidth="324.0" promptText="Login" unFocusColor="#2f3459">
+         <font>
+            <Font name="American Typewriter" size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="NomTexte" focusColor="#f4b707" labelFloat="true" layoutX="87.0" layoutY="217.0" prefHeight="27.0" prefWidth="324.0" promptText="nom" unFocusColor="#2f3459">
+         <font>
+            <Font name="American Typewriter" size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="PrenomTexte" focusColor="#f4b707" labelFloat="true" layoutX="87.0" layoutY="276.0" prefHeight="27.0" prefWidth="324.0" promptText="Prenom" unFocusColor="#2f3459">
+         <font>
+            <Font name="American Typewriter" size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="EmailTexte" focusColor="#f4b707" labelFloat="true" layoutX="87.0" layoutY="337.0" prefHeight="27.0" prefWidth="324.0" promptText="Email" unFocusColor="#2f3459">
+         <font>
+            <Font name="American Typewriter" size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="PhoneNumberTexte" focusColor="#f4b707" labelFloat="true" layoutX="87.0" layoutY="398.0" prefHeight="27.0" prefWidth="324.0" promptText="Phone Number" unFocusColor="#2f3459">
+         <font>
+            <Font name="American Typewriter" size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="ImageUser" editable="false" focusColor="#f4b707" labelFloat="true" layoutX="87.0" layoutY="518.0" prefHeight="27.0" prefWidth="324.0" promptText="image" unFocusColor="#2f3459">
+         <font>
+            <Font name="American Typewriter" size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="AdresseTexte" focusColor="#f4b707" labelFloat="true" layoutX="87.0" layoutY="579.0" prefHeight="27.0" prefWidth="324.0" promptText="Adresse" unFocusColor="#2f3459">
+         <font>
+            <Font name="American Typewriter" size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXTextField fx:id="CinTexte" focusColor="#f4b707" labelFloat="true" layoutX="87.0" layoutY="458.0" prefHeight="27.0" prefWidth="324.0" promptText="Numero carte d indentiter" unFocusColor="#2f3459">
+         <font>
+            <Font name="American Typewriter" size="20.0" />
+         </font>
+      </JFXTextField>
+      <JFXPasswordField fx:id="PasswordTexte" focusColor="#f4b707" labelFloat="true" layoutX="87.0" layoutY="158.0" prefHeight="27.0" prefWidth="324.0" promptText="Enter Password" unFocusColor="#2f3459">
+         <font>
+            <Font name="American Typewriter" size="20.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXButton buttonType="RAISED" defaultButton="true" layoutX="583.0" layoutY="650.0" onAction="#SignUp" prefHeight="60.0" prefWidth="144.0" ripplerFill="#2f3459" style="-fx-background-color: #f4b707;" text="Submit" textAlignment="CENTER" textFill="#2c2727" wrapText="true">
+         <font>
+            <Font name="American Typewriter" size="30.0" />
+         </font>
+      </JFXButton>
+      <JFXButton buttonType="RAISED" layoutX="438.0" layoutY="536.0" onAction="#FileChooser" style="-fx-background-color: #f4b707;" text="Choose image">
+         <font>
+            <Font name="American Typewriter" size="17.0" />
+         </font></JFXButton>
+      <ImageView fx:id="imageQR" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="624.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
