@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane id="AnchorPane" prefHeight="657.0" prefWidth="1018.0" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GestioncommentaireController">
+    <stylesheets>
+        <URL value="@gestioncommentaire.css" />
+    </stylesheets>
+   <children>
+      <Label layoutX="47.0" layoutY="52.0" text="Titre sujet : " />
+      <Label layoutX="33.0" layoutY="91.0" text="Description Sujet :" />
+      <Label layoutX="33.0" layoutY="143.0" text="NB Commentaire :" />
+      <Label fx:id="labeltitre" layoutX="209.0" layoutY="52.0" prefHeight="21.0" prefWidth="346.0" />
+      <Label fx:id="labelcont" layoutX="209.0" layoutY="91.0" prefHeight="21.0" prefWidth="366.0" />
+      <Label fx:id="labelnbcom" layoutX="209.0" layoutY="143.0" prefHeight="21.0" prefWidth="366.0" />
+      <FontAwesomeIconView fill="#2196f3" glyphName="PLUS_SQUARE" layoutX="28.0" layoutY="246.0" onMouseClicked="#ajoutercommentaire" size="45" styleClass="btn" />
+      <TableView fx:id="tvcommentaire" layoutX="-7.0" layoutY="287.0" prefHeight="559.0" prefWidth="1119.0" stylesheets="@gestiontopic.css">
+         <columns>
+            <TableColumn fx:id="colcontenu" minWidth="1.0" prefWidth="250.0" style="-fx-alignment: center;" text="Contenu" />
+            <TableColumn fx:id="coldate" minWidth="0.0" prefWidth="181.0" style="-fx-alignment: center;" text="date" />
+            <TableColumn fx:id="coliduser" prefWidth="149.0" style="-fx-alignment: center;" text="id_user" />
+            <TableColumn fx:id="colnblike" minWidth="0.0" prefWidth="208.0" style="-fx-alignment: center;" text="nblike" />
+            <TableColumn fx:id="colnbdislike" prefWidth="149.0" style="-fx-alignment: center;" text="nbdislike" />
+            <TableColumn fx:id="editcol" minWidth="0.0" prefWidth="208.0" style="-fx-alignment: center;" text="action" />
+         </columns>
+      </TableView>
+      <FontAwesomeIconView fx:id="backbtn" accessibleRole="BUTTON" fill="#2196f3" glyphName="ARROW_CIRCLE_LEFT" layoutX="953.0" layoutY="65.0" onMouseClicked="#backtopic" size="45" styleClass="btn" text="" />
+   </children>
+</AnchorPane>

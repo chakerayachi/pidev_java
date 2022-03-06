@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="747.0" prefWidth="1074.0" style="-fx-background-color: #2f3459;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MenuController">
+    <stylesheets>
+        <URL value="@menu.css" />
+    </stylesheets>
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="58.0" layoutX="-9.0" layoutY="50.0" stroke="BLACK" strokeType="INSIDE" width="1281.0" />
+      <ImageView fitHeight="151.0" fitWidth="148.0" layoutX="1084.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@lo.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="55.0" layoutY="50.0" prefHeight="58.0" prefWidth="354.0" text="Page d'acceuil" textFill="#2f3459">
+         <font>
+            <Font name="Comic Sans MS Bold" size="40.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="forum" layoutX="157.0" layoutY="196.0" onAction="#consulterforum" prefHeight="65.0" prefWidth="322.0" style="-fx-background-color: #f4b707;" text="Consulter Forum" textFill="#2f3459">
+         <font>
+            <Font name="Comic Sans MS Bold" size="30.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="704.0" layoutY="336.0" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;">
+         <font>
+            <Font name="Comic Sans MS Bold" size="30.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="704.0" layoutY="519.0" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;">
+         <font>
+            <Font name="Comic Sans MS Bold" size="30.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="704.0" layoutY="198.0" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;">
+         <font>
+            <Font name="Comic Sans MS Bold" size="30.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="157.0" layoutY="519.0" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;">
+         <font>
+            <Font name="Comic Sans MS Bold" size="30.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="157.0" layoutY="343.0" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;">
+         <font>
+            <Font name="Comic Sans MS Bold" size="30.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="922.0" prefWidth="1268.0" style="-fx-background-color: #2f3459;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.GestionsujetController">
+    <stylesheets>
+        <URL value="@gestionsujet.css" />
+    </stylesheets>
+   <children>
+      <FontAwesomeIconView fx:id="backbtn" accessibleRole="BUTTON" fill="#f4b707" glyphName="ARROW_CIRCLE_LEFT" layoutX="10.0" layoutY="43.0" onMouseClicked="#backtopic" size="45" styleClass="btn" text="" />
+      <TableView fx:id="tvsujet" layoutX="61.0" layoutY="309.0" prefHeight="600.0" prefWidth="1119.0" stylesheets="@gestiontopic.css">
+         <columns>
+            <TableColumn fx:id="coltitre" prefWidth="278.0" style="-fx-alignment: center;" text="Titre" />
+            <TableColumn fx:id="coldescription" minWidth="1.0" prefWidth="233.0" style="-fx-alignment: center;" text="Contenu" />
+            <TableColumn fx:id="coldate" minWidth="0.0" prefWidth="203.0" style="-fx-alignment: center;" text="Date" />
+            <TableColumn fx:id="colnbcom" prefWidth="213.0" style="-fx-alignment: center;" text="nb_commentaires" />
+            <TableColumn fx:id="editcol" minWidth="0.0" prefWidth="186.0" style="-fx-alignment: center;" text="action" />
+         </columns>
+      </TableView>
+      <FontAwesomeIconView fill="#f4b707" glyphName="PLUS_SQUARE" layoutX="29.0" layoutY="277.0" onMouseClicked="#ajoutersujet" size="45" styleClass="btn" />
+      <FontAwesomeIconView fill="WHITE" glyphName="FILES_ALT" layoutX="82.0" layoutY="275.0" onMouseClicked="#print" size="40" wrappingWidth="48.0" />
+      <Label layoutX="156.0" layoutY="125.0" prefHeight="45.0" prefWidth="200.0" text="Titre de topic : " textAlignment="CENTER" textFill="#f4b707">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="titretopic" layoutX="357.0" layoutY="137.0" prefHeight="21.0" prefWidth="341.0" text="Label" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="157.0" layoutY="180.0" text="Description de topic :" textFill="#f4b707">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="desctopic" layoutX="394.0" layoutY="183.0" prefHeight="21.0" prefWidth="341.0" text="Label" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="156.0" layoutY="224.0" text="Date de publication : " textFill="#f4b707">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="datetopic" layoutX="394.0" layoutY="226.0" prefHeight="25.0" prefWidth="333.0" text="Label" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="58.0" layoutY="57.0" stroke="BLACK" strokeType="INSIDE" width="1268.0" />
+      <ImageView fitHeight="151.0" fitWidth="148.0" layoutX="1097.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@lo.png" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="46.0" layoutY="56.0" prefHeight="58.0" prefWidth="354.0" text="Details du Topic :" textFill="#2f3459">
+         <font>
+            <Font name="Comic Sans MS Bold" size="40.0" />
+         </font>
+      </Label>
+      <Label layoutX="675.0" layoutY="150.0" text="Nombre de sujets :" textFill="#f4b707">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="nbsujettopic" layoutX="889.0" layoutY="152.0" prefHeight="25.0" prefWidth="331.0" text="Label" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="675.0" layoutY="195.0" text="Ajouter par : " textFill="#f4b707">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="20.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelusername" layoutX="867.0" layoutY="200.0" prefHeight="25.0" prefWidth="338.0" text="Label" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label alignment="CENTER" layoutX="430.0" layoutY="260.0" prefHeight="45.0" prefWidth="341.0" text="Liste des Sujets : " textAlignment="CENTER" textFill="#f4b707">
+         <font>
+            <Font name="Comic Sans MS Bold" size="30.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

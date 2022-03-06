@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="409.0" style="-fx-background-color: #2f3459;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.UpdatetopicController">
+   <children>
+      <Text fill="#f4b707" layoutX="79.0" layoutY="141.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titre" wrappingWidth="102.13671875">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="20.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="inputtitre" layoutX="236.0" layoutY="101.0" prefHeight="37.0" prefWidth="290.0" style="-fx-background-color: #ffffff;">
+         <font>
+            <Font name="Comic Sans MS Bold" size="18.0" />
+         </font>
+      </JFXTextField>
+      <Text fill="#f4b707" layoutX="79.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="135.13671875">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="20.0" />
+         </font>
+      </Text>
+      <TextArea fx:id="inputdesc" layoutX="238.0" layoutY="159.0" prefHeight="138.0" prefWidth="290.0">
+         <font>
+            <Font name="Comic Sans MS Bold" size="18.0" />
+         </font>
+      </TextArea>
+      <JFXButton fx:id="addbtn" layoutX="158.0" layoutY="318.0" onMouseClicked="#save" prefHeight="51.0" prefWidth="176.0" style="-fx-background-color: #f4b707;" styleClass="btn" text="Mise à Jour" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="362.0" layoutY="320.0" onMouseClicked="#clean" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #f4b707;" styleClass="btn" text="Clean" textFill="WHITE">
+         <font>
+            <Font name="Century Gothic Bold" size="24.0" />
+         </font>
+      </JFXButton>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="51.0" layoutX="-5.0" layoutY="32.0" stroke="BLACK" strokeType="INSIDE" width="581.0" />
+      <Text fill="#2f3459" layoutX="24.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Modifier Topic">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="30.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="123.0" fitWidth="119.0" layoutX="442.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@lo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

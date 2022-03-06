@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.net.URL?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="315.0" prefWidth="503.0" style="-fx-background-color: #2f3459;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.AjoutercommentaireController">
+    <stylesheets>
+        <URL value="@ajoutercommentaire.css" />
+    </stylesheets>
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="39.0" layoutY="30.0" stroke="BLACK" strokeType="INSIDE" width="507.0" />
+      <Text fill="#2f3459" layoutX="20.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter Commentaire" wrappingWidth="439.421875">
+         <font>
+            <Font name="Comic Sans MS Bold Italic" size="30.0" />
+         </font>
+      </Text>
+      <JFXButton fx:id="addbtn" layoutX="80.0" layoutY="217.0" onMouseClicked="#save" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #f4b707;" styleClass="btn" text="Ajouter" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="266.0" layoutY="217.0" onMouseClicked="#clean" prefHeight="45.0" prefWidth="160.0" style="-fx-background-color: #f4b707;" styleClass="btn" text="Clean" textFill="WHITE">
+         <font>
+            <Font name="Comic Sans MS Bold" size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXTextField fx:id="inputcont" focusColor="#f4b707" layoutX="9.0" layoutY="101.0" prefHeight="39.0" prefWidth="490.0" style="-fx-background-color: #ffffff;" unFocusColor="#f4b707">
+         <font>
+            <Font name="Comic Sans MS Bold" size="18.0" />
+         </font>
+      </JFXTextField>
+      <ImageView fitHeight="121.0" fitWidth="115.0" layoutX="369.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@lo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
