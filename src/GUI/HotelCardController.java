@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
@@ -43,18 +44,13 @@ public class HotelCardController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        String cssLayout = "-fx-border-color: #DCDCDC;\n" +
-                   "-fx-background-color: #DCDCDC;\n" +
-                   "-fx-border-insets: 5;\n" +
-                   "-fx-border-width: 3;\n" +
-                   "-fx-border-style: solid;\n";
-
-          
-        box.setStyle(cssLayout);
+       
     }    
     public void setData(Hotel h){
         libelle.setText(h.getLibelle());
-        nbEtoile.setText("Etoile :  "+Integer.toString(h.getNb_etoile())); 
+        nbEtoile.setText("Etoile :  "+Integer.toString(h.getNb_etoile()));
+        System.out.print(h.getImage());
+        image.setImage(new Image("file:/" + h.getImage()));
         
     }
 

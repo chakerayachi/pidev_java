@@ -64,5 +64,11 @@
             <Image url="@logo.png" />
          </image>
       </ImageView>
+      <Button id="button" fx:id="upload" layoutX="814.0" layoutY="549.0" mnemonicParsing="false" onAction="#upload" prefHeight="26.0" prefWidth="81.0" text="upload" textFill="#2f3459">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <TextField fx:id="imgField" layoutX="633.0" layoutY="554.0" promptText="inserer une image" />
    </children>
 </AnchorPane>

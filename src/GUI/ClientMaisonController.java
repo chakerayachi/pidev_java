@@ -70,14 +70,6 @@ public class ClientMaisonController implements Initializable {
                     try {
                     for (Maison m:maisons){
                         Label a = new Label();
-                        String cssLayout = "-fx-border-color: #DCDCDC;\n" +
-                                            "-fx-background-color: #DCDCDC;\n" +
-                                            "-fx-border-insets: 5;\n" +
-                                            "-fx-border-width: 3;\n" +
-                                            "-fx-border-style: solid;\n";
-
-          
-                        a.setStyle(cssLayout);
                         a.setPadding(new Insets(30,0,0,130));
                         a.setId("voir");
 
@@ -170,6 +162,7 @@ public class ClientMaisonController implements Initializable {
     private void retour(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("../GUI/ClientMaison.fxml"));
                             Scene scene = new Scene(root);
+                            scene.getStylesheets().add(getClass().getResource("../GUI/Stylesheet.css").toExternalForm());
                             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                             stage.setScene(scene);
                             stage.show();

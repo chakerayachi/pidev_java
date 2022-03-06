@@ -21,6 +21,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 /**
@@ -48,6 +50,8 @@ public class MaisonDetailsController implements Initializable {
     private Label capacite;
     @FXML
     private Label ville;
+    @FXML
+    private ImageView image;
 
     /**
      * Initializes the controller class.
@@ -59,6 +63,7 @@ public class MaisonDetailsController implements Initializable {
         prix.setText("Prix :  "+Float.toString(maison.getPrix()));
         nbChambre.setText("Chambre(s) :  "+Integer.toString(maison.getNb_chambres()));
         capacite.setText("Capacité :  "+Integer.toString(maison.getCapacite()));
+        image.setImage(new Image("file:/" + maison.getImage()));
         
         
         

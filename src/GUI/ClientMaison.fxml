@@ -18,8 +18,8 @@
           </GridPane>
        </content>
     </ScrollPane>
-   <ChoiceBox fx:id="region" layoutX="114.0" layoutY="39.0" prefWidth="150.0" />
+   <ChoiceBox id="choiceBox" fx:id="region" layoutX="114.0" layoutY="39.0" prefWidth="150.0" />
    <Label layoutX="67.0" layoutY="44.0" text="Region" />
-   <Button fx:id="retour" layoutY="1.0" mnemonicParsing="false" onAction="#retour" text="retour" />
-   <Button fx:id="maisonAc" layoutX="778.0" layoutY="39.0" mnemonicParsing="false" onAction="#maisonAc" text="Maison d'accueil" />
+   <Button id="btn" fx:id="retour" layoutY="1.0" mnemonicParsing="false" onAction="#retour" text="retour" />
+   <Button id="btn" fx:id="maisonAc" layoutX="778.0" layoutY="39.0" mnemonicParsing="false" onAction="#maisonAc" text="Maison d'accueil" />
 </AnchorPane>

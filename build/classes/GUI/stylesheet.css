@@ -5,3 +5,42 @@
 #hotelCaed{
     -fx-background-color: #f4b707;
 }
+
+#btnn {
+    -fx-background-color: #2f3459;
+    -fx-border-color: #2f3459;
+    -fx-text: white;
+}
+
+.table-view .column-header,
+.table-view .column-header .filler,
+.table-view .column-header-background .filler {
+    -fx-background-color: #f4b707;
+}
+
+#vbox {
+  -fx-background-color : #f4b707;
+  -fx-margin-top: 10px;
+  -fx-margin-bottom: 10px;
+  -fx-margin-right: 10px;
+  -fx-margin-left: 10px;
+}
+
+#AnchorPane {
+    -fx-background-color : #2f3459;
+}
+
+#choiceBox {
+  -fx-background-color: orange;
+  -fx-mark-color: #2f3459;
+}
+#choiceBox > .label { -fx-text-fill: white; }
+
+#hotelLab{
+  -fx-text-align: center;
+  -fx-background: #1abc9c;
+  -fx-color: white;
+  -fx-font-size: 30px;
+}
+
+

@@ -35,7 +35,7 @@ public class ServiceHotelIPM implements Ihebergement<Hotel>{
         PreparedStatement  pst;
         int hId=0;
          try {
-            String req = "INSERT INTO hotel (adresse,ville,region,num_tel,description,libelle,nb_etoiles,id_user) VALUES (?,?,?,?,?,?,?,?)";
+            String req = "INSERT INTO hotel (adresse,ville,region,num_tel,description,libelle,nb_etoiles,image,id_user) VALUES (?,?,?,?,?,?,?,?,?)";
                         System.out.println(h);
           PreparedStatement ps = cnxx.prepareStatement(req, columnNames);
           System.out.println(req);
@@ -46,7 +46,8 @@ public class ServiceHotelIPM implements Ihebergement<Hotel>{
             ps.setString(5,h.getDescription());
             ps.setString(6,h.getLibelle());
             ps.setInt(7,h.getNb_etoile());
-            ps.setInt(8,h.getId_user());
+            ps.setString(8,h.getImage());
+            ps.setInt(9,h.getId_user());
 
             ps.executeUpdate();
             java.sql.ResultSet generatedKeys = ps.getGeneratedKeys();
@@ -109,6 +110,7 @@ public class ServiceHotelIPM implements Ihebergement<Hotel>{
                          h.setNum_tel(rs.getInt("num_tel"));
                          h.setDescription(rs.getString("description"));
                          h.setLibelle(rs.getString("libelle"));
+                         h.setImage(rs.getString("image"));
                          h.setNb_etoile(rs.getInt("nb_etoiles"));
 
 
@@ -141,6 +143,7 @@ public class ServiceHotelIPM implements Ihebergement<Hotel>{
                          h.setDescription(rs.getString("description"));
                          h.setLibelle(rs.getString("libelle"));
                          h.setNb_etoile(rs.getInt("nb_etoiles"));
+                         h.setImage(rs.getString("image"));
                          list.add(h);
 
              }             
@@ -171,6 +174,7 @@ public class ServiceHotelIPM implements Ihebergement<Hotel>{
                          h.setDescription(rs.getString("description"));
                          h.setLibelle(rs.getString("libelle"));
                          h.setNb_etoile(rs.getInt("nb_etoiles"));
+                         h.setImage(rs.getString("image"));
                          list.add(h);
 
              }             

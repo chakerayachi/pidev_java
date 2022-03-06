@@ -5,9 +5,12 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<VBox id="vbox" fx:id="box" prefHeight="398.0" prefWidth="299.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MaisonCardController">
+<VBox id="vbox" fx:id="vbox" prefHeight="398.0" prefWidth="299.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MaisonCardController">
    <children>
       <ImageView fx:id="image" fitHeight="110.0" fitWidth="218.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -17,21 +20,53 @@
             <Insets left="40.0" top="40.0" />
          </VBox.margin>
       </ImageView>
-      <Label fx:id="nbChambre" prefHeight="46.0" prefWidth="182.0" text="Nombre de chambres  : " textFill="#f4b707">
+      <Label fx:id="nbChambre" prefHeight="46.0" prefWidth="182.0" text="Nombre de chambres  : ">
          <VBox.margin>
             <Insets left="50.0" top="30.0" />
          </VBox.margin>
          <font>
             <Font name="Comic Sans MS" size="12.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.929411768913269" green="0.8784313797950745" blue="0.7333333492279053" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
-      <Label fx:id="prix" prefHeight="46.0" prefWidth="182.0" text="Prix : " textFill="#f4b707">
+      <Label fx:id="prix" prefHeight="46.0" prefWidth="182.0" text="Prix : ">
          <VBox.margin>
             <Insets left="50.0" top="30.0" />
          </VBox.margin>
          <font>
             <Font name="Comic Sans MS" size="12.0" />
          </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.929411768913269" green="0.8784313797950745" blue="0.7333333492279053" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
       </Label>
    </children>
 </VBox>

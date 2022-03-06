@@ -33,7 +33,7 @@ Connection cnxx ;
     @Override
     public int create(Maison m) {
         try {
-            String req = "INSERT INTO maison (adresse,region,num_tel,description,capacite,nb_chambres,prix,id_user) VALUES (?,?,?,?,?,?,?,?)";
+            String req = "INSERT INTO maison (adresse,region,num_tel,description,capacite,nb_chambres,prix,image,id_user) VALUES (?,?,?,?,?,?,?,?,?)";
             System.out.println(m);
             PreparedStatement ps = cnxx.prepareStatement(req);
             System.out.println(req);
@@ -44,7 +44,8 @@ Connection cnxx ;
             ps.setInt(5,m.getCapacite());
             ps.setInt(6,m.getNb_chambres());
             ps.setFloat(7,m.getPrix());
-            ps.setInt(8,m.getId_user());
+            ps.setString(8,m.getImage());
+            ps.setInt(9,m.getId_user());
 
             ps.executeUpdate();
         } catch (SQLException ex) {
@@ -103,6 +104,7 @@ Connection cnxx ;
                          m.setCapacite(rs.getInt("capacite"));
                          m.setNb_chambres(rs.getInt("nb_chambres"));
                          m.setPrix(rs.getFloat("prix"));
+                         m.setImage(rs.getString("image"));
 
 
                          list.add(m);

@@ -7,6 +7,7 @@ package GUI;
 
 import entities.Maison;
 import entities.Utilisateur;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -26,6 +27,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import services.ServiceMaisonIPM;
 
@@ -56,6 +58,10 @@ public class AjouterMaisonController implements Initializable {
     private Button ajouterBtn;
     @FXML
     private ImageView logo;
+    @FXML
+    private Button upload;
+    @FXML
+    private TextField imgField;
 
     /**
      * Initializes the controller class.
@@ -78,19 +84,20 @@ public class AjouterMaisonController implements Initializable {
                 m.setCapacite(Integer.parseInt(capacite.getText()));
                 m.setDescription(description.getText());
                 m.setNb_chambres(Integer.parseInt(nbChambre.getText()));
-                m.setId_user(1);
-                // id user connecter 
+                m.setImage(imgField.getText());
                 //  m .setId_user(userConn.getId());
+                m.setId_user(27);
+                
+                
 
                 s.create(m);
 
-                //  zeyeda lena 
+                //  envoyer un mail de confirmation
                     try {
-                        GUI.MaillingController.sendMail(userConn, " Confirmation  ", " Votre maison a ete bien publier sur notre apllication nous vous informer lors d une reservation du votre maison merci d utiliswe notre applicationss ");
+                        GUI.MaillingController.sendMail(userConn, " Confirmation  ", " Votre maison a ete bien publier sur notre apllication nous vous informer lors d une reservation du votre maison merci d'utiliser notre applicationss ");
                     } catch (Exception ex) {
                         Logger.getLogger(AjouterMaisonController.class.getName()).log(Level.SEVERE, null, ex);
                     }
-                // toufa lena 
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
                     alert.setTitle("Succès!");
@@ -138,6 +145,33 @@ public class AjouterMaisonController implements Initializable {
 
         }
         return false;
+    }
+
+    @FXML
+    private void upload(ActionEvent event) {
+        
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Upload File Path");
+        fileChooser.getExtensionFilters().addAll(
+           
+            //new FileChooser.ExtensionFilter("IMAGE FILES", ".jpg", ".PNG")
+    );
+
+
+        File file = fileChooser.showOpenDialog(upload.getScene().getWindow());
+
+        if (file != null) {
+        // pickUpPathField it's your TextField fx:id
+        imgField.setText(file.getPath());
+
+        } 
+        else  {
+         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("image");
+            alert.setHeaderText(null);
+            alert.setContentText("soisir une image s'l vous plais");
+            alert.showAndWait();
+        }
     }
     
 }

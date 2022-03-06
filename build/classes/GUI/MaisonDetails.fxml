@@ -56,7 +56,7 @@
       </HBox>
       <VBox id="vbox" layoutX="34.0" layoutY="51.0" prefHeight="343.0" prefWidth="200.0">
          <children>
-            <ImageView fitHeight="137.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fx:id="image" fitHeight="137.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@maison.jpg" />
                </image>

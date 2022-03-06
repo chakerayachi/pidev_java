@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 
@@ -42,6 +43,7 @@ public class MaisonCardController implements Initializable {
      public void setData(Maison m){
         nbChambre.setText("Chambre(s) :  "+Integer.toString(m.getNb_chambres()));
         prix.setText("Prix :  "+Float.toString(m.getPrix()));
+        image.setImage(new Image("file:/" + m.getImage()));
        
        
     }

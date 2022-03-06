@@ -19,13 +19,14 @@ public class Maison {
     private int capacite ;
     private int nb_chambres ;
     private float prix ;
+    private String image;
     private  int id_user ;
 
     // constructeur par default
     public Maison(){}
 
     // constructeur paramtrer avec le champs id
-    public Maison(int id, String adresse, String region, int num_tel,  String description, int capacite, int nb_chambres, float prix, int id_user) {
+    public Maison(int id, String adresse, String region, int num_tel,  String description, int capacite, int nb_chambres, float prix, String image, int id_user) {
         this.id = id;
         this.adresse = adresse;
         this.region = region;
@@ -34,11 +35,12 @@ public class Maison {
         this.capacite = capacite;
         this.nb_chambres = nb_chambres;
         this.prix = prix;
+        this.image=image;
         this.id_user = id_user;
     }
 
     // constructeur paramtrer sans le champs id
-    public Maison(String adresse, String region, int num_tel,  String description, int capacite, int nb_chambres, float prix, int id_user) {
+    public Maison(String adresse, String region, int num_tel,  String description, int capacite, int nb_chambres, float prix, String image, int id_user) {
         this.adresse = adresse;
         this.region = region;
         this.num_tel = num_tel;
@@ -46,6 +48,7 @@ public class Maison {
         this.capacite = capacite;
         this.nb_chambres = nb_chambres;
         this.prix = prix;
+        this.image=image;
         this.id_user = id_user;
     }
 
@@ -116,6 +119,16 @@ public class Maison {
     public void setPrix(float prix) {
         this.prix = prix;
     }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
+    
+    
 
     public int getId_user() {
         return id_user;

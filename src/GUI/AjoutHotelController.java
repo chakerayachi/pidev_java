@@ -6,6 +6,7 @@
 package GUI;
 
 import entities.Hotel;
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -23,6 +24,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import services.ServiceHotelIPM;
 
@@ -53,6 +55,10 @@ public class AjoutHotelController implements Initializable {
     ServiceHotelIPM s = new ServiceHotelIPM();
     @FXML
     private ImageView logo;
+    @FXML
+    private TextField imgField;
+    @FXML
+    private Button upload;
 
     /**
      * Initializes the controller class.
@@ -79,6 +85,7 @@ public class AjoutHotelController implements Initializable {
             h.setLibelle(libelle.getText());
             h.setNb_etoile(Integer.parseInt(etoile.getText()));
             h.setDescription(description.getText());
+            h.setImage(imgField.getText());
             h.setVille(ville.getText());
             
             // id user connecter 
@@ -138,6 +145,33 @@ public class AjoutHotelController implements Initializable {
 
         }
         return false;
+    }
+
+    @FXML
+    private void upload(ActionEvent event) {
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Upload File Path");
+        fileChooser.getExtensionFilters().addAll(
+           
+            //new FileChooser.ExtensionFilter("IMAGE FILES", ".jpg", ".PNG")
+    );
+
+
+        File file = fileChooser.showOpenDialog(upload.getScene().getWindow());
+
+        if (file != null) {
+        // pickUpPathField it's your TextField fx:id
+        imgField.setText(file.getPath());
+
+        } 
+        else  {
+         Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("image");
+            alert.setHeaderText(null);
+            alert.setContentText("soisir une image s'l vous plais");
+            alert.showAndWait();
+        }
+        
     }
     
 }

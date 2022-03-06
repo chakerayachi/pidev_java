@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import static GUI.MaisonDetailsController.maison;
 import entities.Chambre;
 import entities.Hotel;
 import java.io.IOException;
@@ -21,6 +22,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 import services.ServiceChambreIPM;
 
@@ -49,6 +52,8 @@ public class HotelDetailsController implements Initializable {
     private Button reservation;
     @FXML
     private Button back;
+    @FXML
+    private ImageView image;
   
     /**
      * Initializes the controller class.
@@ -60,6 +65,7 @@ public class HotelDetailsController implements Initializable {
         description.setText("Description :\n"+hot.getDescription());
         region.setText("Region :  "+hot.getRegion());
         ville.setText("Ville :  "+hot.getVille());
+        image.setImage(new Image("file:/" + hot.getImage()));
         
     }    
     
