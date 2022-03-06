@@ -45,7 +45,7 @@ public class Mail {
             message.setFrom(new InternetAddress("wecodeforyouu@gmail.com"));
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(user.getEmail()));
             message.setSubject("Avertissement");
-            message.setText("MR/MME "+user.getNom()+" "+user.getPrenom()+" "+"faites attention la prochaine fois vous serez senctionner");
+            message.setText("MR/MME "+user.getNom()+" "+user.getPrenom()+" "+"faites attention la prochaine fois vous serez sanctionner");
 // Etape 3 : Envoyer le message
             Transport.send(message);
             System.out.println("message sent");

@@ -96,6 +96,6 @@
          <font>
             <Font name="American Typewriter" size="17.0" />
          </font></JFXButton>
-      <ImageView fx:id="imageQR" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="624.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageQR" fitHeight="150.0" fitWidth="200.0" layoutX="14.0" layoutY="683.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

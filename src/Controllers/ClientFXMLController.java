@@ -76,7 +76,7 @@ public class ClientFXMLController implements Initializable {
         listfiles.add("*.png");
         listfiles.add("*.jpg");
 
-        String path = "Users/chaker/NetBeansProjects/pidev_java_chaker/pidev_java/src/Ressources/Image/" + mewImagePath;
+        String path = "Users/Firas CHKOUNDALI/Desktop/pidev_java-main/src/Ressources/Image/" + mewImagePath;
         image.setImage(new Image("file:/" + path, 193, 200, false, false));
         nomTexte.setText(userConn.getNom());
         prenomTexte.setText(userConn.getPrenom());
@@ -221,7 +221,7 @@ public class ClientFXMLController implements Initializable {
                 user.setCin(Integer.parseInt(cinTexte.getText()));
                 user.setImage(mewImagePath);
                 su.modifierUtilisateur(user, userConn.getId());
-                String path = "Users/chaker/NetBeansProjects/pidev_java_chaker/pidev_java/src/Ressources/Image/" + mewImagePath;
+                String path = "Users/Firas CHKOUNDALI/Desktop/pidev_java-main/src/Ressources/Image/" + mewImagePath;
                 image.setImage(new Image("file:/" + path, 193, 200, false, false));
 
                 Alert resAlert = new Alert(Alert.AlertType.INFORMATION);
@@ -230,7 +230,7 @@ public class ClientFXMLController implements Initializable {
                 resAlert.showAndWait();
             } else {
                 mewImagePath = userConn.getImage();
-                String path = "Users/chaker/NetBeansProjects/pidev_java_chaker/pidev_java/src/Ressources/Image/" + mewImagePath;
+                String path = "Users/Firas CHKOUNDALI/Desktop/pidev_java-main/src/Ressources/Image/" + mewImagePath;
                 nomTexte.setText(userConn.getNom());
                 prenomTexte.setText(userConn.getPrenom());
                 emailTexte.setText(userConn.getEmail());

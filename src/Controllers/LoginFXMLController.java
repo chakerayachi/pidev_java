@@ -81,8 +81,8 @@ public class LoginFXMLController implements Initializable {
     private void GoToAdminDashboard(ActionEvent event) {
 
         try {
-          //  FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/AdminDashboardFXML.fxml"));
-             FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/menuback.fxml"));
+           FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/AdminDashboardFXML.fxml"));
+           //  FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/menuback.fxml"));
             Parent root = loader.load();
             LabelHelloFriend.getScene().setRoot(root);
         } catch (IOException ex) {
@@ -93,8 +93,8 @@ public class LoginFXMLController implements Initializable {
     private void GoToClientFML(ActionEvent event) {
 
         try {
-           // FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/ClientFXML.fxml"));
-          FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/menu.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/ClientFXML.fxml"));
+          //FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/menu.fxml"));
           
             Parent root = loader.load();
             LabelHelloFriend.getScene().setRoot(root);

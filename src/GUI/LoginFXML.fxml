@@ -9,16 +9,17 @@
 <?import javafx.scene.effect.Light.Distant?>
 <?import javafx.scene.effect.Lighting?>
 <?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="1310.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginFXMLController">
+<AnchorPane focusTraversable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="845.0" prefWidth="1296.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginFXMLController">
    <children>
-      <Pane prefHeight="845.0" prefWidth="427.0" style="-fx-background-color: #f4b707;">
+      <Pane prefHeight="845.0" prefWidth="471.0" style="-fx-background-color: #f4b707;">
          <children>
-            <Label fx:id="LabelHelloFriend" layoutX="50.0" layoutY="114.0" prefHeight="73.0" prefWidth="313.0" text="Hello, Friend !  " textFill="#2f3459">
+            <Label fx:id="LabelHelloFriend" layoutX="50.0" layoutY="114.0" prefHeight="81.0" prefWidth="393.0" text="Hello, Friend !  " textFill="#2f3459">
                <font>
                   <Font name="Apple Symbols" size="55.0" />
                </font>
@@ -37,7 +38,7 @@
                <font>
                   <Font name="Apple Symbols" size="48.0" />
                </font></JFXButton>
-            <JFXProgressBar layoutX="57.0" layoutY="178.0" prefHeight="6.0" prefWidth="254.0">
+            <JFXProgressBar layoutX="57.0" layoutY="178.0" prefHeight="9.0" prefWidth="320.0">
                <effect>
                   <Lighting>
                      <bumpInput>
@@ -76,7 +77,10 @@
             <Font name="Apple Symbols" size="24.0" />
          </font>
       </JFXButton>
-      <ImageView fx:id="qrimage" fitHeight="157.0" fitWidth="164.0" layoutX="1123.0" layoutY="613.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="qrimage" fitHeight="157.0" fitWidth="164.0" layoutX="1139.0" layoutY="688.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../Ressources/Image/wlecomeQR.png" />
+         </image></ImageView>
    </children>
    <cursor>
       <Cursor fx:constant="MOVE" />

@@ -71,7 +71,7 @@ public class AjouterAgencierFxmlController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
 
-        String path = "Users/chaker/NetBeansProjects/pidev_java_chaker/pidev_java/src/Ressources/Image/" + mewImagePath;
+        String path = "Users/Firas CHKOUNDALI/Desktop/pidev_java-main/src/Ressources/Image/" + mewImagePath;
         image.setImage(new Image("file:/" + path, 193, 200, false, false));
 
     }

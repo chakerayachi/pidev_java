@@ -73,7 +73,7 @@ public class AgencierFXMLController implements Initializable {
         listfiles.add("*.png");
         listfiles.add("*.jpg");
 
-        String path = "Users/chaker/NetBeansProjects/pidev_java_chaker/pidev_java/src/Ressources/Image/" + mewImagePath;
+        String path = "Users/Firas CHKOUNDALI/Desktop/pidev_java-main/src/Ressources/Image/" + mewImagePath;
         imageAgencier.setImage(new Image("file:/" + path, 193, 200, false, false));
         nomTexte.setText(userConn.getNom());
         PrenomTexte.setText(userConn.getPrenom());
@@ -235,7 +235,7 @@ public class AgencierFXMLController implements Initializable {
                 user.setNum_tel(Integer.parseInt(numTexte.getText()));
                 user.setCin(Integer.parseInt(cinTexte.getText()));
                 user.setImage(mewImagePath);
-                String path = "Users/chaker/NetBeansProjects/pidev_java_chaker/pidev_java/src/Ressources/Image/" + mewImagePath;
+                String path = "Users/Firas CHKOUNDALI/Desktop/pidev_java-main/src/Ressources/Image/" + mewImagePath;
                 imageAgencier.setImage(new Image("file:/" + path, 193, 200, false, false));
                 su.modifierUtilisateur(user, userConn.getId());
 
@@ -245,7 +245,7 @@ public class AgencierFXMLController implements Initializable {
                 resAlert.showAndWait();
             } else {
                 mewImagePath = userConn.getImage();
-                String path = "Users/chaker/NetBeansProjects/pidev_java_chaker/pidev_java/src/Ressources/Image/" + mewImagePath;
+                String path = "Users/Firas CHKOUNDALI/Desktop/pidev_java-main/src/Ressources/Image/" + mewImagePath;
                 imageAgencier.setImage(new Image("file:/" + path, 193, 200, false, false));
                 nomTexte.setText(userConn.getNom());
                 PrenomTexte.setText(userConn.getPrenom());

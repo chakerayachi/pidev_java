@@ -82,7 +82,7 @@ public class SignUpFXMLController implements Initializable {
         listfiles = new ArrayList<>();
         listfiles.add("*.png");
         listfiles.add("*.jpg");
-        imageQR.setImage(new Image("file:/Users/chaker/NetBeansProjects/pidev_java_chaker/pidev_java/src/Ressources/Image/wlecomeQR.png", 193, 200, false, false));
+        imageQR.setImage(new Image("file:/Users/Firas CHKOUNDALI/Desktop/pidev_java-main/src/Ressources/Image/wlecomeQR.png", 193, 200, false, false));
 
     }
 
