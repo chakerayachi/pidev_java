@@ -22,11 +22,7 @@ public class Sujet {
     private int idtopic;
     
     public Sujet() {
-    
-	
-	
-	
-	}
+    }
 
     public Sujet(String titresujet, String contenu, String date, int accepter, int nbcom, int iduser,int idtopic) {
         this.titresujet = titresujet;
