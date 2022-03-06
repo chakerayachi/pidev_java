@@ -1,30 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/GUI/Gestioncommentaire.fxml</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/Controllers/PrimaryController.java</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/GUI/gestionsujetback.fxml</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/GUI/gestiontopicback.fxml</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/GUI/ajoutercommentaire.fxml</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/Controllers/GestiontopicbackController.java</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/GUI/ajoutertopic.fxml</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/GUI/updatetopic.fxml</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/Controllers/GestiontopicController.java</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/GUI/gestioncommentaireback.fxml</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/GUI/updatecommentaire.fxml</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/GUI/Primary.fxml</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/GUI/comments.fxml</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/GUI/gestionsujet.fxml</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/test/FXMain.java</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/GUI/comment.fxml</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/GUI/ajoutersujet.css</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/Controllers/UpdatecommentaireController.java</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/GUI/ajoutersujet.fxml</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/utils/APIConnector.java</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/GUI/updatesujet.fxml</file>
-            <file>file:/C:/Users/Firas%20CHKOUNDALI/Desktop/pidev_java/src/GUI/gestiontopic.fxml</file>
-        </group>
-    </open-files>
 </project-private>
