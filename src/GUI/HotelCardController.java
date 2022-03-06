@@ -43,15 +43,19 @@ public class HotelCardController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        String cssLayout = "-fx-border-color: #DCDCDC;\n" +
+                   "-fx-background-color: #DCDCDC;\n" +
+                   "-fx-border-insets: 5;\n" +
+                   "-fx-border-width: 3;\n" +
+                   "-fx-border-style: solid;\n";
+
+          
+        box.setStyle(cssLayout);
     }    
     public void setData(Hotel h){
         libelle.setText(h.getLibelle());
-        nbEtoile.setText("Etoile :  "+Integer.toString(h.getNb_etoile()));
-        /*HotelDetailsController hd = fxmlloader.getController();
-        hd.setData(h);*/
-
-       
+        nbEtoile.setText("Etoile :  "+Integer.toString(h.getNb_etoile())); 
+        
     }
 
 }

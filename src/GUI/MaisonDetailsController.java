@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import GUI.HotelDetailsController;
 import entities.Maison;
 import java.io.IOException;
 import java.net.URL;
@@ -45,6 +46,8 @@ public class MaisonDetailsController implements Initializable {
     private Label nbChambre;
     @FXML
     private Label capacite;
+    @FXML
+    private Label ville;
 
     /**
      * Initializes the controller class.

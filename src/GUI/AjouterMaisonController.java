@@ -12,6 +12,8 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -67,41 +69,41 @@ public class AjouterMaisonController implements Initializable {
     
     @FXML
     private void Insert(ActionEvent event) throws IOException {
-        if (control()){
-        Maison m = new Maison();
-        m.setAdresse(adresse.getText());
-        m.setRegion(region.getText());
-        m.setNum_tel(Integer.parseInt(tel.getText()));
-        m.setPrix(Float.parseFloat(prix.getText()));
-        m.setCapacite(Integer.parseInt(capacite.getText()));
-        m.setDescription(description.getText());
-        m.setNb_chambres(Integer.parseInt(nbChambre.getText()));
-        m.setId_user(1);
-        // ki theb t3adi id user connecter 
-        //  m .setId_user(userConn.getId());
+        if (control() && validateNumberphone()){
+                Maison m = new Maison();
+                m.setAdresse(adresse.getText());
+                m.setRegion(region.getText());
+                m.setNum_tel(Integer.parseInt(tel.getText()));
+                m.setPrix(Float.parseFloat(prix.getText()));
+                m.setCapacite(Integer.parseInt(capacite.getText()));
+                m.setDescription(description.getText());
+                m.setNb_chambres(Integer.parseInt(nbChambre.getText()));
+                m.setId_user(1);
+                // id user connecter 
+                //  m .setId_user(userConn.getId());
 
-        s.create(m);
-        
-        //  zeyeda lena 
-            try {
-                GUI.MaillingController.sendMail(userConn, " Confirmation  ", " Votre maison a ete bien publier sur notre apllication nous vous informer lors d une reservation du votre maison merci d utiliswe notre applicationss ");
-            } catch (Exception ex) {
-                Logger.getLogger(AjouterMaisonController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        // toufa lena 
-        
-        Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Succès!");
-            alert.setHeaderText(null);
-            alert.setContentText("Maison ajouté avec succès");
-            alert.showAndWait();
-        
-        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListMaison.fxml"));
-		Scene scene = new Scene(root);
-		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-		stage.setScene(scene);
-		stage.show();
-        } else if(control()==false){
+                s.create(m);
+
+                //  zeyeda lena 
+                    try {
+                        GUI.MaillingController.sendMail(userConn, " Confirmation  ", " Votre maison a ete bien publier sur notre apllication nous vous informer lors d une reservation du votre maison merci d utiliswe notre applicationss ");
+                    } catch (Exception ex) {
+                        Logger.getLogger(AjouterMaisonController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                // toufa lena 
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Succès!");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Maison ajouté avec succès");
+                    alert.showAndWait();
+
+                Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListMaison.fxml"));
+                        Scene scene = new Scene(root);
+                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        stage.setScene(scene);
+                        stage.show();
+        } else if(control()==false || validateNumberphone()==false){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur Validation!");
             alert.setHeaderText(null);
@@ -119,6 +121,23 @@ public class AjouterMaisonController implements Initializable {
         } else {
             return true;
         }
+    }
+    
+    public boolean validateNumberphone() {
+
+        Pattern p = Pattern.compile("[0-9]+\\.[0-9]+|[0-9]+");
+        Matcher m = p.matcher(tel.getText());
+        if (m.find() && m.group().equals(tel.getText()) && tel.getText().length() == 8) {
+            return true;
+        } else {
+            Alert al = new Alert(Alert.AlertType.ERROR);
+            al.setTitle("Alert");
+            al.setContentText("Le numero du telephone doit etre 8 didgets");
+            al.setHeaderText(null);
+            al.show();
+
+        }
+        return false;
     }
     
 }

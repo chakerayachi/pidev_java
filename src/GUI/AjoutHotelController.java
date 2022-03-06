@@ -8,8 +8,9 @@ package GUI;
 import entities.Hotel;
 import java.io.IOException;
 import java.net.URL;
-import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,7 +20,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
@@ -69,7 +69,7 @@ public class AjoutHotelController implements Initializable {
         
         
      
-        if (control()){
+        if (control() && validateNumberphone()){
             
             Hotel h = new Hotel();
             h.setAdresse(adresse.getText());
@@ -80,20 +80,29 @@ public class AjoutHotelController implements Initializable {
             h.setNb_etoile(Integer.parseInt(etoile.getText()));
             h.setDescription(description.getText());
             h.setVille(ville.getText());
-            h.setId_user(1);
-            s.create(h);
+            
+            // id user connecter 
+            //  h .setId_user(userConn.getId());
+            h.setId_user(16);
+            int id_h=s.create(h);
+            System.out.println("hoteliddd"+id_h);
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Succès!");
             alert.setHeaderText(null);
             alert.setContentText("Hotel ajouté avec succès");
             alert.showAndWait();
-            Parent root = FXMLLoader.load(getClass().getResource("../GUI/ListHotel.fxml"));
+            
+            AjoutChambreController ac = new AjoutChambreController();
+            ac.id_hotel=id_h;
+            
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/AjoutChambre.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
 		stage.show();
        
-            } else if(control()==false){
+            } 
+        else if(control()==false){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Erreur Validation!");
             alert.setHeaderText(null);
@@ -113,6 +122,22 @@ public class AjoutHotelController implements Initializable {
         } else {
             return true;
         }
+    }
+    public boolean validateNumberphone() {
+
+        Pattern p = Pattern.compile("[0-9]+\\.[0-9]+|[0-9]+");
+        Matcher m = p.matcher(tel.getText());
+        if (m.find() && m.group().equals(tel.getText()) && tel.getText().length() == 8) {
+            return true;
+        } else {
+            Alert al = new Alert(Alert.AlertType.ERROR);
+            al.setTitle("Alert");
+            al.setContentText("Le numero du telephone doit etre 8 didgets");
+            al.setHeaderText(null);
+            al.show();
+
+        }
+        return false;
     }
     
 }

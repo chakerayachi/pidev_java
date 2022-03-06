@@ -7,7 +7,6 @@ package GUI;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
-import entities.Hotel;
 import entities.Maison;
 import java.io.IOException;
 import java.net.URL;

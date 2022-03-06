@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import entities.Chambre;
 import entities.Hotel;
 import java.io.IOException;
 import java.net.URL;
@@ -21,6 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
+import services.ServiceChambreIPM;
 
 
 /**
@@ -30,6 +32,8 @@ import javafx.stage.Stage;
  */
 public class HotelDetailsController implements Initializable {
     public static Hotel hot;
+    ServiceChambreIPM s = new ServiceChambreIPM();
+    Chambre c ;
 
     @FXML
     private Label libelle;
@@ -53,10 +57,10 @@ public class HotelDetailsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         libelle.setText(hot.getLibelle());
         nbEtoile.setText("Etoile :  "+Integer.toString(hot.getNb_etoile()));
-        description.setText(hot.getDescription());
+        description.setText("Description :\n"+hot.getDescription());
         region.setText("Region :  "+hot.getRegion());
         ville.setText("Ville :  "+hot.getVille());
-    
+        
     }    
     
     
@@ -64,6 +68,7 @@ public class HotelDetailsController implements Initializable {
 
     @FXML
     private void reservation(ActionEvent event) throws IOException {
+        
         /*Parent root = FXMLLoader.load(getClass().getResource("../GUI/.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

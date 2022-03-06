@@ -32,14 +32,14 @@ public class ServiceChambreIPM implements Ihebergement<Chambre>{
     }
 
     
-    public void create(Chambre c) {
+    public int create(Chambre c) {
         try {
             String req = "INSERT INTO chambre (type,id_hotel,prix) VALUES (?,?,?)";
                         System.out.println(c);
           PreparedStatement ps = cnxx.prepareStatement(req);
           System.out.println(req);
             ps.setString(1,c.getType());
-            ps.setInt(2,7);
+            ps.setInt(2,c.getId_hotel());
             ps.setFloat(3,c.getPrix());
             
 
@@ -47,6 +47,7 @@ public class ServiceChambreIPM implements Ihebergement<Chambre>{
         } catch (SQLException ex) {
                 Logger.getLogger(ServiceHotelIPM.class.getName()).log(Level.SEVERE, null, ex);
                             System.out.println("Error in inserting Chambre");        }
+        return c.getId();
     }
 
     
@@ -84,6 +85,31 @@ public class ServiceChambreIPM implements Ihebergement<Chambre>{
         ArrayList<Chambre>  list = new ArrayList();
        try {
                   String req ="Select * FROM chambre";
+             Statement st = cnxx.createStatement();
+             ResultSet rs = st.executeQuery(req);
+             while (rs.next()){
+               
+                         Chambre c = new Chambre();
+                         c.setId(rs.getInt("id"));
+                         c.setPrix(rs.getFloat("prix"));
+                         c.setType(rs.getString("type"));
+                         c.setId_hotel(rs.getInt("id_hotel"));
+                         list.add(c);
+
+             }             
+   
+        } catch (SQLException ex) {
+                Logger.getLogger(ServiceHotelIPM.class.getName()).log(Level.SEVERE, null, ex);
+                            System.out.println("Error in selecting chambre");
+
+        }   
+     return list;    
+    }
+    // Getting Room By ID_HOTEL
+     public  List<Chambre> getRoomById(int id) {
+        ArrayList<Chambre>  list = new ArrayList();
+       try {
+                  String req ="Select * FROM chambre where id_hotel="+id;
              Statement st = cnxx.createStatement();
              ResultSet rs = st.executeQuery(req);
              while (rs.next()){

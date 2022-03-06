@@ -31,7 +31,7 @@ Connection cnxx ;
     }
 
     @Override
-    public void create(Maison m) {
+    public int create(Maison m) {
         try {
             String req = "INSERT INTO maison (adresse,region,num_tel,description,capacite,nb_chambres,prix,id_user) VALUES (?,?,?,?,?,?,?,?)";
             System.out.println(m);
@@ -50,6 +50,7 @@ Connection cnxx ;
         } catch (SQLException ex) {
                 Logger.getLogger(ServiceHotelIPM.class.getName()).log(Level.SEVERE, null, ex);
                             System.out.println("Error in inserting Maison");        }
+        return m.getId();
     }
 
     @Override

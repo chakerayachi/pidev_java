@@ -12,7 +12,7 @@ import java.util.List;
  * @author Wael
  */
 public interface Ihebergement<T> {
-     public void create(T t);
+     public int create(T t);
     public void modify(T t);
     public void delete(int id);
     public List<T> afficher();

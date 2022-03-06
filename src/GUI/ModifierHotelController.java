@@ -33,22 +33,25 @@ public class ModifierHotelController implements Initializable {
 
     
     private int hotelId;
-    @FXML
     private TextField ville;
     @FXML
     private TextField region;
     @FXML
     private TextField tel;
-    @FXML
     private TextField libelle;
-    @FXML
     private TextField etoile;
     @FXML
     private TextArea adresse;
     @FXML
     private TextArea description;
     @FXML
-    private Button ajouterBtn;
+    private TextField nbChambre;
+    @FXML
+    private TextField capacite;
+    @FXML
+    private TextField prix;
+    @FXML
+    private Button modifierBtn;
     
     
 

@@ -3,13 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/F:/PiDev/pidev_java/src/GUI/HotelCardController.java</file>
             <file>file:/F:/PiDev/pidev_java/src/test/NewFXMain.java</file>
-            <file>file:/F:/PiDev/pidev_java/src/GUI/HotelDetails.fxml</file>
+            <file>file:/F:/PiDev/pidev_java/src/GUI/HotelCardController.java</file>
+            <file>file:/F:/PiDev/pidev_java/src/GUI/ClientMaisonController.java</file>
             <file>file:/F:/PiDev/pidev_java/src/GUI/ClientHotelController.java</file>
-            <file>file:/F:/PiDev/pidev_java/src/GUI/HotelDetailsController.java</file>
-            <file>file:/F:/PiDev/pidev_java/src/GUI/ClientHotel.fxml</file>
-            <file>file:/F:/PiDev/pidev_java/src/GUI/AjoutHotelController.java</file>
         </group>
     </open-files>
 </project-private>

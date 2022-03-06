@@ -13,6 +13,9 @@ import java.util.List;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -20,20 +23,14 @@ import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import services.ServiceHotelIPM;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
-import javafx.scene.control.ChoiceBox;
- 
-import javax.swing.BorderFactory;
 
 /**
  * FXML Controller class
@@ -42,22 +39,40 @@ import javax.swing.BorderFactory;
  */
 public class ClientHotelController implements Initializable {
     ObservableList<String> regionList = FXCollections.observableArrayList("Korba", "Hammamet", "Tunis", "Carthage", "Monastir", "Sousse", "Djerba", "Mahdia", "Tozeur", "Tabarka", "Sfax", "Gabes");
+    ObservableList<String> etoileList = FXCollections.observableArrayList("1", "2", "3" ,"4", "5");
+    
+    String cssLayout = "-fx-font: bold 11px Arial;;\n" +
+                                        "-fx-text-decoration: none;\n" +
+                                        "-fx-background-color: #EEEEEE;\n" +
+                                        "-fx-color: #333333;\n" +
+                                        "-fx-padding: 2px 6px 2px 6px;;\n"+
+                                        "-fx-border-right: 1px solid #333333;\n" +
+                                        "-fx-border-bottom: 1px solid #333333;\n" +
+                                        "-fx-border-left: 1px solid #CCCCCC;\n" ;
+
     ServiceHotelIPM s = new ServiceHotelIPM();
     List<Hotel> hotels = new ArrayList<>();
-    
     @FXML
     private GridPane hotelContainer;
     @FXML
     private ChoiceBox<String> region;
+    @FXML
+    private Button retour;
+    @FXML
+    private ChoiceBox<String> etoile;
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-            region.setValue("Bonjour"); 
+           region.setValue("Tout"); 
             region.setItems(regionList);
+            etoile.setValue("Tout"); 
+            etoile.setItems(etoileList);
             affich();
+            
+            //recherche par region event
             region.setOnAction((event)->{
                 hotelContainer.getChildren().clear();
                 int col = 0;
@@ -77,19 +92,21 @@ public class ClientHotelController implements Initializable {
                     hotelBox.getChildren().add(a);
                     a.setText("voir");
                     a.setOnMouseClicked((event2) ->  {
-
-                        try {
-                            HotelDetailsController dc = new HotelDetailsController();
-                            dc.hot=h;
-
-                            Parent root = FXMLLoader.load(getClass().getResource("../GUI/HotelDetails.fxml"));
-                            Scene scene = new Scene(root);
-                            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                            stage.setScene(scene);
+                        HotelDetailsController dc = new HotelDetailsController();
+                        dc.hot=h;
+                        FXMLLoader loader = new FXMLLoader ();
+                            loader.setLocation(getClass().getResource("../GUI/HotelDetails.fxml"));
+                            try {
+                                loader.load();
+                            } catch (IOException ex) {
+                                Logger.getLogger(ListHotelController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            
+                            Parent parent = loader.getRoot();
+                            Stage stage = new Stage();
+                            stage.setScene(new Scene(parent));
+                            stage.initStyle(StageStyle.UTILITY);
                             stage.show();
-                        } catch (IOException ex) {
-                            Logger.getLogger(ClientHotelController.class.getName()).log(Level.SEVERE, null, ex);
-                        }
                     });
                     if(col == 3){
                         col = 0;
@@ -102,6 +119,60 @@ public class ClientHotelController implements Initializable {
                         Logger.getLogger(ClientHotelController.class.getName()).log(Level.SEVERE, null, ex);
                 }
             });
+            
+            //Recherche par nbEtoile event
+            etoile.setOnAction((event)->{
+                
+                hotelContainer.getChildren().clear();
+                int col = 0;
+                int row = 1;
+                hotels = s.afficherHotelsParNbEtoile(Integer.parseInt(etoile.getSelectionModel().getSelectedItem()));
+                try {
+                for (Hotel h:hotels){
+                    Label a = new Label();
+                    
+
+          
+                    a.setPadding(new Insets(30,0,0,130));
+                    a.setId("voir");
+
+                    FXMLLoader fxmlloader = new FXMLLoader();
+                    fxmlloader.setLocation(getClass().getResource("HotelCard.fxml"));
+                    VBox hotelBox = fxmlloader.load();
+                    HotelCardController hc = fxmlloader.getController();
+                    hc.setData(h);  
+                    hotelBox.getChildren().add(a);
+                    a.setText("voir");
+                    a.setOnMouseClicked((event2) ->  {
+                        HotelDetailsController dc = new HotelDetailsController();
+                        dc.hot=h;
+                        FXMLLoader loader = new FXMLLoader ();
+                            loader.setLocation(getClass().getResource("../GUI/HotelDetails.fxml"));
+                            try {
+                                loader.load();
+                            } catch (IOException ex) {
+                                Logger.getLogger(ListHotelController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                            
+                            Parent parent = loader.getRoot();
+                            Stage stage = new Stage();
+                            stage.setScene(new Scene(parent));
+                            stage.initStyle(StageStyle.UTILITY);
+                            stage.show();
+                    });
+                    if(col == 3){
+                        col = 0;
+                        row++;
+                    }
+                    hotelContainer.add(hotelBox, col++, row);
+                    GridPane.setMargin(hotelBox, new Insets(10));
+                } 
+                }catch (IOException ex) {
+                        Logger.getLogger(ClientHotelController.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                });
+            
         
         }
     
@@ -109,47 +180,63 @@ public class ClientHotelController implements Initializable {
         int col = 0;
         int row = 1;
         hotels = s.afficher();
+        
         try {
-        for (Hotel h:hotels){
-            Label b = new Label();
-            b.setPadding(new Insets(30,0,0,130));
-            b.setId("voir");
+            for (Hotel h:hotels){
+                Label b = new Label();
+                
+                b.setPadding(new Insets(30,40,0,130));
+                b.setId("voir");
 
-            FXMLLoader fxmlloader = new FXMLLoader();
-            fxmlloader.setLocation(getClass().getResource("HotelCard.fxml"));
-            VBox hotelBox = fxmlloader.load();
-            HotelCardController hc = fxmlloader.getController();
-            hc.setData(h);  
-            hotelBox.getChildren().add(b);
-            b.setText("voir");
-            b.setOnMouseClicked((event) ->  {
-                            
-                try {
-                    HotelDetailsController dc = new HotelDetailsController();
-                    dc.hot=h;
-                    
-                    Parent root = FXMLLoader.load(getClass().getResource("../GUI/HotelDetails.fxml"));
-                    Scene scene = new Scene(root);
-                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                    stage.setScene(scene);
-                    stage.show();
-                } catch (IOException ex) {
-                    Logger.getLogger(ClientHotelController.class.getName()).log(Level.SEVERE, null, ex);
+                FXMLLoader fxmlloader = new FXMLLoader();
+                fxmlloader.setLocation(getClass().getResource("HotelCard.fxml"));
+                VBox hotelBox = fxmlloader.load();
+                
+                                
+                
+                HotelCardController hc = fxmlloader.getController();
+                hc.setData(h);  
+                hotelBox.getChildren().add(b);
+                b.setText("voir");
+                b.setOnMouseClicked((event) ->  {
+
+                    try {
+                        HotelDetailsController dc = new HotelDetailsController();
+                        dc.hot=h;
+
+                        Parent root = FXMLLoader.load(getClass().getResource("../GUI/HotelDetails.fxml"));
+                        Scene scene = new Scene(root);
+                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        stage.setScene(scene);
+                        stage.show();
+                    } 
+                    catch (IOException ex) {
+                        Logger.getLogger(ClientHotelController.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                });
+                if(col == 3){
+                    col = 0;
+                    row++;
                 }
-            });
-            if(col == 3){
-                col = 0;
-                row++;
-            }
-            hotelContainer.add(hotelBox, col++, row);
-            GridPane.setMargin(hotelBox, new Insets(10));
-        } 
+                hotelContainer.add(hotelBox, col++, row);
+                GridPane.setMargin(hotelBox, new Insets(10));
+            } 
         }catch (IOException ex) {
-                Logger.getLogger(ClientHotelController.class.getName()).log(Level.SEVERE, null, ex);
-        }
+                    Logger.getLogger(ClientHotelController.class.getName()).log(Level.SEVERE, null, ex);
+         }
     }
+
+    @FXML
+    private void retour(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/ClientHotel.fxml"));
+                        Scene scene = new Scene(root);
+                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                        stage.setScene(scene);
+                        stage.show();
+    }
+
+    
+
         
         
 }    
-    
-

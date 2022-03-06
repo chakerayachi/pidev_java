@@ -30,12 +30,14 @@ public class ServiceHotelIPM implements Ihebergement<Hotel>{
        
     }
     
-    public void create(Hotel h) {
-        
+    public int create(Hotel h) {
+        String columnNames[] = new String[] { "id" };
+        PreparedStatement  pst;
+        int hId=0;
          try {
             String req = "INSERT INTO hotel (adresse,ville,region,num_tel,description,libelle,nb_etoiles,id_user) VALUES (?,?,?,?,?,?,?,?)";
                         System.out.println(h);
-          PreparedStatement ps = cnxx.prepareStatement(req);
+          PreparedStatement ps = cnxx.prepareStatement(req, columnNames);
           System.out.println(req);
             ps.setString(1,h.getAdresse());
             ps.setString(2,h.getVille());
@@ -47,9 +49,14 @@ public class ServiceHotelIPM implements Ihebergement<Hotel>{
             ps.setInt(8,h.getId_user());
 
             ps.executeUpdate();
+            java.sql.ResultSet generatedKeys = ps.getGeneratedKeys();
+            if ( generatedKeys.next() ) {
+                    hId = generatedKeys.getInt(1);
+                }
         } catch (SQLException ex) {
                 Logger.getLogger(ServiceHotelIPM.class.getName()).log(Level.SEVERE, null, ex);
                             System.out.println("Error in inserting Hotel");        }
+         return hId;
     }
 
     @Override

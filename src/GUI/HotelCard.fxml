@@ -7,11 +7,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="box" prefHeight="398.0" prefWidth="299.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HotelCardController">
+<VBox id="hotelCard" fx:id="box" prefHeight="398.0" prefWidth="299.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HotelCardController">
    <children>
-      <Label fx:id="libelle" prefHeight="55.0" prefWidth="280.0" text="Label" textAlignment="CENTER">
+      <Label fx:id="libelle" prefHeight="28.0" prefWidth="264.0" text="Label" textAlignment="CENTER" textFill="#f4b707">
          <font>
-            <Font name="System Bold" size="19.0" />
+            <Font name="Comic Sans MS Bold" size="19.0" />
          </font>
          <VBox.margin>
             <Insets left="20.0" right="20.0" top="20.0" />
@@ -27,10 +27,14 @@
                   <Image url="@hhh.png" />
                </image>
             </ImageView>
-            <Label fx:id="nbEtoile" prefHeight="46.0" prefWidth="182.0" text="Etoile : ">
+            <Label fx:id="nbEtoile" prefHeight="46.0" prefWidth="182.0" text="Etoiles : " textFill="#f4b707">
                <VBox.margin>
                   <Insets left="50.0" top="40.0" />
-               </VBox.margin></Label>
+               </VBox.margin>
+               <font>
+                  <Font name="Comic Sans MS Bold" size="19.0" />
+               </font>
+            </Label>
          </children>
       </VBox>
    </children>
