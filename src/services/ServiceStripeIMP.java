@@ -13,9 +13,11 @@ import com.stripe.model.CustomerCollection;
 import com.stripe.model.PaymentIntent;
 import com.stripe.model.PaymentSource;
 import com.stripe.model.PaymentSourceCollection;
+import com.stripe.model.Refund;
 import com.stripe.model.Token;
 import com.stripe.param.CustomerListParams;
 import com.stripe.param.PaymentIntentCreateParams;
+import com.stripe.param.RefundCreateParams;
 import entities.Carte;
 import entities.Utilisateur;
 import java.util.ArrayList;
@@ -32,23 +34,24 @@ import java.util.logging.Logger;
 public class ServiceStripeIMP {  
 
     //payment process 
-    public boolean payment(Utilisateur user,int amount,Carte carte){
-        boolean result=false; 
+    public String payment(Utilisateur user,int amount,Carte carte){
+        String result=""; 
         String customer_id=check_customer_exists(user.getEmail()); 
-        System.out.println("customerId :"+customer_id);
+        System.out.println("old customerId :"+customer_id);
         if(customer_id.equals("")){ 
-             customer_id=create_customer(user); 
+             customer_id=create_customer(user);
+              System.out.println("new customerId :"+customer_id);
         }  
         Card card=get_customer_card_by_number(customer_id,carte.getNumber());
         if(card==null){  
-                System.out.println("im in card if");
+                System.out.println("new card for the customer ");
                 card=create_card(customer_id,carte); 
         }
         //update_customer_default_card(card.getId(),customer_id);
         String paymentIntent=create_payment_intent(customer_id,amount); 
         if(!paymentIntent.equals("")){
             confirm_payment_intent(paymentIntent);
-            result=true; 
+            result=paymentIntent; 
         }    
         return result; 
     }
@@ -272,6 +275,21 @@ public class ServiceStripeIMP {
         }
         
     } 
+    
+    public boolean refund_customer(String paymentIntent_id){ 
+        boolean check=false; 
+        try {
+            RefundCreateParams params=RefundCreateParams
+                    .builder()
+                    .setPaymentIntent(paymentIntent_id)
+                    .build();
+            Refund refund=Refund.create(params); 
+            check=true; 
+        } catch (StripeException ex) {
+            Logger.getLogger(ServiceStripeIMP.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return check; 
+    }
     
     
 }

@@ -28,7 +28,7 @@ public class ServiceTransactionIMP {
     
     //---Create reservations--
     public int add_transaction(Transaction tr){
-        String Request = "INSERT INTO transaction (taux_avance,taux_commission,taux_garantie,montant_paye_avance,montant_commission,montant_garantie) VALUES(?,?,?,?,?,?)" ; 
+        String Request = "INSERT INTO transaction (taux_avance,taux_commission,taux_garantie,montant_paye_avance,montant_commission,montant_garantie,paymentIntent_id) VALUES(?,?,?,?,?,?,?)" ; 
         String columnNames[] = new String[] { "id" };
         PreparedStatement  pst; 
         int transaction_generated_id=0;
@@ -65,7 +65,7 @@ public class ServiceTransactionIMP {
             ResultSet rs;
             rs = pst.executeQuery(Request);
              while (rs.next()) {
-                 transaction=new Transaction(transaction_id,rs.getTimestamp(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getFloat(6),rs.getFloat(7),rs.getFloat(8));
+                 transaction=new Transaction(transaction_id,rs.getTimestamp(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getFloat(6),rs.getFloat(7),rs.getFloat(8),rs.getString(9));
             }
     
         } catch (SQLException e) {
@@ -73,7 +73,7 @@ public class ServiceTransactionIMP {
         }
         return transaction;
     }
-    
+   
     
     public List<Transaction> get_all_transactions() {
          List<Transaction> transaction_list = new ArrayList(); 
@@ -83,7 +83,7 @@ public class ServiceTransactionIMP {
             pst = cnxx.prepareStatement(Request);
             ResultSet rs = pst.executeQuery(Request);
             while (rs.next()) {
-                Transaction transaction=new Transaction(rs.getInt(0),rs.getTimestamp(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getFloat(6),rs.getFloat(7),rs.getFloat(8));
+                Transaction transaction=new Transaction(rs.getInt(0),rs.getTimestamp(2),rs.getInt(3),rs.getInt(4),rs.getInt(5),rs.getFloat(6),rs.getFloat(7),rs.getFloat(8),rs.getString(9));
                 transaction_list.add(transaction);
             }
             } catch (SQLException e) {

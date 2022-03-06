@@ -14,23 +14,32 @@ public class Chambre {
      private int id ;
     private String type ;
     private int id_hotel ;
+    private float prix;
+    private int disponibiliter;
+
+   
 
     // constructeur par default
     public Chambre(){}
 
     // constructeur paramtere avec le champs id
 
-    public Chambre(int id, String type, int id_hotel) {
+    public Chambre(int id, String type, int id_hotel , float prix,int disponibiliter) {
         this.id = id;
         this.type = type;
         this.id_hotel = id_hotel;
+        this.prix = prix ;
+         this.disponibiliter=disponibiliter;
+        
     }
 
     // constructeur parametrer sans le champ id
-    public Chambre( String type, int id_hotel) {
+    public Chambre( String type, int id_hotel , float prix,int disponibiliter) {
 
         this.type = type;
         this.id_hotel = id_hotel;
+        this.prix = prix;
+        this.disponibiliter=disponibiliter;
     }
 
 
@@ -61,18 +70,35 @@ public class Chambre {
         this.id_hotel = id_hotel;
     }
 
-    // toString methode
+    public float getPrix() {
+        return prix;
+    }
 
+    public void setPrix(float prix) {
+        this.prix = prix;
+    }
+    
+     public int getDisponibiliter() {
+        return disponibiliter;
+    }
+
+    public void setDisponibiliter(int disponibiliter) {
+        this.disponibiliter = disponibiliter;
+    }
+
+ 
+    
+
+    // toString methode
 
     @Override
     public String toString() {
-        return "Chambre{" +
-                "id=" + id +
-                ", type='" + type + '\'' +
-                ", id_hotel=" + id_hotel +
-                '}';
+        return "Chambre{" + "id=" + id + ", type=" + type + ", id_hotel=" + id_hotel + ", prix=" + prix + '}';
     }
-    
+
+  
+
+  
     
     
 }

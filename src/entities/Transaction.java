@@ -20,24 +20,29 @@ public class Transaction {
     private float montant_avance; 
     private float montant_commission;
     private float montant_garantie;
+    private String paymentIntent_id; 
+
+   
      
     public Transaction (){} 
     
     
     
     //constructeur de récupération des données
-    public Transaction(int id, Timestamp created_At,int taux_avance,int taux_commission,int taux_garantie,float montant_avance, float montant_commission, float montant_garantie) {
+    public Transaction(int id, Timestamp created_At,int taux_avance,int taux_commission,int taux_garantie,float montant_avance, float montant_commission, float montant_garantie,String paymentIntent_id) {
         this.id = id;
         this.created_At = created_At;
         this.montant_avance = montant_avance;
         this.montant_commission = montant_commission;
         this.montant_garantie = montant_garantie;
+        this.paymentIntent_id=paymentIntent_id;
     }
     //constructeur d'insertion des données 
-    public Transaction(float montant_a_payer) {
+    public Transaction(float montant_a_payer,String paymentIntent_id) {
         setMontant_avance(montant_a_payer); 
         setMontant_commission();
         setMontant_garantie();
+        this.paymentIntent_id=paymentIntent_id;
     }  
 
     public int getId() {
@@ -102,7 +107,14 @@ public class Transaction {
 
     public void setMontant_garantie() {
         this.montant_garantie = (this.montant_avance*this.taux_garantie)/100;
-    } 
+    }
+     public String getPaymentIntent_id() {
+        return paymentIntent_id;
+    }
+
+    public void setPaymentIntent_id(String paymentIntent_id) {
+        this.paymentIntent_id = paymentIntent_id;
+    }
     
 
     @Override

@@ -20,7 +20,6 @@ public class Evenement {
     private String emplacement ;
     private int nb_place ;
     private int duree ;
-    private String image ;
     private int id_user ;
 
     // constructeur par default
@@ -28,7 +27,7 @@ public class Evenement {
 
     // constructeur paramtere avec le champs id
 
-    public Evenement(int id, String libelle, Date date, String description, String emplacement, int nb_place, int duree, String image, int id_user) {
+    public Evenement(int id, String libelle, Date date, String description, String emplacement, int nb_place, int duree,  int id_user) {
         this.id = id;
         this.libelle = libelle;
         this.date = date;
@@ -36,12 +35,11 @@ public class Evenement {
         this.emplacement = emplacement;
         this.nb_place = nb_place;
         this.duree = duree;
-        this.image = image;
         this.id_user = id_user;
     }
     // constructeur paramtere sans le champs id
 
-    public Evenement( String libelle, Date date, String description, String emplacement, int nb_place, int duree, String image, int id_user) {
+    public Evenement( String libelle, Date date, String description, String emplacement, int nb_place, int duree,  int id_user) {
 
         this.libelle = libelle;
         this.date = date;
@@ -49,7 +47,6 @@ public class Evenement {
         this.emplacement = emplacement;
         this.nb_place = nb_place;
         this.duree = duree;
-        this.image = image;
         this.id_user = id_user;
     }
 
@@ -111,13 +108,8 @@ public class Evenement {
         this.duree = duree;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
+  
+  
 
     public int getId_user() {
         return id_user;
@@ -139,7 +131,6 @@ public class Evenement {
                 ", emplacement='" + emplacement + '\'' +
                 ", nb_place=" + nb_place +
                 ", duree=" + duree +
-                ", image='" + image + '\'' +
                 ", id_user=" + id_user +
                 '}';
     }

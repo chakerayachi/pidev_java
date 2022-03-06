@@ -26,7 +26,7 @@ public class Utilisateur {
 
     // constructeur par default
 
-
+    public static Utilisateur user_connecté;
     public Utilisateur(){}
 
 

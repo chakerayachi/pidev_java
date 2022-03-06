@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="531.0" prefWidth="1360.0" stylesheets="@Paiement.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdministrateurRéservationsEvenementsController"> 
+    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="531.0" stroke="#2f3459" strokeType="INSIDE" width="1370.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="97.0" layoutX="1222.0" layoutY="24.0" stroke="#f4b707" strokeType="INSIDE" width="98.0" />
+      <TableView fx:id="table_reservation_evenement" layoutX="-11.0" layoutY="225.0" prefHeight="237.0" prefWidth="1340.0">
+        <columns>
+          <TableColumn fx:id="created_At" prefWidth="150.0" style="-fx-alignment: center;" text="Created At" />
+            <TableColumn fx:id="user_name" prefWidth="120.0" style="-fx-alignment: center;" text="Utilisateur" />
+          <TableColumn fx:id="date_debut" prefWidth="120.0" style="-fx-alignment: center;" text="Date  début" />
+            <TableColumn fx:id="date_fin" prefWidth="106.0" style="-fx-alignment: center;" text="Date fin" />
+            <TableColumn fx:id="montant_a_payer" prefWidth="108.0" style="-fx-alignment: center;" text="Total ($)" />
+            <TableColumn fx:id="taux_avance" prefWidth="106.0" style="-fx-alignment: center;" text="Taux avance (%)" />
+            <TableColumn fx:id="montant_paye" prefWidth="100.0" style="-fx-alignment: center;" text="Payé ($)" />
+            <TableColumn fx:id="reste_a_payer" prefWidth="105.0" style="-fx-alignment: center;" text="Reste ($)" />
+            <TableColumn fx:id="etat" prefWidth="92.0" style="-fx-alignment: center;" text="Etat" />
+            <TableColumn fx:id="event_name" prefWidth="128.0" style="-fx-alignment: center;" text="Evenement" />
+            <TableColumn fx:id="ticket_type" prefWidth="105.0" style="-fx-alignment: center;" text="Ticket" />
+            <TableColumn fx:id="editcol" prefWidth="99.0" text="Action" />
+        </columns>
+      </TableView>
+      <TextField fx:id="search_user_field" layoutX="118.0" layoutY="164.0" prefHeight="25.0" prefWidth="190.0" />
+      <Label layoutX="18.0" layoutY="168.0" text="Email utilisateur" textFill="#f4b707">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <Label layoutX="526.0" layoutY="168.0" prefHeight="17.0" prefWidth="77.0" text="Libellé  " textFill="#f4b707">
+         <font>
+            <Font size="13.0" />
+         </font></Label>
+      <TextField fx:id="search_event_field" layoutX="569.0" layoutY="164.0" prefHeight="25.0" prefWidth="180.0" />
+      <Label layoutX="914.0" layoutY="168.0" text="Date" />
+      <DatePicker fx:id="search_date_field" layoutX="972.0" layoutY="164.0" />
+      <Button id="search_button" fx:id="rechercher_utilisateur" layoutX="327.0" layoutY="164.0" mnemonicParsing="false" onAction="#rechercher_utilisateur" text="Rechercher" />
+      <Button id="search_button" layoutX="770.0" layoutY="164.0" mnemonicParsing="false" onAction="#rechercher_evenement" text="Rechercher" />
+      <Button id="search_button" layoutX="1184.0" layoutY="164.0" mnemonicParsing="false" onAction="#rechercher_date" text="Rechercher" />
+      <Button id="btn" layoutX="118.0" layoutY="121.0" mnemonicParsing="false" onAction="#clear_search_fields" text="Clear" />
+      <Button id="btn" fx:id="voiture_nav" layoutX="527.0" layoutY="480.0" mnemonicParsing="false" onAction="#redirect_voiture" prefHeight="33.0" prefWidth="76.0" text="Voitures" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="48.0" layoutY="47.0" stroke="#f4b707" strokeType="INSIDE" width="1360.0" />
+      <Text fill="#2f3459" layoutX="46.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des réservations des évènements">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <Button layoutX="631.0" layoutY="480.0" mnemonicParsing="false" onAction="#go_to_hotels" prefHeight="33.0" prefWidth="76.0" text="Hotels" />
+      <Button layoutX="732.0" layoutY="480.0" mnemonicParsing="false" onAction="#go_to_maison" prefHeight="33.0" prefWidth="76.0" text="Maisons" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1196.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+   </children>
+    
+</AnchorPane>
