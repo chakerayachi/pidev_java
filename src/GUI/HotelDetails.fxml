@@ -33,7 +33,7 @@
                   <Insets left="20.0" top="30.0" />
                </VBox.margin>
                <font>
-                  <Font name="Comic Sans MS" size="12.0" />
+                  <Font name="Comic Sans MS Bold" size="13.0" />
                </font>
             </Label>
             <Label fx:id="ville" text="Ville : " textFill="#f4b707">
@@ -41,7 +41,7 @@
                   <Insets left="20.0" top="20.0" />
                </VBox.margin>
                <font>
-                  <Font name="Comic Sans MS" size="12.0" />
+                  <Font name="Comic Sans MS Bold" size="13.0" />
                </font>
             </Label>
             <Label fx:id="nbEtoile" text="Etoile : " textFill="#f4b707">
@@ -49,7 +49,7 @@
                   <Insets left="20.0" top="30.0" />
                </VBox.margin>
                <font>
-                  <Font name="Comic Sans MS" size="12.0" />
+                  <Font name="Comic Sans MS Bold" size="13.0" />
                </font>
             </Label>
             <Button id="buttonn" fx:id="reservation" mnemonicParsing="false" onAction="#reservation" text="Réserver" textFill="#f4b707">
@@ -76,7 +76,7 @@
                         <Insets left="40.0" top="40.0" />
                      </VBox.margin>
                      <font>
-                        <Font name="Comic Sans MS" size="12.0" />
+                        <Font name="Comic Sans MS" size="14.0" />
                      </font>
                   </Label>
                </children>

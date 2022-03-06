@@ -2,9 +2,6 @@
     -fx-background-color: #f4b707;
     -fx-border-color: #f4b707;
 }
-#hotelCaed{
-    -fx-background-color: #f4b707;
-}
 
 #btnn {
     -fx-background-color: #2f3459;
@@ -24,6 +21,8 @@
   -fx-margin-bottom: 10px;
   -fx-margin-right: 10px;
   -fx-margin-left: 10px;
+  -fx-border-radius: 10 10 10 10; 
+  -fx-background-radius: 10 10 10 10; 
 }
 
 #AnchorPane {
@@ -41,6 +40,9 @@
   -fx-background: #1abc9c;
   -fx-color: white;
   -fx-font-size: 30px;
+}
+voir{
+    -fx-border-color: white;
 }
 
 

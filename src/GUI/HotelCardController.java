@@ -49,7 +49,6 @@ public class HotelCardController implements Initializable {
     public void setData(Hotel h){
         libelle.setText(h.getLibelle());
         nbEtoile.setText("Etoile :  "+Integer.toString(h.getNb_etoile()));
-        System.out.print(h.getImage());
         image.setImage(new Image("file:/" + h.getImage()));
         
     }

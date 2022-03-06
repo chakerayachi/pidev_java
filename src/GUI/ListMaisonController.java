@@ -8,6 +8,7 @@ package GUI;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import entities.Maison;
+import entities.Utilisateur;
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -80,6 +81,8 @@ public class ListMaisonController implements Initializable {
     private ImageView logo;
     @FXML
     private Button ajouter;
+    
+    Utilisateur userConn = Utilisateur.user_connecter;
 
     /**
      * Initializes the controller class.
@@ -91,7 +94,7 @@ public class ListMaisonController implements Initializable {
     }    
     
     public void affichage(){
-        List maisons = s.afficher();
+        List maisons = s.afficherMaisonParUserId(userConn.getId());
         list = FXCollections.observableArrayList(maisons);
         tableView.setItems(list);
         //id.setCellValueFactory(new PropertyValueFactory<>("id"));

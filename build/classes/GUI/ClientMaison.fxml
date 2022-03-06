@@ -19,7 +19,7 @@
        </content>
     </ScrollPane>
    <ChoiceBox id="choiceBox" fx:id="region" layoutX="114.0" layoutY="39.0" prefWidth="150.0" />
-   <Label layoutX="67.0" layoutY="44.0" text="Region" />
-   <Button id="btn" fx:id="retour" layoutY="1.0" mnemonicParsing="false" onAction="#retour" text="retour" />
-   <Button id="btn" fx:id="maisonAc" layoutX="778.0" layoutY="39.0" mnemonicParsing="false" onAction="#maisonAc" text="Maison d'accueil" />
+   <Label layoutX="67.0" layoutY="44.0" text="Region" textFill="WHITE" />
+   <Button id="button" fx:id="retour" layoutY="1.0" mnemonicParsing="false" onAction="#retour" text="retour" />
+   <Button id="button" fx:id="maisonAc" layoutX="608.0" layoutY="39.0" mnemonicParsing="false" onAction="#maisonAc" text="Maison d'accueil" textFill="WHITE" />
 </AnchorPane>

@@ -62,6 +62,8 @@ public class AjouterMaisonController implements Initializable {
     private Button upload;
     @FXML
     private TextField imgField;
+    
+    Utilisateur userConn = Utilisateur.user_connecter;
 
     /**
      * Initializes the controller class.
@@ -70,8 +72,8 @@ public class AjouterMaisonController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
     }    
-    // lehna zeda 
-    Utilisateur userConn = new Utilisateur();
+     
+    
     
     @FXML
     private void Insert(ActionEvent event) throws IOException {

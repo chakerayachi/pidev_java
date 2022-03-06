@@ -79,6 +79,7 @@ public class MaisonDetailsController implements Initializable {
             Parent root;
             root = FXMLLoader.load(getClass().getResource("../GUI/ClientMaison.fxml"));
             Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("../GUI/Stylesheet.css").toExternalForm());
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
 		stage.show();

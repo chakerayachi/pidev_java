@@ -5,6 +5,9 @@
  */
 package GUI;
 
+import GUI.HotelCardController;
+import GUI.HotelDetailsController;
+import GUI.ListHotelController;
 import entities.Hotel;
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +23,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -82,7 +86,9 @@ public class ClientHotelController implements Initializable {
                 for (Hotel h:hotels){
                     Label a = new Label();
                     a.setPadding(new Insets(30,0,0,130));
+                    //a.setStyle("-fx-border-color: white;");
                     a.setId("voir");
+                    a.setStyle("-fx-text-fill:WHITE; -fx-font-size: 20; -fx-font-weight: bold;");
 
                     FXMLLoader fxmlloader = new FXMLLoader();
                     fxmlloader.setLocation(getClass().getResource("HotelCard.fxml"));
@@ -135,6 +141,7 @@ public class ClientHotelController implements Initializable {
           
                     a.setPadding(new Insets(30,0,0,130));
                     a.setId("voir");
+                    a.setStyle("-fx-text-fill:WHITE; -fx-font-size: 20; -fx-font-weight: bold;");
 
                     FXMLLoader fxmlloader = new FXMLLoader();
                     fxmlloader.setLocation(getClass().getResource("HotelCard.fxml"));
@@ -187,7 +194,11 @@ public class ClientHotelController implements Initializable {
                 
                 b.setPadding(new Insets(30,40,0,130));
                 b.setId("voir");
-
+                b.setStyle("-fx-text-fill:WHITE; -fx-font-size: 20; -fx-font-weight: bold;");
+                
+                b.setAlignment(Pos.CENTER);
+                b.setWrapText(true);
+                
                 FXMLLoader fxmlloader = new FXMLLoader();
                 fxmlloader.setLocation(getClass().getResource("HotelCard.fxml"));
                 VBox hotelBox = fxmlloader.load();
@@ -206,6 +217,7 @@ public class ClientHotelController implements Initializable {
 
                         Parent root = FXMLLoader.load(getClass().getResource("../GUI/HotelDetails.fxml"));
                         Scene scene = new Scene(root);
+                        scene.getStylesheets().add(getClass().getResource("../GUI/Stylesheet.css").toExternalForm());
                         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                         stage.setScene(scene);
                         stage.show();

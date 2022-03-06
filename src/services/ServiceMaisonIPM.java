@@ -151,6 +151,38 @@ Connection cnxx ;
      return list;    
     }
     
+     //afficher les maison par user_id
+    public List<Maison> afficherMaisonParUserId(int id) {
+        ArrayList<Maison>  list = new ArrayList();
+        try {
+                  String req ="Select * FROM maison where id_user = "+id;
+             Statement st = cnxx.createStatement();
+             ResultSet rs = st.executeQuery(req);
+             while (rs.next()){
+               
+                       Maison m = new Maison();
+                         m.setId(rs.getInt("id"));
+                         m.setAdresse(rs.getString("adresse"));
+                         m.setRegion(rs.getString("region"));
+                         m.setNum_tel(rs.getInt("num_tel"));
+                         m.setDescription(rs.getString("description"));
+                         m.setCapacite(rs.getInt("capacite"));
+                         m.setNb_chambres(rs.getInt("nb_chambres"));
+                         m.setPrix(rs.getFloat("prix"));
+
+
+                         list.add(m);
+
+             }             
+   
+        } catch (SQLException ex) {
+                Logger.getLogger(ServiceHotelIPM.class.getName()).log(Level.SEVERE, null, ex);
+                            System.out.println("Error in selecting Hotel");
+
+        }   
+     return list;    
+    }
+    
     //affichage maisons par region
     
     public List<Maison> afficherParRegion(String region) {

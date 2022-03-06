@@ -19,8 +19,8 @@
        </content>
     </ScrollPane>
     <ChoiceBox id="choiceBox" fx:id="region" layoutX="229.0" layoutY="39.0" prefWidth="150.0" />
-   <Label layoutX="176.0" layoutY="43.0" text="Region " />
-   <Button id="btnn" fx:id="retour" layoutX="-1.0" layoutY="39.0" mnemonicParsing="false" onAction="#retour" text="Retour" />
+   <Label layoutX="176.0" layoutY="43.0" text="Region " textFill="WHITE" />
+   <Button id="button" fx:id="retour" layoutX="-1.0" layoutY="39.0" mnemonicParsing="false" onAction="#retour" text="Retour" textFill="WHITE" />
    <ChoiceBox id="choiceBox" fx:id="etoile" layoutX="605.0" layoutY="39.0" prefWidth="150.0" />
-   <Label layoutX="486.0" layoutY="42.0" text="Nombre d'etoile" />
+   <Label layoutX="486.0" layoutY="42.0" text="Nombre d'etoile" textFill="WHITE" />
 </AnchorPane>

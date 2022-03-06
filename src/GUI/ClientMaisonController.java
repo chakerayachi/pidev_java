@@ -72,6 +72,7 @@ public class ClientMaisonController implements Initializable {
                         Label a = new Label();
                         a.setPadding(new Insets(30,0,0,130));
                         a.setId("voir");
+                        a.setStyle("-fx-text-fill:WHITE; -fx-font-size: 20; -fx-font-weight: bold;");
 
                         FXMLLoader fxmlloader = new FXMLLoader();
                         fxmlloader.setLocation(getClass().getResource("MaisonCard.fxml"));
@@ -123,6 +124,7 @@ public class ClientMaisonController implements Initializable {
                     Label b = new Label();
                     b.setPadding(new Insets(30,0,0,130));
                     b.setId("voir");
+                    b.setStyle("-fx-text-fill:WHITE; -fx-font-size: 20; -fx-font-weight: bold;");
 
                     FXMLLoader fxmlloader = new FXMLLoader();
                     fxmlloader.setLocation(getClass().getResource("MaisonCard.fxml"));
@@ -139,6 +141,7 @@ public class ClientMaisonController implements Initializable {
 
                             Parent root = FXMLLoader.load(getClass().getResource("../GUI/MaisonDetails.fxml"));
                             Scene scene = new Scene(root);
+                            //scene.getStylesheets().add(getClass().getResource("../GUI/Stylesheet.css").toExternalForm());
                             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                             stage.setScene(scene);
                             stage.show();
@@ -182,6 +185,7 @@ public class ClientMaisonController implements Initializable {
                         Label a = new Label();
                         a.setPadding(new Insets(30,0,0,130));
                         a.setId("voir");
+                        a.setStyle("-fx-text-fill:WHITE; -fx-font-size: 20; -fx-font-weight: bold;");
 
                         FXMLLoader fxmlloader = new FXMLLoader();
                         fxmlloader.setLocation(getClass().getResource("MaisonCard.fxml"));

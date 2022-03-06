@@ -6,6 +6,7 @@
 package GUI;
 
 import entities.Hotel;
+import entities.Utilisateur;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
@@ -59,6 +60,8 @@ public class AjoutHotelController implements Initializable {
     private TextField imgField;
     @FXML
     private Button upload;
+    
+    Utilisateur userConn = Utilisateur.user_connecter;
 
     /**
      * Initializes the controller class.
@@ -92,7 +95,7 @@ public class AjoutHotelController implements Initializable {
             //  h .setId_user(userConn.getId());
             h.setId_user(16);
             int id_h=s.create(h);
-            System.out.println("hoteliddd"+id_h);
+            
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Succès!");
             alert.setHeaderText(null);
