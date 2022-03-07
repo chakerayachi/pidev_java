@@ -156,16 +156,44 @@ public class AdministrateurController implements Initializable {
     }
 
     @FXML
-    private void show_houses_reservations(ActionEvent event) {
+    private void show_houses_reservations(ActionEvent event) { 
+          try {
+            AnchorPane view =FXMLLoader.load(getClass().getResource("../GUI/AdministrateurRéservationsMaisons.fxml"));
+            scrollpane_container.setContent(view);
+        }catch (IOException ex) {
+            Logger.getLogger(AdministrateurController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
 
     @FXML
     private void show_cars_reservations(ActionEvent event) {
+         try {
+            AnchorPane view =FXMLLoader.load(getClass().getResource("../GUI/AdministrateurRéservationsVoitures.fxml"));
+            scrollpane_container.setContent(view);
+        }catch (IOException ex) {
+            Logger.getLogger(AdministrateurController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @FXML
     private void show_tickets_reservations(ActionEvent event) {
+        try {
+            AnchorPane view =FXMLLoader.load(getClass().getResource("../GUI/AdministrateurRéservationsEvenements.fxml"));
+            scrollpane_container.setContent(view);
+        } catch (IOException ex) {
+            Logger.getLogger(AdministrateurController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void show_statistics_reservations(ActionEvent event) { 
+        try {
+            AnchorPane view =FXMLLoader.load(getClass().getResource("../GUI/StatistiquesRéservations.fxml"));
+            scrollpane_container.setContent(view);
+        } catch (IOException ex) {
+            Logger.getLogger(AdministrateurController.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }

@@ -9,11 +9,11 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="591.0" prefWidth="1409.0" stylesheets="@../styles/Administrateur.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdministrateurController">
+<AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="1500.0" stylesheets="@../styles/Administrateur.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdministrateurController">
    <children>
-      <ScrollPane id="nav_container" fx:id="nav_container" hmax="0.0" prefHeight="591.0" prefWidth="290.0">
+      <ScrollPane id="nav_container" fx:id="nav_container" hmax="0.0" prefHeight="620.0" prefWidth="290.0">
          <content>
-            <VBox id="nav_container" maxHeight="2500.0" minHeight="591.0" prefWidth="290.0">
+            <VBox id="nav_container" maxHeight="2500.0" minHeight="620.0" prefWidth="290.0">
                <children>
                   <Pane prefHeight="195.0" prefWidth="290.0">
                      <children>
@@ -221,6 +221,7 @@
                                     <Insets top="10.0" />
                                  </VBox.margin>
                               </Button>
+                              <Button id="nav_button" mnemonicParsing="false" onAction="#show_statistics_reservations" prefHeight="34.0" prefWidth="290.0" text="Statistiques" />
                            </children>
                         </VBox>
                      </children>
@@ -229,6 +230,6 @@
             </VBox>
          </content>
       </ScrollPane>
-      <ScrollPane id="container_data" fx:id="scrollpane_container" layoutX="288.0" prefHeight="591.0" prefWidth="1330.0" vmax="0.0" />
+      <ScrollPane id="container_data" fx:id="scrollpane_container" layoutX="288.0" prefHeight="620.0" prefWidth="1365.0" vmax="0.0" />
    </children>
 </AnchorPane>

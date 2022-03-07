@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="1409.0" stylesheets="@../styles/Administrateur.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdministrateurController">
+   <children>
+      <ScrollPane id="nav_container" fx:id="nav_container" hmax="0.0" prefHeight="620.0" prefWidth="290.0">
+         <content>
+            <VBox id="nav_container" maxHeight="2500.0" minHeight="620.0" prefWidth="290.0">
+               <children>
+                  <Pane prefHeight="195.0" prefWidth="290.0">
+                     <children>
+                        <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="66.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@logo.png" />
+                           </image>
+                        </ImageView>
+                     </children>
+                  </Pane>
+                  <VBox fx:id="vbox_container" maxHeight="-Infinity">
+                     <children>
+                        <Button id="nav_button" mnemonicParsing="false" prefHeight="41.0" prefWidth="290.0" text="Utilisateurs">
+                           <graphic>
+                              <ImageView id="icon_nav" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/group.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                        <VBox fx:id="vbox_container_users" prefHeight="145.0" prefWidth="290.0">
+                           <children>
+                              <Button id="nav_button" mnemonicParsing="false" prefHeight="37.0" prefWidth="290.0" text="Utilisateurs">
+                                 <VBox.margin>
+                                    <Insets />
+                                 </VBox.margin>
+                              </Button>
+                              <Button id="nav_button" fx:id="nav_button_evenement1" mnemonicParsing="false" onAction="#show_local_nav_list" prefHeight="35.0" prefWidth="291.0" text="Hébergements">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button id="nav_button" mnemonicParsing="false" onAction="#show_car_nav_list" prefHeight="34.0" prefWidth="290.0" text="Voitures">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets top="10.0" />
+                           </VBox.margin>
+                        </VBox>
+                        <Button id="nav_button" fx:id="nav_button_evenement" mnemonicParsing="false" onAction="#show_local_nav_list" prefHeight="41.0" prefWidth="290.0" text="Hébergements">
+                           <graphic>
+                              <ImageView id="icon_nav" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/home-icon-silhouette.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                        <VBox fx:id="vbox_container_hergement" prefHeight="145.0" prefWidth="290.0">
+                           <children>
+                              <Button id="nav_button" mnemonicParsing="false" prefHeight="37.0" prefWidth="290.0" text="Utilisateurs">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button id="nav_button" fx:id="nav_button_evenement11" mnemonicParsing="false" onAction="#show_local_nav_list" prefHeight="35.0" prefWidth="291.0" text="Hébergements">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button id="nav_button" mnemonicParsing="false" onAction="#show_car_nav_list" prefHeight="34.0" prefWidth="290.0" text="Voitures">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                        </VBox>
+                        <Button id="nav_button" mnemonicParsing="false" onAction="#show_car_nav_list" prefHeight="35.0" prefWidth="291.0" text="Voitures">
+                           <graphic>
+                              <ImageView id="icon_nav" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/sports-car.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                        <VBox fx:id="vbox_container_voiture" prefHeight="145.0" prefWidth="290.0">
+                           <children>
+                              <Button id="nav_button" mnemonicParsing="false" prefHeight="37.0" prefWidth="290.0" text="Utilisateurs">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button id="nav_button" fx:id="nav_button_evenement111" mnemonicParsing="false" onAction="#show_local_nav_list" prefHeight="35.0" prefWidth="291.0" text="Hébergements">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button id="nav_button" mnemonicParsing="false" onAction="#show_car_nav_list" prefHeight="34.0" prefWidth="290.0" text="Voitures">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <Button id="nav_button" mnemonicParsing="false" onAction="#show_event_nav_list" prefHeight="35.0" prefWidth="291.0" text="Evénements">
+                           <graphic>
+                              <ImageView id="icon_nav" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/party.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                        <VBox fx:id="vbox_container_evenement" prefHeight="145.0" prefWidth="290.0">
+                           <children>
+                              <Button id="nav_button" mnemonicParsing="false" prefHeight="37.0" prefWidth="290.0" text="Utilisateurs">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button id="nav_button" fx:id="nav_button_evenement112" mnemonicParsing="false" onAction="#show_local_nav_list" prefHeight="35.0" prefWidth="291.0" text="Hébergements">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button id="nav_button" mnemonicParsing="false" onAction="#show_car_nav_list" prefHeight="34.0" prefWidth="290.0" text="Voitures">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <Button id="nav_button" mnemonicParsing="false" onAction="#show_forum_nav_list" prefHeight="35.0" prefWidth="291.0" text="Forum">
+                           <graphic>
+                              <ImageView id="icon_nav" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/group.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                        <VBox fx:id="vbox_container_forum" prefHeight="145.0" prefWidth="290.0">
+                           <children>
+                              <Button id="nav_button" mnemonicParsing="false" prefHeight="37.0" prefWidth="290.0" text="Utilisateurs">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button id="nav_button" fx:id="nav_button_evenement113" mnemonicParsing="false" onAction="#show_local_nav_list" prefHeight="35.0" prefWidth="291.0" text="Hébergements">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button id="nav_button" mnemonicParsing="false" onAction="#show_car_nav_list" prefHeight="34.0" prefWidth="290.0" text="Voitures">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                        <Button id="nav_button" fx:id="nav_button_reservation" mnemonicParsing="false" onAction="#show_reservation_nav_list" prefHeight="35.0" prefWidth="291.0" text="Réservations">
+                           <graphic>
+                              <ImageView id="icon_nav" fitHeight="22.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../assets/to-do-list.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                           <VBox.margin>
+                              <Insets top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                        <VBox fx:id="vbox_container_reservation" prefHeight="200.0" prefWidth="290.0">
+                           <children>
+                              <Button id="nav_button" mnemonicParsing="false" onAction="#show_hotels_reservations" prefHeight="37.0" prefWidth="290.0" text="Hotels">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button id="nav_button" fx:id="nav_button_evenement114" mnemonicParsing="false" onAction="#show_houses_reservations" prefHeight="35.0" prefWidth="291.0" text="maisons">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button id="nav_button" mnemonicParsing="false" onAction="#show_cars_reservations" prefHeight="34.0" prefWidth="290.0" text="Voitures">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button id="nav_button" mnemonicParsing="false" onAction="#show_tickets_reservations" prefHeight="34.0" prefWidth="290.0" text="Tickets">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Button>
+                              <Button id="nav_button" mnemonicParsing="false" onAction="#show_statistics_reservations" prefHeight="34.0" prefWidth="290.0" text="Statistiques" />
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </content>
+      </ScrollPane>
+      <ScrollPane id="container_data" fx:id="scrollpane_container" layoutX="288.0" prefHeight="620.0" prefWidth="1330.0" vmax="0.0" />
+   </children>
+</AnchorPane>

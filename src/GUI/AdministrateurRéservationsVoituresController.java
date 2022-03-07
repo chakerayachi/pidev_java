@@ -239,7 +239,7 @@ public class AdministrateurRéservationsVoituresController implements Initializa
                             }
                             HBox managebtn = new HBox(button);
                             managebtn.setStyle("-fx-alignment:center");
-                            HBox.setMargin(button,new Insets(2, 2, 8, 8));
+                            HBox.setMargin(button,new Insets(2, 2, 0, 0));
                             setGraphic(managebtn);
                             setText(null);
                         }
@@ -272,26 +272,22 @@ public class AdministrateurRéservationsVoituresController implements Initializa
                        
                         if(data!=null){ 
                             Label label=new Label();
+                            Label details_Label=new Label();
                             String etat=data.get(7).toString();
                             Date reservation_date=(Date) data.get(1);
                             System.out.println("data action factory "+data);
                             if(check_to_update(reservation_date,etat)){
                                 managebtn.getChildren().addAll(label);
                             }
-                             
-                             label.setId("annuler_button");
-                             label.setText("Annuler");
+                            details_Label.setId("details_button");
+                            details_Label.setText("Détails");
+                            label.setId("annuler_button");
+                            label.setText("Annuler");
                             FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
-                            FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
                             deleteIcon.setStyle(
                                     " -fx-cursor: hand ;"
                                             + "-glyph-size:28px;"
                                             + "-fx-fill:#ff1744;"
-                            );
-                            editIcon.setStyle(
-                                    " -fx-cursor: hand ;"
-                                            + "-glyph-size:28px;"
-                                            + "-fx-fill:#00E676;"
                             );
                             label.setOnMouseClicked((event)->{
                                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -334,11 +330,31 @@ public class AdministrateurRéservationsVoituresController implements Initializa
                                  }
                                 
                         });
+                            details_Label.setOnMouseClicked((event) -> { 
+                                    List data_row=(List) table_reservation_voiture.getSelectionModel().getSelectedItem();
+                                    int id_reservation=(int) data_row.get(10); 
+                                         FXMLLoader loader = new FXMLLoader ();
+                                        loader.setLocation(getClass().getResource("../GUI/DétailsRéservationVoiture.fxml"));
+                                        try {
+                                            loader.load();
+                                        } catch (IOException ex) {
+                                            Logger.getLogger(AjouterRéservationChambreController.class.getName()).log(Level.SEVERE, null, ex);
+                                        }
+                                        DétailsRéservationVoitureController dt = loader.getController();
+                                        dt.set_data(id_reservation,"voiture");
+                                        Parent parent = loader.getRoot();
+                                        Stage stage = new Stage();
+                                        stage.setScene(new Scene(parent));
+                                        stage.initStyle(StageStyle.UTILITY);
+                                        stage.setResizable(false);
+                                        stage.show(); 
+                        });
                         
-                        managebtn.getChildren().addAll(deleteIcon);
+                        managebtn.getChildren().addAll(deleteIcon,details_Label);
                         managebtn.setStyle("-fx-alignment:center");
-                        HBox.setMargin(label,new Insets(2, 2, 8, 8));
-                        HBox.setMargin(deleteIcon,new Insets(2, 2, 8, 8));
+                        HBox.setMargin(label,new Insets(4, 4, 0, 0));
+                        HBox.setMargin(deleteIcon,new Insets(4, 4, 0, 0));
+                        HBox.setMargin(details_Label,new Insets(4, 4,0, 0));
                         setGraphic(managebtn);
                         setText(null);
                         }

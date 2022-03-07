@@ -13,10 +13,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" prefHeight="591.0" prefWidth="1300.0" stylesheets="@Paiement.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdministrateurRéservationsHotelsController">
+<AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="1350.0" stylesheets="@Paiement.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdministrateurRéservationsHotelsController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="591.0" layoutY="-1.0" stroke="#2f3459" strokeType="INSIDE" width="1311.0" />
-      <TableView fx:id="table_reservation_hotel" layoutX="13.0" layoutY="242.0" prefHeight="301.0" prefWidth="1285.0">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="620.0" layoutY="-1.0" stroke="#2f3459" strokeType="INSIDE" width="1350.0" />
+      <TableView fx:id="table_reservation_hotel" layoutX="18.0" layoutY="242.0" prefHeight="301.0" prefWidth="1319.0">
         <columns>
           <TableColumn fx:id="created_At" prefWidth="150.0" style="-fx-alignment: center;" text="Created At" />
             <TableColumn fx:id="user_name" prefWidth="120.0" style="-fx-alignment: center;" text="Utilisateur" />
@@ -28,27 +28,27 @@
             <TableColumn fx:id="reste_a_payer" prefWidth="105.0" style="-fx-alignment: center;" text="Reste (DT)" />
             <TableColumn fx:id="etat" prefWidth="92.0" style="-fx-alignment: center;" text="Etat" />
             <TableColumn fx:id="hotel_name" prefWidth="120.0" style="-fx-alignment: center;" text="Hotel" />
-            <TableColumn fx:id="editcol" prefWidth="157.0" text="Action" />
+            <TableColumn fx:id="editcol" prefWidth="191.0" text="Action" />
         </columns>
       </TableView>
       <TextField fx:id="search_user_field" layoutX="122.0" layoutY="196.0" prefHeight="25.0" prefWidth="190.0" />
       <Label layoutX="22.0" layoutY="200.0" text="Email utilisateur" textFill="#f4b707" />
       <Label layoutX="490.0" layoutY="200.0" prefHeight="17.0" prefWidth="77.0" text="Libellé hotel" textFill="#f4b707" />
       <TextField fx:id="search_hotel_field" layoutX="573.0" layoutY="196.0" prefHeight="25.0" prefWidth="180.0" />
-      <Label layoutX="940.0" layoutY="200.0" text="Date" textFill="#f4b707" />
-      <DatePicker fx:id="search_date_field" layoutX="990.0" layoutY="196.0" />
+      <Label layoutX="955.0" layoutY="200.0" text="Date" textFill="#f4b707" />
+      <DatePicker fx:id="search_date_field" layoutX="1012.0" layoutY="196.0" />
       <Button id="search_button" fx:id="rechercher_utilisateur" layoutX="331.0" layoutY="196.0" mnemonicParsing="false" onAction="#rechercher_utilisateur" text="Rechercher" />
       <Button id="search_button" layoutX="777.0" layoutY="196.0" mnemonicParsing="false" onAction="#rechercher_hotel" text="Rechercher" />
-      <Button id="search_button" layoutX="1190.0" layoutY="196.0" mnemonicParsing="false" onAction="#rechercher_date" text="Rechercher" />
+      <Button id="search_button" layoutX="1225.0" layoutY="196.0" mnemonicParsing="false" onAction="#rechercher_date" text="Rechercher" />
       <Button id="clear_button" layoutX="122.0" layoutY="153.0" mnemonicParsing="false" onAction="#clear_search_fields" text="Clear" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="48.0" layoutY="52.0" stroke="#f4b707" strokeType="INSIDE" width="1311.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="48.0" layoutY="52.0" stroke="#f4b707" strokeType="INSIDE" width="1350.0" />
       <Text fill="#2f3459" layoutX="40.0" layoutY="86.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des réservations des hôtels">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
       </Text>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="97.0" layoutX="1150.0" layoutY="29.0" stroke="#f4b707" strokeType="INSIDE" width="98.0" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1126.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="97.0" layoutX="1212.0" layoutY="29.0" stroke="#f4b707" strokeType="INSIDE" width="98.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1189.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logo.png" />
          </image>

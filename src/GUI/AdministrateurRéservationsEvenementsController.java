@@ -86,8 +86,6 @@ public class AdministrateurRéservationsEvenementsController implements Initiali
     private DatePicker search_date_field;
     @FXML
     private Button rechercher_utilisateur;
-      @FXML
-    private Button voiture_nav;
       
       
     ServiceRéservationIMP service_reservation=new ServiceRéservationIMP();
@@ -250,7 +248,7 @@ public class AdministrateurRéservationsEvenementsController implements Initiali
                             }
                             HBox managebtn = new HBox(button);
                             managebtn.setStyle("-fx-alignment:center");
-                            HBox.setMargin(button,new Insets(2, 2, 8, 8));
+                            HBox.setMargin(button,new Insets(2, 2, 0, 0));
                             setGraphic(managebtn);
                             setText(null);
                         }
@@ -283,27 +281,24 @@ public class AdministrateurRéservationsEvenementsController implements Initiali
                        
                         if(data!=null){ 
                             Label label=new Label();
+                            Label details_Label=new Label();
                             String etat=data.get(7).toString();
                             Date reservation_date=(Date) data.get(1);
                             System.out.println("data action factory "+data);
                             if(check_to_update(reservation_date,etat)){
                                 managebtn.getChildren().addAll(label);
                             }
-                             
-                             label.setId("annuler_button");
-                             label.setText("Annuler");
+                            details_Label.setId("details_button");
+                            details_Label.setText("Détails");
+                            label.setId("annuler_button");
+                            label.setText("Annuler");
                             FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
-                            FontAwesomeIconView editIcon = new FontAwesomeIconView(FontAwesomeIcon.PENCIL_SQUARE);
                             deleteIcon.setStyle(
                                     " -fx-cursor: hand ;"
                                             + "-glyph-size:28px;"
                                             + "-fx-fill:#ff1744;"
                             );
-                            editIcon.setStyle(
-                                    " -fx-cursor: hand ;"
-                                            + "-glyph-size:28px;"
-                                            + "-fx-fill:#00E676;"
-                            );
+                          
                             label.setOnMouseClicked((event)->{ 
                                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
                                 alert.setTitle("Annuler une réservation");
@@ -347,11 +342,33 @@ public class AdministrateurRéservationsEvenementsController implements Initiali
                                  }
                                 
                         });
+                            
+                         details_Label.setOnMouseClicked((event) -> { 
+                                    List data_row=(List) table_reservation_evenement.getSelectionModel().getSelectedItem();
+                                    int id_reservation=(int) data_row.get(11); 
+                                  
+                                         FXMLLoader loader = new FXMLLoader ();
+                                        loader.setLocation(getClass().getResource("../GUI/DétailsRéservationTicket.fxml"));
+                                        try {
+                                            loader.load();
+                                        } catch (IOException ex) {
+                                            Logger.getLogger(AjouterRéservationChambreController.class.getName()).log(Level.SEVERE, null, ex);
+                                        }
+                                        DétailsRéservationTicketController dt = loader.getController();
+                                        dt.set_data(id_reservation,"ticket");
+                                        Parent parent = loader.getRoot();
+                                        Stage stage = new Stage();
+                                        stage.setScene(new Scene(parent));
+                                        stage.initStyle(StageStyle.UTILITY);
+                                        stage.setResizable(false);
+                                        stage.show(); 
+                        });
                         
-                        managebtn.getChildren().addAll(deleteIcon);
+                        managebtn.getChildren().addAll(deleteIcon,details_Label);
                         managebtn.setStyle("-fx-alignment:center");
-                        HBox.setMargin(label,new Insets(2, 2, 8, 8));
-                        HBox.setMargin(deleteIcon,new Insets(2, 2, 8, 8));
+                        HBox.setMargin(label,new Insets(4, 4, 0, 0));
+                        HBox.setMargin(deleteIcon,new Insets(4, 4, 0, 0));
+                        HBox.setMargin(details_Label,new Insets(4, 4,0, 0));
                         setGraphic(managebtn);
                         setText(null);
                         }
@@ -384,7 +401,6 @@ public class AdministrateurRéservationsEvenementsController implements Initiali
         return check;
     }
 
-    @FXML
     private void redirect_voiture(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../GUI/AdministrateurRéservationsVoitures.fxml"));
@@ -398,7 +414,6 @@ public class AdministrateurRéservationsEvenementsController implements Initiali
         
     }
 
-    @FXML
     private void go_to_hotels(ActionEvent event) {
         try {
             Parent root = FXMLLoader.load(getClass().getResource("../GUI/AdministrateurRéservations.fxml"));
@@ -412,7 +427,6 @@ public class AdministrateurRéservationsEvenementsController implements Initiali
         
     }
 
-    @FXML
     private void go_to_maison(ActionEvent event) {
           try {
             Parent root = FXMLLoader.load(getClass().getResource("../GUI/AdministrateurRéservationsMaisons.fxml"));

@@ -26,9 +26,7 @@ public class NewFXMain extends Application {
     @Override
     public void start(Stage primaryStage) {
        try {
-            //Parent root = FXMLLoader.load(getClass().getResource("../GUI/AjoutPaiement.fxml"));
-            Parent root = FXMLLoader.load(getClass().getResource("../GUI/StatistiquesRéservations.fxml"));
-            //Parent root = FXMLLoader.load(getClass().getResource("../GUI/Ajouter Réservation Chambre.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/ClientRéservationsVoitures.fxml"));
             Scene scene = new Scene(root); 
             scene.getStylesheets().add(getClass().getResource("../GUI/paiement.css").toExternalForm());
             scene.getStylesheets().add(getClass().getResource("../styles/Administrateur.css").toExternalForm());
@@ -37,11 +35,10 @@ public class NewFXMain extends Application {
             primaryStage.setTitle("Paiement");
             primaryStage.setResizable(false);
             primaryStage.show();
-        } catch (IOException ex) {
+        }catch (IOException ex){
             System.out.println(ex.getMessage());
         }
     }
-
     /**
      * @param args the command line arguments
      */

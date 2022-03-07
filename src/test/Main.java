@@ -26,7 +26,7 @@ public class Main {
         //System.out.println(service.check_to_update("2022-01-27"));
         //service.add_reservation_hotel(reservation_hotel);*/
         ServiceRéservationIMP service=new ServiceRéservationIMP();
-        System.out.println(service.get_reservation_details_by_id(10028,"ticket"));
+        System.out.println(service.get_statistics_incomes_annualy_hotels("2022"));
         //Utilisateur user=new Utilisateur(2,"alaa","","alaa","","alaazarrouk7@gmail.com",56353474,100000,"","","","");
         /*ServiceStripeIMP stripe=new ServiceStripeIMP(); 
         Carte carte=new Carte("3566002020360505",6,2034,232); 

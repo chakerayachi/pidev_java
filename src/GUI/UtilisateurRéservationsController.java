@@ -259,7 +259,7 @@ public class UtilisateurRéservationsController implements Initializable {
                             }
                             HBox managebtn = new HBox(button);
                             managebtn.setStyle("-fx-alignment:center");
-                            HBox.setMargin(button,new Insets(2, 2, 8, 8));
+                            HBox.setMargin(button,new Insets(2, 2, 0, 0));
                             setGraphic(managebtn);
                             setText(null);
                         }
@@ -338,6 +338,7 @@ public class UtilisateurRéservationsController implements Initializable {
                                         Stage stage = new Stage();
                                         stage.setScene(new Scene(parent));
                                         stage.initStyle(StageStyle.UTILITY);
+                                        stage.setResizable(false);
                                         stage.show();
                                     }else if (type.equals("maison")){ 
                                         FXMLLoader loader = new FXMLLoader ();
@@ -353,6 +354,7 @@ public class UtilisateurRéservationsController implements Initializable {
                                         Stage stage = new Stage();
                                         stage.setScene(new Scene(parent));
                                         stage.initStyle(StageStyle.UTILITY);
+                                        stage.setResizable(false);
                                         stage.show();
                                     }else if(type.equals("voiture")){
                                         FXMLLoader loader = new FXMLLoader ();
@@ -367,6 +369,7 @@ public class UtilisateurRéservationsController implements Initializable {
                                         Parent parent = loader.getRoot();
                                         Stage stage = new Stage();
                                         stage.setScene(new Scene(parent));
+                                        stage.setResizable(false);
                                         stage.initStyle(StageStyle.UTILITY);
                                         stage.show(); 
                                     }else{ 
@@ -382,6 +385,7 @@ public class UtilisateurRéservationsController implements Initializable {
                                         Parent parent = loader.getRoot();
                                         Stage stage = new Stage();
                                         stage.setScene(new Scene(parent));
+                                        stage.setResizable(false);
                                         stage.initStyle(StageStyle.UTILITY);
                                         stage.show(); 
                                         
@@ -391,8 +395,8 @@ public class UtilisateurRéservationsController implements Initializable {
                         
                         managebtn.getChildren().addAll(details_Label);
                         managebtn.setStyle("-fx-alignment:center");
-                        HBox.setMargin(label,new Insets(2, 2, 8, 8));
-                        HBox.setMargin(details_Label,new Insets(2, 2, 8, 8));
+                        HBox.setMargin(label,new Insets(4, 4, 0, 0));
+                        HBox.setMargin(details_Label,new Insets(4, 4,0, 0));
                         setGraphic(managebtn);
                         setText(null);
                         }

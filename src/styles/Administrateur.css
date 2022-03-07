@@ -37,4 +37,53 @@ and open the template in the editor.
       -fx-background-color: "white"; 
 }
 
+#bar_chart{ 
+    -fx-width:"368"; 
+    -fx-height:"268"
+}
+.default-color0.chart-bar { -fx-bar-fill:"#A60067"  }
+.default-color1.chart-bar { -fx-bar-fill: "red" }
+.axis-label { -fx-text-fill: #008800; }
+.default-color0.chart-series-line { -fx-stroke: #e9967a; }
+.default-color1.chart-series-line { -fx-stroke: #f0e68c; }
+.default-color2.chart-series-line { -fx-stroke: #dda0dd; }
 
+
+.axis {
+    -fx-font-size: 1.6em;    
+    -fx-tick-label-fill: white;
+    -fx-font-family: Tahoma;
+    -fx-tick-length: 20;
+    -fx-minor-tick-length: 15;
+}
+ 
+.axis-label {
+   -fx-text-fill: #f4b707; 
+}
+
+.chart-pie-label-line {
+    -fx-stroke: #8b4513;
+    -fx-fill: #8b4513;
+}
+
+.chart-pie-label { /*this is what you need for labels*/
+    -fx-fill: white;
+    -fx-font-size: 1em;
+} 
+.chart-legend {
+   -fx-background-color:  #fafad2;
+   -fx-stroke: #daa520;
+}
+
+#statistics_button{
+    -fx-cursor: "HAND";
+}
+#statistics_button:hover{
+   -fx-text-fill: white;
+   -fx-cursor: "HAND";
+}
+
+.pressed_button{ 
+    -fx-text-fill: white;
+    -fx-cursor: "HAND";
+}

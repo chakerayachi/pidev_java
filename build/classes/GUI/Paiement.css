@@ -11,24 +11,21 @@
     -fx-margin:20;
 
 }
-.Button{
-     -fx-background-color:"yellow"; 
+
+
+#details_button{ 
+    -fx-cursor: hand ;
+    -fx-background-color:"#122932";
+    -fx-padding:4 8 4 8;
+    -fx-font-size:10;
+    -fx-text-fill:"#ffffff";
 }
 #annuler_button{ 
+    -fx-cursor: hand ;
     -fx-background-color:"#EF959C";
-    -fx-padding:3 8 3 8; 
+    -fx-padding:4 8 4 8;
     -fx-font-size:10;
-    -fx-animation-name: "backgroundColor";
-    -fx-animation-duration: 300;
-}
-#details_button{ 
-    -fx-background-color:"#122932";
-    -fx-padding:3 8 3 8; 
-    -fx-font-size:10;
-    -fx-animation-name: "backgroundColor";
-    -fx-animation-duration: 300;
-    -fx-border-radius:9;
-     -fx-text-fill:"#ffffff";
+    -fx-text-fill:"#ffffff";
 }
 #annuler_etat{ 
     -fx-background-color:"#EF959C";
@@ -39,7 +36,6 @@
 }
 #annuler_button:hover {
     -fx-background-color: "yellow";
-    -fx-scale-y: 1.1;
 }
 #confirmer_button{ 
     -fx-background-color:"#B0FF92";

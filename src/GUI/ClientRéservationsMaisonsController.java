@@ -7,6 +7,7 @@ package GUI;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -15,14 +16,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
@@ -33,6 +39,8 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import javafx.util.Callback;
 import services.ServiceRéservationIMP;
 import services.ServiceStripeIMP;
@@ -201,7 +209,7 @@ public class ClientRéservationsMaisonsController implements Initializable {
                             }
                             HBox managebtn = new HBox(button);
                             managebtn.setStyle("-fx-alignment:center");
-                            HBox.setMargin(button,new Insets(2, 2, 8, 8));
+                            HBox.setMargin(button,new Insets(2, 2, 0, 0));
                             setGraphic(managebtn);
                             setText(null);
                         }
@@ -234,13 +242,15 @@ public class ClientRéservationsMaisonsController implements Initializable {
                        
                         if(data!=null){ 
                             Label label=new Label();
+                            Label details_Label=new Label();
                             String etat=data.get(7).toString();
                             Date reservation_date=(Date) data.get(1);
                             System.out.println("data action factory "+data);
                             if(check_to_update(reservation_date,etat)){
                                 managebtn.getChildren().addAll(label);
                             }
-                             
+                             details_Label.setId("details_button");
+                             details_Label.setText("Détails");
                              label.setId("annuler_button");
                              label.setText("Annuler");
                             FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
@@ -291,11 +301,31 @@ public class ClientRéservationsMaisonsController implements Initializable {
                                  }
                                 
                         });
+                         details_Label.setOnMouseClicked((event) -> { 
+                                    List data_row=(List) table_reservation_maison.getSelectionModel().getSelectedItem();
+                                    int id_reservation=(int) data_row.get(10); 
+                                         FXMLLoader loader = new FXMLLoader ();
+                                        loader.setLocation(getClass().getResource("../GUI/DétailsRéservationMaison.fxml"));
+                                        try {
+                                            loader.load();
+                                        } catch (IOException ex) {
+                                            Logger.getLogger(AjouterRéservationChambreController.class.getName()).log(Level.SEVERE, null, ex);
+                                        }
+                                        DétailsRéservationMaisonController dt = loader.getController();
+                                        dt.set_data(id_reservation,"maison");
+                                        Parent parent = loader.getRoot();
+                                        Stage stage = new Stage();
+                                        stage.setScene(new Scene(parent));
+                                        stage.initStyle(StageStyle.UTILITY);
+                                        stage.setResizable(false);
+                                        stage.show(); 
+                        });
                         
-                        managebtn.getChildren().addAll(deleteIcon);
+                        managebtn.getChildren().addAll(deleteIcon,details_Label);
                         managebtn.setStyle("-fx-alignment:center");
-                        HBox.setMargin(label,new Insets(2, 2, 8, 8));
-                        HBox.setMargin(deleteIcon,new Insets(2, 2, 8, 8));
+                        HBox.setMargin(label,new Insets(4, 4, 0, 0));
+                        HBox.setMargin(deleteIcon,new Insets(4, 4, 0, 0));
+                        HBox.setMargin(details_Label,new Insets(4, 4,0, 0));
                         setGraphic(managebtn);
                         setText(null);
                         }

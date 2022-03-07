@@ -1237,7 +1237,312 @@ public class ServiceRéservationIMP {
                 System.err.println(e.getMessage());
         }
     } 
+    //statistics 
+    public List<List>  get_statistics_incomes_hotels(){  
+        PreparedStatement  pst; 
+         List<List> hotels = new ArrayList();
+        try { 
+                String Request = "SELECT h.`libelle`,SUM(tk.`montant_paye_avance`) from reservation r join chambre ch on r.id_chambre=ch.id join hotel h on h.id=ch.id_hotel join transaction tk on tk.id=r.id_transaction GROUP BY (ch.id_hotel) LIMIT 10;";
+                pst = cnxx.prepareStatement(Request);
+                ResultSet rs = pst.executeQuery(Request);
+                while (rs.next()) {
+                    List<Object> list=new ArrayList();
+                    list.clear();
+                    list.add(rs.getString(1));
+                    list.add(rs.getFloat(2));
+                    hotels.add(list);
+                }               
+        }catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+        return hotels;
+    }
     
+    
+    public List<List>  get_statistics_nb_reservations_hotels(){  
+        PreparedStatement  pst; 
+        List<List> hotels = new ArrayList();
+        try { 
+                String Request = "SELECT h.`libelle`,count(*) as nb_reservations from reservation r join chambre ch on r.id_chambre=ch.id join hotel h on h.id=ch.id_hotel join transaction tk on tk.id=r.id_transaction GROUP BY (ch.id_hotel)  ORDER BY nb_reservations DESC LIMIT 10;";
+                pst = cnxx.prepareStatement(Request);
+                ResultSet rs = pst.executeQuery(Request);
+                while (rs.next()) {
+                    List<Object> list=new ArrayList();
+                    list.clear();
+                    list.add(rs.getString(1));
+                    list.add(rs.getInt(2));
+                    hotels.add(list);
+                }                               
+        }catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+        return hotels;
+    }
+    
+     public Float  get_statistics_incomes_annualy_hotels(String year){  
+        PreparedStatement  pst; 
+        Float result=0f;
+        try { 
+                String Request = "SELECT SUM(tk.montant_paye_avance) from reservation r join chambre ch on r.id_chambre=ch.id join hotel h on h.id=ch.id_hotel join transaction tk on tk.id=r.id_transaction where EXTRACT(year from tk.created_At)='"+year+"'";
+                pst = cnxx.prepareStatement(Request);
+                ResultSet rs = pst.executeQuery(Request);
+                 while (rs.next()) {
+                    result=rs.getFloat(1);
+                }         
+               
+        }catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+        return result;
+     } 
+     
+     public Float  get_statistics_incomes_monthly_hotels(String month,String year){  
+        PreparedStatement  pst; 
+        Float result=0f;
+        try { 
+                String Request = "SELECT SUM(tk.montant_paye_avance) from reservation r join chambre ch on r.id_chambre=ch.id join hotel h on h.id=ch.id_hotel join transaction tk on tk.id=r.id_transaction where EXTRACT(month from tk.created_At)='"+month+"' and EXTRACT(year from tk.created_At)='"+year+"'";
+                pst = cnxx.prepareStatement(Request);
+                ResultSet rs = pst.executeQuery(Request);
+                 while (rs.next()) {
+                    result=rs.getFloat(1);
+                }         
+               
+        }catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+        return result;
+    } 
+     
+    
+     public List<List>  get_statistics_incomes_maisons(){  
+        PreparedStatement  pst; 
+         List<List> hotels = new ArrayList();
+        try { 
+                String Request = "SELECT ut.`email`,SUM(tk.`montant_paye_avance`) from reservation r join maison m on r.id_maison=m.id  join transaction tk on tk.id=r.id_transaction join utilisateur ut on ut.id=m.id_user GROUP BY m.id_user LIMIT 10;";
+                pst = cnxx.prepareStatement(Request);
+                ResultSet rs = pst.executeQuery(Request);
+                while (rs.next()) {
+                    List<Object> list=new ArrayList();
+                    list.clear();
+                    list.add(rs.getString(1));
+                    list.add(rs.getFloat(2));
+                    hotels.add(list);
+                }               
+        }catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+        return hotels;
+    }
+    
+    
+    public List<List> get_statistics_nb_reservations_maisons(){  
+        PreparedStatement  pst; 
+        List<List> hotels = new ArrayList();
+        try{
+                String Request = "SELECT ut.`nom`,count(*) as nb_reservations from reservation r join maison m on r.id_maison=m.id  join transaction tk on tk.id=r.id_transaction join utilisateur ut on ut.id=m.id_user GROUP BY (r.id_maison)  ORDER BY nb_reservations DESC LIMIT 10;";
+                pst = cnxx.prepareStatement(Request);
+                ResultSet rs = pst.executeQuery(Request);
+                while (rs.next()) {
+                    List<Object> list=new ArrayList();
+                    list.clear();
+                    list.add(rs.getString(1));
+                    list.add(rs.getInt(2));
+                    hotels.add(list);
+                }                               
+        }catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+        return hotels;
+    }
+    
+     public Float  get_statistics_incomes_annualy_maisons(String year){  
+        PreparedStatement  pst; 
+        Float result=0f;
+        try { 
+                String Request = "SELECT SUM(tk.montant_paye_avance)  from reservation r join maison m on r.id_maison=m.id  join transaction tk on tk.id=r.id_transaction join utilisateur ut on ut.id=m.id_user where EXTRACT(year from tk.created_At)='"+year+"'";
+                pst = cnxx.prepareStatement(Request);
+                ResultSet rs = pst.executeQuery(Request);
+                 while (rs.next()) {
+                    result=rs.getFloat(1);
+                }         
+               
+        }catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+        return result;
+     } 
+     
+     public Float  get_statistics_incomes_monthly_maisons(String month,String year){  
+        PreparedStatement  pst; 
+        Float result=0f;
+        try { 
+                String Request = "SELECT SUM(tk.montant_paye_avance) from reservation r join maison m on r.id_maison=m.id  join transaction tk on tk.id=r.id_transaction join utilisateur ut on ut.id=m.id_user where EXTRACT(month from tk.created_At)='"+month+"' and EXTRACT(year from tk.created_At)='"+year+"'";
+                pst = cnxx.prepareStatement(Request);
+                ResultSet rs = pst.executeQuery(Request);
+                 while (rs.next()) {
+                    result=rs.getFloat(1);
+                }         
+               
+        }catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+        return result;
+    }
+     
+     
+       public List<List>  get_statistics_incomes_voitures(){  
+        PreparedStatement  pst; 
+         List<List> hotels = new ArrayList();
+        try { 
+                String Request = "SELECT ut.`nom`,SUM(tk.`montant_paye_avance`) from reservation r join voiture v on r.id_voiture=v.id  join transaction tk on tk.id=r.id_transaction join utilisateur ut on ut.id=v.id_user GROUP BY v.id_user LIMIT 10;";
+                pst = cnxx.prepareStatement(Request);
+                ResultSet rs = pst.executeQuery(Request);
+                while (rs.next()) {
+                    List<Object> list=new ArrayList();
+                    list.clear();
+                    list.add(rs.getString(1));
+                    list.add(rs.getFloat(2));
+                    hotels.add(list);
+                }               
+        }catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+        return hotels;
+    }
+    
+    
+    public List<List> get_statistics_nb_reservations_voitures(){  
+        PreparedStatement  pst; 
+        List<List> hotels = new ArrayList();
+        try{
+                String Request = "SELECT ut.`nom`,count(*) as nb_reservations from reservation r join voiture v on r.id_voiture=v.id  join transaction tk on tk.id=r.id_transaction join utilisateur ut on ut.id=v.id_user  GROUP BY (v.id_user)  ORDER BY nb_reservations DESC LIMIT 10;";
+                pst = cnxx.prepareStatement(Request);
+                ResultSet rs = pst.executeQuery(Request);
+                while (rs.next()) {
+                    List<Object> list=new ArrayList();
+                    list.clear();
+                    list.add(rs.getString(1));
+                    list.add(rs.getInt(2));
+                    hotels.add(list);
+                }                               
+        }catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+        return hotels;
+    }
+    
+     public Float  get_statistics_incomes_annualy_voitures(String year){  
+        PreparedStatement  pst; 
+        Float result=0f;
+        try { 
+                String Request = "SELECT SUM(tk.montant_paye_avance)  from reservation r join voiture v on r.id_voiture=v.id  join transaction tk on tk.id=r.id_transaction join utilisateur ut on ut.id=v.id_user  where EXTRACT(year from tk.created_At)='"+year+"'";
+                pst = cnxx.prepareStatement(Request);
+                ResultSet rs = pst.executeQuery(Request);
+                 while (rs.next()) {
+                    result=rs.getFloat(1);
+                }         
+               
+        }catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+        return result;
+     } 
+     
+     public Float  get_statistics_incomes_monthly_voitures(String month,String year){  
+        PreparedStatement  pst; 
+        Float result=0f;
+        try { 
+                String Request = "SELECT SUM(tk.montant_paye_avance) from reservation r join voiture v on r.id_voiture=v.id  join transaction tk on tk.id=r.id_transaction join utilisateur ut on ut.id=v.id_user  where EXTRACT(month from tk.created_At)='"+month+"' and EXTRACT(year from tk.created_At)='"+year+"'";
+                pst = cnxx.prepareStatement(Request);
+                ResultSet rs = pst.executeQuery(Request);
+                 while (rs.next()) {
+                    result=rs.getFloat(1);
+                }         
+               
+        }catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+        return result;
+    }
+     
+     
+      public List<List>  get_statistics_incomes_evenements(){  
+        PreparedStatement  pst; 
+         List<List> hotels = new ArrayList();
+        try { 
+                String Request = "SELECT ev.`libelle`,SUM(tk.`montant_paye_avance`) from reservation r join ticket ti on r.id_ticket=ti.id  join transaction tk on tk.id=r.id_transaction join evenement ev on ev.id=ti.id_evenement GROUP BY ti.id_evenement LIMIT 10;";
+                pst = cnxx.prepareStatement(Request);
+                ResultSet rs = pst.executeQuery(Request);
+                while (rs.next()) {
+                    List<Object> list=new ArrayList();
+                    list.clear();
+                    list.add(rs.getString(1));
+                    list.add(rs.getFloat(2));
+                    hotels.add(list);
+                }               
+        }catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+        return hotels;
+    }
+     
+     
+     public List<List> get_statistics_nb_reservations_evenements(){  
+        PreparedStatement  pst; 
+        List<List> hotels = new ArrayList();
+        try{
+                String Request = "SELECT ev.`libelle`,count(*) as nb_reservations  from reservation r join ticket ti on r.id_ticket=ti.id  join transaction tk on tk.id=r.id_transaction join evenement ev on ev.id=ti.id_evenement  GROUP BY ti.id_evenement  ORDER BY nb_reservations DESC LIMIT 10;";
+                pst = cnxx.prepareStatement(Request);
+                ResultSet rs = pst.executeQuery(Request);
+                while (rs.next()) {
+                    List<Object> list=new ArrayList();
+                    list.clear();
+                    list.add(rs.getString(1));
+                    list.add(rs.getInt(2));
+                    hotels.add(list);
+                }                               
+        }catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+        return hotels;
+    }
+    
+     public Float  get_statistics_incomes_annualy_evenements(String year){  
+        PreparedStatement  pst; 
+        Float result=0f;
+        try { 
+                String Request = "SELECT SUM(tk.montant_paye_avance)   from reservation r join ticket ti on r.id_ticket=ti.id  join transaction tk on tk.id=r.id_transaction join evenement ev on ev.id=ti.id_evenement  where EXTRACT(year from tk.created_At)='"+year+"'";
+                pst = cnxx.prepareStatement(Request);
+                ResultSet rs = pst.executeQuery(Request);
+                 while (rs.next()) {
+                    result=rs.getFloat(1);
+                }         
+               
+        }catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+        return result;
+     } 
+     
+     public Float  get_statistics_incomes_monthly_evenements(String month,String year){  
+        PreparedStatement  pst; 
+        Float result=0f;
+        try { 
+                String Request = "SELECT SUM(tk.montant_paye_avance)  from reservation r join ticket ti on r.id_ticket=ti.id  join transaction tk on tk.id=r.id_transaction join evenement ev on ev.id=ti.id_evenement  where EXTRACT(month from tk.created_At)='"+month+"' and EXTRACT(year from tk.created_At)='"+year+"'";
+                pst = cnxx.prepareStatement(Request);
+                ResultSet rs = pst.executeQuery(Request);
+                 while (rs.next()) {
+                    result=rs.getFloat(1);
+                }         
+               
+        }catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+        return result;
+    }
+     
+    
+   
    
  
     
