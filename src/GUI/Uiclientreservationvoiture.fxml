@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="680.0" prefWidth="928.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.UiclientreservationvoitureController">
+   <children>
+      <ScrollPane layoutY="103.0" prefHeight="577.0" prefWidth="930.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
+        </content>
+      </ScrollPane>
+      <FlowPane fx:id="FP" layoutY="123.0" prefHeight="554.0" prefWidth="930.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="102.0" layoutX="-14.0" stroke="BLACK" strokeType="INSIDE" width="944.0" />
+      <ChoiceBox fx:id="categorie" layoutX="634.0" layoutY="72.0" prefWidth="150.0" />
+      <Text layoutX="515.0" layoutY="89.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choisir une categorie:" wrappingWidth="118.13675689697266" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="37.0" layoutY="27.0" stroke="#f4b707" strokeType="INSIDE" width="930.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="88.0" layoutX="798.0" layoutY="4.0" stroke="#f4b707" strokeType="INSIDE" width="106.0" />
+      <ImageView fitHeight="96.0" fitWidth="98.0" layoutX="803.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="retour" fitHeight="26.0" fitWidth="33.0" layoutX="9.0" layoutY="70.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@1174481.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

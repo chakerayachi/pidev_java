@@ -35,7 +35,7 @@
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="704.0" layoutY="519.0" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;">
+      <JFXButton fx:id="voiture" layoutX="704.0" layoutY="519.0" onAction="#reclamation" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;" text="Reclamation">
          <font>
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>

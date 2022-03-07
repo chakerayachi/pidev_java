@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="692.0" prefWidth="980.0" style="-fx-background-color: 2222;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjoutvoitureController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="704.0" layoutX="-6.0" layoutY="-11.0" stroke="#2f3459" strokeType="INSIDE" width="993.0" />
+      <TableView fx:id="listvoiture" layoutX="271.0" layoutY="211.0" onMouseClicked="#getSelected" prefHeight="219.0" prefWidth="698.0" style="-fx-background-color: 222;">
+        <columns>
+          <TableColumn fx:id="imm" prefWidth="64.79998779296875" text="Immat" />
+          <TableColumn fx:id="mar" prefWidth="81.5999755859375" text="Marque" />
+            <TableColumn fx:id="mod" prefWidth="84.0" text="Model" />
+            <TableColumn fx:id="cou" prefWidth="71.99996948242188" text="Couleur" />
+            <TableColumn fx:id="cap" prefWidth="71.20001220703125" text="Capacité" />
+            <TableColumn fx:id="des" prefWidth="187.20001220703125" text="Description" />
+            <TableColumn fx:id="cat" prefWidth="99.2000732421875" text="catégorie" />
+            <TableColumn fx:id="id_v" prefWidth="42.39990234375" text="id" visible="false" />
+        </columns>
+      </TableView>
+      <TextField fx:id="marque" layoutX="44.0" layoutY="198.0" prefHeight="26.0" prefWidth="170.0" promptText="Marque" />
+      <TextField fx:id="descreption" layoutX="44.0" layoutY="236.0" prefHeight="26.0" prefWidth="170.0" promptText="Descreption" />
+      <TextField fx:id="couleur" layoutX="44.0" layoutY="275.0" prefHeight="26.0" prefWidth="170.0" promptText="Couleur" />
+      <TextField fx:id="capacite" layoutX="43.0" layoutY="314.0" prefHeight="26.0" prefWidth="170.0" promptText="Capacité" />
+      <TextField fx:id="immat" layoutX="44.0" layoutY="353.0" prefHeight="26.0" prefWidth="170.0" promptText="Matricule" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="40.0" layoutX="-3.0" layoutY="46.0" stroke="#f4b707" strokeType="INSIDE" width="988.0" />
+      <Text fill="#2f3459" layoutX="44.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter une voitutre" wrappingWidth="259.27069091796875">
+         <font>
+            <Font name="Calibri Bold" size="24.0" />
+         </font>
+      </Text>
+      <Button fx:id="afficher" layoutY="493.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="110.0" text="Afficher" textFill="#2f3459" />
+      <Button layoutX="118.0" layoutY="493.0" mnemonicParsing="false" onAction="#ajout" prefHeight="40.0" prefWidth="110.0" text="Ajouter" textFill="#2f3459" />
+      <TextField fx:id="model" layoutX="44.0" layoutY="160.0" prefHeight="26.0" prefWidth="170.0" promptText="Modèle">
+         <font>
+            <Font name="Arial Black" size="12.0" />
+         </font>
+      </TextField>
+      <Button fx:id="chercherbttn" alignment="TOP_CENTER" layoutX="432.0" layoutY="172.0" mnemonicParsing="false" onAction="#chercher" prefHeight="26.0" prefWidth="122.0" text="Rechercher" textAlignment="CENTER">
+         <cursor>
+            <Cursor fx:constant="MOVE" />
+         </cursor>
+      </Button>
+      <TextField fx:id="mot" layoutX="271.0" layoutY="173.0" prefHeight="24.0" prefWidth="151.0" promptText="Recherche par marque;" />
+      <Button fx:id="save" layoutX="7.0" layoutY="558.0" mnemonicParsing="false" onAction="#modifier" prefHeight="40.0" prefWidth="110.0" text="Enregistrer" textFill="#2f3459" />
+      <TextField fx:id="categorie" layoutX="44.0" layoutY="389.0" prefHeight="26.0" prefWidth="170.0" promptText="Catégorie" />
+      <Button fx:id="supprimer" layoutX="129.0" layoutY="558.0" mnemonicParsing="false" onAction="#delete" prefHeight="40.0" prefWidth="101.0" text="supprimer" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="103.0" layoutX="788.0" layoutY="14.0" stroke="#f4b707" strokeType="INSIDE" width="110.0" />
+      <ImageView fitHeight="131.0" fitWidth="132.0" layoutX="778.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Button fx:id="actualiser" layoutX="848.0" layoutY="173.0" mnemonicParsing="false" onAction="#actualiser" prefHeight="26.0" prefWidth="90.0" text="actualiser" />
+      <ImageView fx:id="image" fitHeight="147.0" fitWidth="131.0" layoutX="262.0" layoutY="458.0" pickOnBounds="true" preserveRatio="true" />
+      <TextField fx:id="lien" layoutX="420.0" layoutY="487.0" />
+      <Button fx:id="addimage" layoutX="570.0" layoutY="487.0" mnemonicParsing="false" onAction="#addimage" prefHeight="26.0" prefWidth="110.0" text="ajouter image" />
+      <Button fx:id="show" layoutX="467.0" layoutY="552.0" mnemonicParsing="false" onAction="#show" text="show " />
+      <TextField fx:id="prix" layoutX="44.0" layoutY="430.0" prefHeight="26.0" prefWidth="170.0" promptText="Prix" />
+      <ImageView fx:id="stat" fitHeight="79.0" fitWidth="102.0" layoutX="767.0" layoutY="594.0" onMouseClicked="#stat" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@3153334.png" />
+         </image>
+      </ImageView>
+      <FontAwesomeIconView fx:id="backbtn" accessibleRole="BUTTON" fill="#f4b707" glyphName="ARROW_CIRCLE_LEFT" layoutX="7.0" layoutY="36.0" onMouseClicked="#backtopic" size="45" styleClass="btn" text="" />
+   </children>
+</AnchorPane>

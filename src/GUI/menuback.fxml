@@ -30,7 +30,7 @@
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="714.0" layoutY="346.0" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;">
+      <JFXButton layoutX="714.0" layoutY="346.0" onAction="#gererreclamation" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;" text="Gerer Reclamation">
          <font>
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>

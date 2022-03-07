@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="600.0" prefWidth="845.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.StatisticVoitureController">
+   <children>
+      <PieChart fx:id="pievoiture" layoutX="14.0" layoutY="177.0" prefHeight="271.0" prefWidth="327.0" title="nombre des voiture" />
+      <BarChart fx:id="barmarque" layoutX="460.0" layoutY="177.0" prefHeight="271.0" prefWidth="352.0" title="marques review">
+        <xAxis>
+          <CategoryAxis side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis side="LEFT" />
+        </yAxis>
+      </BarChart>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="99.0" stroke="BLACK" strokeType="INSIDE" width="846.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="41.0" layoutY="22.0" stroke="#f4b707" strokeType="INSIDE" width="846.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="92.0" layoutX="691.0" layoutY="1.0" stroke="#f4b707" strokeType="INSIDE" width="98.0" />
+      <ImageView fitHeight="84.0" fitWidth="98.0" layoutX="698.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="54.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="voitures statistique" wrappingWidth="246.9366912841797">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Text>
+      <ImageView fx:id="retour" fitHeight="32.0" fitWidth="32.0" layoutX="14.0" layoutY="63.0" onMouseClicked="#back" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@1174481.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

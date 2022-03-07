@@ -29,12 +29,7 @@
                         <Font name="American Typewriter" size="23.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" prefHeight="70.0" prefWidth="280.0" ripplerFill="#f2b40700" style="-fx-background-color: #2f3459;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="Ajouter voitures" textFill="#f4b707">
-                     <font>
-                        <Font name="American Typewriter" size="23.0" />
-                     </font>
-                  </JFXButton>
-                  <JFXButton buttonType="RAISED" prefHeight="70.0" prefWidth="280.0" ripplerFill="#f2b40700" style="-fx-background-color: #f4b707;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="consulter liste voiture" textFill="#2f3459">
+                  <JFXButton buttonType="RAISED" onAction="#consultervoiture" prefHeight="70.0" prefWidth="280.0" ripplerFill="#f2b40700" style="-fx-background-color: #f4b707;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="consulter liste voiture" textFill="#2f3459">
                      <font>
                         <Font name="American Typewriter" size="23.0" />
                      </font>

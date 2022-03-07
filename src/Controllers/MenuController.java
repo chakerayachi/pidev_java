@@ -35,6 +35,8 @@ public class MenuController implements Initializable {
     private JFXButton maison;
     @FXML
     private JFXButton ajoutmaison;
+    @FXML
+    private JFXButton voiture;
 
     /**
      * Initializes the controller class.
@@ -92,6 +94,33 @@ public class MenuController implements Initializable {
     private void ajoutmaison(ActionEvent event) {
          try {
             Parent root = FXMLLoader.load(getClass().getResource("../GUI/AjoutMaison.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("../GUI/Stylesheet.css").toExternalForm());
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    private void consultervoiture(ActionEvent event) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/Uiclientreservationvoiture.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("../GUI/Stylesheet.css").toExternalForm());
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void reclamation(ActionEvent event) {
+          try {
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/reclamation.fxml"));
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("../GUI/Stylesheet.css").toExternalForm());
             Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

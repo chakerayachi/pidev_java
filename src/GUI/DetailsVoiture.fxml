@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" fx:id="df" prefHeight="400.0" prefWidth="473.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.DetailsVoitureController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="104.0" layoutX="-1.0" stroke="#2f3459" strokeType="INSIDE" width="531.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="43.0" layoutY="26.0" stroke="#f4b707" strokeType="INSIDE" width="530.0" />
+      <FlowPane fx:id="fp" layoutY="109.0" prefHeight="288.0" prefWidth="530.0" />
+      <JFXButton fx:id="retour" buttonType="RAISED" layoutX="14.0" layoutY="35.0" onAction="#back" text="Retour" textFill="#135df2">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="80.0" layoutX="410.0" layoutY="10.0" stroke="#f4b707" strokeType="INSIDE" width="94.0" />
+      <ImageView fitHeight="86.0" fitWidth="105.0" layoutX="414.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Text layoutX="100.0" layoutY="52.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Plus Des Images" textAlignment="CENTER" wrappingWidth="271.7366943359375">
+         <font>
+            <Font name="Arial Black" size="14.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

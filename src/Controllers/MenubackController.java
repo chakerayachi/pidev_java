@@ -65,5 +65,20 @@ public class MenubackController implements Initializable {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    @FXML
+    private void gererreclamation(ActionEvent event) {
+         try {
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/Admin_reclamation.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("../GUI/Stylesheet.css").toExternalForm());
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
     
 }
