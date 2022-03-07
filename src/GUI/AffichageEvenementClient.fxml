@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="611.0" prefWidth="1350.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AffichageEvenementClientController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="651.0" stroke="#f4b707" strokeType="INSIDE" width="1350.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="56.0" layoutY="39.0" stroke="#2f3459" strokeType="INSIDE" width="1350.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="111.0" layoutX="1159.0" layoutY="11.0" stroke="#f4b707" strokeType="INSIDE" width="112.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1140.0" layoutY="-8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Text fx:id="libelle" fill="#f4b707" layoutX="48.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Libellé">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <Text fx:id="description" fill="#2f3459" layoutX="91.0" layoutY="472.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Text fx:id="date" fill="#2f3459" layoutX="757.0" layoutY="187.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Text fx:id="emplacement" fill="#2f3459" layoutX="757.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Emplacement">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Text fx:id="capacite" fill="#2f3459" layoutX="757.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Capacité">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Text fx:id="duree" fill="#2f3459" layoutX="759.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Durée">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Button id="btnn" fx:id="reservation" layoutX="1089.0" layoutY="504.0" mnemonicParsing="false" onAction="#reservation" prefHeight="36.0" prefWidth="140.0" text="Vérifier disponibilité" textFill="#f4b707" />
+      <ImageView id="image" fx:id="image" fitHeight="250.0" fitWidth="460.0" layoutX="161.0" layoutY="142.0" pickOnBounds="true" preserveRatio="true" />
+      <Button id="btnn" fx:id="retour" layoutX="1103.0" layoutY="549.0" mnemonicParsing="false" onAction="#retour" prefHeight="36.0" prefWidth="112.0" text="Retour" textFill="#f4b707" />
+   </children>
+</AnchorPane>

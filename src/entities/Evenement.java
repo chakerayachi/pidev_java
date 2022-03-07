@@ -15,6 +15,7 @@ public class Evenement {
     
       private  int id ;
     private String libelle ;
+    private String image ;
     private Date date ;
     private  String description ;
     private String emplacement ;
@@ -25,11 +26,13 @@ public class Evenement {
     // constructeur par default
     public Evenement (){}
 
-    // constructeur paramtere avec le champs id
+   
+    // constructeur par avec id
 
-    public Evenement(int id, String libelle, Date date, String description, String emplacement, int nb_place, int duree,  int id_user) {
+    public Evenement(int id, String libelle, String image, Date date, String description, String emplacement, int nb_place, int duree, int id_user) {
         this.id = id;
         this.libelle = libelle;
+        this.image = image;
         this.date = date;
         this.description = description;
         this.emplacement = emplacement;
@@ -37,11 +40,12 @@ public class Evenement {
         this.duree = duree;
         this.id_user = id_user;
     }
-    // constructeur paramtere sans le champs id
-
-    public Evenement( String libelle, Date date, String description, String emplacement, int nb_place, int duree,  int id_user) {
-
+    
+    // constructeur par avec id
+    
+    public Evenement(String libelle, String image, Date date, String description, String emplacement, int nb_place, int duree, int id_user) {
         this.libelle = libelle;
+        this.image = image;
         this.date = date;
         this.description = description;
         this.emplacement = emplacement;
@@ -49,8 +53,8 @@ public class Evenement {
         this.duree = duree;
         this.id_user = id_user;
     }
-
-    // getters and setters
+    
+    
 
     public int getId() {
         return id;
@@ -66,6 +70,14 @@ public class Evenement {
 
     public void setLibelle(String libelle) {
         this.libelle = libelle;
+    }
+    
+      public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public Date getDate() {
@@ -108,8 +120,7 @@ public class Evenement {
         this.duree = duree;
     }
 
-  
-  
+    
 
     public int getId_user() {
         return id_user;

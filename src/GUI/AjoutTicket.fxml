@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjoutTicketController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="720.0" stroke="#2f3459" strokeType="INSIDE" width="1281.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="112.0" layoutX="1101.0" layoutY="18.0" stroke="#f4b707" strokeType="INSIDE" width="123.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="52.0" layoutX="-1.0" layoutY="46.0" stroke="#f4b707" strokeType="INSIDE" width="1280.0" />
+      <Text fill="#f4b707" layoutX="467.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix VIP">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Text fill="#f4b707" layoutX="467.0" layoutY="385.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Prix Stantard">
+         <font>
+            <Font size="27.0" />
+         </font>
+      </Text>
+      <Button id="btn" fx:id="ajouterBtn" layoutX="578.0" layoutY="470.0" mnemonicParsing="false" onAction="#Insert" prefHeight="41.0" prefWidth="123.0" text="Ajouter tickets" textFill="#2f3459">
+         <font>
+            <Font size="14.0" />
+         </font></Button>
+      <TextField id="prixStandard" fx:id="prixStandard" layoutX="658.0" layoutY="356.0" prefHeight="36.0" prefWidth="157.0" />
+      <Text fill="#2f3459" layoutX="51.0" layoutY="83.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajout des tickets de l'évènement">
+         <font>
+            <Font name="System Bold" size="31.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="157.0" fitWidth="157.0" layoutX="1084.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="prixVIP" layoutX="658.0" layoutY="293.0" prefHeight="36.0" prefWidth="157.0" />
+   </children>
+</AnchorPane>

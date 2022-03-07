@@ -204,8 +204,7 @@ public class AjoutvoitureController implements Initializable {
             v.setDescription(descreption.getText());
             v.setId_categorie(sc.getIdCategorie(categorie.getText()));
             v.setPrix(prix.getText());
-         //    v .setId_user(userConn.getId());
-         v .setId_user(32);
+         v .setId_user(userConn.getId());
             int id_voi = sv.ajouter(v);
             System.out.println(id_voi);
             Images imag = new Images();

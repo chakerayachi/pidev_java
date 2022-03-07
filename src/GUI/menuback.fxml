@@ -50,7 +50,7 @@
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="167.0" layoutY="353.0" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;">
+      <JFXButton layoutX="167.0" layoutY="353.0" onAction="#evenement" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;" text="Evenement">
          <font>
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>

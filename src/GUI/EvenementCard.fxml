@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox id="vbox" fx:id="box" prefHeight="398.0" prefWidth="299.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.EvenementCardController">
+   <children>
+      <Label fx:id="libelle" prefHeight="55.0" prefWidth="214.0" text="Label" textAlignment="CENTER" textFill="#2f3459">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="30.0" right="10.0" top="20.0" />
+         </VBox.margin>
+      </Label>
+      <VBox fx:id="card" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <ImageView id="imageCardd" fx:id="image" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="50.0" right="10.0" top="20.0" />
+               </VBox.margin>
+               <cursor>
+                  <Cursor fx:constant="CROSSHAIR" />
+               </cursor>
+            </ImageView>
+         </children>
+      </VBox>
+   </children>
+</VBox>

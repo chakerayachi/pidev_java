@@ -1,0 +1,71 @@
+#btn {
+    -fx-background-color: #f4b707;
+    -fx-border-color: #f4b707;
+}
+
+#btnn {
+    -fx-background-color: #2f3459;
+    -fx-border-color: #2f3459;
+}
+
+.table-view .column-header,
+.table-view .column-header .filler,
+.table-view .column-header-background .filler {
+    -fx-background-color: #f4b707;
+}
+
+#vbox {
+  -fx-background-color : #f4b707;
+  /*-fx-border-color : #2f3459;*/
+  -fx-margin-top: 1px;
+  -fx-margin-bottom: 1px;
+  -fx-margin-right: 1px;
+  -fx-margin-left: 1px;
+}
+
+
+#image {
+    -fx-graphic-size: 460px 250px;
+}
+
+#imageCardd {
+    -fx-graphic-size: 460px 250px;
+}
+
+
+#AnchorPane {
+    -fx-background-color : #f4b707;
+}
+
+.scroll-pane > .viewport {
+   -fx-background-color: #f4b707;
+   -fx-border-color : #f4b707;
+   -fx-margin-top : 1px;
+   -fx-margin-bottom: 5px;
+}
+.scroll-bar:horizontal, .scroll-bar:vertical{
+    -fx-background-color: #2f3459;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:horizontal .track,
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb,
+.scroll-bar:vertical .thumb {
+    -fx-background-color: #f4b707;
+    -fx-background-radius: 5em;
+}
+
+/*#transparence {
+    -fx-background-color: transparent;
+}*/
+
