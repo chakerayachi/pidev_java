@@ -30,7 +30,7 @@
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="704.0" layoutY="336.0" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;">
+      <JFXButton fx:id="hotel" layoutX="704.0" layoutY="336.0" onAction="#consulterhotel" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;" text="Consulter Hotels">
          <font>
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>
@@ -40,7 +40,7 @@
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="704.0" layoutY="198.0" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;">
+      <JFXButton fx:id="maison" layoutX="704.0" layoutY="198.0" onAction="#consultermaison" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;" text="Consulter Maisons">
          <font>
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>
@@ -50,7 +50,7 @@
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="157.0" layoutY="343.0" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;">
+      <JFXButton fx:id="ajoutmaison" layoutX="157.0" layoutY="343.0" onAction="#ajoutmaison" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;" text="Ajouter Maison">
          <font>
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>

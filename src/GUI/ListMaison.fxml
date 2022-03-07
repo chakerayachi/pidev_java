@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="491.0" prefWidth="1027.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ListMaisonController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="541.0" layoutX="-84.0" layoutY="-8.0" stroke="#2f3459" strokeType="INSIDE" width="1112.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="41.0" layoutY="47.0" stroke="#f4b707" strokeType="INSIDE" width="1028.0" />
+      <TextField fx:id="txtMaisonSearch" layoutX="72.0" layoutY="142.0" />
+      <TableView fx:id="tableView" layoutX="111.0" layoutY="202.0" prefHeight="251.0" prefWidth="850.0">
+        <columns>
+          <TableColumn fx:id="adresse" prefWidth="99.39822769165039" text="Adresse" />
+            <TableColumn fx:id="region" prefWidth="98.54864501953125" text="Région" />
+            <TableColumn fx:id="tel" prefWidth="93.45133972167969" text="Num Téléphone" />
+            <TableColumn fx:id="description" prefWidth="178.4071044921875" text="Description" />
+            <TableColumn fx:id="capacite" prefWidth="65.41592407226562" text="Capacité" />
+            <TableColumn fx:id="nbChambre" prefWidth="131.681396484375" text="Nombre de chambres" />
+            <TableColumn fx:id="prix" prefWidth="67.11505126953125" text="Prix" />
+            <TableColumn fx:id="editcol" prefWidth="107.893798828125" text="Action" />
+        </columns>
+      </TableView>
+      <Text fill="#2f3459" layoutX="34.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des maisons">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font></Text>
+      <Button id="button" fx:id="refresh" layoutX="888.0" layoutY="142.0" mnemonicParsing="false" onAction="#refresh" text="Refresh" textFill="#2f3459" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="95.0" layoutX="806.0" layoutY="14.0" stroke="#f4b707" strokeType="INSIDE" width="102.0" />
+      <ImageView fx:id="logo" fitHeight="131.0" fitWidth="132.0" layoutX="792.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Button id="button" fx:id="ajouter" layoutX="792.0" layoutY="142.0" mnemonicParsing="false" onAction="#ajouter" text="Ajouter" />
+      <FontAwesomeIconView fx:id="backbtn" accessibleRole="BUTTON" fill="#f4b707" glyphName="ARROW_CIRCLE_LEFT" layoutX="17.0" layoutY="40.0" onMouseClicked="#backmenu" size="45" styleClass="btn" text="" wrappingWidth="34.57143020629883" />
+   </children>
+</AnchorPane>

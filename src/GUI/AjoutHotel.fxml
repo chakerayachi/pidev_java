@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="627.0" prefWidth="841.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjoutHotelController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="669.0" stroke="#2f3459" strokeType="INSIDE" width="841.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="48.0" layoutY="35.0" stroke="#f4b707" strokeType="INSIDE" width="841.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="113.0" layoutX="704.0" layoutY="14.0" stroke="#f4b707" strokeType="INSIDE" width="106.0" />
+      <Text fill="#2f3459" layoutX="31.0" layoutY="69.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ajouter un hôtel">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font></Text>
+      <Label layoutX="92.0" layoutY="107.0" prefHeight="46.0" prefWidth="75.0" text="Adresse" textFill="#f4b707" AnchorPane.bottomAnchor="502.0" AnchorPane.leftAnchor="92.0" AnchorPane.rightAnchor="674.0" AnchorPane.topAnchor="107.0">
+         <font>
+            <Font size="21.0" />
+         </font></Label>
+      <Label layoutX="94.0" layoutY="181.0" prefHeight="31.0" prefWidth="42.0" text="Ville" textFill="#f4b707" AnchorPane.bottomAnchor="457.0" AnchorPane.leftAnchor="94.0" AnchorPane.rightAnchor="705.0" AnchorPane.topAnchor="181.0">
+         <font>
+            <Font size="21.0" />
+         </font></Label>
+      <Label layoutX="92.0" layoutY="241.0" prefHeight="32.0" prefWidth="75.0" text="Région" textFill="#f4b707" AnchorPane.bottomAnchor="396.0" AnchorPane.leftAnchor="92.0" AnchorPane.rightAnchor="674.0" AnchorPane.topAnchor="241.0">
+         <font>
+            <Font size="21.0" />
+         </font></Label>
+      <Label layoutX="92.0" layoutY="293.0" prefHeight="32.0" prefWidth="171.0" text="Num. Téléphone" textFill="#f4b707" AnchorPane.bottomAnchor="344.0" AnchorPane.leftAnchor="92.0" AnchorPane.rightAnchor="578.0" AnchorPane.topAnchor="293.0">
+         <font>
+            <Font size="21.0" />
+         </font></Label>
+      <Label layoutX="92.0" layoutY="347.0" prefHeight="32.0" prefWidth="120.0" text="Description" textFill="#f4b707" AnchorPane.bottomAnchor="290.0" AnchorPane.leftAnchor="92.0" AnchorPane.rightAnchor="629.0" AnchorPane.topAnchor="347.0">
+         <font>
+            <Font size="21.0" />
+         </font></Label>
+      <Label layoutX="94.0" layoutY="476.0" prefHeight="32.0" prefWidth="66.0" text="Libellé" textFill="#f4b707" AnchorPane.bottomAnchor="161.0" AnchorPane.leftAnchor="94.0" AnchorPane.rightAnchor="681.0" AnchorPane.topAnchor="476.0">
+         <font>
+            <Font size="21.0" />
+         </font></Label>
+      <Label layoutX="93.0" layoutY="530.0" text="Nombre d'étoiles" textFill="#f4b707" AnchorPane.leftAnchor="93.0">
+         <font>
+            <Font size="21.0" />
+         </font></Label>
+      <TextField fx:id="ville" layoutX="312.0" layoutY="183.0" prefHeight="26.0" prefWidth="147.0" />
+      <TextField fx:id="region" layoutX="312.0" layoutY="244.0" />
+      <TextField fx:id="tel" layoutX="312.0" layoutY="296.0" />
+      <TextField fx:id="libelle" layoutX="313.0" layoutY="479.0" />
+      <TextField fx:id="etoile" layoutX="313.0" layoutY="532.0" />
+      <TextArea fx:id="adresse" layoutX="312.0" layoutY="105.0" prefHeight="60.0" prefWidth="342.0" />
+      <TextArea fx:id="description" layoutX="312.0" layoutY="344.0" prefHeight="103.0" prefWidth="341.0" />
+      <Button id="button" fx:id="ajouterBtn" layoutX="373.0" layoutY="608.0" mnemonicParsing="false" onAction="#Insert" prefHeight="26.0" prefWidth="85.0" text="Ajouter" textFill="#2f3459" />
+      <ImageView fx:id="logo" fitHeight="150.0" fitWidth="147.0" layoutX="684.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="imgField" layoutX="608.0" layoutY="532.0" />
+      <Button fx:id="upload" layoutX="782.0" layoutY="530.0" mnemonicParsing="false" onAction="#upload" text="upload" />
+      <Label layoutX="532.0" layoutY="530.0" text="image" textFill="#f4b707">
+         <font>
+            <Font size="21.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

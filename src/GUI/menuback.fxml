@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="684.0" prefWidth="1282.0" style="-fx-background-color: #2f3459;" styleClass="mainFxmlClass" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="Controllers.MenubackController">
+<AnchorPane id="AnchorPane" prefHeight="684.0" prefWidth="1282.0" style="-fx-background-color: #2f3459;" styleClass="mainFxmlClass" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.MenubackController">
     <stylesheets>
         <URL value="@menuback.css" />
     </stylesheets>
@@ -40,7 +40,7 @@
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="714.0" layoutY="208.0" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;">
+      <JFXButton fx:id="gererhotel" layoutX="714.0" layoutY="208.0" onAction="#gererhotel" prefHeight="62.0" prefWidth="322.0" style="-fx-background-color: #f4b707;" text="Gerer Hotel">
          <font>
             <Font name="Comic Sans MS Bold" size="30.0" />
          </font>

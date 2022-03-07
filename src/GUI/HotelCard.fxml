@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<VBox id="vbox" fx:id="box" prefHeight="398.0" prefWidth="299.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.HotelCardController">
+   <children>
+      <Label id="hotelLab" fx:id="libelle" prefHeight="28.0" prefWidth="264.0" text="Label" textAlignment="CENTER">
+         <font>
+            <Font name="Comic Sans MS Bold" size="19.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="20.0" right="20.0" top="20.0" />
+         </VBox.margin>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color red="0.9098039269447327" green="0.8901960849761963" blue="0.8392156958580017" />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color red="1.0" green="1.0" blue="1.0" />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <VBox fx:id="card" prefHeight="200.0" prefWidth="100.0">
+         <children>
+            <ImageView fx:id="image" fitHeight="120.0" fitWidth="160.0" pickOnBounds="true" preserveRatio="true">
+               <VBox.margin>
+                  <Insets bottom="10.0" left="60.0" right="10.0" top="30.0" />
+               </VBox.margin>
+            </ImageView>
+            <Label fx:id="nbEtoile" prefHeight="46.0" prefWidth="182.0" text="Etoiles : ">
+               <VBox.margin>
+                  <Insets left="50.0" top="40.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Comic Sans MS Bold" size="19.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color red="0.9098039269447327" green="0.8901960849761963" blue="0.8392156958580017" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</VBox>

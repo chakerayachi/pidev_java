@@ -15,7 +15,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
 
 /**
  * FXML Controller class
@@ -26,6 +29,12 @@ public class MenuController implements Initializable {
 
     @FXML
     private JFXButton forum;
+    @FXML
+    private JFXButton hotel;
+    @FXML
+    private JFXButton maison;
+    @FXML
+    private JFXButton ajoutmaison;
 
     /**
      * Initializes the controller class.
@@ -42,6 +51,52 @@ public class MenuController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/gestiontopic.fxml"));
             Parent root = loader.load();
             forum.getScene().setRoot(root);
+        } catch (IOException ex) {
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void consulterhotel(ActionEvent event) {
+        
+        
+        
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/ClientHotel.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("../GUI/Stylesheet.css").toExternalForm());
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+
+    @FXML
+    private void consultermaison(ActionEvent event) {
+         try {
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/ClientMaison.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("../GUI/Stylesheet.css").toExternalForm());
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    @FXML
+    private void ajoutmaison(ActionEvent event) {
+         try {
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/AjoutMaison.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("../GUI/Stylesheet.css").toExternalForm());
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
         } catch (IOException ex) {
             Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
         }

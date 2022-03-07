@@ -19,6 +19,7 @@ public class Hotel {
     private String description ;
     private String libelle ;
     private int nb_etoile ;
+    private String image;
     private  int id_user ;
 
     // constructeur par default
@@ -26,7 +27,7 @@ public class Hotel {
 
 
     // constructeur parametree avec le champs id
-    public Hotel(int id, String adresse, String ville, String region, int num_tel,  String description, String libelle, int nb_etoile, int id_user) {
+    public Hotel(int id, String adresse, String ville, String region, int num_tel, String description, String libelle, int nb_etoile, String image, int id_user) {
         this.id = id;
         this.adresse = adresse;
         this.ville = ville;
@@ -35,11 +36,14 @@ public class Hotel {
         this.description = description;
         this.libelle = libelle;
         this.nb_etoile = nb_etoile;
+        this.image = image;
         this.id_user = id_user;
     }
 
+  
+
     // constructeur parametree sans le champs id
-    public Hotel( String adresse, String ville, String region, int num_tel,  String description, String libelle, int nb_etoile,  int id_user) {
+    public Hotel( String adresse, String ville, String region, int num_tel, String description, String libelle, int nb_etoile, String image, int id_user) {
         this.adresse = adresse;
         this.ville = ville;
         this.region = region;
@@ -47,8 +51,11 @@ public class Hotel {
         this.description = description;
         this.libelle = libelle;
         this.nb_etoile = nb_etoile;
+        this.image = image;
         this.id_user = id_user;
     }
+
+   
 
 
     //getters and setters
@@ -121,7 +128,15 @@ public class Hotel {
         this.nb_etoile = nb_etoile;
     }
 
+    public String getImage() {
+        return image;
+    }
 
+    public void setImage(String image) {
+        this.image = image;
+    }
+
+    
 
     public int getId_user() {
         return id_user;

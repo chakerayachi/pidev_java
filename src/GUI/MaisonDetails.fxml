@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="449.0" prefWidth="783.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.MaisonDetailsController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="449.0" stroke="#2f3459" strokeType="INSIDE" width="784.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="41.0" layoutY="355.0" stroke="#f4b707" strokeType="INSIDE" width="784.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="90.0" layoutX="611.0" layoutY="290.0" stroke="#f4b707" strokeType="INSIDE" width="115.0" />
+      <ImageView fitHeight="122.0" fitWidth="115.0" layoutX="611.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Button id="button" fx:id="back" mnemonicParsing="false" onAction="#back" text="Back" textFill="#f4b707" />
+      <VBox layoutX="40.0" layoutY="53.0" prefHeight="343.0" prefWidth="200.0">
+         <children>
+            <ImageView fx:id="image" fitHeight="137.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@maison.jpg" />
+               </image>
+            </ImageView>
+            <Label fx:id="region" text="Région : " textFill="#f4b707">
+               <VBox.margin>
+                  <Insets left="20.0" top="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="ville" text="Ville : " textFill="#f4b707">
+               <VBox.margin>
+                  <Insets left="20.0" top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Label>
+            <Label fx:id="prix" text="Prix" textFill="#f4b707">
+               <VBox.margin>
+                  <Insets left="20.0" top="30.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Comic Sans MS" size="12.0" />
+               </font>
+            </Label>
+            <Button fx:id="reservation" mnemonicParsing="false" onAction="#reservation" text="Réserver" textFill="#f4b707">
+               <VBox.margin>
+                  <Insets bottom="20.0" left="70.0" top="40.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+      <HBox id="vbox" layoutX="259.0" layoutY="-1.0" prefHeight="343.0" prefWidth="525.0">
+         <children>
+            <VBox prefHeight="360.0" prefWidth="344.0">
+               <children>
+                  <Label fx:id="description" prefHeight="176.0" prefWidth="302.0" text="Description" textFill="#f4b707">
+                     <VBox.margin>
+                        <Insets left="40.0" top="40.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Comic Sans MS" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="nbChambre" text="Chambres : " textFill="#f4b707">
+                     <VBox.margin>
+                        <Insets left="40.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Comic Sans MS" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="capacite" text="Capacité : " textFill="#f4b707">
+                     <VBox.margin>
+                        <Insets left="40.0" top="30.0" />
+                     </VBox.margin>
+                     <font>
+                        <Font name="Comic Sans MS" size="12.0" />
+                     </font>
+                  </Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>
