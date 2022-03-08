@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -6,6 +7,7 @@
 package GUI;
 
 
+import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import entities.Categorie;
 import entities.Images;
 import entities.Utilisateur;
@@ -36,6 +38,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import services.ServiceCategorieIMP;
@@ -203,7 +206,7 @@ public class AjoutvoitureController implements Initializable {
             v.setMarque(marque.getText());
             v.setDescription(descreption.getText());
             v.setId_categorie(sc.getIdCategorie(categorie.getText()));
-            v.setPrix(prix.getText());
+            v.setPrix(Float.valueOf(prix.getText()));
          v .setId_user(userConn.getId());
             int id_voi = sv.ajouter(v);
             System.out.println(id_voi);
@@ -263,7 +266,7 @@ public class AjoutvoitureController implements Initializable {
         String mode = model.getText();
         System.out.print(mode);
         String marq = marque.getText();
-        String pri = prix.getText();
+        Float pri = Float.valueOf(prix.getText());
         int capa = Integer.parseInt(capacite.getText());
 
         String coul = couleur.getText();
@@ -417,5 +420,9 @@ public class AjoutvoitureController implements Initializable {
             Logger.getLogger(AjoutvoitureController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+    
+        
+    
 
 }

@@ -66,7 +66,20 @@ public class AffichageEvenementClientController implements Initializable {
 
     @FXML
     private void reservation(ActionEvent event) {
-        
+        AjouterRéservationTicketController.evenement=even;
+                try {
+                    Parent root = FXMLLoader.load(getClass().getResource("../GUI/Ajouter Réservation Ticket.fxml"));
+                    
+                    
+                    Scene scene = new Scene(root);
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                               scene.getStylesheets().add(getClass().getResource("../GUI/Styling.css").toExternalForm());
+
+                    stage.setScene(scene);
+                    stage.show();
+                } catch (IOException ex) {
+                    Logger.getLogger(ClientEvenementController.class.getName()).log(Level.SEVERE, null, ex);
+                }
         
     }
 

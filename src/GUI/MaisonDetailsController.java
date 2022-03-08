@@ -71,6 +71,19 @@ public class MaisonDetailsController implements Initializable {
 
     @FXML
     private void reservation(ActionEvent event) {
+        AjouterRéservationMaisonController.maison=maison;
+         try {
+            Parent root;
+            root = FXMLLoader.load(getClass().getResource("../GUI/Ajouter Réservation Maison.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("../GUI/Stylesheet.css").toExternalForm());
+		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+		stage.setScene(scene);
+		stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(HotelDetailsController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     @FXML

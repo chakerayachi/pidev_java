@@ -20,14 +20,14 @@ public class Voiture {
     private String description ;
     private int id_user ;
     private int id_categorie;
-    private String prix;
+    private float prix;
 
     //constructeur par default
     public Voiture(){}
 
     // constructeur parametere avec le champs id
     
-    public Voiture(int id, String immat, String model, String marque, String couleur, int capacite, String description, int id_user, int id_categorie, String prix) {
+    public Voiture(int id, String immat, String model, String marque, String couleur, int capacite, String description, int id_user, int id_categorie, float prix) {
         this.id = id;
         this.immat=immat;
         this.model = model;
@@ -44,7 +44,7 @@ public class Voiture {
 
     // constructeur parametere sans le champs id
 
-    public Voiture(String immat, String model, String marque, String couleur, int capacite, String description, int id_user, int id_categorie, String prix) {
+    public Voiture(String immat, String model, String marque, String couleur, int capacite, String description, int id_user, int id_categorie, float prix) {
         this.immat = immat;
         this.model = model;
         this.marque = marque;
@@ -61,6 +61,10 @@ public class Voiture {
     }
 
     public Voiture(int id_voiture, String imma, String mode, String marq, String coul, int capa, String desc, int cate, String pri) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Voiture(int id_voiture, String imma, String mode, String marq, String coul, int capa, String desc, int cate, Float pri) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
    
@@ -146,7 +150,7 @@ public class Voiture {
         return model;
     }
 
-    public String getPrix() {
+    public float getPrix() {
         return prix;
     }
 
@@ -154,7 +158,7 @@ public class Voiture {
         this.model = model;
     }
 
-    public void setPrix(String prix) {
+    public void setPrix(float prix) {
         this.prix = prix;
     }
     

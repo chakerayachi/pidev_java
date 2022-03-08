@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="1000.0" stylesheets="@Paiement.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjoutPaiementController"> 
+    <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="500.0" stroke="#2f3459" strokeType="INSIDE" width="1000.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="500.0" layoutX="1.0" layoutY="-1.0" stroke="BLACK" strokeType="INSIDE" width="494.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="48.0" layoutY="47.0" stroke="#f4b707" strokeType="INSIDE" width="1000.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="97.0" layoutX="872.0" layoutY="24.0" stroke="#f4b707" strokeType="INSIDE" width="98.0" />
+      <Text fill="#2f3459" layoutX="46.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Paiement">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="846.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="217.0" fitWidth="361.0" layoutX="181.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../assets/card.png" />
+         </image>
+      </ImageView>
+      <Text fill="#2f3459" layoutX="654.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Détails de paiement">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <Label layoutX="656.0" layoutY="208.0" text="Numéro de carte">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="card_number" layoutX="655.0" layoutY="241.0" prefHeight="25.0" prefWidth="234.0" />
+      <Label layoutX="659.0" layoutY="282.0" text="Date d'éxpiration">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="exipration_date" layoutX="655.0" layoutY="311.0" prefHeight="25.0" prefWidth="234.0" />
+      <Label layoutX="660.0" layoutY="355.0" text="CVC">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <TextField fx:id="cvc" layoutX="657.0" layoutY="384.0" prefHeight="25.0" prefWidth="234.0" />
+      <Button id="search_button" layoutX="704.0" layoutY="437.0" mnemonicParsing="false" onAction="#pay_reservation" prefHeight="25.0" prefWidth="144.0" text="Payer " />
+   </children>
+    
+</AnchorPane>

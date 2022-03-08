@@ -50,7 +50,7 @@ public class ServicesVoitureIMP implements IService<Voiture> {
             ps.setInt(6,t.getId_user());
             ps.setInt(7,t.getId_categorie());
             ps.setString(8,t.getImmat());
-            ps.setString(9,t.getPrix());
+            ps.setFloat(9,t.getPrix());
 
             ps.executeUpdate();
             java.sql.ResultSet generatedKeys = ps.getGeneratedKeys();
@@ -132,7 +132,7 @@ public class ServicesVoitureIMP implements IService<Voiture> {
                 v.setCouleur(rs.getString("couleur"));
                 v.setCapacite(rs.getInt("capacite"));
                 v.setDescription(rs.getString("description"));
-               v.setPrix(rs.getString("prix"));
+               v.setPrix(rs.getFloat("prix"));
                 list.add(v);
                 
             }
@@ -261,7 +261,7 @@ return list;
                 v.setCouleur(rs.getString("couleur"));
                 v.setCapacite(rs.getInt("capacite"));
                 v.setDescription(rs.getString("description"));
-                 v.setPrix(rs.getString("prix"));
+                 v.setPrix(rs.getFloat("prix"));
                
                 
                 
@@ -296,6 +296,28 @@ int x= 0;
     @Override
     public List<Voiture> chercherVoiture(String nom) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+     public List<Voiture> get_voiture_by_id(int id_voiture){ 
+        List<Voiture> voiture_list = new ArrayList(); 
+         String Request = "SELECT * FROM voiture where id="+id_voiture;
+         PreparedStatement  pst;
+         try {
+            pst = cnx.prepareStatement(Request);
+            ResultSet rs = pst.executeQuery(Request);
+            while (rs.next()) {
+              Voiture v = new Voiture();
+                        v.setId(rs.getInt(1));
+                        v.setMarque(rs.getString("marque"));
+                        v.setCouleur(rs.getString("couleur"));
+                        v.setCapacite(rs.getInt("capacite"));
+                        v.setDescription(rs.getString("description"));
+                        v.setPrix(rs.getFloat("prix"));
+                voiture_list.add(v);
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return voiture_list;
     }
 }
 

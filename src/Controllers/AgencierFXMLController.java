@@ -287,7 +287,7 @@ public class AgencierFXMLController implements Initializable {
 
     @FXML
     private void consultervoiture(ActionEvent event) {
-        try {
+       try {
             Parent root = FXMLLoader.load(getClass().getResource("../GUI/ajoutvoiture.fxml"));
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("../GUI/Stylesheet.css").toExternalForm());
@@ -295,7 +295,22 @@ public class AgencierFXMLController implements Initializable {
             stage.setScene(scene);
             stage.show();
         } catch (IOException ex) {
-            Logger.getLogger(MenuController.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(AgencierFXMLController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }
+
+    @FXML
+    private void listereservation(ActionEvent event) {
+         try {
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/ClientRéservationsVoitures.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("../GUI/Stylesheet.css").toExternalForm());
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(AgencierFXMLController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

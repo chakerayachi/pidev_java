@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -9,11 +11,18 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="AnchorPane" fx:id="df" prefHeight="400.0" prefWidth="473.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.DetailsVoitureController">
+<AnchorPane id="AnchorPane" fx:id="df" prefHeight="400.0" prefWidth="473.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.DetailsVoitureController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="104.0" layoutX="-1.0" stroke="#2f3459" strokeType="INSIDE" width="531.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="43.0" layoutY="26.0" stroke="#f4b707" strokeType="INSIDE" width="530.0" />
-      <FlowPane fx:id="fp" layoutY="109.0" prefHeight="288.0" prefWidth="530.0" />
+      <FlowPane fx:id="fp" layoutY="109.0" prefHeight="288.0" prefWidth="530.0">
+         <children>
+            <Button mnemonicParsing="false" onAction="#reserver" text="Reserver">
+               <FlowPane.margin>
+                  <Insets left="450.0" top="260.0" />
+               </FlowPane.margin>
+            </Button>
+         </children></FlowPane>
       <JFXButton fx:id="retour" buttonType="RAISED" layoutX="14.0" layoutY="35.0" onAction="#back" text="Retour" textFill="#135df2">
          <font>
             <Font name="System Bold" size="12.0" />

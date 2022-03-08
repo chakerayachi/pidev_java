@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/Administrateur.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterRéservationMaisonController">
+   <children>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="432.0" layoutX="-3.0" layoutY="-7.0" stroke="#2f3459" strokeType="INSIDE" width="606.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="48.0" layoutY="41.0" stroke="#f4b707" strokeType="INSIDE" width="603.0" />
+      <Label layoutX="23.0" layoutY="48.0" text="Réservation masion " textFill="#2f3459">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font></Label>
+      <Label layoutX="169.0" layoutY="181.0" text="Date début" textFill="#f4b707">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="170.0" layoutY="222.0" text="Date fin " textFill="#f4b707">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label layoutX="168.0" layoutY="265.0" text="Personnes" textFill="#f4b707">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <DatePicker fx:id="date_debut_field" layoutX="273.0" layoutY="181.0" />
+      <DatePicker fx:id="date_fin_field" layoutX="273.0" layoutY="223.0" />
+      <ChoiceBox fx:id="disponibiliter_field" layoutX="273.0" layoutY="266.0" prefHeight="25.0" prefWidth="174.0" />
+      <Label layoutX="169.0" layoutY="304.0" text="Total" textFill="#f4b707">
+         <font>
+            <Font size="16.0" />
+         </font></Label>
+      <Label fx:id="total_fied" layoutX="274.0" layoutY="305.0" text="1000 $" textFill="#f4b707">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font></Label>
+      <Button id="search_button" fx:id="confirmer_button" layoutX="235.0" layoutY="361.0" mnemonicParsing="false" onAction="#create_reservation" prefHeight="25.0" prefWidth="174.0" text="confirmer" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="97.0" layoutX="466.0" layoutY="17.0" stroke="#f4b707" strokeType="INSIDE" width="103.0" />
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="443.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="house_name" layoutX="166.0" layoutY="126.0" text="Maison de : Alaa zarrouk " textFill="#f4b707">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

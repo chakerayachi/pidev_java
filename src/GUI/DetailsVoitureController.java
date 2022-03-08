@@ -103,5 +103,22 @@ public class DetailsVoitureController implements Initializable {
                                                         Logger.getLogger(DetailsVoitureController.class.getName()).log(Level.SEVERE, null, ex);
                                                     }
     }
-    
-}
+
+    @FXML
+    private void reserver(ActionEvent event) {
+         try {
+                                                        AjouterRéservationVoitureController.voiture=voiture;
+                                                       
+
+                                                        Parent root = FXMLLoader.load(getClass().getResource("../GUI/Ajouter Réservation Voiture.fxml"));
+                                                        Scene scene = new Scene(root);
+                                                        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                                        stage.setScene(scene);
+                                                        stage.show();
+                                                    } catch (IOException ex) {
+                                                        Logger.getLogger(DetailsVoitureController.class.getName()).log(Level.SEVERE, null, ex);
+             }
+    }
+    }
+
+

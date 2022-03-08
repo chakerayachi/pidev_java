@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Text?>
 <?import org.controlsfx.control.Rating?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="348.0" prefWidth="289.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ReservationvoitureController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="348.0" prefWidth="289.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ReservationvoitureController">
    <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="244.0" stroke="#f4b707" strokeType="INSIDE" width="289.0" />
       <ImageView fx:id="imagevoiture" fitHeight="130.0" fitWidth="279.0" layoutX="5.0" layoutY="6.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true">
@@ -23,7 +23,7 @@
       <Label fx:id="labelcapacite" layoutX="72.0" layoutY="205.0" prefHeight="18.0" prefWidth="51.0" text="hfhfh" />
       <Label fx:id="labelcouleur" layoutX="212.0" layoutY="205.0" prefHeight="18.0" prefWidth="56.0" text="hfhhfu" />
       <JFXButton fx:id="detail" layoutX="11.0" layoutY="315.0" text="Details" />
-      <Button fx:id="reserver" layoutX="202.0" layoutY="315.0" mnemonicParsing="false" onAction="#reservation" text="Reserver">
+      <Button fx:id="reserver" layoutX="202.0" layoutY="315.0" mnemonicParsing="false" onAction="#reservation" text="Avis">
          <font>
             <Font name="Arial Black" size="12.0" />
          </font>

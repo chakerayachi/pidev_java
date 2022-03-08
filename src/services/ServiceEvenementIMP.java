@@ -158,4 +158,33 @@ public class ServiceEvenementIMP {
      return list;    
     }
     
+    
+     public int get_event_by_ticket_id(int id_ticket){ 
+         String Request = "SELECT ev.id FROM evenement ev join ticket tk on ev.id=tk.id_evenement where tk.id="+id_ticket;
+         PreparedStatement  pst;
+         int event_id=0; 
+         try {
+            pst = cnxx.prepareStatement(Request);
+            ResultSet rs = pst.executeQuery(Request);
+            while (rs.next()) {
+                event_id=rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return event_id;
+    }
+     
+    public void update_evenement_disponibiliter(int id_event) {
+        String Request = "UPDATE evenement SET disponibiliter= disponibiliter-1 where id="+id_event;
+        PreparedStatement  pst;
+        try {
+                pst = cnxx.prepareStatement(Request);
+                pst.executeUpdate(Request); 
+                        System.out.println("modification effectué avec succés");
+        } catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+    }
+    
     }

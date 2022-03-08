@@ -65,7 +65,7 @@ public class UiclientreservationvoitureController implements Initializable {
         ServiceAvisIMP sa = new ServiceAvisIMP();
         FP.getChildren().clear();
 
-        int count = sv.afficher().size();
+        int count = sm.afficher().size();
         System.out.println(count);
         // System.out.println(idsujet);
         for (int i = 0; i < count; i++) {
@@ -73,7 +73,7 @@ public class UiclientreservationvoitureController implements Initializable {
             try {
                 Parent voitureFXML = FXMLLoader.load(getClass().getResource("/GUI/reservationvoiture.fxml"));
 
-                int id = sv.afficher().get(i).getId();
+                int id = sm.afficher().get(i).getId_voiture();
                 System.out.println(id);
                 Voiture v = sv.affichervoiturebyud(id);
                 String bath = sm.afficher().get(i).getImg_blob();
@@ -81,7 +81,7 @@ public class UiclientreservationvoitureController implements Initializable {
                 ReservationvoitureController.marque.setText(v.getMarque());
                 ReservationvoitureController.model.setText(v.getmodel());
                 ReservationvoitureController.couleur.setText(v.getCouleur());
-                ReservationvoitureController.prix.setText(v.getPrix());
+                ReservationvoitureController.prix.setText(String.valueOf(v.getPrix()));
                 ReservationvoitureController.review.setRating(sa.get_moy_avis(id));
                 ReservationvoitureController.review.setUpdateOnHover(false);
                 ReservationvoitureController.capacite.setText(String.valueOf(v.getCapacite()));
@@ -112,7 +112,9 @@ public class UiclientreservationvoitureController implements Initializable {
                             DetailsVoitureController dk = new DetailsVoitureController();
                             dk.voiture = v;
                             int id_voiture = voiture.getId();
-                            FXMLLoader loader = new FXMLLoader(getClass().getResource("avis.fxml"));
+                            //AjouterRéservationVoitureController.voiture=v;
+                            //FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/Ajouter Réservation Voiture.fxml"));
+                          FXMLLoader loader = new FXMLLoader(getClass().getResource("../GUI/avis.fxml"));
                             Parent root = loader.load();
                             AvisController controller = loader.getController();
                             controller.setid_voiture(id_voiture);

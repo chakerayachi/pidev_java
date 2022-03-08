@@ -50,7 +50,7 @@ public class ServicesVoitureIMP implements IService<Voiture> {
             ps.setInt(6,t.getId_user());
             ps.setInt(7,t.getId_categorie());
             ps.setString(8,t.getImmat());
-            ps.setString(9,t.getPrix());
+            ps.setFloat(9,t.getPrix());
 
             ps.executeUpdate();
             java.sql.ResultSet generatedKeys = ps.getGeneratedKeys();
@@ -132,7 +132,7 @@ public class ServicesVoitureIMP implements IService<Voiture> {
                 v.setCouleur(rs.getString("couleur"));
                 v.setCapacite(rs.getInt("capacite"));
                 v.setDescription(rs.getString("description"));
-               v.setPrix(rs.getString("prix"));
+               v.setPrix(rs.getFloat("prix"));
                 list.add(v);
                 
             }
@@ -261,7 +261,7 @@ return list;
                 v.setCouleur(rs.getString("couleur"));
                 v.setCapacite(rs.getInt("capacite"));
                 v.setDescription(rs.getString("description"));
-                 v.setPrix(rs.getString("prix"));
+                 v.setPrix(rs.getFloat("prix"));
                
                 
                 

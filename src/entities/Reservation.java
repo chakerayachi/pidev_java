@@ -15,7 +15,7 @@ import java.sql.*;
  */
 public class Reservation {
 
-    private int id ; 
+    private int id ;
     private Timestamp created_At;
     private Date date_debut ;
     private Date date_fin ;
@@ -24,7 +24,7 @@ public class Reservation {
     private int id_voiture;
     private int id_ticket ;
     private int id_maison;
-    private int id_hotel;
+    private int id_chambre;
     private int id_user ;
     private String etat="confirmée";
      private int id_transaction;
@@ -35,9 +35,9 @@ public class Reservation {
     //constructeur par default
     public Reservation(){}
 
-    public Reservation(int id, Timestamp created_At, Date date_debut, Date date_fin, float montant_a_payer, float reste_a_payer, int id_voiture, int id_ticket, int id_maison, int id_hotel, int id_user,String etat,int id_transaction, String type) {
+    public Reservation(int id,Timestamp created_At, Date date_debut, Date date_fin, float montant_a_payer, float reste_a_payer, int id_voiture, int id_ticket, int id_maison, int id_chambre, int id_user,String etat,int id_transaction, String type) {
         this.id = id;
-        this.created_At = created_At;
+        this.created_At=created_At;
         this.date_debut = date_debut;
         this.date_fin = date_fin;
         this.montant_a_payer = montant_a_payer;
@@ -45,21 +45,21 @@ public class Reservation {
         this.id_voiture = id_voiture;
         this.id_ticket = id_ticket;
         this.id_maison = id_maison;
-        this.id_hotel = id_hotel;
+        this.id_chambre = id_chambre;
         this.id_user = id_user;
         this.etat=etat;
         this.id_transaction = id_transaction;
         this.type = type;
     }
 
-    public Reservation(Date date_debut, Date date_fin, float montant_a_payer,int id_voiture, int id_ticket, int id_maison, int id_hotel, int id_user, int id_transaction, String type) {
+    public Reservation(Date date_debut, Date date_fin, float montant_a_payer,int id_voiture, int id_ticket, int id_maison, int id_chambre, int id_user, int id_transaction, String type) {
         this.date_debut = date_debut;
         this.date_fin = date_fin;
         this.montant_a_payer = montant_a_payer;
         this.id_voiture = id_voiture;
         this.id_ticket = id_ticket;
         this.id_maison = id_maison;
-        this.id_hotel = id_hotel;
+        this.id_chambre = id_chambre;
         this.id_user = id_user;
         this.id_transaction = id_transaction;
         this.type = type;
@@ -75,13 +75,6 @@ public class Reservation {
         this.id = id;
     }
 
-    public Timestamp getCreated_At() {
-        return created_At;
-    }
-
-    public void setCreated_At(Timestamp created_At) {
-        this.created_At = created_At;
-    }
     public float getMontant_a_payer() {
         return montant_a_payer;
     }
@@ -133,11 +126,11 @@ public class Reservation {
     public void setReste_a_payer(float montant_paye) {
         this.reste_a_payer = this.montant_a_payer-montant_paye;
     }
-    public int getId_hotel() {
-        return id_hotel;
+    public int getId_chambre() {
+        return id_chambre;
     }
-    public void setId_hotel(int id_hotel) {
-        this.id_hotel = id_hotel;
+    public void setId_hotel(int id_chambre) {
+        this.id_chambre = id_chambre;
     }
 
     public int getId_maison() {
@@ -162,8 +155,23 @@ public class Reservation {
         this.id_voiture = id_voiture;
     }
     
+    public Timestamp getCreated_At() {
+        return created_At;
+    }
+
+    public void setCreated_At(Timestamp created_At) {
+        this.created_At = created_At;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
      @Override
     public String toString() {
-        return "Reservation{" + "id=" + id + ", created_At=" + created_At + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", montant_a_payer=" + montant_a_payer + ", reste_a_payer=" + reste_a_payer + ", id_voiture=" + id_voiture + ", id_ticket=" + id_ticket + ", id_maison=" + id_maison + ", id_hotel=" + id_hotel + ", id_user=" + id_user + ", etat=" + etat + ", id_transaction=" + id_transaction + ", type=" + type + '}';
+        return "Reservation{" + "id=" + id + ", date_debut=" + date_debut + ", date_fin=" + date_fin + ", montant_a_payer=" + montant_a_payer + ", reste_a_payer=" + reste_a_payer + ", id_voiture=" + id_voiture + ", id_ticket=" + id_ticket + ", id_maison=" + id_maison + ", id_chambre=" + id_chambre + ", id_user=" + id_user + ", etat=" + etat + ", id_transaction=" + id_transaction + ", type=" + type + '}';
     }
 }

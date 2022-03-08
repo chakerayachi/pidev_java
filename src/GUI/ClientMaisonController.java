@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import Controllers.MenuController;
 import entities.Maison;
 import java.io.IOException;
 import java.net.URL;
@@ -220,6 +221,21 @@ public class ClientMaisonController implements Initializable {
                             Logger.getLogger(ClientMaisonController.class.getName()).log(Level.SEVERE, null, ex);
                     }
                                     
+    }
+
+    @FXML
+    private void listereservation(ActionEvent event) {
+         try {
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/ClientRéservationsMaisons.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("../GUI/Stylesheet.css").toExternalForm());
+            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(ClientMaisonController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
 

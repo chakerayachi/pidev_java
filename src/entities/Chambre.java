@@ -15,25 +15,31 @@ public class Chambre {
     private String type ;
     private int id_hotel ;
     private float prix;
+    private int disponibiliter;
+
+   
 
     // constructeur par default
     public Chambre(){}
 
     // constructeur paramtere avec le champs id
 
-    public Chambre(int id, String type, int id_hotel , float prix) {
+    public Chambre(int id, String type, int id_hotel , float prix,int disponibiliter) {
         this.id = id;
         this.type = type;
         this.id_hotel = id_hotel;
         this.prix = prix ;
+         this.disponibiliter=disponibiliter;
+        
     }
 
     // constructeur parametrer sans le champ id
-    public Chambre( String type, int id_hotel , float prix) {
+    public Chambre( String type, int id_hotel , float prix,int disponibiliter) {
 
         this.type = type;
         this.id_hotel = id_hotel;
         this.prix = prix;
+        this.disponibiliter=disponibiliter;
     }
 
 
@@ -70,6 +76,14 @@ public class Chambre {
 
     public void setPrix(float prix) {
         this.prix = prix;
+    }
+    
+     public int getDisponibiliter() {
+        return disponibiliter;
+    }
+
+    public void setDisponibiliter(int disponibiliter) {
+        this.disponibiliter = disponibiliter;
     }
 
  

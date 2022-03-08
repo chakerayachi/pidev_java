@@ -100,4 +100,26 @@ public void add_ticket(Ticket t){
      return list;    
     }
     
+     public List<Ticket> get_tickets_by_event_id(int id_evenement){ 
+        List<Ticket> ticket_list = new ArrayList(); 
+         String Request = "SELECT * FROM ticket tk where tk.id_evenement="+id_evenement;
+         PreparedStatement  pst;
+         try {
+            pst = cnxx.prepareStatement(Request);
+            ResultSet rs = pst.executeQuery(Request);
+            while (rs.next()) {
+              Ticket v = new Ticket();
+                       Ticket t = new Ticket();
+                         t.setId(rs.getInt(1));
+                         t.setPrix(rs.getInt(2));
+                         t.setId_evenement(rs.getInt(3)); 
+                         t.setType(rs.getString(4));
+                ticket_list.add(t);
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return ticket_list;
+    }
+    
     }

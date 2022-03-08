@@ -51,6 +51,30 @@ public class Maison {
         this.image=image;
         this.id_user = id_user;
     }
+    
+      public Maison(int id, String adresse, String region, int num_tel,  String description, int capacite, int nb_chambres, float prix, int id_user) {
+        this.id = id;
+        this.adresse = adresse;
+        this.region = region;
+        this.num_tel = num_tel;
+        this.description = description;
+        this.capacite = capacite;
+        this.nb_chambres = nb_chambres;
+        this.prix = prix;
+        this.id_user = id_user;
+    }
+
+    // constructeur paramtrer sans le champs id
+    public Maison(String adresse, String region, int num_tel,  String description, int capacite, int nb_chambres, float prix, int id_user) {
+        this.adresse = adresse;
+        this.region = region;
+        this.num_tel = num_tel;
+        this.description = description;
+        this.capacite = capacite;
+        this.nb_chambres = nb_chambres;
+        this.prix = prix;
+        this.id_user = id_user;
+    }
 
     //getters and setters
 

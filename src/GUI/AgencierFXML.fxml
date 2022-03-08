@@ -34,6 +34,11 @@
                         <Font name="American Typewriter" size="23.0" />
                      </font>
                   </JFXButton>
+                  <JFXButton buttonType="RAISED" onAction="#listereservation" prefHeight="70.0" prefWidth="280.0" ripplerFill="#f2b40700" style="-fx-background-color: #f4b707;" styleClass="my-other-buttons" stylesheets="@admindashboardfxml.css" text="Liste Reservation" textFill="#2f3459">
+                     <font>
+                        <Font name="American Typewriter" size="23.0" />
+                     </font>
+                  </JFXButton>
                </children>
             </VBox>
             <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />

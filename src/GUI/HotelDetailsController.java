@@ -74,12 +74,13 @@ public class HotelDetailsController implements Initializable {
 
     @FXML
     private void reservation(ActionEvent event) throws IOException {
-        
-        /*Parent root = FXMLLoader.load(getClass().getResource("../GUI/.fxml"));
+        AjouterRéservationChambreController arc=new AjouterRéservationChambreController();
+        arc.hotel=hot;
+        Parent root = FXMLLoader.load(getClass().getResource("../GUI/Ajouter Réservation Chambre.fxml"));
 		Scene scene = new Scene(root);
 		Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 		stage.setScene(scene);
-		stage.show();*/
+		stage.show();
     }
 
     @FXML

@@ -131,6 +131,51 @@ public class ServiceChambreIPM implements Ihebergement<Chambre>{
      return list;    
     }
 
+     
+      public List<Chambre> get_chambre_by_hotel_id(int id_hotel){ 
+        List<Chambre> Chambre_list = new ArrayList(); 
+         String Request = "SELECT * FROM chambre where disponnibiliter > 0 and id_hotel="+id_hotel;
+         PreparedStatement  pst;
+         try {
+            pst = cnxx.prepareStatement(Request);
+            ResultSet rs = pst.executeQuery(Request);
+            while (rs.next()) {
+                Chambre chc = new Chambre(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getFloat(4),rs.getInt(5));
+                Chambre_list.add(chc);
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return Chambre_list;
+    }
+    
+    public int get_disponibiliter_id(int id_chambre){
+        int nbr=0;
+         String Request = "SELECT disponnibiliter FROM chambre where id="+id_chambre;
+         PreparedStatement  pst;
+         try {
+            pst = cnxx.prepareStatement(Request);
+            ResultSet rs = pst.executeQuery(Request);
+            while (rs.next()) {
+                nbr=rs.getInt(1);
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return nbr;
+    }  
+ 
+     public void update_chambre_disponibiliter(int id_chambre) {
+        String Request = "UPDATE chambre SET disponibiliter= disponibiliter-1 where id="+id_chambre;
+        PreparedStatement  pst;
+        try {
+                pst = cnxx.prepareStatement(Request);
+                pst.executeUpdate(Request); 
+                        System.out.println("modification effectué avec succés");
+        } catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+    } 
     
 
    

@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane id="AnchorPane" prefHeight="620.0" prefWidth="1350.0" stylesheets="@Paiement.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AdministrateurRéservationsMaisonsController">
+    <children>
+      <Rectangle id="btn" arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="620.0" layoutX="-1.0" stroke="#2f3459" strokeType="INSIDE" width="1350.0" />
+      <TableView fx:id="table_reservation_maison" layoutX="13.0" layoutY="257.0" prefHeight="301.0" prefWidth="1323.0">
+        <columns>
+          <TableColumn fx:id="created_At" prefWidth="139.0" style="-fx-alignment: center;" text="Created At" />
+            <TableColumn fx:id="user_name" prefWidth="131.0" style="-fx-alignment: center;" text="Utilisateur" />
+          <TableColumn fx:id="date_debut" prefWidth="120.0" style="-fx-alignment: center;" text="Date  début" />
+            <TableColumn fx:id="date_fin" prefWidth="120.0" style="-fx-alignment: center;" text="Date fin" />
+            <TableColumn fx:id="montant_a_payer" prefWidth="105.0" style="-fx-alignment: center;" text="Total ($)" />
+            <TableColumn fx:id="taux_avance" prefWidth="114.0" style="-fx-alignment: center;" text="Taux avance (%)" />
+            <TableColumn fx:id="montant_paye" prefWidth="116.0" style="-fx-alignment: center;" text="Payé ($)" />
+            <TableColumn fx:id="reste_a_payer" prefWidth="98.0" style="-fx-alignment: center;" text="Reste ($)" />
+            <TableColumn fx:id="etat" prefWidth="102.0" style="-fx-alignment: center;" text="Etat" />
+            <TableColumn fx:id="owner_name" prefWidth="116.0" style="-fx-alignment: center;" text="Propriétaire" />
+            <TableColumn fx:id="editcol" prefWidth="161.0" text="Action" />
+        </columns>
+      </TableView>
+      <TextField fx:id="search_user_field" layoutX="122.0" layoutY="207.0" prefHeight="25.0" prefWidth="190.0" />
+      <Label layoutX="22.0" layoutY="209.0" text="Email utilisateur" textFill="#f4b707" />
+      <Label layoutX="505.0" layoutY="212.0" prefHeight="17.0" prefWidth="77.0" text="Libellé  " textFill="#f4b707" />
+      <TextField fx:id="search_owner_field" layoutX="573.0" layoutY="207.0" prefHeight="25.0" prefWidth="180.0" />
+      <Label layoutX="961.0" layoutY="211.0" text="Date" textFill="#f4b707" />
+      <DatePicker fx:id="search_date_field" layoutX="1020.0" layoutY="206.0" />
+      <Button id="search_button" fx:id="rechercher_utilisateur" layoutX="331.0" layoutY="206.0" mnemonicParsing="false" onAction="#rechercher_utilisateur" text="Rechercher" />
+      <Button id="search_button" layoutX="774.0" layoutY="206.0" mnemonicParsing="false" onAction="#rechercher_propriétaire" text="Rechercher" />
+      <Button id="search_button" layoutX="1227.0" layoutY="206.0" mnemonicParsing="false" onAction="#rechercher_date" text="Rechercher" />
+      <Button id="search_button" layoutX="122.0" layoutY="156.0" mnemonicParsing="false" onAction="#clear_search_fields" text="Clear" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="48.0" layoutX="-1.0" layoutY="62.0" stroke="#f4b707" strokeType="INSIDE" width="1350.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="97.0" layoutX="1217.0" layoutY="39.0" stroke="#f4b707" strokeType="INSIDE" width="98.0" />
+      <Text fill="#2f3459" layoutX="50.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Liste des réservations des maisons">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Text>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="1193.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@logo.png" />
+         </image>
+      </ImageView>
+   </children>
+    
+</AnchorPane>

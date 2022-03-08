@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ClientMaisonController">
+<AnchorPane id="AnchorPane" prefHeight="700.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.ClientMaisonController">
     <ScrollPane layoutY="99.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="901.0">
        <content>
           <GridPane fx:id="maisonContainer">
@@ -22,4 +22,5 @@
    <Label layoutX="67.0" layoutY="44.0" text="Region" textFill="WHITE" />
    <Button id="button" fx:id="retour" layoutY="1.0" mnemonicParsing="false" onAction="#retour" text="retour" />
    <Button id="button" fx:id="maisonAc" layoutX="608.0" layoutY="39.0" mnemonicParsing="false" onAction="#maisonAc" text="Maison d'accueil" textFill="WHITE" />
+   <Button layoutX="327.0" layoutY="65.0" mnemonicParsing="false" onAction="#listereservation" text="Liste Reservation " />
 </AnchorPane>

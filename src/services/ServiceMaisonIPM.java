@@ -282,6 +282,31 @@ Connection cnxx ;
      return list;    
     }
     
+     public List<Maison> get_maison_by_id(int id_chambre){ 
+        List<Maison> maison_list = new ArrayList(); 
+         String Request = "SELECT * FROM maison where id="+id_chambre;
+         PreparedStatement  pst;
+         try {
+            pst = cnxx.prepareStatement(Request);
+            ResultSet rs = pst.executeQuery(Request);
+            while (rs.next()) {
+              Maison m = new Maison();
+                         m.setId(rs.getInt("id"));
+                         m.setAdresse(rs.getString("adresse"));
+                         m.setRegion(rs.getString("region"));
+                         m.setNum_tel(rs.getInt("num_tel"));
+                         m.setDescription(rs.getString("description"));
+                         m.setCapacite(rs.getInt("capacite"));
+                         m.setNb_chambres(rs.getInt("nb_chambres"));
+                         m.setPrix(rs.getFloat("prix"));
+                maison_list.add(m);
+            }
+        } catch (SQLException e) {
+            System.err.println(e.getMessage());
+        }
+        return maison_list;
+    }
+    
     
     
 }
