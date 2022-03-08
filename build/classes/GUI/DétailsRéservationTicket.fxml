@@ -68,9 +68,9 @@
          </font>
       </Label>
       <Label id="label_titre" layoutX="458.0" layoutY="278.0" text="Nom et  prénom" />
-      <Label id="label_data_special" fx:id="label_client" layoutX="557.0" layoutY="278.0" text="Alaa zarrouk" />
+      <Label id="label_data_special" fx:id="label_client" layoutX="557.0" layoutY="278.0" />
       <Label id="label_titre" layoutX="458.0" layoutY="302.0" text="Adresse email" />
-      <Label id="label_data" fx:id="label_email" layoutX="556.0" layoutY="302.0" text="alaazarrouk7@gmail.com" />
+      <Label id="label_data" fx:id="label_email" layoutX="556.0" layoutY="302.0" />
       <ImageView fitHeight="102.0" fitWidth="166.0" layoutX="10.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logo.png" />

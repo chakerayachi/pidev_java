@@ -355,9 +355,8 @@ public class AdministrateurRéservationsHotelsController implements Initializabl
                                    });
                                    loadData();
                                 }
-                                
                         });
-                        details_Label.setOnMouseClicked((event) -> { 
+                            details_Label.setOnMouseClicked((event) -> { 
                                     List data_row=(List) table_reservation_hotel.getSelectionModel().getSelectedItem();
                                     int id_reservation=(int) data_row.get(10); 
                                          FXMLLoader loader = new FXMLLoader ();
@@ -384,8 +383,6 @@ public class AdministrateurRéservationsHotelsController implements Initializabl
                         setGraphic(managebtn);
                         setText(null);
                         }
-                        
-                        
                     }
                 }
 

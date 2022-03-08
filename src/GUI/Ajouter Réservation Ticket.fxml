@@ -9,33 +9,38 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterRéservationTicketController">
+<AnchorPane id="AnchorPane" prefHeight="364.0" prefWidth="574.0" stylesheets="@../styles/Administrateur.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterRéservationTicketController">
    <children>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="412.0" layoutY="-5.0" stroke="#2f3459" strokeType="INSIDE" width="606.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="369.0" layoutY="-5.0" stroke="#2f3459" strokeType="INSIDE" width="606.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="48.0" layoutX="2.0" layoutY="45.0" stroke="#f4b707" strokeType="INSIDE" width="603.0" />
       <Label layoutX="35.0" layoutY="50.0" text="Réservation Ticket" textFill="#2f3459">
          <font>
             <Font name="System Bold" size="27.0" />
          </font></Label>
-      <ChoiceBox fx:id="select_field" layoutX="284.0" layoutY="167.0" prefHeight="25.0" prefWidth="128.0" />
-      <Label layoutX="195.0" layoutY="167.0" text="Type" textFill="#f4b707">
+      <ChoiceBox fx:id="select_field" layoutX="257.0" layoutY="202.0" prefHeight="25.0" prefWidth="178.0" />
+      <Label layoutX="187.0" layoutY="200.0" text="Type" textFill="#f4b707">
          <font>
-            <Font size="18.0" />
+            <Font size="16.0" />
          </font></Label>
-      <Label layoutX="198.0" layoutY="214.0" text="Total" textFill="#f4b707">
+      <Label layoutX="187.0" layoutY="247.0" text="Total" textFill="#f4b707">
          <font>
-            <Font size="18.0" />
+            <Font size="16.0" />
          </font></Label>
-      <Label fx:id="total_fied" layoutX="284.0" layoutY="214.0" text="Label" textFill="#f4b707">
+      <Label fx:id="total_fied" layoutX="260.0" layoutY="247.0" text="30 $" textFill="#f4b707">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font></Label>
-      <Button id="btn" fx:id="confirmer_button" layoutX="269.0" layoutY="294.0" mnemonicParsing="false" onAction="#create_reservation" text="Confirmer" />
+      <Button id="search_button" fx:id="confirmer_button" layoutX="242.0" layoutY="309.0" mnemonicParsing="false" onAction="#create_reservation" prefHeight="25.0" prefWidth="161.0" text="Confirmer" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="97.0" layoutX="463.0" layoutY="21.0" stroke="#f4b707" strokeType="INSIDE" width="103.0" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="440.0" layoutY="5.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logo.png" />
          </image>
       </ImageView>
+      <Label fx:id="event_name" layoutX="183.0" layoutY="140.0" text="Evènement : DJ Danger" textFill="#f4b707">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

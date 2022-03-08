@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.control.Alert;
 
 /**
  *
@@ -82,7 +83,8 @@ public class ServiceStripeIMP {
             Map<String, Object> params = new HashMap<>();
             params.put("payment_method", "pm_card_visa");
             PaymentIntent updatedPaymentIntent =paymentIntent.confirm(params); 
-        } catch (StripeException ex) {
+        } catch (StripeException ex) { 
+            
             Logger.getLogger(ServiceStripeIMP.class.getName()).log(Level.SEVERE, null, ex);
         }
     } 

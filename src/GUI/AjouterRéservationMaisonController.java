@@ -6,6 +6,7 @@
 package GUI;
 
 import entities.Reservation;
+import entities.Utilisateur;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -47,10 +48,16 @@ public class AjouterRéservationMaisonController implements Initializable {
     private Label total_fied;
     @FXML
     private Button confirmer_button;
+    @FXML
+    private Label house_name;
+    
+    
+    //to change  
+    int id_maison=2;
+    float total=0f;
+    
     ServiceMaisonIPM service_maison=new ServiceMaisonIPM();
-    Float total=0f;
-    Integer id_maison=1;
-
+    
     /**
      * Initializes the controller class.
      */
@@ -59,7 +66,7 @@ public class AjouterRéservationMaisonController implements Initializable {
         date_debut_field.setDayCellFactory(callB);
         date_fin_field.setDayCellFactory(call_date_debut);
         date_fin_field.setDisable(true);
-        service_maison.get_maison_by_id(1).forEach((p)->{ 
+        service_maison.get_maison_by_id(id_maison).forEach((p)->{ 
             total=p.getPrix();
             disponibiliter_field.setValue(1);
              int ds=p.getCapacite(); 
@@ -76,6 +83,15 @@ public class AjouterRéservationMaisonController implements Initializable {
            if(date_debut_field.getValue()!=null)
             date_fin_field.setDisable(false);
         });
+         
+        date_fin_field.setOnAction(event -> { 
+            if(date_debut_field.getValue()!=null){
+                   total=calculate_total(total);
+                   total_fied.setText(total+" $");
+            }            
+        });
+         
+        
     }
     Callback<DatePicker, DateCell> callB = new Callback<DatePicker, DateCell>() {
             @Override
@@ -113,13 +129,11 @@ public class AjouterRéservationMaisonController implements Initializable {
     private void create_reservation(ActionEvent event) {
         total_fied.setText("");
          if(check_from_filled()){  
-            System.out.println("Im here");
             Date date_deb = Date.valueOf(date_debut_field.getValue()); 
             Date date_fn = Date.valueOf(date_fin_field.getValue());  
             int nbr_des=disponibiliter_field.getValue(); 
-            Reservation reservation=new Reservation(date_deb,date_fn,total,0,0,id_maison,0,32,0,"Maison"); 
-            System.out.println(date_deb);
-             FXMLLoader loader = new FXMLLoader ();
+            Reservation reservation=new Reservation(date_deb,date_fn,total,0,0,id_maison,0,Utilisateur.user_connecté.getId(),0,"maison"); 
+            FXMLLoader loader = new FXMLLoader ();
                             loader.setLocation(getClass().getResource("../GUI/AjoutPaiement.fxml"));
                             try {
                                 loader.load();
@@ -140,8 +154,6 @@ public class AjouterRéservationMaisonController implements Initializable {
             alert.setHeaderText(null);
             alert.setContentText("Veuillez remplir le formulaire");
             alert.showAndWait();
-            
-            
         } 
     }
     public boolean check_from_filled(){
@@ -154,6 +166,15 @@ public class AjouterRéservationMaisonController implements Initializable {
         }
         return check;
     }
+      public  float calculate_total(float price){ 
+         Date date_deb = Date.valueOf(date_debut_field.getValue()); 
+         Date date_fn = Date.valueOf(date_fin_field.getValue());
+         long diff = date_fn.getTime() - date_deb.getTime();
+	 int res = (int) (diff / (1000*60*60*24))+1;
+         return (res*price);
+         
+    }
+    
     
     
 }

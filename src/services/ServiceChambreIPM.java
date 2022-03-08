@@ -135,6 +135,18 @@ public class ServiceChambreIPM {
             System.err.println(e.getMessage());
         }
         return nbr;
+    }  
+ 
+     public void update_chambre_disponibiliter(int id_chambre) {
+        String Request = "UPDATE chambre SET disponibiliter= disponibiliter-1 where id="+id_chambre;
+        PreparedStatement  pst;
+        try {
+                pst = cnxx.prepareStatement(Request);
+                pst.executeUpdate(Request); 
+                        System.out.println("modification effectué avec succés");
+        } catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
     } 
     
 

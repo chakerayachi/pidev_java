@@ -22,11 +22,10 @@ import javafx.stage.StageStyle;
  * @author alaaz
  */
 public class NewFXMain extends Application {
-    
     @Override
     public void start(Stage primaryStage) {
-       try {
-            Parent root = FXMLLoader.load(getClass().getResource("../GUI/ClientRéservationsVoitures.fxml"));
+       try{
+            Parent root = FXMLLoader.load(getClass().getResource("../GUI/Administrateur.fxml"));
             Scene scene = new Scene(root); 
             scene.getStylesheets().add(getClass().getResource("../GUI/paiement.css").toExternalForm());
             scene.getStylesheets().add(getClass().getResource("../styles/Administrateur.css").toExternalForm());

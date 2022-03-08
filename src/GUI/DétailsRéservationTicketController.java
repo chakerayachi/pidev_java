@@ -41,16 +41,11 @@ public class DétailsRéservationTicketController implements Initializable {
     @FXML
     private Label label_crée;
     @FXML
-    private Label label_taux;
-    @FXML
     private Label label_paye;
-    @FXML
-    private Label label_reste;
     @FXML
     private Label label_client;
     @FXML
     private Label label_email;
-    Utilisateur user=null;
     Reservation reservation=null; 
     ServiceRéservationIMP service_reservation=new ServiceRéservationIMP();  
 
@@ -66,7 +61,11 @@ public class DétailsRéservationTicketController implements Initializable {
     private void exporter_pdf(ActionEvent event) {
     }
     
-     public void set_data(int reservation_id, String type_reservation){  
+     public void set_data(int reservation_id, String type_reservation){
+         Utilisateur user=service_reservation.get_user_by_reservation_id(reservation_id); 
+        System.out.println("user data "+user.getNom());
+        label_client.setText(user.getNom().toString()+" "+user.getPrenom().toString());
+        label_email.setText(user.getEmail());
         service_reservation.get_reservation_details_by_id(reservation_id,type_reservation).forEach((p)->{
              label_nom.setText(p.get(4).toString()); 
              label_localisation.setText(p.get(5).toString());
@@ -74,11 +73,10 @@ public class DétailsRéservationTicketController implements Initializable {
              label_quantite.setText("2"); 
              label_total.setText(p.get(8).toString()+" $"); 
              label_debut.setText(p.get(3).toString());
-             label_fin.setText(p.get(6).toString());
+             label_fin.setText(p.get(6).toString()+" h");
              label_crée.setText(p.get(1).toString());
              label_paye.setText(p.get(8).toString()+" $");
-             label_client.setText("alaa zarrouk"); 
-             label_email.setText("alaazarrouk8@gmail.com"); 
+
         });
          
             

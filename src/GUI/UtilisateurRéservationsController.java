@@ -8,6 +8,7 @@ package GUI;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import entities.KeyValuePair;
+import entities.Utilisateur;
 import static entities.Utilisateur.user_connecté;
 import java.io.IOException;
 import java.net.URL;
@@ -94,7 +95,7 @@ public class UtilisateurRéservationsController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         ObservableList<List> obsreservationlist=FXCollections.observableArrayList();
-       service_reservation.get_reservations_by_user_id(32).forEach((p)->{
+       service_reservation.get_reservations_by_user_id(Utilisateur.user_connecté.getId()).forEach((p)->{
             obsreservationlist.add(p);
         });
         loadData();
@@ -110,28 +111,28 @@ public class UtilisateurRéservationsController implements Initializable {
         search_field_date.setValue(null);
         obsreservationlist.clear();
         if(select_field_reservation_type.getValue()=="tous"){  
-            service_reservation.get_reservations_user_by_type(32,"tous").forEach((p)->{
+            service_reservation.get_reservations_user_by_type(Utilisateur.user_connecté.getId(),"tous").forEach((p)->{
                 obsreservationlist.add(p);
             });
             
         }else if(select_field_reservation_type.getValue()=="hotel"){ 
-            service_reservation.get_reservations_user_by_type(32,"hotel").forEach((p)->{
+            service_reservation.get_reservations_user_by_type(Utilisateur.user_connecté.getId(),"hotel").forEach((p)->{
                 obsreservationlist.add(p);
             });
             
         }else if(select_field_reservation_type.getValue()=="maison"){  
             System.out.println("im here ");
-            service_reservation.get_reservations_user_by_type(32,"maison").forEach((p)->{
+            service_reservation.get_reservations_user_by_type(Utilisateur.user_connecté.getId(),"maison").forEach((p)->{
                 obsreservationlist.add(p);
             });
             
         }else if(select_field_reservation_type.getValue()=="voiture"){
-             service_reservation.get_reservations_user_by_type(32,"voiture").forEach((p)->{
+             service_reservation.get_reservations_user_by_type(Utilisateur.user_connecté.getId(),"voiture").forEach((p)->{
                 obsreservationlist.add(p);
             });
             
         }else { 
-            service_reservation.get_reservations_user_by_type(32,"ticket").forEach((p)->{
+            service_reservation.get_reservations_user_by_type(Utilisateur.user_connecté.getId(),"ticket").forEach((p)->{
                 obsreservationlist.add(p);
             });  
         }
@@ -150,27 +151,27 @@ public class UtilisateurRéservationsController implements Initializable {
         String date = search_field_date.getValue().toString();
         String type=select_field_reservation_type.getValue();
         if(select_field_reservation_type.getValue()=="tous"){  
-            service_reservation.get_reservations_user_by_date(date,type,32).forEach((p)->{
+            service_reservation.get_reservations_user_by_date(date,type,Utilisateur.user_connecté.getId()).forEach((p)->{
                 obsreservationlist.add(p);
             });
             
         }else if(select_field_reservation_type.getValue()=="hotel"){ 
-            service_reservation.get_reservations_user_by_date(date,type,32).forEach((p)->{
+            service_reservation.get_reservations_user_by_date(date,type,Utilisateur.user_connecté.getId()).forEach((p)->{
                 obsreservationlist.add(p);
             });
             
         }else if(select_field_reservation_type.getValue()=="maison"){ 
-            service_reservation.get_reservations_user_by_date(date,type,32).forEach((p)->{
+            service_reservation.get_reservations_user_by_date(date,type,Utilisateur.user_connecté.getId()).forEach((p)->{
                 obsreservationlist.add(p);
             });
             
         }else if(select_field_reservation_type.getValue()=="voiture"){
-             service_reservation.get_reservations_user_by_date(date,type,32).forEach((p)->{
+             service_reservation.get_reservations_user_by_date(date,type,Utilisateur.user_connecté.getId()).forEach((p)->{
                 obsreservationlist.add(p);
             });
             
         }else { 
-            service_reservation.get_reservations_user_by_date(date,type,32).forEach((p)->{
+            service_reservation.get_reservations_user_by_date(date,type,Utilisateur.user_connecté.getId()).forEach((p)->{
                 obsreservationlist.add(p);
             });  
         }
@@ -186,7 +187,7 @@ public class UtilisateurRéservationsController implements Initializable {
     private void clear_search_fields(ActionEvent event) {  
           obsreservationlist.clear();
           search_field_date.setValue(null);
-          service_reservation.get_reservations_by_user_id(32).forEach((p)->{
+          service_reservation.get_reservations_by_user_id(Utilisateur.user_connecté.getId()).forEach((p)->{
             obsreservationlist.add(p);
           });
           loadData();
@@ -293,14 +294,18 @@ public class UtilisateurRéservationsController implements Initializable {
                             Label details_Label=new Label();
                             String etat=data.get(8).toString();
                             Date reservation_date=(Date) data.get(2);
-                            if(check_to_update(reservation_date,etat)){
-                                managebtn.getChildren().addAll(label);
+                            if(reservation_date!=null){
+                                if(check_to_update(reservation_date,etat)){
+                                    managebtn.getChildren().addAll(label);
+                                }
+                                label.setId("annuler_button");
+                                label.setText("Annuler");
+                           
                             }
+                            
                              details_Label.setId("details_button");
                              details_Label.setText("Détails");
-                             label.setId("annuler_button");
-                             label.setText("Annuler");
-                           
+                             
                            
                             label.setOnMouseClicked((event)->{ 
                                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);

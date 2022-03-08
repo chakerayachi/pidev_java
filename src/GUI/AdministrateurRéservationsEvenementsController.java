@@ -58,9 +58,7 @@ public class AdministrateurRéservationsEvenementsController implements Initiali
     private TableColumn<ArrayList, Timestamp> created_At;
     @FXML
     private TableColumn<ArrayList, String> user_name;
-    @FXML
     private TableColumn<ArrayList, Date> date_debut;
-    @FXML
     private TableColumn<ArrayList, Date> date_fin;
     @FXML
     private TableColumn<ArrayList, Float> montant_a_payer;
@@ -82,7 +80,6 @@ public class AdministrateurRéservationsEvenementsController implements Initiali
     private TextField search_user_field;
     @FXML
     private TextField search_event_field;
-    @FXML
     private DatePicker search_date_field;
     @FXML
     private Button rechercher_utilisateur;
@@ -136,21 +133,6 @@ public class AdministrateurRéservationsEvenementsController implements Initiali
     }
 
     @FXML
-    private void rechercher_date(ActionEvent event) {
-        LocalDate date=(LocalDate) search_date_field.getValue();  
-        obsreservationlist.clear();
-        service_reservation.get_reservations_evenement_by_date(date.toString()).forEach((p)->{
-            obsreservationlist.add(p);
-        }); 
-        if(obsreservationlist.size()==0){ 
-             table_reservation_evenement.getItems().clear();
-        }
-        else{ 
-            loadData();
-        }
-    }
-
-    @FXML
     private void clear_search_fields(ActionEvent event) {
         search_user_field.clear(); 
         search_event_field.clear();
@@ -178,16 +160,6 @@ public class AdministrateurRéservationsEvenementsController implements Initiali
          user_name.setCellValueFactory(data->{
              String obj=(String)data.getValue().get(8);
              ObservableValue<String> obs=new SimpleObjectProperty<>(obj);
-             return obs;
-         });
-         date_debut.setCellValueFactory(data->{
-             Date obj=(Date) data.getValue().get(1);
-             ObservableValue<Date> obs=new SimpleObjectProperty<>(obj);
-             return obs;
-         });
-         date_fin.setCellValueFactory(data->{
-             Date obj=(Date) data.getValue().get(2);
-             ObservableValue<Date> obs=new SimpleObjectProperty<>(obj);
              return obs;
          });
          montant_a_payer.setCellValueFactory(data->{
@@ -285,68 +257,21 @@ public class AdministrateurRéservationsEvenementsController implements Initiali
                             String etat=data.get(7).toString();
                             Date reservation_date=(Date) data.get(1);
                             System.out.println("data action factory "+data);
-                            if(check_to_update(reservation_date,etat)){
-                                managebtn.getChildren().addAll(label);
-                            }
+
                             details_Label.setId("details_button");
                             details_Label.setText("Détails");
-                            label.setId("annuler_button");
-                            label.setText("Annuler");
+;
                             FontAwesomeIconView deleteIcon = new FontAwesomeIconView(FontAwesomeIcon.TRASH);
                             deleteIcon.setStyle(
                                     " -fx-cursor: hand ;"
                                             + "-glyph-size:28px;"
                                             + "-fx-fill:#ff1744;"
                             );
-                          
-                            label.setOnMouseClicked((event)->{ 
-                                Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                                alert.setTitle("Annuler une réservation");
-                                alert.setHeaderText("Vous voulez vraiment annuler la réservation ?");
-                                Optional<ButtonType> option = alert.showAndWait();
-                                if (option.get() == ButtonType.OK) {
-                                     List data_row=(List) table_reservation_evenement.getSelectionModel().getSelectedItem();
-                                     int id_reservation=(int) data_row.get(11);
-                                     service_reservation.update_reservation_by_id(id_reservation);
-                                     obsreservationlist.clear();
-                                     service_reservation.get_reservations_évenement_ticket().forEach((p)->{
-                                        obsreservationlist.add(p);
-                                     });
-                                     stripe.refund_customer(data_row.get(12).toString());
-                                     loadData();
-                                }
-                               
-                            });
-                            deleteIcon.setOnMouseClicked((event) -> {
-                                 Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-                                alert.setTitle("Supprimer une réservation");
-                                alert.setHeaderText("Vous voulez vraiment effectuer la supression ?");
-                                Optional<ButtonType> option = alert.showAndWait();
-                                 if (option.get() == ButtonType.OK) {
-                                     System.out.println("im in  delelte");
-                                    System.out.println("selected item :: "+table_reservation_evenement.getSelectionModel().getSelectedItem());
-                                    List data_row=(List) table_reservation_evenement.getSelectionModel().getSelectedItem();
-                                    int id_reservation=(int) data_row.get(10); 
-                                    
-                                   if(etat=="confirmée" && check_to_update(reservation_date,etat)){ 
-                                        stripe.refund_customer(data_row.get(12).toString());
-                                   } 
-                                     service_reservation.delete_reservation_by_id(id_reservation);
-                                     obsreservationlist.clear();
-                                     service_reservation.get_reservations_évenement_ticket().forEach((p)->{
-                                        obsreservationlist.add(p);
-                                     });
-                                     
-                                     
-                                     loadData();
-                                 }
-                                
-                        });
+                            
                             
                          details_Label.setOnMouseClicked((event) -> { 
                                     List data_row=(List) table_reservation_evenement.getSelectionModel().getSelectedItem();
-                                    int id_reservation=(int) data_row.get(11); 
-                                  
+                                    int id_reservation=(int) data_row.get(11);                                   
                                          FXMLLoader loader = new FXMLLoader ();
                                         loader.setLocation(getClass().getResource("../GUI/DétailsRéservationTicket.fxml"));
                                         try {
@@ -364,7 +289,7 @@ public class AdministrateurRéservationsEvenementsController implements Initiali
                                         stage.show(); 
                         });
                         
-                        managebtn.getChildren().addAll(deleteIcon,details_Label);
+                        managebtn.getChildren().addAll(details_Label);
                         managebtn.setStyle("-fx-alignment:center");
                         HBox.setMargin(label,new Insets(4, 4, 0, 0));
                         HBox.setMargin(deleteIcon,new Insets(4, 4, 0, 0));

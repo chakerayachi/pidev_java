@@ -7,6 +7,7 @@ package GUI;
 
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
+import entities.Utilisateur;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
@@ -95,7 +96,7 @@ public class ClientRéservationsVoituresController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
        ObservableList<List> obsreservationlist=FXCollections.observableArrayList();
-       service_reservation.get_reservations_client_by_type(32,"voiture").forEach((p)->{
+       service_reservation.get_reservations_client_by_type(Utilisateur.user_connecté.getId(),"voiture").forEach((p)->{
             obsreservationlist.add(p);
         });
         loadData();
@@ -105,7 +106,7 @@ public class ClientRéservationsVoituresController implements Initializable {
     @FXML
     private void rechercher_utilisateur(ActionEvent event) {
         obsreservationlist.clear();
-        service_reservation.get_reservations_client_by_user_email(search_user_field.getText(),32,"voiture").forEach((p)->{
+        service_reservation.get_reservations_client_by_user_email(search_user_field.getText(),Utilisateur.user_connecté.getId(),"voiture").forEach((p)->{
             obsreservationlist.add(p);
         }); 
         if(obsreservationlist.size()==0){ 
@@ -119,7 +120,7 @@ public class ClientRéservationsVoituresController implements Initializable {
    @FXML
     private void rechercher_voiture(ActionEvent event) {
         obsreservationlist.clear();
-        service_reservation.get_reservations_client_by_car_name(search_voiture_field.getText(),32).forEach((p)->{
+        service_reservation.get_reservations_client_by_car_name(search_voiture_field.getText(),Utilisateur.user_connecté.getId()).forEach((p)->{
             obsreservationlist.add(p);
         }); 
         if(obsreservationlist.size()==0){ 
@@ -134,7 +135,7 @@ public class ClientRéservationsVoituresController implements Initializable {
     private void rechercher_date(ActionEvent event) {
          LocalDate date= search_date_field.getValue();  
         obsreservationlist.clear();
-        service_reservation.get_reservations_client_by_date(date.toString(),32,"voiture").forEach((p)->{
+        service_reservation.get_reservations_client_by_date(date.toString(),Utilisateur.user_connecté.getId(),"voiture").forEach((p)->{
             obsreservationlist.add(p);
         }); 
         if(obsreservationlist.size()==0){ 
@@ -152,7 +153,7 @@ public class ClientRéservationsVoituresController implements Initializable {
         search_date_field.setValue(null);
         table_reservation_voiture.getItems().clear();
         obsreservationlist.clear();
-        service_reservation.get_reservations_client_by_type(32,"voiture").forEach((p)->{
+        service_reservation.get_reservations_client_by_type(Utilisateur.user_connecté.getId(),"voiture").forEach((p)->{
             obsreservationlist.add(p);
         });
         loadData();
@@ -291,8 +292,8 @@ public class ClientRéservationsVoituresController implements Initializable {
                                      List data_row=(List) table_reservation_voiture.getSelectionModel().getSelectedItem();
                                     int id_reservation=(int) data_row.get(10);
                                     service_reservation.update_reservation_by_id(id_reservation);
-                                        obsreservationlist.clear();
-                                    service_reservation.get_reservations_voiture().forEach((p)->{
+                                    obsreservationlist.clear();
+                                    service_reservation.get_reservations_client_by_type(Utilisateur.user_connecté.getId(),"voiture").forEach((p)->{
                                         obsreservationlist.add(p);
                                     });
                                     stripe.refund_customer(data_row.get(11).toString());
@@ -316,9 +317,9 @@ public class ClientRéservationsVoituresController implements Initializable {
                                     } 
                                      service_reservation.delete_reservation_by_id(id_reservation);
                                      obsreservationlist.clear();
-                                     service_reservation.get_reservations_voiture().forEach((p)->{
+                                     service_reservation.get_reservations_client_by_type(Utilisateur.user_connecté.getId(),"voiture").forEach((p)->{
                                         obsreservationlist.add(p);
-                                     });
+                                    });
                                      loadData();
                                  }
                                 

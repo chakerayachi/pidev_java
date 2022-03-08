@@ -101,9 +101,9 @@ public void add_ticket(Ticket t){
      return list;    
     }
     
-    public List<Ticket> get_ticket_by_id(int id_ticket){ 
+    public List<Ticket> get_tickets_by_event_id(int id_evenement){ 
         List<Ticket> ticket_list = new ArrayList(); 
-         String Request = "SELECT * FROM ticket where id="+id_ticket;
+         String Request = "SELECT * FROM ticket tk where tk.id_evenement="+id_evenement;
          PreparedStatement  pst;
          try {
             pst = cnxx.prepareStatement(Request);
@@ -122,5 +122,6 @@ public void add_ticket(Ticket t){
         }
         return ticket_list;
     }
+   
     
-    }
+}

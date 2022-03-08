@@ -9,7 +9,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterRéservationVoitureController">
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" stylesheets="@../styles/Administrateur.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GUI.AjouterRéservationVoitureController">
     <children>
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#2f3459" height="412.0" layoutY="-5.0" stroke="#2f3459" strokeType="INSIDE" width="606.0" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="48.0" layoutX="2.0" layoutY="43.0" stroke="#f4b707" strokeType="INSIDE" width="603.0" />
@@ -17,30 +17,35 @@
          <font>
             <Font name="System Bold" size="23.0" />
          </font></Label>
-      <Label layoutX="158.0" layoutY="171.0" text="Date début" textFill="#f4b707">
+      <Label layoutX="160.0" layoutY="195.0" text="Date début" textFill="#f4b707">
          <font>
-            <Font size="18.0" />
+            <Font size="16.0" />
          </font></Label>
-      <Label layoutX="158.0" layoutY="212.0" text="Date fin" textFill="#f4b707">
+      <Label layoutX="163.0" layoutY="240.0" text="Date fin" textFill="#f4b707">
          <font>
-            <Font size="18.0" />
+            <Font size="16.0" />
          </font></Label>
-      <DatePicker fx:id="date_debut_field" layoutX="279.0" layoutY="167.0" />
-      <DatePicker fx:id="date_fin_field" layoutX="279.0" layoutY="212.0" />
-      <Label layoutX="154.0" layoutY="255.0" text="Total à payer" textFill="#f4b707">
+      <DatePicker fx:id="date_debut_field" layoutX="279.0" layoutY="195.0" />
+      <DatePicker fx:id="date_fin_field" layoutX="279.0" layoutY="241.0" />
+      <Label layoutX="164.0" layoutY="281.0" text="Total" textFill="#f4b707">
          <font>
-            <Font size="18.0" />
+            <Font size="16.0" />
          </font></Label>
-      <Label fx:id="total_fied" layoutX="279.0" layoutY="255.0" text="Label" textFill="#f4b707">
+      <Label fx:id="total_fied" layoutX="279.0" layoutY="282.0" text="1000 $" textFill="#f4b707">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
          </font></Label>
-      <Button id="btn" fx:id="confirmer_button" layoutX="266.0" layoutY="311.0" mnemonicParsing="false" onAction="#create_reservation" text="Confirmer" />
+      <Button id="search_button" fx:id="confirmer_button" layoutX="231.0" layoutY="335.0" mnemonicParsing="false" onAction="#create_reservation" prefHeight="25.0" prefWidth="174.0" text="Confirmer" />
       <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#f4b707" height="109.0" layoutX="467.0" layoutY="13.0" stroke="#f4b707" strokeType="INSIDE" width="114.0" />
       <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="449.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@logo.png" />
          </image>
       </ImageView>
+      <Label fx:id="car_name" layoutX="160.0" layoutY="139.0" text="Voiture : Renault" textFill="#f4b707">
+         <font>
+            <Font name="System Bold" size="23.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

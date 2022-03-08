@@ -6,18 +6,16 @@
 package GUI;
 
 import com.stripe.Stripe;
+import com.stripe.exception.StripeException;
 import entities.Carte;
 import entities.Reservation;
 import entities.Utilisateur;
-import static java.awt.SystemColor.text;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.regex.Pattern;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -31,16 +29,15 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.DateCell;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
-import javafx.scene.control.TextFormatter;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 import javafx.util.Callback;
-import javafx.util.converter.IntegerStringConverter;
+import services.ServiceChambreIPM;
+import services.ServiceEvenementIMP;
+import services.ServiceMailIMP;
 import services.ServiceRéservationIMP;
 import services.ServiceStripeIMP;
+import services.ServiceTicketIMP;
+import services.ServiceTransactionIMP;
 
 /**
  * FXML Controller class
@@ -50,22 +47,26 @@ import services.ServiceStripeIMP;
 public class AjoutPaiementController implements Initializable {
 
     @FXML
-    private VBox left_container;
-    @FXML
-    private ImageView image_card;
-    @FXML
-    private Text previous_text;
-     @FXML
     private TextField card_number;
     @FXML
     private DatePicker exipration_date;
+    @FXML
+    private TextField cvc;
+    
+    
+    
+    
     Reservation reservation_data=null; 
     public static final int maxLength = 16;
     public static final int maxLengthCvc = 3;
-    @FXML
-    private TextField cvc;
+ 
     ServiceStripeIMP stripe =new ServiceStripeIMP();
-            ServiceRéservationIMP service=new ServiceRéservationIMP();
+    ServiceRéservationIMP service=new ServiceRéservationIMP();
+    ServiceChambreIPM service_chambre=new ServiceChambreIPM();
+    ServiceEvenementIMP service_evenement=new ServiceEvenementIMP();
+    ServiceTicketIMP service_ticket=new ServiceTicketIMP();
+    ServiceTransactionIMP service_transaction=new ServiceTransactionIMP();
+    ServiceMailIMP service_mail=new ServiceMailIMP(); 
     /**
      * Initializes the controller class.
      */
@@ -107,7 +108,6 @@ public class AjoutPaiementController implements Initializable {
                 }
             }
         });
-        
     }
     
     
@@ -127,7 +127,6 @@ public class AjoutPaiementController implements Initializable {
 
         };
     public void set_reservation_data(Reservation reservation){  
-        System.out.println("reservation py :"+reservation);
         reservation_data=reservation;
     } 
     
@@ -141,85 +140,115 @@ public class AjoutPaiementController implements Initializable {
 
     @FXML
     private void pay_reservation(ActionEvent event) { 
-           if(check_from_filled()){  
-               Carte carte=new Carte(); 
-               int  exp_month= exipration_date.getValue().getMonth().getValue();  
-               int  exp_year=exipration_date.getValue().getYear(); 
-               carte.setCvc(Integer.parseInt(cvc.getText()));
-               carte.setExp_month(exp_month);
-               carte.setExp_year(exp_year); 
-               carte.setNumber(card_number.getText()); 
-               System.out.println(carte.getNumber());
-               Utilisateur user= new Utilisateur("alaa","zarrouk","alaa","zarrouk","alaazarrouk7@gmail.com",56353474,10014035,"medina","","",""); 
-               String paymentIntent_id=stripe.payment(user, (int) reservation_data.getMontant_a_payer(), carte); 
-              if (paymentIntent_id!=""){ 
-                  Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                  alert.setTitle("Paiement etat");
-                  alert.setHeaderText(null);
-                  alert.setContentText("Paiement effectué avec succées");
-                  alert.showAndWait();
-                  if(reservation_data.getType()=="hotel"){
-                       service.add_reservation_hotel_chambre(reservation_data,paymentIntent_id); 
-                       try {
-                Parent root = FXMLLoader.load(getClass().getResource("../GUI/AdministrateurRéservations.fxml"));
-                Scene scene = new Scene(root);
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-                stage.setScene(scene);
-                stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(AdministrateurRéservationsEvenementsController.class.getName()).log(Level.SEVERE, null, ex);
+           if(check_from_filled()){ 
+               if(check_card_valid()){
+                   Carte carte=new Carte(); 
+                    int  exp_month= exipration_date.getValue().getMonth().getValue();  
+                    int  exp_year=exipration_date.getValue().getYear(); 
+                    carte.setCvc(Integer.parseInt(cvc.getText()));
+                    carte.setExp_month(exp_month);
+                    carte.setExp_year(exp_year); 
+                    carte.setNumber(card_number.getText());
+                                System.out.println("reservation data"+reservation_data);
+                                 String paymentIntent_id=stripe.payment(Utilisateur.user_connecté, (int) reservation_data.getMontant_a_payer(), carte);
+                                 System.out.println("paymment intet "+ paymentIntent_id);
+                                 if (paymentIntent_id!=""){
+                                             Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                                             alert.setTitle("Paiement etat");
+                                             alert.setHeaderText(null);
+                                             alert.setContentText("Paiement effectué avec succées");
+                                             alert.showAndWait(); 
+
+                                             if(reservation_data.getType()=="hotel"){ 
+                                                   System.out.println("reservation data "+reservation_data);
+                                                   service_chambre.update_chambre_disponibiliter(reservation_data.getId_chambre());
+                                                   int res=service.add_reservation_hotel_chambre(reservation_data,paymentIntent_id);
+                                                   System.out.println("hotel res "+res);
+                                                   service_mail.send_payment_message(Utilisateur.user_connecté, reservation_data, service_transaction.get_transaction_by_id(res));
+                                                  try {
+                                                       Parent root = FXMLLoader.load(getClass().getResource("../GUI/UtilisateurRéservations.fxml"));
+                                                       Scene scene = new Scene(root);
+                                                       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                                       stage.setScene(scene);
+                                                       stage.show();
+                                                   } catch (IOException ex) {
+                                                       Logger.getLogger(AdministrateurRéservationsEvenementsController.class.getName()).log(Level.SEVERE, null, ex);
+                                                   }
+
+
+                                             }else if(reservation_data.getType()=="maison"){ 
+                                                   int res=service.add_reservation_house(reservation_data,paymentIntent_id);
+                                                   service_mail.send_payment_message(Utilisateur.user_connecté, reservation_data, service_transaction.get_transaction_by_id(res));
+
+                                                  try {
+                                                       Parent root = FXMLLoader.load(getClass().getResource("../GUI/UtilisateurRéservations.fxml"));
+                                                       Scene scene = new Scene(root);
+                                                       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                                       stage.setScene(scene);
+                                                       stage.show();
+                                                   } catch (IOException ex) {
+                                                       Logger.getLogger(AdministrateurRéservationsEvenementsController.class.getName()).log(Level.SEVERE, null, ex);
+                                                   }
+
+                                             }else if(reservation_data.getType()=="ticket"){ 
+                                                   service_evenement.update_evenement_disponibiliter(service_evenement.get_event_by_ticket_id(reservation_data.getId_ticket()));
+                                                   int res=service.add_reservation_ticket(reservation_data,paymentIntent_id);
+                                                   service_mail.send_payment_message(Utilisateur.user_connecté, reservation_data, service_transaction.get_transaction_by_id(res));
+                                                  try {
+                                                       Parent root = FXMLLoader.load(getClass().getResource("../GUI/UtilisateurRéservations.fxml"));
+                                                       Scene scene = new Scene(root);
+                                                       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                                       stage.setScene(scene);
+                                                       stage.show();
+                                                   } catch (IOException ex) {
+                                                       Logger.getLogger(AdministrateurRéservationsEvenementsController.class.getName()).log(Level.SEVERE, null, ex);
+                                                   }
+
+                                             }else{ 
+                                                   int res=service.add_reservation_car(reservation_data,paymentIntent_id);
+                                                   service_mail.send_payment_message(Utilisateur.user_connecté, reservation_data, service_transaction.get_transaction_by_id(res));
+                                                   try {
+                                                       Parent root = FXMLLoader.load(getClass().getResource("../GUI/UtilisateurRéservations.fxml"));
+                                                       Scene scene = new Scene(root);
+                                                       Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                                                       stage.setScene(scene);
+                                                       stage.show();
+                                                   } catch (IOException ex) {
+                                                       Logger.getLogger(AdministrateurRéservationsEvenementsController.class.getName()).log(Level.SEVERE, null, ex);
+                                                   }
+
+                                               }
+                                        }else{ 
+                                             System.out.println("card invalid output");
+                                         }    
+                   
+               }else{ 
+                   Alert alert = new Alert(Alert.AlertType.WARNING);
+                    alert.setTitle("Erreur Validation Formulaire");
+                    alert.setHeaderText(null);
+                    alert.setContentText("Numéro de carte invalide ");
+                    alert.showAndWait();
+                   
+               }
+                 
         }
-                       
-                       
-                  }else if(reservation_data.getType()=="maison"){ 
-                      service.add_reservation_house(reservation_data,paymentIntent_id);
-                      try {
-            Parent root = FXMLLoader.load(getClass().getResource("../GUI/AdministrateurRéservationsMaisons.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(AdministrateurRéservationsEvenementsController.class.getName()).log(Level.SEVERE, null, ex);
+    } 
+    public boolean check_card_valid(){
+        boolean check=false; 
+        String card=card_number.getText().toString();
+        if(card.equals("4242424242424242") || 
+                card.equals("4000056655665556") || 
+                card.equals("5555555555554444")|| 
+                card.equals("2223003122003222") || 
+                card.equals("5200828282828210") ||
+                card.equals("5105105105105100") ||
+                card.equals("378282246310005") ||
+                card.equals("6011111111111117") ||
+                card.equals("3056930009020004")){ 
+                check=true;
         }
-                     
-                  }else if(reservation_data.getType()=="ticket"){ 
-                      service.add_reservation_ticket(reservation_data,paymentIntent_id);
-                      try {
-            Parent root = FXMLLoader.load(getClass().getResource("../GUI/AdministrateurRéservationsEvenements.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(AdministrateurRéservationsEvenementsController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                    
-                  }else{
-                       try {
-            Parent root = FXMLLoader.load(getClass().getResource("../GUI/AdministrateurRéservationsVoitures.fxml"));
-            Scene scene = new Scene(root);
-            Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(scene);
-            stage.show();
-        } catch (IOException ex) {
-            Logger.getLogger(AdministrateurRéservationsEvenementsController.class.getName()).log(Level.SEVERE, null, ex);
-        }
-                          
-                  }
-              }
-              
-               
-               
-               
-           }else{ 
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Erreur Validation Formulaire");
-                alert.setHeaderText(null);
-                alert.setContentText("Veuillez remplir le formulaire");
-                alert.showAndWait();
-           }
-        
+        return check;
     }
     
 }
+

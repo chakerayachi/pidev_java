@@ -8,6 +8,7 @@ package services;
 import GUI.AdministrateurRéservationsHotelsController;
 import entities.Reservation;
 import entities.Transaction;
+import entities.Utilisateur;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -38,12 +39,13 @@ public class ServiceRéservationIMP {
     
     
     //---Create reservations--
-    public void add_reservation_hotel_chambre(Reservation rs,String paymentIntent_id){
-        String Request = "INSERT INTO reservation (date_debut,date_fin,montant_a_payer,reste_a_payer,id_chambre,id_user,etat,id_transaction,type) VALUES(?,?,?,?,?,?,?,?,?)" ;
+    public int add_reservation_hotel_chambre(Reservation rs,String paymentIntent_id){
+        String Request = "INSERT INTO reservation (date_debut,date_fin,montant_a_payer,reste_a_payer,id_chambre,id_user,id_transaction,type) VALUES(?,?,?,?,?,?,?,?)" ;
         PreparedStatement  pst;
+        int id_transaction=0;
         try {   
                 ServiceTransactionIMP service=new ServiceTransactionIMP(); 
-                Transaction transaction =new Transaction(rs.getMontant_a_payer(),paymentIntent_id); 
+                Transaction transaction =new Transaction(rs.getMontant_a_payer(),paymentIntent_id);
                 transaction.setId(service.add_transaction(transaction)); 
                 rs.setId_transaction(transaction.getId()); 
                 rs.setReste_a_payer(transaction.getMontant_avance());
@@ -55,19 +57,23 @@ public class ServiceRéservationIMP {
                 pst.setInt(5, rs.getId_chambre());
                 pst.setInt(6,rs.getId_user()); 
                 pst.setString(7, rs.getEtat());
-                pst.setInt(8,rs.getId_transaction());
-                pst.setString(9,"hotel");
+                pst.setInt(7,rs.getId_transaction());
+                pst.setString(8,"hotel");
                 pst.executeUpdate();
+                id_transaction=transaction.getId();
+
+                
                             System.out.println("Réservation à l''hotel effectué avec succés");
         } catch (SQLException ex) {
                    System.err.println(ex.getMessage());    
                }
-
+        return id_transaction;
     }  
 
-    public void add_reservation_house(Reservation rs,String paymentIntent_id){
+    public int add_reservation_house(Reservation rs,String paymentIntent_id){
         String Request = "INSERT INTO reservation (date_debut,date_fin,montant_a_payer,reste_a_payer,id_maison,id_user,etat,id_transaction,type) VALUES(?,?,?,?,?,?,?,?,?)" ;
         PreparedStatement  pst;
+        int id_transaction=0;
         try {    
                 ServiceTransactionIMP service=new ServiceTransactionIMP(); 
                 Transaction transaction =new Transaction(rs.getMontant_a_payer(),paymentIntent_id); 
@@ -85,18 +91,23 @@ public class ServiceRéservationIMP {
                 pst.setInt(8,rs.getId_transaction());
                 pst.setString(9,"maison");
                 pst.executeUpdate();
+                 id_transaction=transaction.getId();
+               
                             System.out.println("Réservation à la maison a été effectué avec succés");
         } catch (SQLException ex) {
                    System.err.println(ex.getMessage());    
                }
-
+        return id_transaction;
     }
-    public void add_reservation_car(Reservation rs,String paymentIntent_id){
+    public int add_reservation_car(Reservation rs,String paymentIntent_id){
         String Request = "INSERT INTO reservation (date_debut,date_fin,montant_a_payer,reste_a_payer,id_maison,id_user,etat,id_transaction,type) VALUES(?,?,?,?,?,?,?,?,?)" ;
         PreparedStatement  pst;
+        int id_transaction=0;
         try {    
                 ServiceTransactionIMP service=new ServiceTransactionIMP(); 
                 Transaction transaction =new Transaction(rs.getMontant_a_payer(),paymentIntent_id); 
+                
+                
                 transaction.setId(service.add_transaction(transaction)); 
                 rs.setId_transaction(transaction.getId()); 
                 rs.setReste_a_payer(transaction.getMontant_avance());
@@ -110,16 +121,18 @@ public class ServiceRéservationIMP {
                 pst.setString(7, rs.getEtat());
                 pst.setInt(8,rs.getId_transaction());
                 pst.setString(9,"voiture");
-
                 pst.executeUpdate();
-                            System.out.println("Réservation de la voiture a été effectué avec succés");
+                id_transaction=transaction.getId();
+                System.out.println("Réservation de la voiture a été effectué avec succés");
         } catch (SQLException ex) {
                    System.err.println(ex.getMessage());    
                }
+        return id_transaction;
     }
-    public void add_reservation_ticket(Reservation rs,String paymentIntent_id){
+    public int add_reservation_ticket(Reservation rs,String paymentIntent_id){
         String Request = "INSERT INTO reservation (montant_a_payer,reste_a_payer,id_ticket,id_user,etat,id_transaction,type) VALUES(?,?,?,?,?,?,?)" ;
         PreparedStatement  pst;
+        int id_transaction=0;
         try {    
                 ServiceTransactionIMP service=new ServiceTransactionIMP(); 
                 Transaction transaction =new Transaction();  
@@ -127,22 +140,26 @@ public class ServiceRéservationIMP {
                 transaction.setTaux_commission(0);
                 transaction.setTaux_garantie(0);
                 transaction.setMontant_avance(rs.getMontant_a_payer());
-                transaction.setId(service.add_transaction(transaction));
                 transaction.setPaymentIntent_id(paymentIntent_id);
+                transaction.setId(service.add_transaction(transaction));
                 rs.setId_transaction(transaction.getId()); 
                 pst = cnxx.prepareStatement(Request);
-                pst.setFloat(3, rs.getMontant_a_payer());
-                pst.setFloat(4, rs.getReste_a_payer());
-                pst.setInt(5, rs.getId_ticket());
-                pst.setInt(6,rs.getId_user()); 
-                pst.setString(7, rs.getEtat());
-                pst.setInt(8,rs.getId_transaction());
-                pst.setString(9,"ticket");
+                pst.setFloat(1, rs.getMontant_a_payer());
+                pst.setFloat(2, rs.getReste_a_payer());
+                pst.setInt(3, rs.getId_ticket());
+                pst.setInt(4,rs.getId_user()); 
+                pst.setString(5, rs.getEtat());
+                pst.setInt(6,rs.getId_transaction());
+                pst.setString(7,"ticket");
                 pst.executeUpdate();
-                            System.out.println("Réservation du billet d'événement a été effectué avec succés");
+                id_transaction=transaction.getId();
+                System.out.println("id "+id_transaction);
+                
+                System.out.println("Réservation du billet d'événement a été effectué avec succés");
         } catch (SQLException ex) {
                    System.err.println(ex.getMessage());    
                }
+        return id_transaction;
     }
     
     public List<List> get_reservations_user_email() {
@@ -1539,7 +1556,28 @@ public class ServiceRéservationIMP {
                 System.err.println(e.getMessage());
         }
         return result;
-    }
+    } 
+     
+     public Utilisateur  get_user_by_reservation_id(int reservation_id){  
+        PreparedStatement  pst;  
+        Utilisateur user=new Utilisateur();
+        try { 
+                String Request = "SELECT u.`nom`,u.`prenom`,u.`email` from utilisateur u join reservation r on r.id_user=u.id  where r.id="+reservation_id;
+                pst = cnxx.prepareStatement(Request);
+                ResultSet rs = pst.executeQuery(Request);
+                 while (rs.next()) {
+                   user.setNom(rs.getString(1));
+                   user.setPrenom(rs.getString(2));
+                   user.setEmail(rs.getString(3));
+                }         
+        }catch (SQLException e) {
+                System.err.println(e.getMessage());
+        }
+        return user;
+    } 
+     
+    
+     
      
     
    

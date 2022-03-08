@@ -41,6 +41,7 @@ public class ServiceTransactionIMP {
                 pst.setFloat(4, tr.getMontant_avance());
                 pst.setFloat(5, tr.getMontant_commission());
                 pst.setFloat(6, tr.getMontant_garantie());
+                pst.setString(7, tr.getPaymentIntent_id());
                 pst.executeUpdate();
                 java.sql.ResultSet generatedKeys = pst.getGeneratedKeys();
                 if ( generatedKeys.next() ) {

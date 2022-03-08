@@ -26,7 +26,7 @@ public class Utilisateur {
 
     // constructeur par default
 
-    public static Utilisateur user_connecté;
+    public static Utilisateur user_connecté=new Utilisateur(33,"alaa","zarrouk","alaa","zarrouk","alaazarrouk7@gmail.com",56353474,10014035,"rue de caire nouvelle medina","client","no image","no description");
     public Utilisateur(){}
 
 
